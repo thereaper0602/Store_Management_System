@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>GUI.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu.Licensing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
       <HintPath>..\packages\Bunifu.Licensing.6.0.4\lib\net48\Bunifu.Licensing.dll</HintPath>
@@ -100,6 +103,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -108,6 +114,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -132,6 +139,48 @@
       <Project>{2cc9c59f-f336-4f31-914d-df36b6c410e5}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\qrcode %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\qrcode %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apps_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apps_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chart-histogram_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chart-histogram.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gift_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gift.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employee-man_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employee-man_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tags.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cube_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cube_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tags %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
