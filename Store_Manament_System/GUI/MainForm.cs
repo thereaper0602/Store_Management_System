@@ -16,5 +16,15 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void bunifuLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSideMenu_Click(object sender, EventArgs e)
+        {
+            pages.SetPage(((Control)sender).Text);
+        }
     }
 }
