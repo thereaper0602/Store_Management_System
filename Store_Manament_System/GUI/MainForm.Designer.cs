@@ -39,12 +39,20 @@
             this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
             this.pages = new Bunifu.UI.WinForms.BunifuPages();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.bunifuPanel4 = new Bunifu.UI.WinForms.BunifuPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.productManagement1 = new GUI.ProductManagement();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.categoryManagement1 = new GUI.CategoryManagement();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.employeeManagement1 = new GUI.EmployeeManagement();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.promotion1 = new GUI.Promotion();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.statistics1 = new GUI.Statistics();
+            this.dashBoard1 = new GUI.DashBoard();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.bunifuButton26 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.bunifuButton25 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
@@ -56,17 +64,11 @@
             this.bunifuPictureBox2 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuFormControlBox1 = new Bunifu.UI.WinForms.BunifuFormControlBox();
-            this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
             this.dashBoard2 = new GUI.DashBoard();
-            this.productManagement1 = new GUI.ProductManagement();
-            this.categoryManagement1 = new GUI.CategoryManagement();
-            this.employeeManagement1 = new GUI.EmployeeManagement();
-            this.promotion1 = new GUI.Promotion();
-            this.statistics1 = new GUI.Statistics();
-            this.dashBoard1 = new GUI.DashBoard();
             this.bunifuPanel3.SuspendLayout();
             this.pages.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.bunifuPanel4.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -138,14 +140,32 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.AutoScroll = true;
             this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.dashBoard2);
+            this.tabPage1.Controls.Add(this.bunifuPanel4);
             this.tabPage1.Location = new System.Drawing.Point(4, 4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1230, 790);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dashboard";
+            // 
+            // bunifuPanel4
+            // 
+            this.bunifuPanel4.AutoScroll = true;
+            this.bunifuPanel4.BackgroundColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel4.BackgroundImage")));
+            this.bunifuPanel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuPanel4.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuPanel4.BorderRadius = 3;
+            this.bunifuPanel4.BorderThickness = 1;
+            this.bunifuPanel4.Controls.Add(this.dashBoard2);
+            this.bunifuPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bunifuPanel4.Location = new System.Drawing.Point(3, 3);
+            this.bunifuPanel4.Name = "bunifuPanel4";
+            this.bunifuPanel4.ShowBorders = true;
+            this.bunifuPanel4.Size = new System.Drawing.Size(1224, 784);
+            this.bunifuPanel4.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -158,6 +178,14 @@
             this.tabPage2.Text = "Product Management";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // productManagement1
+            // 
+            this.productManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.productManagement1.Location = new System.Drawing.Point(3, 3);
+            this.productManagement1.Name = "productManagement1";
+            this.productManagement1.Size = new System.Drawing.Size(1224, 784);
+            this.productManagement1.TabIndex = 0;
+            // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.White;
@@ -168,6 +196,14 @@
             this.tabPage3.Size = new System.Drawing.Size(1230, 790);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Category Management";
+            // 
+            // categoryManagement1
+            // 
+            this.categoryManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.categoryManagement1.Location = new System.Drawing.Point(3, 3);
+            this.categoryManagement1.Name = "categoryManagement1";
+            this.categoryManagement1.Size = new System.Drawing.Size(1224, 784);
+            this.categoryManagement1.TabIndex = 0;
             // 
             // tabPage4
             // 
@@ -180,6 +216,14 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Employee Management";
             // 
+            // employeeManagement1
+            // 
+            this.employeeManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.employeeManagement1.Location = new System.Drawing.Point(3, 3);
+            this.employeeManagement1.Name = "employeeManagement1";
+            this.employeeManagement1.Size = new System.Drawing.Size(1224, 784);
+            this.employeeManagement1.TabIndex = 0;
+            // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.promotion1);
@@ -190,6 +234,14 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Promotion";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // promotion1
+            // 
+            this.promotion1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.promotion1.Location = new System.Drawing.Point(3, 3);
+            this.promotion1.Name = "promotion1";
+            this.promotion1.Size = new System.Drawing.Size(1224, 784);
+            this.promotion1.TabIndex = 0;
             // 
             // tabPage6
             // 
@@ -202,6 +254,22 @@
             this.tabPage6.Text = "Statistics Reports";
             this.tabPage6.UseVisualStyleBackColor = true;
             this.tabPage6.Click += new System.EventHandler(this.btnSideMenu_Click);
+            // 
+            // statistics1
+            // 
+            this.statistics1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.statistics1.Location = new System.Drawing.Point(3, 3);
+            this.statistics1.Name = "statistics1";
+            this.statistics1.Size = new System.Drawing.Size(1224, 784);
+            this.statistics1.TabIndex = 0;
+            // 
+            // dashBoard1
+            // 
+            this.dashBoard1.AutoScroll = true;
+            this.dashBoard1.Location = new System.Drawing.Point(0, 0);
+            this.dashBoard1.Name = "dashBoard1";
+            this.dashBoard1.Size = new System.Drawing.Size(1234, 816);
+            this.dashBoard1.TabIndex = 0;
             // 
             // bunifuPanel2
             // 
@@ -224,6 +292,23 @@
             this.bunifuPanel2.ShowBorders = true;
             this.bunifuPanel2.Size = new System.Drawing.Size(264, 819);
             this.bunifuPanel2.TabIndex = 4;
+            // 
+            // bunifuLabel2
+            // 
+            this.bunifuLabel2.AllowParentOverrides = false;
+            this.bunifuLabel2.AutoEllipsis = false;
+            this.bunifuLabel2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel2.CursorType = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel2.Font = new System.Drawing.Font("Poppins SemiBold", 18F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel2.ForeColor = System.Drawing.Color.White;
+            this.bunifuLabel2.Location = new System.Drawing.Point(85, 31);
+            this.bunifuLabel2.Name = "bunifuLabel2";
+            this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel2.Size = new System.Drawing.Size(155, 53);
+            this.bunifuLabel2.TabIndex = 1;
+            this.bunifuLabel2.Text = "WPN Shop";
+            this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel2.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // bunifuPictureBox1
             // 
@@ -895,76 +980,14 @@
             this.bunifuFormControlBox1.Size = new System.Drawing.Size(161, 29);
             this.bunifuFormControlBox1.TabIndex = 1;
             // 
-            // bunifuLabel2
-            // 
-            this.bunifuLabel2.AllowParentOverrides = false;
-            this.bunifuLabel2.AutoEllipsis = false;
-            this.bunifuLabel2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel2.CursorType = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel2.Font = new System.Drawing.Font("Poppins SemiBold", 18F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel2.ForeColor = System.Drawing.Color.White;
-            this.bunifuLabel2.Location = new System.Drawing.Point(85, 31);
-            this.bunifuLabel2.Name = "bunifuLabel2";
-            this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel2.Size = new System.Drawing.Size(155, 53);
-            this.bunifuLabel2.TabIndex = 1;
-            this.bunifuLabel2.Text = "WPN Shop";
-            this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel2.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
             // dashBoard2
             // 
-            this.dashBoard2.Location = new System.Drawing.Point(1, -1);
+            this.dashBoard2.AutoScroll = true;
+            this.dashBoard2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashBoard2.Location = new System.Drawing.Point(0, 0);
             this.dashBoard2.Name = "dashBoard2";
-            this.dashBoard2.Size = new System.Drawing.Size(1230, 790);
+            this.dashBoard2.Size = new System.Drawing.Size(1224, 784);
             this.dashBoard2.TabIndex = 0;
-            // 
-            // productManagement1
-            // 
-            this.productManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.productManagement1.Location = new System.Drawing.Point(3, 3);
-            this.productManagement1.Name = "productManagement1";
-            this.productManagement1.Size = new System.Drawing.Size(1224, 784);
-            this.productManagement1.TabIndex = 0;
-            // 
-            // categoryManagement1
-            // 
-            this.categoryManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.categoryManagement1.Location = new System.Drawing.Point(3, 3);
-            this.categoryManagement1.Name = "categoryManagement1";
-            this.categoryManagement1.Size = new System.Drawing.Size(1224, 784);
-            this.categoryManagement1.TabIndex = 0;
-            // 
-            // employeeManagement1
-            // 
-            this.employeeManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.employeeManagement1.Location = new System.Drawing.Point(3, 3);
-            this.employeeManagement1.Name = "employeeManagement1";
-            this.employeeManagement1.Size = new System.Drawing.Size(1224, 784);
-            this.employeeManagement1.TabIndex = 0;
-            // 
-            // promotion1
-            // 
-            this.promotion1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.promotion1.Location = new System.Drawing.Point(3, 3);
-            this.promotion1.Name = "promotion1";
-            this.promotion1.Size = new System.Drawing.Size(1224, 784);
-            this.promotion1.TabIndex = 0;
-            // 
-            // statistics1
-            // 
-            this.statistics1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.statistics1.Location = new System.Drawing.Point(3, 3);
-            this.statistics1.Name = "statistics1";
-            this.statistics1.Size = new System.Drawing.Size(1224, 784);
-            this.statistics1.TabIndex = 0;
-            // 
-            // dashBoard1
-            // 
-            this.dashBoard1.Location = new System.Drawing.Point(0, 0);
-            this.dashBoard1.Name = "dashBoard1";
-            this.dashBoard1.Size = new System.Drawing.Size(1234, 816);
-            this.dashBoard1.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -981,6 +1004,7 @@
             this.bunifuPanel3.ResumeLayout(false);
             this.pages.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.bunifuPanel4.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
@@ -1013,11 +1037,9 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
-        private DashBoard dashBoard2;
         private ProductManagement productManagement1;
         private Promotion promotion1;
         private Statistics statistics1;
-        private CategoryManagement categoryManagement1;
         private EmployeeManagement employeeManagement1;
         private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox2;
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton2 bunifuButton25;
@@ -1027,5 +1049,8 @@
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton2 btnSideMenu;
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton2 bunifuButton26;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel2;
+        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel4;
+        private CategoryManagement categoryManagement1;
+        private DashBoard dashBoard2;
     }
 }

@@ -16,5 +16,15 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            prodPages.SetPage(1);
+        }
+
+        private void viewBtn_Click(object sender, EventArgs e)
+        {
+            prodPages.SetPage(0);
+        }
     }
 }
