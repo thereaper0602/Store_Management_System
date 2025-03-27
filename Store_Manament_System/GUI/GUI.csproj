@@ -139,6 +139,12 @@
     <Compile Include="Statistics.Designer.cs">
       <DependentUpon>Statistics.cs</DependentUpon>
     </Compile>
+    <Compile Include="tableRowUS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="tableRowUS.Designer.cs">
+      <DependentUpon>tableRowUS.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CategoryManagement.resx">
       <DependentUpon>CategoryManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,6 +175,9 @@
     </Compile>
     <EmbeddedResource Include="Statistics.resx">
       <DependentUpon>Statistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tableRowUS.resx">
+      <DependentUpon>tableRowUS.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -238,6 +247,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Black and White Modern Shoes Store Logo %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-small-down.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

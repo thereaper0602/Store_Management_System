@@ -83,6 +83,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap arrow_small_down {
+            get {
+                object obj = ResourceManager.GetObject("arrow-small-down", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Black_and_White_Modern_Shoes_Store_Logo__1_ {
             get {
                 object obj = ResourceManager.GetObject("Black and White Modern Shoes Store Logo (1)", resourceCulture);
@@ -173,6 +183,16 @@ namespace GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap plus_small {
+            get {
+                object obj = ResourceManager.GetObject("plus-small", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap qrcode__1_ {
             get {
                 object obj = ResourceManager.GetObject("qrcode (1)", resourceCulture);
@@ -186,6 +206,26 @@ namespace GUI.Properties {
         internal static System.Drawing.Bitmap qrcode__2_ {
             get {
                 object obj = ResourceManager.GetObject("qrcode (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search {
+            get {
+                object obj = ResourceManager.GetObject("search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search__1_ {
+            get {
+                object obj = ResourceManager.GetObject("search (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
