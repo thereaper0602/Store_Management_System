@@ -39,7 +39,6 @@
             this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
             this.pages = new Bunifu.UI.WinForms.BunifuPages();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.bunifuPanel4 = new Bunifu.UI.WinForms.BunifuPanel();
             this.dashBoard2 = new GUI.DashBoard();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.productManagement1 = new GUI.ProductManagement();
@@ -142,69 +141,49 @@
             // 
             this.tabPage1.AutoScroll = true;
             this.tabPage1.BackColor = System.Drawing.Color.White;
-            this.tabPage1.Controls.Add(this.bunifuPanel4);
-            this.tabPage1.Location = new System.Drawing.Point(4, 4);
+            this.tabPage1.Controls.Add(this.dashBoard2);
+            this.tabPage1.Location = new System.Drawing.Point(8, 8);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1230, 790);
+            this.tabPage1.Size = new System.Drawing.Size(1222, 772);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dashboard";
             // 
-            // bunifuPanel4
-            // 
-            this.bunifuPanel4.AutoScroll = true;
-            this.bunifuPanel4.BackgroundColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel4.BackgroundImage")));
-            this.bunifuPanel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel4.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel4.BorderRadius = 3;
-            this.bunifuPanel4.BorderThickness = 1;
-            this.bunifuPanel4.Controls.Add(this.dashBoard2);
-            this.bunifuPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuPanel4.Location = new System.Drawing.Point(3, 3);
-            this.bunifuPanel4.Name = "bunifuPanel4";
-            this.bunifuPanel4.ShowBorders = true;
-            this.bunifuPanel4.Size = new System.Drawing.Size(1224, 784);
-            this.bunifuPanel4.TabIndex = 0;
-            // 
             // dashBoard2
             // 
-            this.dashBoard2.AutoScroll = true;
-            this.dashBoard2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dashBoard2.Location = new System.Drawing.Point(0, 0);
+            this.dashBoard2.Font = new System.Drawing.Font("Microsoft Tai Le", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashBoard2.Location = new System.Drawing.Point(1, -1);
             this.dashBoard2.Name = "dashBoard2";
-            this.dashBoard2.Size = new System.Drawing.Size(1224, 784);
+            this.dashBoard2.Size = new System.Drawing.Size(1230, 790);
             this.dashBoard2.TabIndex = 0;
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.productManagement1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 4);
+            this.tabPage2.Location = new System.Drawing.Point(8, 8);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1230, 790);
+            this.tabPage2.Size = new System.Drawing.Size(1222, 772);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Product Management";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // productManagement1
             // 
-            this.productManagement1.AutoScroll = true;
-            this.productManagement1.BackColor = System.Drawing.Color.White;
             this.productManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productManagement1.Location = new System.Drawing.Point(3, 3);
             this.productManagement1.Name = "productManagement1";
-            this.productManagement1.Size = new System.Drawing.Size(1224, 784);
+            this.productManagement1.Size = new System.Drawing.Size(1216, 766);
             this.productManagement1.TabIndex = 0;
             // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.White;
             this.tabPage3.Controls.Add(this.categoryManagement1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 4);
+            this.tabPage3.Location = new System.Drawing.Point(8, 8);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1230, 790);
+            this.tabPage3.Size = new System.Drawing.Size(1222, 772);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Category Management";
             // 
@@ -213,17 +192,17 @@
             this.categoryManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.categoryManagement1.Location = new System.Drawing.Point(3, 3);
             this.categoryManagement1.Name = "categoryManagement1";
-            this.categoryManagement1.Size = new System.Drawing.Size(1224, 784);
+            this.categoryManagement1.Size = new System.Drawing.Size(1216, 766);
             this.categoryManagement1.TabIndex = 0;
             // 
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.White;
             this.tabPage4.Controls.Add(this.employeeManagement1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 4);
+            this.tabPage4.Location = new System.Drawing.Point(8, 8);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1230, 790);
+            this.tabPage4.Size = new System.Drawing.Size(1222, 772);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Employee Management";
             // 
@@ -232,16 +211,16 @@
             this.employeeManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.employeeManagement1.Location = new System.Drawing.Point(3, 3);
             this.employeeManagement1.Name = "employeeManagement1";
-            this.employeeManagement1.Size = new System.Drawing.Size(1224, 784);
+            this.employeeManagement1.Size = new System.Drawing.Size(1216, 766);
             this.employeeManagement1.TabIndex = 0;
             // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.promotion1);
-            this.tabPage5.Location = new System.Drawing.Point(4, 4);
+            this.tabPage5.Location = new System.Drawing.Point(8, 8);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1230, 790);
+            this.tabPage5.Size = new System.Drawing.Size(1222, 772);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Promotion";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -251,16 +230,16 @@
             this.promotion1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.promotion1.Location = new System.Drawing.Point(3, 3);
             this.promotion1.Name = "promotion1";
-            this.promotion1.Size = new System.Drawing.Size(1224, 784);
+            this.promotion1.Size = new System.Drawing.Size(1216, 766);
             this.promotion1.TabIndex = 0;
             // 
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.statistics1);
-            this.tabPage6.Location = new System.Drawing.Point(4, 4);
+            this.tabPage6.Location = new System.Drawing.Point(8, 8);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1230, 790);
+            this.tabPage6.Size = new System.Drawing.Size(1222, 772);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Statistics Reports";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -271,12 +250,11 @@
             this.statistics1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.statistics1.Location = new System.Drawing.Point(3, 3);
             this.statistics1.Name = "statistics1";
-            this.statistics1.Size = new System.Drawing.Size(1224, 784);
+            this.statistics1.Size = new System.Drawing.Size(1216, 766);
             this.statistics1.TabIndex = 0;
             // 
             // dashBoard1
             // 
-            this.dashBoard1.AutoScroll = true;
             this.dashBoard1.Location = new System.Drawing.Point(0, 0);
             this.dashBoard1.Name = "dashBoard1";
             this.dashBoard1.Size = new System.Drawing.Size(1234, 816);
@@ -312,12 +290,12 @@
             this.bunifuLabel2.AutoEllipsis = false;
             this.bunifuLabel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel2.CursorType = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel2.Font = new System.Drawing.Font("Poppins SemiBold", 18F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel2.ForeColor = System.Drawing.Color.White;
             this.bunifuLabel2.Location = new System.Drawing.Point(85, 31);
             this.bunifuLabel2.Name = "bunifuLabel2";
             this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel2.Size = new System.Drawing.Size(155, 53);
+            this.bunifuLabel2.Size = new System.Drawing.Size(246, 55);
             this.bunifuLabel2.TabIndex = 1;
             this.bunifuLabel2.Text = "WPN Shop";
             this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -368,7 +346,7 @@
             this.bunifuButton26.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.bunifuButton26.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.bunifuButton26.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Pressed;
-            this.bunifuButton26.Font = new System.Drawing.Font("Poppins", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuButton26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuButton26.ForeColor = System.Drawing.Color.White;
             this.bunifuButton26.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuButton26.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -458,7 +436,7 @@
             this.bunifuButton25.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.bunifuButton25.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.bunifuButton25.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Pressed;
-            this.bunifuButton25.Font = new System.Drawing.Font("Poppins", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuButton25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuButton25.ForeColor = System.Drawing.Color.White;
             this.bunifuButton25.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuButton25.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -548,7 +526,7 @@
             this.bunifuButton24.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.bunifuButton24.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.bunifuButton24.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Pressed;
-            this.bunifuButton24.Font = new System.Drawing.Font("Poppins", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuButton24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuButton24.ForeColor = System.Drawing.Color.White;
             this.bunifuButton24.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuButton24.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -638,7 +616,7 @@
             this.bunifuButton23.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.bunifuButton23.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.bunifuButton23.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Pressed;
-            this.bunifuButton23.Font = new System.Drawing.Font("Poppins", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuButton23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuButton23.ForeColor = System.Drawing.Color.White;
             this.bunifuButton23.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuButton23.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -728,7 +706,7 @@
             this.bunifuButton21.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.bunifuButton21.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.bunifuButton21.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Pressed;
-            this.bunifuButton21.Font = new System.Drawing.Font("Poppins", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuButton21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuButton21.ForeColor = System.Drawing.Color.White;
             this.bunifuButton21.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuButton21.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -818,7 +796,7 @@
             this.btnSideMenu.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnSideMenu.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.btnSideMenu.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Pressed;
-            this.btnSideMenu.Font = new System.Drawing.Font("Poppins", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSideMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSideMenu.ForeColor = System.Drawing.Color.White;
             this.btnSideMenu.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSideMenu.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -924,7 +902,7 @@
             this.bunifuLabel1.Location = new System.Drawing.Point(35, 3);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(125, 20);
+            this.bunifuLabel1.Size = new System.Drawing.Size(203, 32);
             this.bunifuLabel1.TabIndex = 0;
             this.bunifuLabel1.Text = "WPN Management";
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
