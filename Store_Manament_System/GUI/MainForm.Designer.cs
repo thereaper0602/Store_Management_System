@@ -64,6 +64,14 @@
             this.bunifuPictureBox2 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuFormControlBox1 = new Bunifu.UI.WinForms.BunifuFormControlBox();
+            this.dashBoard2 = new GUI.DashBoard();
+            this.productManagement1 = new GUI.ProductManagement();
+            this.categoryManagement1 = new GUI.CategoryManagement();
+            this.employeeManagement1 = new GUI.EmployeeManagement();
+            this.promotion1 = new GUI.Promotion();
+            this.statistics1 = new GUI.Statistics();
+            this.dashBoard1 = new GUI.DashBoard();
+            this.dashBoard1 = new GUI.DashBoard();
             this.bunifuPanel3.SuspendLayout();
             this.pages.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -144,8 +152,8 @@
             this.tabPage1.Controls.Add(this.dashBoard2);
             this.tabPage1.Location = new System.Drawing.Point(8, 8);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1222, 772);
+            this.tabPage1.Size = new System.Drawing.Size(1230, 786);
+            this.tabPage1.Size = new System.Drawing.Size(1230, 790);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dashboard";
             // 
@@ -162,8 +170,8 @@
             this.tabPage2.Controls.Add(this.productManagement1);
             this.tabPage2.Location = new System.Drawing.Point(8, 8);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1222, 772);
+            this.tabPage2.Size = new System.Drawing.Size(1230, 786);
+            this.tabPage2.Size = new System.Drawing.Size(1230, 790);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Product Management";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -182,8 +190,8 @@
             this.tabPage3.Controls.Add(this.categoryManagement1);
             this.tabPage3.Location = new System.Drawing.Point(8, 8);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1222, 772);
+            this.tabPage3.Size = new System.Drawing.Size(1230, 786);
+            this.tabPage3.Size = new System.Drawing.Size(1230, 790);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Category Management";
             // 
@@ -201,8 +209,8 @@
             this.tabPage4.Controls.Add(this.employeeManagement1);
             this.tabPage4.Location = new System.Drawing.Point(8, 8);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1222, 772);
+            this.tabPage4.Size = new System.Drawing.Size(1230, 786);
+            this.tabPage4.Size = new System.Drawing.Size(1230, 790);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Employee Management";
             // 
@@ -219,8 +227,8 @@
             this.tabPage5.Controls.Add(this.promotion1);
             this.tabPage5.Location = new System.Drawing.Point(8, 8);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1222, 772);
+            this.tabPage5.Size = new System.Drawing.Size(1230, 786);
+            this.tabPage5.Size = new System.Drawing.Size(1230, 790);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Promotion";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -238,8 +246,8 @@
             this.tabPage6.Controls.Add(this.statistics1);
             this.tabPage6.Location = new System.Drawing.Point(8, 8);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1222, 772);
+            this.tabPage6.Size = new System.Drawing.Size(1230, 786);
+            this.tabPage6.Size = new System.Drawing.Size(1230, 790);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Statistics Reports";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -283,7 +291,6 @@
             this.bunifuPanel2.ShowBorders = true;
             this.bunifuPanel2.Size = new System.Drawing.Size(264, 819);
             this.bunifuPanel2.TabIndex = 4;
-            // 
             // bunifuLabel2
             // 
             this.bunifuLabel2.AllowParentOverrides = false;
@@ -295,11 +302,12 @@
             this.bunifuLabel2.Location = new System.Drawing.Point(85, 31);
             this.bunifuLabel2.Name = "bunifuLabel2";
             this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel2.Size = new System.Drawing.Size(246, 55);
+            this.bunifuLabel2.Size = new System.Drawing.Size(186, 40);
             this.bunifuLabel2.TabIndex = 1;
             this.bunifuLabel2.Text = "WPN Shop";
             this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel2.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
             // 
             // bunifuPictureBox1
             // 
@@ -901,8 +909,8 @@
             this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bunifuLabel1.Location = new System.Drawing.Point(35, 3);
             this.bunifuLabel1.Name = "bunifuLabel1";
-            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(203, 32);
+            this.bunifuLabel1.Size = new System.Drawing.Size(150, 25);
+            this.bunifuLabel1.Size = new System.Drawing.Size(125, 20);
             this.bunifuLabel1.TabIndex = 0;
             this.bunifuLabel1.Text = "WPN Management";
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -970,6 +978,60 @@
             this.bunifuFormControlBox1.ShowDesignBorders = false;
             this.bunifuFormControlBox1.Size = new System.Drawing.Size(161, 29);
             this.bunifuFormControlBox1.TabIndex = 1;
+            // dashBoard2
+            // 
+            this.dashBoard2.Location = new System.Drawing.Point(34, -1);
+            this.dashBoard2.Name = "dashBoard2";
+            this.dashBoard2.Size = new System.Drawing.Size(1197, 790);
+            this.dashBoard2.TabIndex = 0;
+            // 
+            // productManagement1
+            // 
+            this.productManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.productManagement1.Location = new System.Drawing.Point(3, 3);
+            this.productManagement1.Name = "productManagement1";
+            this.productManagement1.Size = new System.Drawing.Size(1224, 780);
+            this.productManagement1.TabIndex = 0;
+            // 
+            // categoryManagement1
+            // 
+            this.categoryManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.categoryManagement1.Location = new System.Drawing.Point(3, 3);
+            this.categoryManagement1.Name = "categoryManagement1";
+            this.categoryManagement1.Size = new System.Drawing.Size(1224, 780);
+            this.categoryManagement1.TabIndex = 0;
+            // 
+            // employeeManagement1
+            // 
+            this.employeeManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.employeeManagement1.Location = new System.Drawing.Point(3, 3);
+            this.employeeManagement1.Name = "employeeManagement1";
+            this.employeeManagement1.Size = new System.Drawing.Size(1224, 780);
+            this.employeeManagement1.TabIndex = 0;
+            // 
+            // promotion1
+            // 
+            this.promotion1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.promotion1.Location = new System.Drawing.Point(3, 3);
+            this.promotion1.Name = "promotion1";
+            this.promotion1.Size = new System.Drawing.Size(1224, 780);
+            this.promotion1.TabIndex = 0;
+            // 
+            // statistics1
+            // 
+            this.statistics1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.statistics1.Location = new System.Drawing.Point(3, 3);
+            this.statistics1.Name = "statistics1";
+            this.statistics1.Size = new System.Drawing.Size(1224, 780);
+            this.statistics1.TabIndex = 0;
+            // 
+            // dashBoard1
+            // 
+            this.dashBoard1.Location = new System.Drawing.Point(0, 0);
+            this.dashBoard1.Name = "dashBoard1";
+            this.dashBoard1.Size = new System.Drawing.Size(1234, 816);
+            this.dashBoard1.TabIndex = 0;
+            // 
             // 
             // MainForm
             // 

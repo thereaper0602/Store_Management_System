@@ -126,6 +126,12 @@
     <Compile Include="EmployeeManagement.Designer.cs">
       <DependentUpon>EmployeeManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeManagement.resx">
       <DependentUpon>EmployeeManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -268,16 +277,70 @@
     <None Include="Resources\Black and White Modern Shoes Store Logo %281%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\search.png" />
+    <None Include="Resources\img_green.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\search %281%29.png" />
+    <None Include="Resources\png_green.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\plus-small.png" />
+    <None Include="Resources\CaiCay.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\arrow-small-down.png" />
+    <None Include="Resources\img_gr1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png_green1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rungg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logome-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image-removebg-preview %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image-removebg-preview %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image-removebg-preview %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Saly-13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Polygon 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Polygon 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Polygon 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 1 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Subtract.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Subtract %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image-removebg-preview %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gif_business.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image-removebg-preview %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ảnh-removebg-preview.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
