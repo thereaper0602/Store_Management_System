@@ -41,10 +41,6 @@
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuShadowPanel4 = new Bunifu.UI.WinForms.BunifuShadowPanel();
-            this.bunifuLabel7 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuLabel8 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuPictureBox4 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.bunifuShadowPanel3 = new Bunifu.UI.WinForms.BunifuShadowPanel();
             this.bunifuPictureBox3 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.bunifuLabel5 = new Bunifu.UI.WinForms.BunifuLabel();
@@ -81,8 +77,10 @@
             this.bunifuDropdown4 = new Bunifu.UI.WinForms.BunifuDropdown();
             this.bunifuDropdown5 = new Bunifu.UI.WinForms.BunifuDropdown();
             this.bunifuLabel20 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuShadowPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox4)).BeginInit();
+            this.bunifuPictureBox4 = new Bunifu.UI.WinForms.BunifuPictureBox();
+            this.bunifuShadowPanel4 = new Bunifu.UI.WinForms.BunifuShadowPanel();
+            this.bunifuLabel8 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel7 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuShadowPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox3)).BeginInit();
             this.bunifuShadowPanel2.SuspendLayout();
@@ -99,6 +97,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.bunifuShadowPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox4)).BeginInit();
+            this.bunifuShadowPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuLabel1
@@ -111,83 +111,11 @@
             this.bunifuLabel1.Location = new System.Drawing.Point(6, 8);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(221, 59);
+            this.bunifuLabel1.Size = new System.Drawing.Size(140, 37);
             this.bunifuLabel1.TabIndex = 0;
             this.bunifuLabel1.Text = "DashBoard";
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuShadowPanel4
-            // 
-            this.bunifuShadowPanel4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.bunifuShadowPanel4.BorderColor = System.Drawing.Color.White;
-            this.bunifuShadowPanel4.BorderRadius = 30;
-            this.bunifuShadowPanel4.BorderThickness = 1;
-            this.bunifuShadowPanel4.Controls.Add(this.bunifuLabel7);
-            this.bunifuShadowPanel4.Controls.Add(this.bunifuLabel8);
-            this.bunifuShadowPanel4.Controls.Add(this.bunifuPictureBox4);
-            this.bunifuShadowPanel4.FillStyle = Bunifu.UI.WinForms.BunifuShadowPanel.FillStyles.Solid;
-            this.bunifuShadowPanel4.GradientMode = Bunifu.UI.WinForms.BunifuShadowPanel.GradientModes.Vertical;
-            this.bunifuShadowPanel4.Location = new System.Drawing.Point(307, 208);
-            this.bunifuShadowPanel4.Name = "bunifuShadowPanel4";
-            this.bunifuShadowPanel4.PanelColor = System.Drawing.Color.Transparent;
-            this.bunifuShadowPanel4.PanelColor2 = System.Drawing.Color.Transparent;
-            this.bunifuShadowPanel4.ShadowColor = System.Drawing.Color.WhiteSmoke;
-            this.bunifuShadowPanel4.ShadowDept = 2;
-            this.bunifuShadowPanel4.ShadowDepth = 3;
-            this.bunifuShadowPanel4.ShadowStyle = Bunifu.UI.WinForms.BunifuShadowPanel.ShadowStyles.Surrounded;
-            this.bunifuShadowPanel4.ShadowTopLeftVisible = false;
-            this.bunifuShadowPanel4.Size = new System.Drawing.Size(272, 165);
-            this.bunifuShadowPanel4.Style = Bunifu.UI.WinForms.BunifuShadowPanel.BevelStyles.Flat;
-            this.bunifuShadowPanel4.TabIndex = 7;
-            // 
-            // bunifuLabel7
-            // 
-            this.bunifuLabel7.AllowParentOverrides = false;
-            this.bunifuLabel7.AutoEllipsis = false;
-            this.bunifuLabel7.CursorType = null;
-            this.bunifuLabel7.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.bunifuLabel7.ForeColor = System.Drawing.Color.LightCoral;
-            this.bunifuLabel7.Location = new System.Drawing.Point(39, 78);
-            this.bunifuLabel7.Name = "bunifuLabel7";
-            this.bunifuLabel7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel7.Size = new System.Drawing.Size(80, 39);
-            this.bunifuLabel7.TabIndex = 3;
-            this.bunifuLabel7.Text = "2976";
-            this.bunifuLabel7.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel7.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuLabel8
-            // 
-            this.bunifuLabel8.AllowParentOverrides = false;
-            this.bunifuLabel8.AutoEllipsis = false;
-            this.bunifuLabel8.CursorType = null;
-            this.bunifuLabel8.Font = new System.Drawing.Font("Sylfaen", 9F);
-            this.bunifuLabel8.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.bunifuLabel8.Location = new System.Drawing.Point(39, 37);
-            this.bunifuLabel8.Name = "bunifuLabel8";
-            this.bunifuLabel8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel8.Size = new System.Drawing.Size(138, 31);
-            this.bunifuLabel8.TabIndex = 2;
-            this.bunifuLabel8.Text = "Product Solds";
-            this.bunifuLabel8.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel8.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuPictureBox4
-            // 
-            this.bunifuPictureBox4.AllowFocused = false;
-            this.bunifuPictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuPictureBox4.AutoSizeHeight = true;
-            this.bunifuPictureBox4.BorderRadius = 0;
-            this.bunifuPictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox4.Image")));
-            this.bunifuPictureBox4.IsCircle = true;
-            this.bunifuPictureBox4.Location = new System.Drawing.Point(183, 37);
-            this.bunifuPictureBox4.Name = "bunifuPictureBox4";
-            this.bunifuPictureBox4.Size = new System.Drawing.Size(80, 80);
-            this.bunifuPictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bunifuPictureBox4.TabIndex = 1;
-            this.bunifuPictureBox4.TabStop = false;
-            this.bunifuPictureBox4.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
             // 
             // bunifuShadowPanel3
             // 
@@ -239,7 +167,7 @@
             this.bunifuLabel5.Location = new System.Drawing.Point(28, 78);
             this.bunifuLabel5.Name = "bunifuLabel5";
             this.bunifuLabel5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel5.Size = new System.Drawing.Size(150, 39);
+            this.bunifuLabel5.Size = new System.Drawing.Size(97, 24);
             this.bunifuLabel5.TabIndex = 3;
             this.bunifuLabel5.Text = "$390.000";
             this.bunifuLabel5.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -255,7 +183,7 @@
             this.bunifuLabel6.Location = new System.Drawing.Point(28, 37);
             this.bunifuLabel6.Name = "bunifuLabel6";
             this.bunifuLabel6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel6.Size = new System.Drawing.Size(134, 31);
+            this.bunifuLabel6.Size = new System.Drawing.Size(81, 19);
             this.bunifuLabel6.TabIndex = 2;
             this.bunifuLabel6.Text = "Total Earning";
             this.bunifuLabel6.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -295,7 +223,7 @@
             this.bunifuLabel3.Location = new System.Drawing.Point(116, 21);
             this.bunifuLabel3.Name = "bunifuLabel3";
             this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel3.Size = new System.Drawing.Size(130, 39);
+            this.bunifuLabel3.Size = new System.Drawing.Size(84, 24);
             this.bunifuLabel3.TabIndex = 3;
             this.bunifuLabel3.Text = "$50.000";
             this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -311,7 +239,7 @@
             this.bunifuLabel4.Location = new System.Drawing.Point(116, 59);
             this.bunifuLabel4.Name = "bunifuLabel4";
             this.bunifuLabel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel4.Size = new System.Drawing.Size(140, 31);
+            this.bunifuLabel4.Size = new System.Drawing.Size(87, 19);
             this.bunifuLabel4.TabIndex = 2;
             this.bunifuLabel4.Text = "Total Expense";
             this.bunifuLabel4.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -367,7 +295,7 @@
             this.bunifuLabel2.Location = new System.Drawing.Point(121, 21);
             this.bunifuLabel2.Name = "bunifuLabel2";
             this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel2.Size = new System.Drawing.Size(130, 39);
+            this.bunifuLabel2.Size = new System.Drawing.Size(84, 24);
             this.bunifuLabel2.TabIndex = 3;
             this.bunifuLabel2.Text = "$50.000";
             this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -384,7 +312,7 @@
             this.bunifuLabel9.Location = new System.Drawing.Point(121, 59);
             this.bunifuLabel9.Name = "bunifuLabel9";
             this.bunifuLabel9.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel9.Size = new System.Drawing.Size(144, 31);
+            this.bunifuLabel9.Size = new System.Drawing.Size(89, 19);
             this.bunifuLabel9.TabIndex = 2;
             this.bunifuLabel9.Text = "Total Revenue";
             this.bunifuLabel9.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -444,7 +372,7 @@
             this.bunifuLabel13.Location = new System.Drawing.Point(125, 83);
             this.bunifuLabel13.Name = "bunifuLabel13";
             this.bunifuLabel13.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel13.Size = new System.Drawing.Size(130, 39);
+            this.bunifuLabel13.Size = new System.Drawing.Size(84, 24);
             this.bunifuLabel13.TabIndex = 9;
             this.bunifuLabel13.Text = "$50.000";
             this.bunifuLabel13.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -461,7 +389,7 @@
             this.bunifuLabel17.Location = new System.Drawing.Point(125, 137);
             this.bunifuLabel17.Name = "bunifuLabel17";
             this.bunifuLabel17.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel17.Size = new System.Drawing.Size(144, 31);
+            this.bunifuLabel17.Size = new System.Drawing.Size(89, 19);
             this.bunifuLabel17.TabIndex = 8;
             this.bunifuLabel17.Text = "Total Revenue";
             this.bunifuLabel17.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -493,7 +421,7 @@
             this.bunifuLabel15.Location = new System.Drawing.Point(125, 232);
             this.bunifuLabel15.Name = "bunifuLabel15";
             this.bunifuLabel15.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel15.Size = new System.Drawing.Size(130, 39);
+            this.bunifuLabel15.Size = new System.Drawing.Size(84, 24);
             this.bunifuLabel15.TabIndex = 6;
             this.bunifuLabel15.Text = "$50.000";
             this.bunifuLabel15.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -509,7 +437,7 @@
             this.bunifuLabel16.Location = new System.Drawing.Point(125, 277);
             this.bunifuLabel16.Name = "bunifuLabel16";
             this.bunifuLabel16.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel16.Size = new System.Drawing.Size(140, 31);
+            this.bunifuLabel16.Size = new System.Drawing.Size(87, 19);
             this.bunifuLabel16.TabIndex = 5;
             this.bunifuLabel16.Text = "Total Expense";
             this.bunifuLabel16.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -541,7 +469,7 @@
             this.bunifuLabel11.Location = new System.Drawing.Point(28, 24);
             this.bunifuLabel11.Name = "bunifuLabel11";
             this.bunifuLabel11.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel11.Size = new System.Drawing.Size(56, 31);
+            this.bunifuLabel11.Size = new System.Drawing.Size(35, 19);
             this.bunifuLabel11.TabIndex = 2;
             this.bunifuLabel11.Text = "Stock";
             this.bunifuLabel11.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -601,7 +529,7 @@
             this.bunifuLabel18.Location = new System.Drawing.Point(100, 232);
             this.bunifuLabel18.Name = "bunifuLabel18";
             this.bunifuLabel18.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel18.Size = new System.Drawing.Size(141, 31);
+            this.bunifuLabel18.Size = new System.Drawing.Size(86, 19);
             this.bunifuLabel18.TabIndex = 8;
             this.bunifuLabel18.Text = "Holding Stock";
             this.bunifuLabel18.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -617,7 +545,7 @@
             this.bunifuLabel10.Location = new System.Drawing.Point(28, 24);
             this.bunifuLabel10.Name = "bunifuLabel10";
             this.bunifuLabel10.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel10.Size = new System.Drawing.Size(56, 31);
+            this.bunifuLabel10.Size = new System.Drawing.Size(35, 19);
             this.bunifuLabel10.TabIndex = 2;
             this.bunifuLabel10.Text = "Stock";
             this.bunifuLabel10.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -636,12 +564,12 @@
             this.bunifuRadialGauge1.Minimum = 0;
             this.bunifuRadialGauge1.Name = "bunifuRadialGauge1";
             this.bunifuRadialGauge1.Prefix = "";
-            this.bunifuRadialGauge1.ProgressBackColor = System.Drawing.Color.LightSeaGreen;
-            this.bunifuRadialGauge1.ProgressBgColor = System.Drawing.Color.LightSeaGreen;
+            this.bunifuRadialGauge1.ProgressBackColor = System.Drawing.Color.Gainsboro;
+            this.bunifuRadialGauge1.ProgressBackColor = System.Drawing.Color.Gainsboro;
             this.bunifuRadialGauge1.ProgressCap = Bunifu.UI.WinForms.BunifuRadialGauge.CapStyles.Flat;
-            this.bunifuRadialGauge1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.bunifuRadialGauge1.ProgressColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.bunifuRadialGauge1.ProgressColor2 = System.Drawing.Color.Gainsboro;
+            this.bunifuRadialGauge1.ProgressColorLow = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.bunifuRadialGauge1.ProgressColorLow = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.bunifuRadialGauge1.ProgressColorHigh = System.Drawing.Color.Gainsboro;
             this.bunifuRadialGauge1.ProgressColorHigh = System.Drawing.Color.Gainsboro;
             this.bunifuRadialGauge1.ProgressColorLow = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.bunifuRadialGauge1.ProgressHighValueMark = 15200;
@@ -687,7 +615,7 @@
             this.bunifuLabel14.Location = new System.Drawing.Point(100, 274);
             this.bunifuLabel14.Name = "bunifuLabel14";
             this.bunifuLabel14.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel14.Size = new System.Drawing.Size(143, 31);
+            this.bunifuLabel14.Size = new System.Drawing.Size(87, 19);
             this.bunifuLabel14.TabIndex = 5;
             this.bunifuLabel14.Text = "Pending Stock";
             this.bunifuLabel14.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -825,7 +753,7 @@
             this.bunifuLabel19.Location = new System.Drawing.Point(24, 15);
             this.bunifuLabel19.Name = "bunifuLabel19";
             this.bunifuLabel19.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel19.Size = new System.Drawing.Size(172, 31);
+            this.bunifuLabel19.Size = new System.Drawing.Size(106, 19);
             this.bunifuLabel19.TabIndex = 2;
             this.bunifuLabel19.Text = "Detailed Expense";
             this.bunifuLabel19.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -993,11 +921,83 @@
             this.bunifuLabel20.Location = new System.Drawing.Point(28, 3);
             this.bunifuLabel20.Name = "bunifuLabel20";
             this.bunifuLabel20.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel20.Size = new System.Drawing.Size(154, 31);
+            this.bunifuLabel20.Size = new System.Drawing.Size(95, 19);
             this.bunifuLabel20.TabIndex = 2;
             this.bunifuLabel20.Text = "Detailed profits";
             this.bunifuLabel20.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel20.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuPictureBox4
+            // 
+            this.bunifuPictureBox4.AllowFocused = false;
+            this.bunifuPictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bunifuPictureBox4.AutoSizeHeight = true;
+            this.bunifuPictureBox4.BorderRadius = 0;
+            this.bunifuPictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox4.Image")));
+            this.bunifuPictureBox4.IsCircle = true;
+            this.bunifuPictureBox4.Location = new System.Drawing.Point(183, 37);
+            this.bunifuPictureBox4.Name = "bunifuPictureBox4";
+            this.bunifuPictureBox4.Size = new System.Drawing.Size(80, 80);
+            this.bunifuPictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bunifuPictureBox4.TabIndex = 1;
+            this.bunifuPictureBox4.TabStop = false;
+            this.bunifuPictureBox4.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
+            // 
+            // bunifuShadowPanel4
+            // 
+            this.bunifuShadowPanel4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.bunifuShadowPanel4.BorderColor = System.Drawing.Color.White;
+            this.bunifuShadowPanel4.BorderRadius = 30;
+            this.bunifuShadowPanel4.BorderThickness = 1;
+            this.bunifuShadowPanel4.Controls.Add(this.bunifuLabel7);
+            this.bunifuShadowPanel4.Controls.Add(this.bunifuLabel8);
+            this.bunifuShadowPanel4.Controls.Add(this.bunifuPictureBox4);
+            this.bunifuShadowPanel4.FillStyle = Bunifu.UI.WinForms.BunifuShadowPanel.FillStyles.Solid;
+            this.bunifuShadowPanel4.GradientMode = Bunifu.UI.WinForms.BunifuShadowPanel.GradientModes.Vertical;
+            this.bunifuShadowPanel4.Location = new System.Drawing.Point(307, 208);
+            this.bunifuShadowPanel4.Name = "bunifuShadowPanel4";
+            this.bunifuShadowPanel4.PanelColor = System.Drawing.Color.Transparent;
+            this.bunifuShadowPanel4.PanelColor2 = System.Drawing.Color.Transparent;
+            this.bunifuShadowPanel4.ShadowColor = System.Drawing.Color.WhiteSmoke;
+            this.bunifuShadowPanel4.ShadowDept = 2;
+            this.bunifuShadowPanel4.ShadowDepth = 3;
+            this.bunifuShadowPanel4.ShadowStyle = Bunifu.UI.WinForms.BunifuShadowPanel.ShadowStyles.Surrounded;
+            this.bunifuShadowPanel4.ShadowTopLeftVisible = false;
+            this.bunifuShadowPanel4.Size = new System.Drawing.Size(272, 165);
+            this.bunifuShadowPanel4.Style = Bunifu.UI.WinForms.BunifuShadowPanel.BevelStyles.Flat;
+            this.bunifuShadowPanel4.TabIndex = 7;
+            // 
+            // bunifuLabel8
+            // 
+            this.bunifuLabel8.AllowParentOverrides = false;
+            this.bunifuLabel8.AutoEllipsis = false;
+            this.bunifuLabel8.CursorType = null;
+            this.bunifuLabel8.Font = new System.Drawing.Font("Sylfaen", 9F);
+            this.bunifuLabel8.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.bunifuLabel8.Location = new System.Drawing.Point(39, 37);
+            this.bunifuLabel8.Name = "bunifuLabel8";
+            this.bunifuLabel8.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel8.Size = new System.Drawing.Size(85, 19);
+            this.bunifuLabel8.TabIndex = 2;
+            this.bunifuLabel8.Text = "Product Solds";
+            this.bunifuLabel8.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel8.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuLabel7
+            // 
+            this.bunifuLabel7.AllowParentOverrides = false;
+            this.bunifuLabel7.AutoEllipsis = false;
+            this.bunifuLabel7.CursorType = null;
+            this.bunifuLabel7.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel7.ForeColor = System.Drawing.Color.LightCoral;
+            this.bunifuLabel7.Location = new System.Drawing.Point(39, 78);
+            this.bunifuLabel7.Name = "bunifuLabel7";
+            this.bunifuLabel7.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel7.Size = new System.Drawing.Size(52, 24);
+            this.bunifuLabel7.TabIndex = 3;
+            this.bunifuLabel7.Text = "2976";
+            this.bunifuLabel7.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel7.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // DashBoard
             // 
@@ -1013,9 +1013,6 @@
             this.Controls.Add(this.bunifuLabel1);
             this.Name = "DashBoard";
             this.Size = new System.Drawing.Size(1230, 790);
-            this.bunifuShadowPanel4.ResumeLayout(false);
-            this.bunifuShadowPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox4)).EndInit();
             this.bunifuShadowPanel3.ResumeLayout(false);
             this.bunifuShadowPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox3)).EndInit();
@@ -1039,6 +1036,9 @@
             this.bunifuShadowPanel9.ResumeLayout(false);
             this.bunifuShadowPanel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox4)).EndInit();
+            this.bunifuShadowPanel4.ResumeLayout(false);
+            this.bunifuShadowPanel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1047,10 +1047,6 @@
         #endregion
 
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
-        private Bunifu.UI.WinForms.BunifuShadowPanel bunifuShadowPanel4;
-        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel7;
-        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel8;
-        private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox4;
         private Bunifu.UI.WinForms.BunifuShadowPanel bunifuShadowPanel3;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel5;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel6;
@@ -1087,5 +1083,9 @@
         private Bunifu.UI.WinForms.BunifuDropdown bunifuDropdown5;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel20;
         private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox3;
+        private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox4;
+        private Bunifu.UI.WinForms.BunifuShadowPanel bunifuShadowPanel4;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel7;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel8;
     }
 }

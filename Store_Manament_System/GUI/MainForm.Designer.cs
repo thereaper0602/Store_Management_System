@@ -67,7 +67,7 @@
             this.bunifuPanel3.SuspendLayout();
             this.pages.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.bunifuPanel4.SuspendLayout();
+            //this.bunifuPanel4.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -986,7 +986,7 @@
             this.bunifuPanel3.ResumeLayout(false);
             this.pages.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.bunifuPanel4.ResumeLayout(false);
+            //this.bunifuPanel4.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
@@ -1030,7 +1030,7 @@
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton2 btnSideMenu;
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton2 bunifuButton26;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel2;
-        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel4;
+        //private Bunifu.UI.WinForms.BunifuPanel bunifuPanel4;
         private CategoryManagement categoryManagement1;
         private DashBoard dashBoard2;
         private ProductManagement productManagement1;
