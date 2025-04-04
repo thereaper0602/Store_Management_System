@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace GUI
 {
-    public partial class DashBoard: UserControl
+    public partial class EditProductManagementTab: UserControl
     {
-        public DashBoard()
+        public EditProductManagementTab()
         {
             InitializeComponent();
-
         }
     }
 }
