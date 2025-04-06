@@ -16,5 +16,24 @@ namespace GUI
         {
             InitializeComponent();
         }
+
+
+
+        private void btAddUser_Click(object sender, EventArgs e)
+        {
+            AddUserForm temp = new AddUserForm();
+            DialogResult result = temp.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                this.Enabled = true;
+             
+            }
+            else
+            {
+                MessageBox.Show("Login failed", "Error", MessageBoxButtons.OKCancel);
+              
+            }
+
+        }
     }
 }
