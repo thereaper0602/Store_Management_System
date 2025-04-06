@@ -548,11 +548,11 @@
             this.bunifuRadialGauge1.Name = "bunifuRadialGauge1";
             this.bunifuRadialGauge1.Prefix = "";
             this.bunifuRadialGauge1.ProgressBackColor = System.Drawing.Color.Gainsboro;
-            this.bunifuRadialGauge1.ProgressBgColor = System.Drawing.Color.Gainsboro;
+            //this.bunifuRadialGauge1.ProgressBgColor = System.Drawing.Color.Gainsboro;
             this.bunifuRadialGauge1.ProgressCap = Bunifu.UI.WinForms.BunifuRadialGauge.CapStyles.Flat;
-            this.bunifuRadialGauge1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.bunifuRadialGauge1.ProgressColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.bunifuRadialGauge1.ProgressColor2 = System.Drawing.Color.Gainsboro;
+           // this.bunifuRadialGauge1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+           // this.bunifuRadialGauge1.ProgressColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+           // this.bunifuRadialGauge1.ProgressColor2 = System.Drawing.Color.Gainsboro;
             this.bunifuRadialGauge1.ProgressColorHigh = System.Drawing.Color.Gainsboro;
             this.bunifuRadialGauge1.ProgressColorLow = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.bunifuRadialGauge1.ProgressHighValueMark = 15200;
