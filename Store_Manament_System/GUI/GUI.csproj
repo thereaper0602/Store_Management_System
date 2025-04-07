@@ -95,12 +95,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="addProductManagementTab.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="addProductManagementTab.Designer.cs">
-      <DependentUpon>addProductManagementTab.cs</DependentUpon>
-    </Compile>
     <Compile Include="CategoryManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -112,12 +106,6 @@
     </Compile>
     <Compile Include="DashBoard.Designer.cs">
       <DependentUpon>DashBoard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EditProductManagementTab.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="EditProductManagementTab.Designer.cs">
-      <DependentUpon>EditProductManagementTab.cs</DependentUpon>
     </Compile>
     <Compile Include="EmployeeManagement.cs">
       <SubType>UserControl</SubType>
@@ -157,17 +145,11 @@
     <Compile Include="tableRowUS.Designer.cs">
       <DependentUpon>tableRowUS.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="addProductManagementTab.resx">
-      <DependentUpon>addProductManagementTab.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CategoryManagement.resx">
       <DependentUpon>CategoryManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DashBoard.resx">
       <DependentUpon>DashBoard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EditProductManagementTab.resx">
-      <DependentUpon>EditProductManagementTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeManagement.resx">
       <DependentUpon>EmployeeManagement.cs</DependentUpon>
