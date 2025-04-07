@@ -278,7 +278,7 @@
             this.uploadImgBtn.IdleIconLeftImage = null;
             this.uploadImgBtn.IdleIconRightImage = null;
             this.uploadImgBtn.IndicateFocus = false;
-            this.uploadImgBtn.Location = new System.Drawing.Point(428, 467);
+            this.uploadImgBtn.Location = new System.Drawing.Point(427, 467);
             this.uploadImgBtn.Name = "uploadImgBtn";
             this.uploadImgBtn.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.uploadImgBtn.OnDisabledState.BorderRadius = 1;
@@ -387,7 +387,7 @@
             this.bunifuTextBox5.SelectionLength = 0;
             this.bunifuTextBox5.SelectionStart = 0;
             this.bunifuTextBox5.ShortcutsEnabled = true;
-            this.bunifuTextBox5.Size = new System.Drawing.Size(365, 36);
+            this.bunifuTextBox5.Size = new System.Drawing.Size(357, 36);
             this.bunifuTextBox5.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.bunifuTextBox5.TabIndex = 15;
             this.bunifuTextBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -404,7 +404,7 @@
             this.bunifuLabel6.AutoEllipsis = false;
             this.bunifuLabel6.CursorType = null;
             this.bunifuLabel6.Font = new System.Drawing.Font("Poppins SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel6.Location = new System.Drawing.Point(9, 467);
+            this.bunifuLabel6.Location = new System.Drawing.Point(3, 467);
             this.bunifuLabel6.Name = "bunifuLabel6";
             this.bunifuLabel6.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel6.Size = new System.Drawing.Size(169, 30);
@@ -435,7 +435,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(108, 235);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(219, 24);
+            this.comboBox1.Size = new System.Drawing.Size(258, 24);
             this.comboBox1.TabIndex = 11;
             // 
             // bunifuLabel9
@@ -444,7 +444,7 @@
             this.bunifuLabel9.AutoEllipsis = false;
             this.bunifuLabel9.CursorType = null;
             this.bunifuLabel9.Font = new System.Drawing.Font("Poppins SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel9.Location = new System.Drawing.Point(3, 235);
+            this.bunifuLabel9.Location = new System.Drawing.Point(8, 235);
             this.bunifuLabel9.Name = "bunifuLabel9";
             this.bunifuLabel9.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel9.Size = new System.Drawing.Size(82, 30);
@@ -483,7 +483,7 @@
             this.bunifuTextBox6.IconRight = null;
             this.bunifuTextBox6.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.bunifuTextBox6.Lines = new string[0];
-            this.bunifuTextBox6.Location = new System.Drawing.Point(112, 312);
+            this.bunifuTextBox6.Location = new System.Drawing.Point(108, 312);
             this.bunifuTextBox6.MaxLength = 32767;
             this.bunifuTextBox6.MinimumSize = new System.Drawing.Size(1, 1);
             this.bunifuTextBox6.Modified = false;
@@ -519,7 +519,7 @@
             this.bunifuTextBox6.SelectionLength = 0;
             this.bunifuTextBox6.SelectionStart = 0;
             this.bunifuTextBox6.ShortcutsEnabled = true;
-            this.bunifuTextBox6.Size = new System.Drawing.Size(254, 38);
+            this.bunifuTextBox6.Size = new System.Drawing.Size(258, 38);
             this.bunifuTextBox6.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.bunifuTextBox6.TabIndex = 12;
             this.bunifuTextBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -536,7 +536,7 @@
             this.bunifuLabel7.AutoEllipsis = false;
             this.bunifuLabel7.CursorType = null;
             this.bunifuLabel7.Font = new System.Drawing.Font("Poppins SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel7.Location = new System.Drawing.Point(9, 320);
+            this.bunifuLabel7.Location = new System.Drawing.Point(8, 320);
             this.bunifuLabel7.Name = "bunifuLabel7";
             this.bunifuLabel7.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel7.Size = new System.Drawing.Size(42, 30);
@@ -567,7 +567,7 @@
             this.bunifuDatePicker1.Location = new System.Drawing.Point(112, 396);
             this.bunifuDatePicker1.MinimumSize = new System.Drawing.Size(4, 32);
             this.bunifuDatePicker1.Name = "bunifuDatePicker1";
-            this.bunifuDatePicker1.Size = new System.Drawing.Size(215, 32);
+            this.bunifuDatePicker1.Size = new System.Drawing.Size(254, 32);
             this.bunifuDatePicker1.TabIndex = 10;
             this.bunifuDatePicker1.Value = new System.DateTime(2025, 4, 2, 21, 50, 0, 0);
             // 
@@ -577,7 +577,7 @@
             this.bunifuLabel8.AutoEllipsis = false;
             this.bunifuLabel8.CursorType = null;
             this.bunifuLabel8.Font = new System.Drawing.Font("Poppins SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel8.Location = new System.Drawing.Point(9, 398);
+            this.bunifuLabel8.Location = new System.Drawing.Point(3, 396);
             this.bunifuLabel8.Name = "bunifuLabel8";
             this.bunifuLabel8.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel8.Size = new System.Drawing.Size(97, 30);
@@ -748,7 +748,7 @@
             this.bunifuLabel3.AutoEllipsis = false;
             this.bunifuLabel3.CursorType = null;
             this.bunifuLabel3.Font = new System.Drawing.Font("Poppins SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel3.Location = new System.Drawing.Point(3, 105);
+            this.bunifuLabel3.Location = new System.Drawing.Point(9, 107);
             this.bunifuLabel3.Name = "bunifuLabel3";
             this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel3.Size = new System.Drawing.Size(99, 30);
