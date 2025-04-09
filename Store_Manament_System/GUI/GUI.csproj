@@ -152,6 +152,24 @@
     <Compile Include="tableRowUS.Designer.cs">
       <DependentUpon>tableRowUS.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI_SALE\MainSaleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI_SALE\MainSaleForm.Designer.cs">
+      <DependentUpon>MainSaleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI_SALE\SellingUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI_SALE\SellingUC.Designer.cs">
+      <DependentUpon>SellingUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI_SALE\StockUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI_SALE\StockUC.Designer.cs">
+      <DependentUpon>StockUC.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CategoryManagement.resx">
       <DependentUpon>CategoryManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,6 +206,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="tableRowUS.resx">
       <DependentUpon>tableRowUS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI_SALE\MainSaleForm.resx">
+      <DependentUpon>MainSaleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI_SALE\SellingUC.resx">
+      <DependentUpon>SellingUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI_SALE\StockUC.resx">
+      <DependentUpon>StockUC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -325,6 +352,10 @@
     <None Include="Resources\Ảnh-removebg-preview.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\credit-card.png" />
+    <None Include="Resources\credit-card %281%29.png" />
+    <None Include="Resources\box-open-full %281%29.png" />
+    <None Include="Resources\box-open-full.png" />
     <Content Include="Resources\plus-small.png" />
   </ItemGroup>
   <ItemGroup>
