@@ -96,12 +96,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="addProductManagementTab.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="addProductManagementTab.Designer.cs">
-      <DependentUpon>addProductManagementTab.cs</DependentUpon>
-    </Compile>
     <Compile Include="AddUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,9 +176,6 @@
     <Compile Include="UI_SALE\StockUC.Designer.cs">
       <DependentUpon>StockUC.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="addProductManagementTab.resx">
-      <DependentUpon>addProductManagementTab.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AddUserForm.resx">
       <DependentUpon>AddUserForm.cs</DependentUpon>
     </EmbeddedResource>
