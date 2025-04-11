@@ -65,7 +65,6 @@
             this.tb2_cate = new Bunifu.UI.WinForms.BunifuTextBox();
             this.lb1_ID = new Bunifu.UI.WinForms.BunifuLabel();
             this.tb1_cate = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.filter_cate = new Bunifu.UI.WinForms.BunifuDropdown();
             this.detail_cate = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -263,7 +262,6 @@
             this.tabPagecate.Controls.Add(this.edit_cate);
             this.tabPagecate.Controls.Add(this.remove_cate);
             this.tabPagecate.Controls.Add(this.addgroup_cate);
-            this.tabPagecate.Controls.Add(this.filter_cate);
             this.tabPagecate.Controls.Add(this.detail_cate);
             this.tabPagecate.Font = new System.Drawing.Font("Quicksand", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPagecate.Location = new System.Drawing.Point(4, 39);
@@ -526,7 +524,7 @@
             this.addpic_cate.IdleIconLeftImage = null;
             this.addpic_cate.IdleIconRightImage = null;
             this.addpic_cate.IndicateFocus = false;
-            this.addpic_cate.Location = new System.Drawing.Point(174, 270);
+            this.addpic_cate.Location = new System.Drawing.Point(173, 281);
             this.addpic_cate.Name = "addpic_cate";
             this.addpic_cate.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.addpic_cate.OnDisabledState.BorderRadius = 1;
@@ -667,7 +665,7 @@
             this.pic_cate.BorderRadius = 55;
             this.pic_cate.Image = ((System.Drawing.Image)(resources.GetObject("pic_cate.Image")));
             this.pic_cate.IsCircle = true;
-            this.pic_cate.Location = new System.Drawing.Point(173, 153);
+            this.pic_cate.Location = new System.Drawing.Point(172, 164);
             this.pic_cate.Name = "pic_cate";
             this.pic_cate.Size = new System.Drawing.Size(111, 111);
             this.pic_cate.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -846,7 +844,7 @@
             this.tb1_cate.SelectionLength = 0;
             this.tb1_cate.SelectionStart = 0;
             this.tb1_cate.ShortcutsEnabled = true;
-            this.tb1_cate.Size = new System.Drawing.Size(209, 30);
+            this.tb1_cate.Size = new System.Drawing.Size(209, 42);
             this.tb1_cate.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.tb1_cate.TabIndex = 0;
             this.tb1_cate.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -856,55 +854,6 @@
             this.tb1_cate.TextPlaceholder = "Enter Category ID";
             this.tb1_cate.UseSystemPasswordChar = false;
             this.tb1_cate.WordWrap = true;
-            // 
-            // filter_cate
-            // 
-            this.filter_cate.BackColor = System.Drawing.Color.Transparent;
-            this.filter_cate.BackgroundColor = System.Drawing.Color.White;
-            this.filter_cate.BorderColor = System.Drawing.Color.Silver;
-            this.filter_cate.BorderRadius = 1;
-            this.filter_cate.Color = System.Drawing.Color.Silver;
-            this.filter_cate.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
-            this.filter_cate.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.filter_cate.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.filter_cate.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.filter_cate.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.filter_cate.DisabledIndicatorColor = System.Drawing.Color.DarkGray;
-            this.filter_cate.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.filter_cate.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
-            this.filter_cate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.filter_cate.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.filter_cate.FillDropDown = true;
-            this.filter_cate.FillIndicator = false;
-            this.filter_cate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.filter_cate.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.filter_cate.ForeColor = System.Drawing.Color.Black;
-            this.filter_cate.FormattingEnabled = true;
-            this.filter_cate.Icon = null;
-            this.filter_cate.IndicatorAlignment = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.filter_cate.IndicatorColor = System.Drawing.Color.DarkGray;
-            this.filter_cate.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.filter_cate.IndicatorThickness = 2;
-            this.filter_cate.IsDropdownOpened = false;
-            this.filter_cate.ItemBackColor = System.Drawing.Color.White;
-            this.filter_cate.ItemBorderColor = System.Drawing.Color.White;
-            this.filter_cate.ItemForeColor = System.Drawing.Color.Black;
-            this.filter_cate.ItemHeight = 26;
-            this.filter_cate.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
-            this.filter_cate.ItemHighLightForeColor = System.Drawing.Color.White;
-            this.filter_cate.Items.AddRange(new object[] {
-            "All",
-            "Food",
-            "Drinks",
-            "Consumer Goods"});
-            this.filter_cate.ItemTopMargin = 3;
-            this.filter_cate.Location = new System.Drawing.Point(662, 10);
-            this.filter_cate.Name = "filter_cate";
-            this.filter_cate.Size = new System.Drawing.Size(176, 32);
-            this.filter_cate.TabIndex = 7;
-            this.filter_cate.Text = "Sort";
-            this.filter_cate.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.filter_cate.TextLeftMargin = 5;
             // 
             // detail_cate
             // 
@@ -919,7 +868,7 @@
             this.detail_cate.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Quicksand", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
@@ -1046,7 +995,6 @@
         private Bunifu.UI.WinForms.BunifuTextBox tb2_cate;
         private Bunifu.UI.WinForms.BunifuLabel lb1_ID;
         private Bunifu.UI.WinForms.BunifuTextBox tb1_cate;
-        private Bunifu.UI.WinForms.BunifuDropdown filter_cate;
         private Bunifu.UI.WinForms.BunifuDataGridView detail_cate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;

@@ -40,7 +40,6 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuShadowPanel3 = new Bunifu.UI.WinForms.BunifuShadowPanel();
             this.bunifuPictureBox3 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.bunifuLabel5 = new Bunifu.UI.WinForms.BunifuLabel();
@@ -1010,7 +1009,6 @@
             this.Controls.Add(this.bunifuShadowPanel3);
             this.Controls.Add(this.bunifuShadowPanel2);
             this.Controls.Add(this.bunifuShadowPanel1);
-            this.Controls.Add(this.bunifuLabel1);
             this.Name = "DashBoard";
             this.Size = new System.Drawing.Size(1230, 790);
             this.bunifuShadowPanel3.ResumeLayout(false);
@@ -1040,13 +1038,10 @@
             this.bunifuShadowPanel4.ResumeLayout(false);
             this.bunifuShadowPanel4.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
         private Bunifu.UI.WinForms.BunifuShadowPanel bunifuShadowPanel3;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel5;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel6;

@@ -39,16 +39,17 @@
             this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
             this.pages = new Bunifu.UI.WinForms.BunifuPages();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dashBoard2 = new GUI.DashBoard();
+          //  this.dashBoard2 = new GUI.DashBoard();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.productManagement1 = new GUI.ProductManagement();
+            //this.productManagement1 = new GUI.ProductManagement();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.categoryManagement1 = new GUI.CategoryManagement();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.employeeManagement1 = new GUI.EmployeeManagement();
+            //this.employeeManagement1 = new GUI.EmployeeManagement();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.promotion1 = new GUI.Promotion();
+            //this.promotion1 = new GUI.Promotion();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            //this.statistics1 = new GUI.Statistics();
             this.dashBoard1 = new GUI.DashBoard();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
@@ -63,15 +64,14 @@
             this.bunifuPictureBox2 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuFormControlBox1 = new Bunifu.UI.WinForms.BunifuFormControlBox();
-            //this.dashBoard2 = new GUI.DashBoard();
-            //this.productManagement1 = new GUI.ProductManagement();
+            this.dashBoard2 = new GUI.DashBoard();
+            this.productManagement1 = new GUI.ProductManagement();
             //this.categoryManagement1 = new GUI.CategoryManagement();
-            //this.employeeManagement1 = new GUI.EmployeeManagement();
-            //this.promotion1 = new GUI.Promotion();
-            //this.statistics1 = new GUI.Statistics();
-            //this.dashBoard1 = new GUI.DashBoard();
-            //this.dashBoard1 = new GUI.DashBoard();
+            this.employeeManagement1 = new GUI.EmployeeManagement();
+            this.promotion1 = new GUI.Promotion();
             this.statistics1 = new GUI.Statistics();
+      //      this.dashBoard1 = new GUI.DashBoard();
+            //this.dashBoard1 = new GUI.DashBoard();
             this.bunifuPanel3.SuspendLayout();
             this.pages.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -88,8 +88,8 @@
             // 
             // bunifuPanel3
             // 
-            this.bunifuPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.bunifuPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuPanel3.BackgroundColor = System.Drawing.Color.Transparent;
             this.bunifuPanel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel3.BackgroundImage")));
@@ -256,7 +256,7 @@
             // 
             // bunifuPanel2
             // 
-            this.bunifuPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.bunifuPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.bunifuPanel2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(170)))), ((int)(((byte)(150)))));
             this.bunifuPanel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel2.BackgroundImage")));
@@ -853,7 +853,7 @@
             // 
             // bunifuPanel1
             // 
-            this.bunifuPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.bunifuPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.bunifuPanel1.BackgroundColor = System.Drawing.Color.White;
             this.bunifuPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel1.BackgroundImage")));
