@@ -15,6 +15,7 @@ namespace GUI
         public MainForm()
         {
             InitializeComponent();
+            productManagement1.loadProducts();
         }
 
         private void bunifuLabel1_Click(object sender, EventArgs e)
