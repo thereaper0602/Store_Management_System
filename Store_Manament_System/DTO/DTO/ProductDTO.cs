@@ -14,5 +14,8 @@ namespace DTO.DTO
         public int stockQuantity { get; set; }
         public decimal price { get; set; }
         public DateTime expiryDate { get; set; }
+        public string description { get; set; }
+        public int imageID { get; set; }
+        public string barcode { get; set; }
     }
 }
