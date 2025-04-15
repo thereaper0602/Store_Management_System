@@ -11,6 +11,9 @@ using BLL.Services;
 using System.Xml.Serialization;
 using DAL;
 using DTO.DTO;
+using System.IO;
+using System.Security.Cryptography;
+using BLL;
 
 namespace GUI
 {
@@ -19,6 +22,7 @@ namespace GUI
         private readonly ProductService prodService;
         private List<ProductDTO> products;
         private ProductDTO currentProduct = new ProductDTO();
+        private ImageServiceBLL imageService = new ImageServiceBLL();
         public ProductManagement()
         {
             InitializeComponent();
@@ -133,7 +137,19 @@ namespace GUI
                     productPriceTxt.Text = currentProduct.price.ToString();
                     productExpiryDatePicker.Value = currentProduct.expiryDate;
                     productBarCodeTxt.Text = currentProduct.barcode;
-                    productPicturebox.Image = null; // Load image from database if needed
+
+                    ImageDTO image = imageService.GetImageById(currentProduct.imageID);
+
+                    if (image != null && File.Exists(image.imagePath)) {
+                        using (var stream = new FileStream(image.imagePath, FileMode.Open, FileAccess.Read))
+                        {
+                            productPicturebox.Image = Image.FromStream(stream);
+                        }
+                    }
+                    else
+                    {
+                        productPicturebox.Image = null;
+                    }
                 }
             }
         }
@@ -168,6 +184,30 @@ namespace GUI
             if (currentProduct.id == 0)
             {
                 // Add new product
+
+                string imageName = Guid.NewGuid().ToString() + ".jpg";
+                string imageFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Images\Products");
+                string imagePath = Path.Combine(imageFolder, imageName);
+                if (!Directory.Exists(imageFolder))
+                {
+                    Directory.CreateDirectory(imageFolder);
+                }
+
+                if (productPicturebox.Image == null)
+                {
+                    MessageBox.Show("Vui lòng chọn ảnh cho sản phẩm.");
+                    return;
+                }
+
+                productPicturebox.Image.Save(imagePath);
+
+                ImageDTO imageDTO = new ImageDTO
+                {
+                    imageName = imageName,
+                    imagePath = imagePath
+                };
+
+
                 ProductDTO newProduct = new ProductDTO
                 {
                     name = productNameTxt.Text,
@@ -179,7 +219,7 @@ namespace GUI
                     barcode = productBarCodeTxt.Text,
                     imageID = 1 // Set default image ID or handle image upload
                 };
-                bool result = prodService.AddProduct(newProduct);
+                bool result = prodService.AddProduct(newProduct,imageDTO);
                 if (result)
                 {
                     MessageBox.Show("Succesfully add new Product");
@@ -200,7 +240,35 @@ namespace GUI
                 currentProduct.price = Convert.ToDecimal(productPriceTxt.Text);
                 currentProduct.expiryDate = productExpiryDatePicker.Value;
                 currentProduct.barcode = productBarCodeTxt.Text;
-                currentProduct.imageID = 1; // Set default image ID or handle image upload
+
+                if (productPicturebox.Image != null)
+                {
+                    ImageDTO oldImage = imageService.GetImageById(currentProduct.imageID);
+
+                    // Nếu ảnh cũ tồn tại => xóa file ảnh cũ
+                    if (oldImage != null && File.Exists(oldImage.imagePath))
+                    {
+                        File.Delete(oldImage.imagePath);
+                    }
+
+                    // Tạo tên và đường dẫn mới
+                    string imageName = Guid.NewGuid().ToString() + ".jpg";
+                    string imageFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Images\Products");
+                    string imagePath = Path.Combine(imageFolder, imageName);
+                    if (!Directory.Exists(imageFolder))
+                    {
+                        Directory.CreateDirectory(imageFolder);
+                    }
+
+                    // Lưu ảnh mới
+                    productPicturebox.Image.Save(imagePath);
+
+                    // Cập nhật lại thông tin ảnh trong DB
+                    oldImage.imageName = imageName;
+                    oldImage.imagePath = imagePath;
+                    imageService.UpdateImage(oldImage); // Bạn cần có hàm này trong ImageServiceBLL
+                }
+
                 bool result = prodService.UpdateProduct(currentProduct);
                 if (result)
                 {
@@ -236,6 +304,32 @@ namespace GUI
             else
             {
                 return;
+            }
+        }
+
+        private void uploadProductImageBtn_Click(object sender, EventArgs e)
+        {
+            using(OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    //string sourcePath = ofd.FileName;
+                    //string fileName = Path.GetFileName(sourcePath);
+                    //string imageFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Images\Products");
+                    //string destinationPath = Path.Combine(imageFolder, fileName);
+
+                    //if (!Directory.Exists(imageFolder))
+                    //{
+                    //    Directory.CreateDirectory(imageFolder);
+                    //}
+
+                    //File.Copy(sourcePath, destinationPath, true);
+
+                    productPicturebox.Image = Image.FromFile(ofd.FileName);
+                    
+                    // Save the image to the database or handle it as needed
+                }
             }
         }
     }

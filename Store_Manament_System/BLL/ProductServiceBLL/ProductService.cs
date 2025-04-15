@@ -12,6 +12,7 @@ namespace BLL.Services
     public class ProductService
     {
         private readonly StoreContext _context = new StoreContext();
+        private readonly ImageServiceBLL _imageService = new ImageServiceBLL();
         public List<ProductDTO> GetAllProducts(String kw)
         {
             if(kw == null)
@@ -55,31 +56,48 @@ namespace BLL.Services
             };
         }
 
-        public bool AddProduct(ProductDTO productDTO)
+        public bool AddProduct(ProductDTO productDTO, ImageDTO imageDTO)
         {
-            try
+            using (var transaction = _context.Database.BeginTransaction())
             {
-                var product = new Product
+                try
                 {
-                    ProductName = productDTO.name,
-                    CategoryID = productDTO.categoryID,
-                    StockQuantity = productDTO.stockQuantity,
-                    Price = productDTO.price,
-                    Description = productDTO.description,
-                    ExpiryDate = productDTO.expiryDate,
-                    ImageID = productDTO.imageID,
-                    Barcode = productDTO.barcode,
-                };
+                    // Thêm ảnh mới và lấy ID
+                    var image = new Image
+                    {
+                        ImageName = imageDTO.imageName,
+                        ImagePath = imageDTO.imagePath,
+                        UploadDate = DateTime.Now
+                    };
+                    _context.Images.Add(image);
+                    _context.SaveChanges(); // Lưu để có được ImageID
+                    int newImageId = image.ImageID;
 
-                _context.Products.Add(product);
-                _context.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                // Ghi log lỗi hoặc hiện thông báo
-                Console.WriteLine("Error when adding product: " + ex.Message);
-                return false;
+                    // Gán ImageID cho sản phẩm
+                    var product = new Product
+                    {
+                        ProductName = productDTO.name,
+                        CategoryID = productDTO.categoryID,
+                        StockQuantity = productDTO.stockQuantity,
+                        Price = productDTO.price,
+                        Description = productDTO.description,
+                        ExpiryDate = productDTO.expiryDate,
+                        ImageID = newImageId,
+                        Barcode = productDTO.barcode,
+                    };
+
+                    _context.Products.Add(product);
+                    _context.SaveChanges();
+
+                    transaction.Commit();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    Console.WriteLine("Lỗi khi thêm sản phẩm: " + ex.Message);
+                    return false;
+                }
             }
         }
 
