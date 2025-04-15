@@ -6,29 +6,23 @@ namespace DAL.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Order
+    public partial class WorkShift
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
+        public WorkShift()
         {
-            OrderDetails = new HashSet<OrderDetail>();
+            UserWorkShifts = new HashSet<UserWorkShift>();
         }
 
-        public int OrderID { get; set; }
-
-        public int? CustomerID { get; set; }
-
-        public DateTime OrderDate { get; set; }
-
-        public decimal TotalAmount { get; set; }
+        public int WorkShiftID { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string Status { get; set; }
+        [StringLength(100)]
+        public string WorkShiftName { get; set; }
 
-        public virtual Customer Customer { get; set; }
+        public decimal WorkShiftSalary { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<UserWorkShift> UserWorkShifts { get; set; }
     }
 }
