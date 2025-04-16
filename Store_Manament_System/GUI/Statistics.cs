@@ -44,6 +44,7 @@ namespace GUI
             totalRevenue.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalRevenueToday());
             GenerateTopProductSelling();
             GenerateTopCategorySelling();
+            generateMonthYearChart(4, DateTime.Now.Year);
         }
 
         private void GenerateTopProductSelling()
@@ -138,13 +139,8 @@ namespace GUI
             yearComboBox.Enabled = true;
         }
 
-        private void filterBtn_Click(object sender, EventArgs e)
+        private void generateMonthYearChart(int? selectedMonth, int? selectedYear)
         {
-            chart3.Series["Series1"].Points.Clear(); // Xóa dữ liệu cũ
-
-            int? selectedMonth = monthComboBox.SelectedItem as int?;
-            int? selectedYear = yearComboBox.SelectedItem as int?;
-
             var revenues = _reportServicesBLL.GetRevenueByMonthAndYear(selectedMonth, selectedYear);
 
             foreach (var revenue in revenues)
@@ -159,6 +155,8 @@ namespace GUI
                 point.BorderWidth = 1;
 
                 chart3.Series["Series1"].Points.Add(point);
+
+                chart3.Series["Series1"].IsValueShownAsLabel = true;
             }
 
             // Cập nhật tiêu đề biểu đồ
@@ -174,10 +172,19 @@ namespace GUI
                         : "Revenue Statistics";
 
             chart3.Titles[0].Font = new Font("Poppins", 10, FontStyle.Bold);
+        }
 
-            // Cấu hình hiển thị
-            //chart3.Series["Series1"].ChartType = SeriesChartType.Column;
-            //chart3.Series["Series1"].IsValueShownAsLabel = true;
+
+
+        private void filterBtn_Click(object sender, EventArgs e)
+        {
+            chart3.Series["Series1"].Points.Clear(); // Xóa dữ liệu cũ
+
+            int? selectedMonth = monthComboBox.SelectedItem as int?;
+            int? selectedYear = yearComboBox.SelectedItem as int?;
+
+            generateMonthYearChart(selectedMonth, selectedYear);
+
         }
 
         private void thisWeekReportBtn_Click(object sender, EventArgs e)
