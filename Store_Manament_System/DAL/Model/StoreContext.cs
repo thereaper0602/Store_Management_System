@@ -16,7 +16,6 @@ namespace DAL.Model
         public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
         public virtual DbSet<Invoice> Invoices { get; set; }
-        public virtual DbSet<ProductPromotion> ProductPromotions { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Promotion> Promotions { get; set; }
         public virtual DbSet<RevenueReport> RevenueReports { get; set; }

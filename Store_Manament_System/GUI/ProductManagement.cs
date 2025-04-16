@@ -314,21 +314,7 @@ namespace GUI
                 ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    //string sourcePath = ofd.FileName;
-                    //string fileName = Path.GetFileName(sourcePath);
-                    //string imageFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\Images\Products");
-                    //string destinationPath = Path.Combine(imageFolder, fileName);
-
-                    //if (!Directory.Exists(imageFolder))
-                    //{
-                    //    Directory.CreateDirectory(imageFolder);
-                    //}
-
-                    //File.Copy(sourcePath, destinationPath, true);
-
                     productPicturebox.Image = Image.FromFile(ofd.FileName);
-                    
-                    // Save the image to the database or handle it as needed
                 }
             }
         }

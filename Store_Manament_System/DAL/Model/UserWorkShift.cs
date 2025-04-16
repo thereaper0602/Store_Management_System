@@ -15,6 +15,9 @@ namespace DAL.Model
 
         public int? WorkShiftID { get; set; }
 
+        [Column(TypeName = "date")]
+        public DateTime WorkDate { get; set; }
+
         public virtual User User { get; set; }
 
         public virtual WorkShift WorkShift { get; set; }

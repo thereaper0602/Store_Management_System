@@ -111,7 +111,6 @@
     <Compile Include="Model\Invoice.cs" />
     <Compile Include="Model\InvoiceDetail.cs" />
     <Compile Include="Model\Product.cs" />
-    <Compile Include="Model\ProductPromotion.cs" />
     <Compile Include="Model\Promotion.cs" />
     <Compile Include="Model\RevenueReport.cs" />
     <Compile Include="Model\StoreContext.cs" />

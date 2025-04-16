@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using BLL;
+using Bunifu.UI.WinForms;
+using DTO.DTO;
 
 namespace GUI
 {
     public partial class Statistics : UserControl
     {
+        private readonly ReportServicesBLL _reportServicesBLL = new ReportServicesBLL();
         public Statistics()
         {
             InitializeComponent();
@@ -21,103 +25,187 @@ namespace GUI
 
         private void Statistics_Load(object sender, EventArgs e)
         {
-            GenerateMockData();
+            totalProducts.Text = _reportServicesBLL.getTotalProducts().ToString();
+            for(int i = 1; i <= 12; i++)
+            {
+                monthComboBox.Items.Add(i);
+            }
 
-            // Cập nhật các label với dữ liệu giả
-            //bunifuLabel3.Text = $"Total Profit\n${new Random().Next(5000, 20000):N0}";
-            //bunifuLabel4.Text = $"Total Revenue\n${new Random().Next(20000, 50000):N0}";
-            //bunifuLabel5.Text = $"Sales by Category\n{new Random().Next(100, 500)} items";
+            int currentYear = DateTime.Now.Year;
+            for (int i = 0; i < 10; i++)
+            {
+                yearComboBox.Items.Add(currentYear - i);
+            }
+
+            monthComboBox.SelectedValue = DateTime.Now.Month;
+            yearComboBox.SelectedValue = DateTime.Now.Year;
+
+            totalProductSale.Text = _reportServicesBLL.getTotalProductsSoldToday().ToString();
+            totalRevenue.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalRevenueToday());
+            GenerateTopProductSelling();
+            GenerateTopCategorySelling();
         }
 
-        private void GenerateMockData()
+        private void GenerateTopProductSelling()
         {
-            // Tạo dữ liệu giả cho chart1 (Customer Volume - Doughnut chart)
+            List<ProductRevenueDTO> productDTOs = _reportServicesBLL.getTopSellingProduct();
             chart1.Series["Series1"].Points.Clear();
-            chart1.Series["Series1"].Points.AddXY("New Customers", 45);
-            chart1.Series["Series1"].Points.AddXY("Returning Customers", 30);
-            chart1.Series["Series1"].Points.AddXY("VIP Customers", 25);
 
-            // Tắt label trên chart1
+            // Mảng màu gradient mới (tông màu ấm)
+            Color[] baseColors = {
+            Color.FromArgb(255, 255, 159, 64),    // Cam
+            Color.FromArgb(255, 255, 99, 132),    // Hồng
+            Color.FromArgb(255, 201, 203, 207),   // Xám nhạt
+            Color.FromArgb(255, 255, 205, 86),    // Vàng nhạt
+            Color.FromArgb(255, 153, 102, 255)    // Tím pastel
+        };
+
+            for (int i = 0; i < productDTOs.Count; i++)
+            {
+                var point = new DataPoint();
+                point.SetValueXY(productDTOs[i].ProductName, productDTOs[i].TotalRevenue);
+
+                // Màu chính và màu phụ
+                point.Color = baseColors[i % baseColors.Length];
+                point.BackSecondaryColor = Color.FromArgb(150, point.Color);
+                point.BackGradientStyle = GradientStyle.LeftRight;
+
+                point.BorderColor = Color.White;
+                point.BorderWidth = 1;
+
+                chart1.Series["Series1"].Points.Add(point);
+            }
+
+            // Cấu hình thêm
             chart1.Series["Series1"].IsValueShownAsLabel = false;
-
-            // Đặt font Poppins cho chart1
+            chart1.Series["Series1"]["PieLabelStyle"] = "Disabled";
             chart1.Legends[0].Font = new Font("Poppins", 8, FontStyle.Regular);
 
-            // Kiểm tra và thêm title nếu chưa có
             if (chart1.Titles.Count == 0)
             {
-                chart1.Titles.Add("Customer Volume");
+                chart1.Titles.Add("Top Selling Products");
             }
             chart1.Titles[0].Font = new Font("Poppins", 10, FontStyle.Bold);
+        }
 
-            // Tạo dữ liệu giả cho chart2 (Total Profit - Doughnut chart)
+
+        private void GenerateTopCategorySelling()
+        {
+            List<CategoryRevenueDTO> categoryDTOs = _reportServicesBLL.getTopSellingCategory();
             chart2.Series["Series1"].Points.Clear();
-            chart2.Series["Series1"].Points.AddXY("Sports Shoes", 55);
-            chart2.Series["Series1"].Points.AddXY("Office Shoes", 25);
-            chart2.Series["Series1"].Points.AddXY("Kids Shoes", 20);
 
-            // Tắt label trên chart2
+            // Mảng màu gradient từ đậm đến nhạt (ví dụ: màu xanh dương)
+            Color[] baseColors = {
+            Color.FromArgb(255, 255, 99, 132),  // Đỏ
+            Color.FromArgb(255, 54, 162, 235),  // Xanh
+            Color.FromArgb(255, 255, 206, 86),  // Vàng
+            Color.FromArgb(255, 75, 192, 192),  // Xanh lá
+            Color.FromArgb(255, 153, 102, 255)  // Tím
+        };
+
+            for (int i = 0; i < categoryDTOs.Count; i++)
+            {
+                var point = new DataPoint();
+                point.SetValueXY(categoryDTOs[i].CategoryName, categoryDTOs[i].TotalRevenue);
+
+                // Màu chính là màu đậm, màu phụ là màu nhạt hơn
+                point.Color = baseColors[i % baseColors.Length];
+                point.BackSecondaryColor = Color.FromArgb(150, point.Color); // Màu phụ là màu nhạt trong suốt
+
+                point.BackGradientStyle = GradientStyle.DiagonalRight;
+                point.BorderColor = Color.White;
+                point.BorderWidth = 1;
+
+                chart2.Series["Series1"].Points.Add(point);
+            }
+
+            // Cấu hình thêm
             chart2.Series["Series1"].IsValueShownAsLabel = false;
-
-            // Đặt font Poppins cho chart2
+            chart2.Series["Series1"]["PieLabelStyle"] = "Disabled";
             chart2.Legends[0].Font = new Font("Poppins", 8, FontStyle.Regular);
 
-            // Kiểm tra và thêm title nếu chưa có
             if (chart2.Titles.Count == 0)
             {
-                chart2.Titles.Add("Sales by Category");
+                chart2.Titles.Add("Top 5 Selling Categories");
             }
             chart2.Titles[0].Font = new Font("Poppins", 10, FontStyle.Bold);
+        }
 
-            // Tạo dữ liệu giả cho chart3 (Revenue Trend - Spline Area chart)
-            chart3.Series["Series1"].Points.Clear();
-            Random rand = new Random();
-            int baseValue = 1000;
+        private void customReportBtn_Click(object sender, EventArgs e)
+        {
+            filterBtn.Enabled = true;
+            monthComboBox.Enabled = true;
+            yearComboBox.Enabled = true;
+        }
 
-            for (int i = 0; i < 12; i++)
+        private void filterBtn_Click(object sender, EventArgs e)
+        {
+            chart3.Series["Series1"].Points.Clear(); // Xóa dữ liệu cũ
+
+            int? selectedMonth = monthComboBox.SelectedItem as int?;
+            int? selectedYear = yearComboBox.SelectedItem as int?;
+
+            var revenues = _reportServicesBLL.GetRevenueByMonthAndYear(selectedMonth, selectedYear);
+
+            foreach (var revenue in revenues)
             {
-                int value = baseValue + rand.Next(-200, 300);
-                chart3.Series["Series1"].Points.AddXY(GetMonthName(i + 1), value);
-                baseValue = value;
+                DataPoint point = new DataPoint();
+                point.SetValueXY(revenue.Date.ToString(selectedMonth.HasValue && selectedYear.HasValue ? "dd/MM" :
+                                                       !selectedMonth.HasValue && selectedYear.HasValue ? "MM/yyyy" :
+                                                       "dd/MM/yyyy"),
+                                 revenue.TotalRevenue);
+                point.Color = Color.FromArgb(100, 149, 237); // Màu xanh dương pastel
+                point.BorderColor = Color.White;
+                point.BorderWidth = 1;
+
+                chart3.Series["Series1"].Points.Add(point);
             }
 
-            // Đặt font Poppins cho chart3
-            chart3.Legends[0].Font = new Font("Poppins", 8, FontStyle.Regular);
-            chart3.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Poppins", 8, FontStyle.Regular);
-            chart3.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Poppins", 8, FontStyle.Regular);
-
-            // Kiểm tra và thêm title nếu chưa có
+            // Cập nhật tiêu đề biểu đồ
             if (chart3.Titles.Count == 0)
-            {
-                chart3.Titles.Add("Revenue Trend");
-            }
+                chart3.Titles.Add("Revenue Statistics");
+
+            chart3.Titles[0].Text = selectedMonth.HasValue && selectedYear.HasValue
+                ? $"Revenue in {selectedMonth}/{selectedYear}"
+                : selectedYear.HasValue
+                    ? $"Monthly Revenue in {selectedYear}"
+                    : selectedMonth.HasValue
+                        ? $"Revenue in {selectedMonth}/{DateTime.Now.Year}"
+                        : "Revenue Statistics";
+
             chart3.Titles[0].Font = new Font("Poppins", 10, FontStyle.Bold);
 
-            // Tùy chỉnh màu sắc cho các chart
-            CustomizeChartColors();
+            // Cấu hình hiển thị
+            //chart3.Series["Series1"].ChartType = SeriesChartType.Column;
+            //chart3.Series["Series1"].IsValueShownAsLabel = true;
         }
 
-        private void CustomizeChartColors()
+        private void thisWeekReportBtn_Click(object sender, EventArgs e)
         {
-            // Tùy chỉnh màu sắc cho chart1
-            chart1.Series["Series1"].Points[0].Color = Color.FromArgb(124, 170, 150);
-            chart1.Series["Series1"].Points[1].Color = Color.FromArgb(70, 130, 180);
-            chart1.Series["Series1"].Points[2].Color = Color.FromArgb(255, 140, 0);
-
-            // Tùy chỉnh màu sắc cho chart2
-            chart2.Series["Series1"].Points[0].Color = Color.FromArgb(255, 192, 203);
-            chart2.Series["Series1"].Points[1].Color = Color.FromArgb(147, 112, 219);
-            chart2.Series["Series1"].Points[2].Color = Color.FromArgb(100, 149, 237);
-
-            // Tùy chỉnh màu sắc cho chart3
-            //chart3.Series["Series1"].Color = Color.FromArgb(124, 170, 150);
-            //chart3.Series["Series1"].BorderColor = Color.FromArgb(70, 130, 180);
-            //chart3.Series["Series1"].BorderWidth = 3;
+            bunifuLabel3.Text = "Total revenue this week";
+            totalProductSale.Text = _reportServicesBLL.getTotalProductsSoldThisWeek().ToString();
+            totalRevenue.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalRevenueThisWeek());
         }
 
-        private string GetMonthName(int month)
+        private void reportTodayBtn_Click(object sender, EventArgs e)
         {
-            return new DateTime(2023, month, 1).ToString("MMM");
+            bunifuLabel3.Text = "Total revenue today";
+            totalRevenue.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalRevenueToday());
+            totalProductSale.Text = _reportServicesBLL.getTotalProductsSoldToday().ToString();
+        }
+
+        private void thisMonthReportBtn_Click(object sender, EventArgs e)
+        {
+            bunifuLabel3.Text = "Total revenue this month";
+            totalRevenue.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalRevenueThisMonth());
+            totalProductSale.Text = _reportServicesBLL.getTotalProductsSoldThisMonth().ToString();
+        }
+
+        private void thisYearReportBtn_Click(object sender, EventArgs e)
+        {
+            bunifuLabel3.Text = "Total revenue this year";
+            totalRevenue.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalRevenueThisYear());
+            totalProductSale.Text = _reportServicesBLL.getTotalProductsSoldThisYear().ToString();
         }
     }
 }

@@ -76,6 +76,7 @@ namespace BLL
             catch (Exception ex)
             {
                 // Handle exception (e.g., log it)
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }

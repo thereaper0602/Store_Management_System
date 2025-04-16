@@ -12,7 +12,6 @@ namespace DAL.Model
         public Product()
         {
             InvoiceDetails = new HashSet<InvoiceDetail>();
-            ProductPromotions = new HashSet<ProductPromotion>();
         }
 
         public int ProductID { get; set; }
@@ -37,6 +36,8 @@ namespace DAL.Model
 
         public int? ImageID { get; set; }
 
+        public int? PromotionID { get; set; }
+
         public virtual Category Category { get; set; }
 
         public virtual Image Image { get; set; }
@@ -44,7 +45,6 @@ namespace DAL.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductPromotion> ProductPromotions { get; set; }
+        public virtual Promotion Promotion { get; set; }
     }
 }
