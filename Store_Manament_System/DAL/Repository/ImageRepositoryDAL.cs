@@ -1,17 +1,16 @@
-﻿using DAL.Model;
-using DTO.DTO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAL.Model;
+using DTO.DTO;
 
-namespace BLL
+namespace DAL.Repository
 {
-    public class ImageServiceBLL
+    public class ImageRepositoryDAL
     {
         private readonly StoreContext _context = new StoreContext();
-
         public List<ImageDTO> GetAllImages()
         {
             return _context.Images
@@ -100,5 +99,6 @@ namespace BLL
                 return false;
             }
         }
+
     }
 }

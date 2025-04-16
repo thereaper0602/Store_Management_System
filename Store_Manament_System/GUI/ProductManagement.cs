@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BLL.Services;
 using System.Xml.Serialization;
 using DAL;
 using DTO.DTO;
 using System.IO;
 using System.Security.Cryptography;
+using BLL.Services;
 using BLL;
 
 namespace GUI
@@ -22,7 +22,7 @@ namespace GUI
         private readonly ProductService prodService;
         private List<ProductDTO> products;
         private ProductDTO currentProduct = new ProductDTO();
-        private ImageServiceBLL imageService = new ImageServiceBLL();
+        private readonly ImageServiceBLL imageService = new ImageServiceBLL();
         public ProductManagement()
         {
             InitializeComponent();
@@ -184,7 +184,6 @@ namespace GUI
             if (currentProduct.id == 0)
             {
                 // Add new product
-
                 string imageName = Guid.NewGuid().ToString() + ".jpg";
                 string imageFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Images\Products");
                 string imagePath = Path.Combine(imageFolder, imageName);

@@ -119,6 +119,7 @@
     <Compile Include="Model\UserWorkShift.cs" />
     <Compile Include="Model\WorkShift.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ImageRepositoryDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">
