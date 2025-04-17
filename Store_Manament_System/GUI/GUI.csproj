@@ -106,54 +106,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UI_SALE\AddUserForm.cs">
+    <Compile Include="UI_ADMIN\AddUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI_SALE\AddUserForm.Designer.cs">
+    <Compile Include="UI_ADMIN\AddUserForm.Designer.cs">
       <DependentUpon>AddUserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI_SALE\CategoryManagement.cs">
+    <Compile Include="UI_ADMIN\CategoryManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI_SALE\CategoryManagement.Designer.cs">
+    <Compile Include="UI_ADMIN\CategoryManagement.Designer.cs">
       <DependentUpon>CategoryManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI_SALE\EmployeeManagement.cs">
+    <Compile Include="UI_ADMIN\EmployeeManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI_SALE\EmployeeManagement.Designer.cs">
+    <Compile Include="UI_ADMIN\EmployeeManagement.Designer.cs">
       <DependentUpon>EmployeeManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI_SALE\Login.cs">
+    <Compile Include="UI_ADMIN\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI_SALE\Login.Designer.cs">
+    <Compile Include="UI_ADMIN\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI_SALE\MainForm.cs">
+    <Compile Include="UI_ADMIN\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI_SALE\MainForm.Designer.cs">
+    <Compile Include="UI_ADMIN\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI_SALE\ProductManagement.cs">
+    <Compile Include="UI_ADMIN\ProductManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI_SALE\ProductManagement.Designer.cs">
+    <Compile Include="UI_ADMIN\ProductManagement.Designer.cs">
       <DependentUpon>ProductManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="UI_SALE\Promotion.cs">
+    <Compile Include="UI_ADMIN\Promotion.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI_SALE\Promotion.Designer.cs">
+    <Compile Include="UI_ADMIN\Promotion.Designer.cs">
       <DependentUpon>Promotion.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI_SALE\Statistics.cs">
+    <Compile Include="UI_ADMIN\Statistics.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI_SALE\Statistics.Designer.cs">
+    <Compile Include="UI_ADMIN\Statistics.Designer.cs">
       <DependentUpon>Statistics.cs</DependentUpon>
     </Compile>
     <Compile Include="UI_SALE\MainSaleForm.cs">
@@ -174,25 +174,25 @@
     <Compile Include="UI_SALE\StockUC.Designer.cs">
       <DependentUpon>StockUC.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UI_SALE\AddUserForm.resx">
+    <EmbeddedResource Include="UI_ADMIN\AddUserForm.resx">
       <DependentUpon>AddUserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI_SALE\CategoryManagement.resx">
+    <EmbeddedResource Include="UI_ADMIN\CategoryManagement.resx">
       <DependentUpon>CategoryManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI_SALE\EmployeeManagement.resx">
+    <EmbeddedResource Include="UI_ADMIN\EmployeeManagement.resx">
       <DependentUpon>EmployeeManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI_SALE\Login.resx">
+    <EmbeddedResource Include="UI_ADMIN\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI_SALE\MainForm.resx">
+    <EmbeddedResource Include="UI_ADMIN\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI_SALE\ProductManagement.resx">
+    <EmbeddedResource Include="UI_ADMIN\ProductManagement.resx">
       <DependentUpon>ProductManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI_SALE\Promotion.resx">
+    <EmbeddedResource Include="UI_ADMIN\Promotion.resx">
       <DependentUpon>Promotion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -205,7 +205,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UI_SALE\Statistics.resx">
+    <EmbeddedResource Include="UI_ADMIN\Statistics.resx">
       <DependentUpon>Statistics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI_SALE\MainSaleForm.resx">
@@ -372,9 +372,7 @@
   <ItemGroup>
     <None Include="Resources\pencil.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UI_ADMIN\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
