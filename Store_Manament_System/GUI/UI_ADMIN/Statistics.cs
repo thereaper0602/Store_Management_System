@@ -25,8 +25,8 @@ namespace GUI
 
         private void Statistics_Load(object sender, EventArgs e)
         {
-            totalProducts.Text = _reportServicesBLL.getTotalProducts().ToString();
-            for(int i = 1; i <= 12; i++)
+            
+            for (int i = 1; i <= 12; i++)
             {
                 monthComboBox.Items.Add(i);
             }
@@ -40,11 +40,15 @@ namespace GUI
             monthComboBox.SelectedValue = DateTime.Now.Month;
             yearComboBox.SelectedValue = DateTime.Now.Year;
 
-            totalProductSale.Text = _reportServicesBLL.getTotalProductsSoldToday().ToString();
-            totalRevenue.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalRevenueToday());
-            GenerateTopProductSelling();
-            GenerateTopCategorySelling();
-            generateMonthYearChart(4, DateTime.Now.Year);
+            if (!DesignMode)
+            {
+                totalProducts.Text = _reportServicesBLL.getTotalProducts().ToString();
+                totalProductSale.Text = _reportServicesBLL.getTotalProductsSoldToday().ToString();
+                totalRevenue.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalRevenueToday());
+                GenerateTopProductSelling();
+                GenerateTopCategorySelling();
+                generateMonthYearChart(4, DateTime.Now.Year);
+            }
         }
 
         private void GenerateTopProductSelling()
@@ -134,9 +138,9 @@ namespace GUI
 
         private void customReportBtn_Click(object sender, EventArgs e)
         {
-            filterBtn.Enabled = true;
-            monthComboBox.Enabled = true;
-            yearComboBox.Enabled = true;
+            //filterBtn.Enabled = true;
+            //monthComboBox.Enabled = true;
+            //yearComboBox.Enabled = true;
         }
 
         private void generateMonthYearChart(int? selectedMonth, int? selectedYear)

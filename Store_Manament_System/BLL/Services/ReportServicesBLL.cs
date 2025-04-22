@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,17 +18,50 @@ namespace BLL
 
         public int getTotalProducts()
         {
-            return reportRepositoryDAL.getTotalProducts();
+            try
+            {
+                return reportRepositoryDAL.getTotalProducts();
+            }
+            catch (SqlException e)
+            {
+                throw new Exception("Lỗi kết nối cơ sở dữ liệu", e);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Lỗi không xác định", e);
+            }
         }
 
         public int getTotalProductsSoldToday()
         {
-            return reportRepositoryDAL.getTotalProductsSoldToday();
+            try
+            {
+                return reportRepositoryDAL.getTotalProductsSoldToday();
+            }
+            catch (SqlException e)
+            {
+                throw new Exception("Lỗi kết nối cơ sở dữ liệu", e);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Lỗi không xác định", e);
+            }
         }
 
         public int getTotalRevenueToday()
         {
-            return reportRepositoryDAL.getTotalRevenueToday();
+            try
+            {
+                return reportRepositoryDAL.getTotalRevenueToday();
+            }
+            catch (SqlException e)
+            {
+                throw new Exception("Lỗi kết nối cơ sở dữ liệu", e);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Lỗi không xác định", e);
+            }
         }
 
         public int getTotalProductsSoldThisMonth()
