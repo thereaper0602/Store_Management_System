@@ -18,8 +18,6 @@ namespace DAL.Model
 
         public int? UserID { get; set; }
 
-        public int? CustomerID { get; set; }
-
         public DateTime CreatedDate { get; set; }
 
         public decimal TotalAmount { get; set; }
@@ -27,8 +25,6 @@ namespace DAL.Model
         [Required]
         [StringLength(50)]
         public string Status { get; set; }
-
-        public virtual Customer Customer { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }

@@ -39,6 +39,9 @@
     <StartupObject>GUI.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net48\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.Licensing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
       <HintPath>..\packages\Bunifu.Licensing.6.0.4\lib\net48\Bunifu.Licensing.dll</HintPath>
     </Reference>
@@ -106,54 +109,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddUserForm.cs">
+    <Compile Include="UI_ADMIN\AddUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddUserForm.Designer.cs">
+    <Compile Include="UI_ADMIN\AddUserForm.Designer.cs">
       <DependentUpon>AddUserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CategoryManagement.cs">
+    <Compile Include="UI_ADMIN\CategoryManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CategoryManagement.Designer.cs">
+    <Compile Include="UI_ADMIN\CategoryManagement.Designer.cs">
       <DependentUpon>CategoryManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeManagement.cs">
+    <Compile Include="UI_ADMIN\EmployeeManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EmployeeManagement.Designer.cs">
+    <Compile Include="UI_ADMIN\EmployeeManagement.Designer.cs">
       <DependentUpon>EmployeeManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="UI_ADMIN\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="UI_ADMIN\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="UI_ADMIN\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="UI_ADMIN\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductManagement.cs">
+    <Compile Include="UI_ADMIN\ProductManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ProductManagement.Designer.cs">
+    <Compile Include="UI_ADMIN\ProductManagement.Designer.cs">
       <DependentUpon>ProductManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Promotion.cs">
+    <Compile Include="UI_ADMIN\Promotion.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Promotion.Designer.cs">
+    <Compile Include="UI_ADMIN\Promotion.Designer.cs">
       <DependentUpon>Promotion.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Statistics.cs">
+    <Compile Include="UI_ADMIN\Statistics.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Statistics.Designer.cs">
+    <Compile Include="UI_ADMIN\Statistics.Designer.cs">
       <DependentUpon>Statistics.cs</DependentUpon>
     </Compile>
     <Compile Include="UI_SALE\MainSaleForm.cs">
@@ -174,25 +177,25 @@
     <Compile Include="UI_SALE\StockUC.Designer.cs">
       <DependentUpon>StockUC.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddUserForm.resx">
+    <EmbeddedResource Include="UI_ADMIN\AddUserForm.resx">
       <DependentUpon>AddUserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CategoryManagement.resx">
+    <EmbeddedResource Include="UI_ADMIN\CategoryManagement.resx">
       <DependentUpon>CategoryManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeManagement.resx">
+    <EmbeddedResource Include="UI_ADMIN\EmployeeManagement.resx">
       <DependentUpon>EmployeeManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="UI_ADMIN\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="UI_ADMIN\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductManagement.resx">
+    <EmbeddedResource Include="UI_ADMIN\ProductManagement.resx">
       <DependentUpon>ProductManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Promotion.resx">
+    <EmbeddedResource Include="UI_ADMIN\Promotion.resx">
       <DependentUpon>Promotion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -205,7 +208,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Statistics.resx">
+    <EmbeddedResource Include="UI_ADMIN\Statistics.resx">
       <DependentUpon>Statistics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI_SALE\MainSaleForm.resx">
@@ -371,6 +374,7 @@
   <ItemGroup>
     <None Include="Resources\pencil.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

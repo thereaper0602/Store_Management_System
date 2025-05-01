@@ -11,12 +11,7 @@ namespace DAL.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            CartItems = new HashSet<CartItem>();
             InvoiceDetails = new HashSet<InvoiceDetail>();
-            OrderDetails = new HashSet<OrderDetail>();
-            ProductDemandHistories = new HashSet<ProductDemandHistory>();
-            ProductPromotions = new HashSet<ProductPromotion>();
-            ProductReviews = new HashSet<ProductReview>();
         }
 
         public int ProductID { get; set; }
@@ -41,8 +36,7 @@ namespace DAL.Model
 
         public int? ImageID { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CartItem> CartItems { get; set; }
+        public int? PromotionID { get; set; }
 
         public virtual Category Category { get; set; }
 
@@ -51,16 +45,6 @@ namespace DAL.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductDemandHistory> ProductDemandHistories { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductPromotion> ProductPromotions { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductReview> ProductReviews { get; set; }
+        public virtual Promotion Promotion { get; set; }
     }
 }
