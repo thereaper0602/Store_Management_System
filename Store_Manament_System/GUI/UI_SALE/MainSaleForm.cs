@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,14 @@ namespace GUI.UI_SALE
         public MainSaleForm()
         {
             InitializeComponent();
+            if(AppSession.IsLoggedIn)
+            {
+                bunifuLabel3.Text = AppSession.CurrentUser.username;
+            }
+            else
+            {
+                bunifuLabel3.Text = "Annonymous User";
+            }
         }
 
         private void btnSideMenu_Click(object sender, EventArgs e)

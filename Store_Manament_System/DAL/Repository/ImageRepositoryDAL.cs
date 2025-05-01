@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,42 +12,20 @@ namespace DAL.Repository
     public class ImageRepositoryDAL
     {
         private readonly StoreContext _context = new StoreContext();
-        public List<ImageDTO> GetAllImages()
+        public List<Image> GetAllImages()
         {
-            return _context.Images
-                .Select(i => new ImageDTO
-                {
-                    imageID = i.ImageID,
-                    imagePath = i.ImagePath,
-                    imageName = i.ImageName
-                }).ToList();
+            return _context.Images.ToList();
         }
 
-        public ImageDTO GetImageById(int id)
+        public Image GetImageById(int id)
         {
-            var image = _context.Images.FirstOrDefault(i => i.ImageID == id);
-            if (image == null)
-            {
-                return null;
-            }
-            return new ImageDTO
-            {
-                imageID = image.ImageID,
-                imagePath = image.ImagePath,
-                imageName = image.ImageName
-            };
+            return _context.Images.FirstOrDefault(i => i.ImageID == id);
         }
 
-        public bool AddImage(ImageDTO imageDTO)
+        public bool AddImage(Image image)
         {
             try
             {
-                var image = new Image
-                {
-                    ImageName = imageDTO.imageName,
-                    ImagePath = imageDTO.imagePath,
-                    UploadDate = DateTime.Now
-                };
                 _context.Images.Add(image);
                 _context.SaveChanges();
                 return true;
@@ -54,21 +33,21 @@ namespace DAL.Repository
             catch (Exception ex)
             {
                 // Handle exception (e.g., log it)
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }
 
-        public bool UpdateImage(ImageDTO imageDTO)
+        public bool UpdateImage(Image image)
         {
             try
             {
-                var image = _context.Images.FirstOrDefault(i => i.ImageID == imageDTO.imageID);
-                if (image == null)
-                {
+                var existing = _context.Images.Find(image.ImageID);
+                if (existing == null) {
                     return false;
                 }
-                image.ImageName = imageDTO.imageName;
-                image.ImagePath = imageDTO.imagePath;
+                existing.ImageName = image.ImageName;
+                existing.ImagePath = image.ImagePath;
                 _context.SaveChanges();
                 return true;
             }
@@ -96,6 +75,7 @@ namespace DAL.Repository
             catch (Exception ex)
             {
                 // Handle exception (e.g., log it)
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }

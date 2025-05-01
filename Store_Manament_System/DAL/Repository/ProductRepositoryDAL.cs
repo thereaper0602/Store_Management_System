@@ -11,47 +11,19 @@ namespace DAL.Repository
     public class ProductRepositoryDAL
     {
         private readonly StoreContext _context = new StoreContext();
-        public List<ProductDTO> GetAllProducts(String kw)
+        public List<Product> GetAllProducts(String kw)
         {
-            if (kw == null)
-            {
-                kw = "";
-            }
-            return _context.Products
-                .Where(p => p.ProductName.Contains(kw) || p.Description.Contains(kw))
-                .Select(p => new ProductDTO
-                {
-                    id = p.ProductID,
-                    name = p.ProductName,
-                    categoryID = p.CategoryID ?? 1,
-                    stockQuantity = p.StockQuantity,
-                    price = p.Price,
-                    description = p.Description,
-                    expiryDate = p.ExpiryDate ?? DateTime.MinValue,
-                    imageID = p.ImageID ?? 1,
-                    barcode = p.Barcode
-                }).ToList();
+            return _context.Products.ToList();
         }
 
-        public ProductDTO GetProductById(int id)
+        public List<Product> GetAvailableProducts(String kw)
         {
-            var product = _context.Products.FirstOrDefault(p => p.ProductID == id);
-            if (product == null)
-            {
-                return null;
-            }
-            return new ProductDTO
-            {
-                id = product.ProductID,
-                name = product.ProductName,
-                categoryID = product.CategoryID ?? 1,
-                stockQuantity = product.StockQuantity,
-                price = product.Price,
-                description = product.Description,
-                expiryDate = product.ExpiryDate ?? DateTime.MinValue,
-                imageID = product.ImageID ?? 1,
-                barcode = product.Barcode
-            };
+            return _context.Products.Where(p => (p.ProductName.Contains(kw) || p.Description.Contains(kw)) && p.StockQuantity > 0).ToList();
+        }
+
+        public Product GetProductById(int id)
+        {
+            return _context.Products.FirstOrDefault(p => p.ProductID == id);
         }
 
         public bool AddProduct(ProductDTO productDTO, ImageDTO imageDTO)

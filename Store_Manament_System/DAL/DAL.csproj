@@ -120,6 +120,8 @@
     <Compile Include="Model\WorkShift.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ImageRepositoryDAL.cs" />
+    <Compile Include="Repository\InvoiceDetailRepositoryDAL.cs" />
+    <Compile Include="Repository\InvoiceRepositoryDAL.cs" />
     <Compile Include="Repository\ProductRepositoryDAL.cs" />
     <Compile Include="Repository\ReportRepositoryDAL.cs" />
   </ItemGroup>

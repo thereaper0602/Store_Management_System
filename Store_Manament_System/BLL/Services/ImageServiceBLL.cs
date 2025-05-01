@@ -15,22 +15,48 @@ namespace BLL
 
         public List<ImageDTO> GetAllImages()
         {
-            return _imageRepository.GetAllImages();
+            return _imageRepository.GetAllImages().Select(i => new ImageDTO
+            {
+                imageID = i.ImageID,
+                imagePath = i.ImagePath,
+                imageName = i.ImageName
+            }).ToList();
         }
 
         public ImageDTO GetImageById(int id)
         {
-            return _imageRepository.GetImageById(id);
+            var image = _imageRepository.GetImageById(id);
+            if (image == null)
+            {
+                return null;
+            }
+            return new ImageDTO
+            {
+                imageID = image.ImageID,
+                imagePath = image.ImagePath,
+                imageName = image.ImageName
+            };
         }
 
         public bool AddImage(ImageDTO imageDTO)
         {
-            return _imageRepository.AddImage(imageDTO);
+            var image = new Image
+            {
+                ImageName = imageDTO.imageName,
+                ImagePath = imageDTO.imagePath
+            };
+            return _imageRepository.AddImage(image);
         }
 
         public bool UpdateImage(ImageDTO imageDTO)
         {
-            return _imageRepository.UpdateImage(imageDTO);
+            var image = new Image
+            {
+                ImageID = imageDTO.imageID,
+                ImageName = imageDTO.imageName,
+                ImagePath = imageDTO.imagePath
+            };
+            return _imageRepository.UpdateImage(image);
         }
 
         public bool DeleteImage(int id)

@@ -131,7 +131,7 @@
             this.detail_cate.EnableHeadersVisualStyles = false;
             this.detail_cate.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
             this.detail_cate.HeaderBackColor = System.Drawing.Color.DarkSlateGray;
-            this.detail_cate.HeaderBgColor = System.Drawing.Color.Empty;
+            this.detail_cate.HeaderBackColor = System.Drawing.Color.Empty;
             this.detail_cate.HeaderForeColor = System.Drawing.Color.White;
             this.detail_cate.Location = new System.Drawing.Point(13, 130);
             this.detail_cate.Name = "detail_cate";

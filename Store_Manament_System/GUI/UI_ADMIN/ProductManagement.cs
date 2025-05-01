@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using DAL;
 using DTO.DTO;
 using System.IO;
 using System.Security.Cryptography;

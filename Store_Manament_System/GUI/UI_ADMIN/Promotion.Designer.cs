@@ -849,7 +849,7 @@
             this.detail_pro.EnableHeadersVisualStyles = false;
             this.detail_pro.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
             this.detail_pro.HeaderBackColor = System.Drawing.Color.DarkSlateGray;
-            this.detail_pro.HeaderBgColor = System.Drawing.Color.Empty;
+            this.detail_pro.HeaderBackColor = System.Drawing.Color.Empty;
             this.detail_pro.HeaderForeColor = System.Drawing.Color.White;
             this.detail_pro.Location = new System.Drawing.Point(34, 166);
             this.detail_pro.Name = "detail_pro";
