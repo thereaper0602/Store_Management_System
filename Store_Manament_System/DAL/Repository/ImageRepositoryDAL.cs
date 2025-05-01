@@ -22,19 +22,19 @@ namespace DAL.Repository
             return _context.Images.FirstOrDefault(i => i.ImageID == id);
         }
 
-        public bool AddImage(Image image)
+        public Image AddImage(Image image)
         {
             try
             {
                 _context.Images.Add(image);
                 _context.SaveChanges();
-                return true;
+                return image;
             }
             catch (Exception ex)
             {
                 // Handle exception (e.g., log it)
                 Console.WriteLine(ex.Message);
-                return false;
+                return null;
             }
         }
 

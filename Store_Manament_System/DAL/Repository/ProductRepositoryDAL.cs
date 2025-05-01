@@ -18,7 +18,7 @@ namespace DAL.Repository
 
         public List<Product> GetAvailableProducts(String kw)
         {
-            return _context.Products.Where(p => (p.ProductName.Contains(kw) || p.Description.Contains(kw)) && p.StockQuantity > 0).ToList();
+            return _context.Products.ToList();
         }
 
         public Product GetProductById(int id)
@@ -26,68 +26,30 @@ namespace DAL.Repository
             return _context.Products.FirstOrDefault(p => p.ProductID == id);
         }
 
-        public bool AddProduct(ProductDTO productDTO, ImageDTO imageDTO)
+        public Product AddProduct(Product product)
         {
-            using (var transaction = _context.Database.BeginTransaction())
-            {
-                try
-                {
-                    // Thêm ảnh mới và lấy ID
-                    var image = new Image
-                    {
-                        ImageName = imageDTO.imageName,
-                        ImagePath = imageDTO.imagePath,
-                        UploadDate = DateTime.Now
-                    };
-                    _context.Images.Add(image);
-                    _context.SaveChanges(); // Lưu để có được ImageID
-                    int newImageId = image.ImageID;
-
-                    // Gán ImageID cho sản phẩm
-                    var product = new Product
-                    {
-                        ProductName = productDTO.name,
-                        CategoryID = productDTO.categoryID,
-                        StockQuantity = productDTO.stockQuantity,
-                        Price = productDTO.price,
-                        Description = productDTO.description,
-                        ExpiryDate = productDTO.expiryDate,
-                        ImageID = newImageId,
-                        Barcode = productDTO.barcode,
-                    };
-
-                    _context.Products.Add(product);
-                    _context.SaveChanges();
-
-                    transaction.Commit();
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    transaction.Rollback();
-                    Console.WriteLine("Lỗi khi thêm sản phẩm: " + ex.Message);
-                    return false;
-                }
-            }
+            _context.Products.Add(product);
+            _context.SaveChanges();
+            return product;
         }
 
-        public bool UpdateProduct(ProductDTO productDTO)
+        public bool UpdateProduct(Product product)
         {
             try
             {
-                var product = _context.Products.FirstOrDefault(p => p.ProductID == productDTO.id);
+                var existing_product = _context.Products.Find(product.ProductID);
                 if (product == null)
                 {
                     return false;
                 }
-                product.ProductName = productDTO.name;
-                product.CategoryID = productDTO.categoryID;
-                product.StockQuantity = productDTO.stockQuantity;
-                product.Price = productDTO.price;
-                product.Description = productDTO.description;
-                product.ExpiryDate = productDTO.expiryDate;
-                product.ImageID = productDTO.imageID;
-                product.Barcode = productDTO.barcode;
+                existing_product.ProductName = product.ProductName;
+                existing_product.CategoryID = product.CategoryID;
+                existing_product.StockQuantity = product.StockQuantity;
+                existing_product.Price = product.Price;
+                existing_product.Description = product.Description;
+                existing_product.ExpiryDate = product.ExpiryDate;
+                existing_product.ImageID = product.ImageID;
+                existing_product.Barcode = product.Barcode;
                 _context.SaveChanges();
                 return true;
             }

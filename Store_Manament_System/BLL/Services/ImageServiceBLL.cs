@@ -38,14 +38,20 @@ namespace BLL
             };
         }
 
-        public bool AddImage(ImageDTO imageDTO)
+        public ImageDTO AddImage(ImageDTO imageDTO)
         {
             var image = new Image
             {
                 ImageName = imageDTO.imageName,
                 ImagePath = imageDTO.imagePath
             };
-            return _imageRepository.AddImage(image);
+            var savedImage = _imageRepository.AddImage(image);
+            return new ImageDTO
+            {
+                imageID = savedImage.ImageID,
+                imageName = savedImage.ImageName,
+                imagePath = savedImage.ImagePath
+            };
         }
 
         public bool UpdateImage(ImageDTO imageDTO)

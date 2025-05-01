@@ -109,7 +109,7 @@ namespace GUI
         {
             clearForm();
             currentProduct.id = 0;
-            products = prodService.GetAllProducts(null);
+            products = prodService.GetAllProducts("");
             productDataGridView.DataSource = products;
         }
 
