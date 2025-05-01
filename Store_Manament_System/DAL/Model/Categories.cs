@@ -6,24 +6,26 @@ namespace DAL.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class UserRole
+    public partial class Categories
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserRole()
+        public Categories()
         {
-            Users = new HashSet<User>();
+            Products = new HashSet<Products>();
         }
 
         [Key]
-        public int RoleID { get; set; }
+        public int CategoryID { get; set; }
 
         [Required]
         [StringLength(255)]
-        public string RoleName { get; set; }
+        public string CategoryName { get; set; }
 
-        public string Description { get; set; }
+        public int? ImageID { get; set; }
+
+        public virtual Images Images { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Products> Products { get; set; }
     }
 }

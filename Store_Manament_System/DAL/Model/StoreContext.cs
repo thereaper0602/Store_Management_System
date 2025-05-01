@@ -12,34 +12,21 @@ namespace DAL.Model
         {
         }
 
-        public virtual DbSet<Attendance> Attendances { get; set; }
-        public virtual DbSet<CartItem> CartItems { get; set; }
-        public virtual DbSet<Cart> Carts { get; set; }
-        public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<CategoryPromotion> CategoryPromotions { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Holiday> Holidays { get; set; }
-        public virtual DbSet<Image> Images { get; set; }
-        public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
-        public virtual DbSet<Invoice> Invoices { get; set; }
-        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
-        public virtual DbSet<ProductDemandHistory> ProductDemandHistories { get; set; }
-        public virtual DbSet<ProductPromotion> ProductPromotions { get; set; }
-        public virtual DbSet<ProductReview> ProductReviews { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<Promotion> Promotions { get; set; }
-        public virtual DbSet<RevenueReport> RevenueReports { get; set; }
-        public virtual DbSet<UserRole> UserRoles { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Categories> Categories { get; set; }
+        public virtual DbSet<Images> Images { get; set; }
+        public virtual DbSet<InvoiceDetails> InvoiceDetails { get; set; }
+        public virtual DbSet<Invoices> Invoices { get; set; }
+        public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<Promotions> Promotions { get; set; }
+        public virtual DbSet<RevenueReports> RevenueReports { get; set; }
+        public virtual DbSet<UserRoles> UserRoles { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<UserWorkShift> UserWorkShift { get; set; }
+        public virtual DbSet<WorkShifts> WorkShifts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Attendance>()
-                .Property(e => e.HoursWorked)
-                .HasPrecision(5, 2);
-
-            modelBuilder.Entity<Promotion>()
+            modelBuilder.Entity<Promotions>()
                 .Property(e => e.DiscountRate)
                 .HasPrecision(5, 2);
         }

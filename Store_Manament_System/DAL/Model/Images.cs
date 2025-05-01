@@ -6,16 +6,17 @@ namespace DAL.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Image
+    public partial class Images
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Image()
+        public Images()
         {
-            Categories = new HashSet<Category>();
-            Products = new HashSet<Product>();
-            Users = new HashSet<User>();
+            Categories = new HashSet<Categories>();
+            Products = new HashSet<Products>();
+            Users = new HashSet<Users>();
         }
 
+        [Key]
         public int ImageID { get; set; }
 
         [Required]
@@ -28,12 +29,12 @@ namespace DAL.Model
         public DateTime UploadDate { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Category> Categories { get; set; }
+        public virtual ICollection<Categories> Categories { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Products> Products { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Users> Users { get; set; }
     }
 }

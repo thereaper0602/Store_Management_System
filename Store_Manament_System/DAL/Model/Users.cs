@@ -6,15 +6,16 @@ namespace DAL.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class User
+    public partial class Users
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Users()
         {
-            Attendances = new HashSet<Attendance>();
-            Invoices = new HashSet<Invoice>();
+            Invoices = new HashSet<Invoices>();
+            UserWorkShift = new HashSet<UserWorkShift>();
         }
 
+        [Key]
         public int UserID { get; set; }
 
         [Required]
@@ -25,29 +26,35 @@ namespace DAL.Model
         [StringLength(255)]
         public string Password { get; set; }
 
+        [Required]
+        [StringLength(255)]
+        public string FullName { get; set; }
+
+        [Required]
+        [StringLength(10)]
+        public string Gender { get; set; }
+
         public int? RoleID { get; set; }
 
-        [StringLength(15)]
+        [StringLength(30)]
         public string PhoneNumber { get; set; }
 
         [StringLength(255)]
         public string Email { get; set; }
-
-        public decimal BaseSalary { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime HireDate { get; set; }
 
         public int? ImageID { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Attendance> Attendances { get; set; }
-
-        public virtual Image Image { get; set; }
+        public virtual Images Images { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Invoice> Invoices { get; set; }
+        public virtual ICollection<Invoices> Invoices { get; set; }
 
-        public virtual UserRole UserRole { get; set; }
+        public virtual UserRoles UserRoles { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserWorkShift> UserWorkShift { get; set; }
     }
 }

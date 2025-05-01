@@ -6,26 +6,24 @@ namespace DAL.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Holiday
+    public partial class WorkShifts
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Holiday()
+        public WorkShifts()
         {
-            ProductDemandHistories = new HashSet<ProductDemandHistory>();
+            UserWorkShift = new HashSet<UserWorkShift>();
         }
 
-        public int HolidayID { get; set; }
+        [Key]
+        public int WorkShiftID { get; set; }
 
         [Required]
-        [StringLength(255)]
-        public string HolidayName { get; set; }
+        [StringLength(100)]
+        public string WorkShiftName { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime HolidayDate { get; set; }
-
-        public string Description { get; set; }
+        public decimal WorkShiftSalary { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductDemandHistory> ProductDemandHistories { get; set; }
+        public virtual ICollection<UserWorkShift> UserWorkShift { get; set; }
     }
 }

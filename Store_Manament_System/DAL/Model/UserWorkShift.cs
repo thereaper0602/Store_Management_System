@@ -6,22 +6,20 @@ namespace DAL.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Attendance")]
-    public partial class Attendance
+    [Table("UserWorkShift")]
+    public partial class UserWorkShift
     {
-        public int AttendanceID { get; set; }
+        public int UserWorkShiftID { get; set; }
 
         public int? UserID { get; set; }
+
+        public int? WorkShiftID { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime WorkDate { get; set; }
 
-        public TimeSpan ClockIn { get; set; }
+        public virtual Users Users { get; set; }
 
-        public TimeSpan ClockOut { get; set; }
-
-        public decimal HoursWorked { get; set; }
-
-        public virtual User User { get; set; }
+        public virtual WorkShifts WorkShifts { get; set; }
     }
 }

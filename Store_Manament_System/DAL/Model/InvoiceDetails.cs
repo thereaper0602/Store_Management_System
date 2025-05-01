@@ -6,11 +6,12 @@ namespace DAL.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class OrderDetail
+    public partial class InvoiceDetails
     {
-        public int OrderDetailID { get; set; }
+        [Key]
+        public int DetailID { get; set; }
 
-        public int? OrderID { get; set; }
+        public int? InvoiceID { get; set; }
 
         public int? ProductID { get; set; }
 
@@ -20,8 +21,12 @@ namespace DAL.Model
 
         public decimal LineTotal { get; set; }
 
-        public virtual Order Order { get; set; }
+        public int? PromotionID { get; set; }
 
-        public virtual Product Product { get; set; }
+        public virtual Invoices Invoices { get; set; }
+
+        public virtual Products Products { get; set; }
+
+        public virtual Promotions Promotions { get; set; }
     }
 }

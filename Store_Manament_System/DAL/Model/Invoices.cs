@@ -6,19 +6,18 @@ namespace DAL.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Invoice
+    public partial class Invoices
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Invoice()
+        public Invoices()
         {
-            InvoiceDetails = new HashSet<InvoiceDetail>();
+            InvoiceDetails = new HashSet<InvoiceDetails>();
         }
 
+        [Key]
         public int InvoiceID { get; set; }
 
         public int? UserID { get; set; }
-
-        public int? CustomerID { get; set; }
 
         public DateTime CreatedDate { get; set; }
 
@@ -28,11 +27,9 @@ namespace DAL.Model
         [StringLength(50)]
         public string Status { get; set; }
 
-        public virtual Customer Customer { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
+        public virtual ICollection<InvoiceDetails> InvoiceDetails { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

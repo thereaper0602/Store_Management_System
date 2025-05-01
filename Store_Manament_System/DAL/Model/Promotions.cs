@@ -6,17 +6,16 @@ namespace DAL.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Promotion
+    public partial class Promotions
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Promotion()
+        public Promotions()
         {
-            CategoryPromotions = new HashSet<CategoryPromotion>();
-            InvoiceDetails = new HashSet<InvoiceDetail>();
-            ProductDemandHistories = new HashSet<ProductDemandHistory>();
-            ProductPromotions = new HashSet<ProductPromotion>();
+            InvoiceDetails = new HashSet<InvoiceDetails>();
+            Products = new HashSet<Products>();
         }
 
+        [Key]
         public int PromotionID { get; set; }
 
         [Required]
@@ -31,20 +30,13 @@ namespace DAL.Model
         [Column(TypeName = "date")]
         public DateTime EndDate { get; set; }
 
-        [Required]
         [StringLength(50)]
-        public string PromotionType { get; set; }
+        public string Description { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CategoryPromotion> CategoryPromotions { get; set; }
+        public virtual ICollection<InvoiceDetails> InvoiceDetails { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductDemandHistory> ProductDemandHistories { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductPromotion> ProductPromotions { get; set; }
+        public virtual ICollection<Products> Products { get; set; }
     }
 }

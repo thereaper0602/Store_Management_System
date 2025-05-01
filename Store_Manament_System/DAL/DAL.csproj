@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net48\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.Licensing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
       <HintPath>..\packages\Bunifu.Licensing.6.0.4\lib\net48\Bunifu.Licensing.dll</HintPath>
     </Reference>
@@ -100,30 +103,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model\Attendance.cs" />
-    <Compile Include="Model\Cart.cs" />
-    <Compile Include="Model\CartItem.cs" />
-    <Compile Include="Model\Category.cs" />
-    <Compile Include="Model\CategoryPromotion.cs" />
-    <Compile Include="Model\Customer.cs" />
-    <Compile Include="Model\Holiday.cs" />
-    <Compile Include="Model\Image.cs" />
-    <Compile Include="Model\Invoice.cs" />
-    <Compile Include="Model\InvoiceDetail.cs" />
-    <Compile Include="Model\Order.cs" />
-    <Compile Include="Model\OrderDetail.cs" />
-    <Compile Include="Model\Product.cs" />
-    <Compile Include="Model\ProductDemandHistory.cs" />
-    <Compile Include="Model\ProductPromotion.cs" />
-    <Compile Include="Model\ProductReview.cs" />
-    <Compile Include="Model\Promotion.cs" />
-    <Compile Include="Model\RevenueReport.cs" />
+    <Compile Include="Model\Categories.cs" />
+    <Compile Include="Model\Images.cs" />
+    <Compile Include="Model\InvoiceDetails.cs" />
+    <Compile Include="Model\Invoices.cs" />
+    <Compile Include="Model\Products.cs" />
+    <Compile Include="Model\Promotions.cs" />
+    <Compile Include="Model\RevenueReports.cs" />
     <Compile Include="Model\StoreContext.cs" />
-    <Compile Include="Model\User.cs" />
-    <Compile Include="Model\UserRole.cs" />
+    <Compile Include="Model\UserRoles.cs" />
+    <Compile Include="Model\Users.cs" />
+    <Compile Include="Model\UserWorkShift.cs" />
+    <Compile Include="Model\WorkShifts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Category_DAL.cs" />
+    <Compile Include="Repository\Image_DAL.cs" />
+    <Compile Include="Repository\LoginDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">
