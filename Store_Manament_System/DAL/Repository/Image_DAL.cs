@@ -25,7 +25,7 @@ namespace DAL.Repository
                     throw new ArgumentException("Đường dẫn hoặc tên ảnh không được để trống.");
                 }
 
-                var newImage = new Images
+                var newImage = new Image
                 {
                     ImagePath = imagePath,
                     ImageName = imageName,

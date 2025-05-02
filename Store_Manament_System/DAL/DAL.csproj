@@ -103,7 +103,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Migrations\202504141258574_AddFirstAndLastNameToUser.cs" />
     <Compile Include="Migrations\202504141258574_AddFirstAndLastNameToUser.Designer.cs">
       <DependentUpon>202504141258574_AddFirstAndLastNameToUser.cs</DependentUpon>
@@ -146,6 +145,7 @@
       <DependentUpon>202504141258574_AddFirstAndLastNameToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

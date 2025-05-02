@@ -8,17 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
-using DAL.Model;
 using System.IO;
 using DTO.DTO;
 using BLL.Services;
-using DAL;
 
 namespace GUI
 {
     public partial class CategoryManagement : UserControl
     {
-        private readonly CategoryBLL _categoryBLL; private string _selectedImagePath; // Lưu đường dẫn ảnh khi chọn
+        private readonly CategoryBLL _categoryBLL;
+        private string _selectedImagePath; // Lưu đường dẫn ảnh khi chọn
         public CategoryManagement()
         {
 

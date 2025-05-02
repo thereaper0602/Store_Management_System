@@ -6,23 +6,25 @@ namespace DAL.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class WorkShift
+    public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public WorkShift()
+        public Category()
         {
-            UserWorkShifts = new HashSet<UserWorkShift>();
+            Products = new HashSet<Product>();
         }
 
-        public int WorkShiftID { get; set; }
+        public int CategoryID { get; set; }
 
         [Required]
-        [StringLength(100)]
-        public string WorkShiftName { get; set; }
+        [StringLength(255)]
+        public string CategoryName { get; set; }
 
-        public decimal WorkShiftSalary { get; set; }
+        public int? ImageID { get; set; }
+
+        public virtual Image Image { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserWorkShift> UserWorkShifts { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

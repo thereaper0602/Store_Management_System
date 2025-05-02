@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using DTO.DTO;
+using DTO;
 namespace GUI.Utils
 {
     public static class AppSession

@@ -99,7 +99,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\CategoryRevenueDTO.cs" />
-    <Compile Include="DTO\ImageDTO.cs" />
     <Compile Include="DTO\InvoiceDetailDTO.cs" />
     <Compile Include="DTO\InvoiceDTO.cs" />
     <Compile Include="DTO\CategoryDTO.cs" />

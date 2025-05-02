@@ -18,14 +18,14 @@ namespace DAL.Repository
             _context = new StoreContext();
         }
         // Lấy toàn bộ danh mục trong bảng Categories
-        public List<Categories> GetAllCategories()
+        public List<Category> GetAllCategories()
         {
             // Truy vấn toàn bộ dữ liệu từ bảng Categories
             return _context.Categories.ToList();
         }
 
         // Tìm kiếm danh mục theo từ khóa 
-        public List<Categories> SearchCategories(string keyword)
+        public List<Category> SearchCategories(string keyword)
         {
             // Nếu không nhập gì, thì trả về toàn bộ danh mục
             if (string.IsNullOrEmpty(keyword))
@@ -41,7 +41,7 @@ namespace DAL.Repository
 
         }
         // Thêm một danh mục mới vào cơ sở dữ liệu
-        public void AddCategory(Categories category)
+        public void AddCategory(Category category)
         {
             // Thêm entity vào context
             _context.Categories.Add(category);
@@ -50,7 +50,7 @@ namespace DAL.Repository
         }
 
         // Cập nhật thông tin một danh mục trong cơ sở dữ liệu
-        public void UpdateCategory(Categories category)
+        public void UpdateCategory(Category category)
         {
             // Tìm danh mục cũ theo ID
             var existing = _context.Categories.FirstOrDefault(c => c.CategoryID == category.CategoryID);

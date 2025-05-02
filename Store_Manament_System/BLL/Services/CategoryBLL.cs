@@ -78,7 +78,7 @@ namespace BLL.Services
                     imageID = _imageDAL.AddImage(imageDTO.imagePath, imageDTO.imageName);
                 }
                 // Tạo đối tượng danh mục để lưu vào DB
-                var newCategory = new Categories
+                var newCategory = new Category
                 {
                     CategoryID = category.CategoryID,
                     CategoryName = category.CategoryName,
@@ -97,7 +97,7 @@ namespace BLL.Services
         //Cập nhật thông tin danh mục
         public void UpdateCategory(CategoryDTO category)
         {
-            var updatedCategory = new Categories
+            var updatedCategory = new Category
             {
                 CategoryID = category.CategoryID,
                 CategoryName = category.CategoryName,

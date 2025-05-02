@@ -50,6 +50,14 @@ namespace GUI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            AppSession.CurrentUser = new UserDTO
+            {
+                userID = 1,
+                userName = "admin",
+                password = "admin",
+                roleID = 1,
+                fullName = "Nguyễn Văn A"
+            };
             User_FullName.Text = AppSession.CurrentUser.fullName;
         }
     }

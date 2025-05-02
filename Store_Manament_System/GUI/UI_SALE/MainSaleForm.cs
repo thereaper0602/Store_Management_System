@@ -18,7 +18,7 @@ namespace GUI.UI_SALE
             InitializeComponent();
             if(AppSession.IsLoggedIn)
             {
-                bunifuLabel3.Text = AppSession.CurrentUser.username;
+                bunifuLabel3.Text = AppSession.CurrentUser.userName;
             }
             else
             {

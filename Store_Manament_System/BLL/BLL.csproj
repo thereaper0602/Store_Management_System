@@ -100,7 +100,6 @@
   <ItemGroup>
     <Compile Include="Services\CategoryBLL.cs" />
     <Compile Include="Services\ImageBLL.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Services\ImageServiceBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\LoginBLL.cs" />
