@@ -102,6 +102,9 @@
     <Compile Include="DTO\ImageDTO.cs" />
     <Compile Include="DTO\InvoiceDetailDTO.cs" />
     <Compile Include="DTO\InvoiceDTO.cs" />
+    <Compile Include="DTO\CategoryDTO.cs" />
+    <Compile Include="DTO\ImageDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="DTO\ProductRevenueDTO.cs" />
     <Compile Include="DTO\ReportType.cs" />
@@ -113,6 +116,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

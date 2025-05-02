@@ -6,15 +6,16 @@ namespace DAL.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class User
+    public partial class Users
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Users()
         {
             Invoices = new HashSet<Invoice>();
             UserWorkShifts = new HashSet<UserWorkShift>();
         }
 
+        [Key]
         public int UserID { get; set; }
 
         [Required]

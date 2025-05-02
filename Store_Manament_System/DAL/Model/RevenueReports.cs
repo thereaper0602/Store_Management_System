@@ -6,7 +6,7 @@ namespace DAL.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class RevenueReport
+    public partial class RevenueReports
     {
         [Key]
         public int ReportID { get; set; }

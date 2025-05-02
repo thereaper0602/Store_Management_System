@@ -6,34 +6,37 @@ namespace DAL.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Image
+    public partial class Promotions
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Image()
+        public Promotions()
         {
-            Categories = new HashSet<Category>();
+            InvoiceDetails = new HashSet<InvoiceDetail>();
             Products = new HashSet<Product>();
-            Users = new HashSet<User>();
         }
 
-        public int ImageID { get; set; }
+        [Key]
+        public int PromotionID { get; set; }
 
         [Required]
         [StringLength(255)]
-        public string ImageName { get; set; }
+        public string PromotionName { get; set; }
 
-        [Required]
-        public string ImagePath { get; set; }
+        public decimal DiscountRate { get; set; }
 
-        public DateTime UploadDate { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime StartDate { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime EndDate { get; set; }
+
+        [StringLength(50)]
+        public string Description { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Category> Categories { get; set; }
+        public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
     }
 }
