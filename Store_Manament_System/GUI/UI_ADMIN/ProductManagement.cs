@@ -180,6 +180,37 @@ namespace GUI
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(productNameTxt.Text))
+            {
+                MessageBox.Show("Please enter product's name");
+                return;
+            }
+
+            if(String.IsNullOrEmpty(productPriceTxt.Text))
+            {
+                MessageBox.Show("Please enter product's price");
+                return;
+            }
+
+            decimal price;
+            if (!decimal.TryParse(productPriceTxt.Text, out price))
+            {
+                MessageBox.Show("Product price must be a valid number");
+                return;
+            }
+
+            if (String.IsNullOrEmpty(productStockTxt.Text) || int.Parse(productStockTxt.Text) <= 0)
+            {
+                MessageBox.Show("Product's stock must be bigger than 0");
+                return;
+            }
+
+            if (categoryComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a category");
+                return;
+            }
+
             if (currentProduct.id == 0)
             {
                 // Add new product
