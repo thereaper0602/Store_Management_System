@@ -25,8 +25,6 @@ namespace GUI
 
         private void Statistics_Load(object sender, EventArgs e)
         {
-            GenerateMockData();
-
             for (int i = 1; i <= 12; i++)
             {
                 monthComboBox.Items.Add(i);
@@ -199,7 +197,6 @@ namespace GUI
             generateMonthYearChart(selectedMonth, selectedYear);
 
             // Tùy chỉnh màu sắc cho các chart
-            CustomizeChartColors();
         }
 
         private void thisWeekReportBtn_Click(object sender, EventArgs e)

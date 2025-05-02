@@ -12,7 +12,6 @@ using BLL.Services;
 using DTO.DTO;
 using Image = System.Drawing.Image;
 using System.IO;
-using DAL.Repository;
 using System.Text.RegularExpressions;
 
 using System.Drawing;
@@ -58,7 +57,7 @@ namespace GUI
         {
             try
             {
-                UserRoleRepositoryDAL userRoleService = new UserRoleRepositoryDAL();
+                UserRoleServiceBLL userRoleService = new UserRoleServiceBLL();
                 List<UserRoleDTO> userRoles = userRoleService.GetAllUserRoles();
                 if (userRoles != null && userRoles.Count > 0)
                 {
@@ -250,7 +249,7 @@ namespace GUI
                                 imageName = imageName,
                                 imagePath = imagePath
                             };
-                            employeeDto.imageID = _imageService.AddImage(imageDto) ? imageDto.imageID : 0;
+                            employeeDto.imageID = _imageService.AddImage(imageDto).imageID;
                         }
                     }
 

@@ -32,7 +32,7 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Statistics));
+            //System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Statistics));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -45,9 +45,9 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            //System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            //System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            //System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuShadowPanel2 = new Bunifu.UI.WinForms.BunifuShadowPanel();
             this.totalRevenue = new Bunifu.UI.WinForms.BunifuLabel();
@@ -1004,10 +1004,10 @@
             // chart1
             // 
             chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
+            //this.chart1.ChartAreas.Add(chartArea3);
             this.chart1.IsSoftShadows = false;
             legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            //this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(15, 3);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
@@ -1016,7 +1016,7 @@
             series3.Legend = "Legend1";
             series3.Name = "Series1";
             series3.SmartLabelStyle.Enabled = false;
-            this.chart1.Series.Add(series3);
+            //this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(575, 288);
             this.chart1.TabIndex = 5;
             this.chart1.Text = "chart1";
@@ -1025,7 +1025,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Controls.Add(this.bunifuShadowPanel7);
+            //this.Controls.Add(this.bunifuShadowPanel7);
             this.Controls.Add(this.bunifuShadowPanel6);
             this.Controls.Add(this.reportTodayBtn);
             this.Controls.Add(this.thisMonthReportBtn);
@@ -1079,7 +1079,7 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
         private Bunifu.UI.WinForms.BunifuLabel totalRevenue;
         private Bunifu.UI.WinForms.BunifuLabel totalProductSale;
-        private Bunifu.UI.WinForms.BunifuShadowPanel bunifuShadowPanel1;
+        //private Bunifu.UI.WinForms.BunifuShadowPanel bunifuShadowPanel1;
         private Bunifu.UI.WinForms.BunifuLabel totalProducts;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel5;
         private System.Windows.Forms.ComboBox monthComboBox;
@@ -1092,6 +1092,6 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 thisMonthReportBtn;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 reportTodayBtn;
         private Bunifu.UI.WinForms.BunifuShadowPanel bunifuShadowPanel6;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        //private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

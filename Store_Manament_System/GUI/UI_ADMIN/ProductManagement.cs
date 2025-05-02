@@ -109,6 +109,7 @@ namespace GUI
 
         public void loadProducts()
         {
+            productDataGridView.DataSource = null;
             clearForm();
             currentProduct.id = 0;
             products = prodService.GetAllProducts("");
@@ -320,6 +321,7 @@ namespace GUI
                 DialogResult result = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
+                    MessageBox.Show($"{currentProduct.id}");
                     bool deleteResult = prodService.DeleteProduct(currentProduct.id);
                     if (deleteResult)
                     {
@@ -333,7 +335,7 @@ namespace GUI
                 }
             }
             else
-        {
+            {
                 return;
             }
         }

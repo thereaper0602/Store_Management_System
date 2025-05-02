@@ -11,9 +11,8 @@ namespace BLL.Services
     public class UserRoleServiceBLL
     {
         private readonly UserRoleRepositoryDAL user = new UserRoleRepositoryDAL();
-        public List<UserRoleDTO> GetAllWorkShift()
+        public List<UserRoleDTO> GetAllUserRoles()
         {
-
             return user.GetAllUserRoles();
         }
     }
