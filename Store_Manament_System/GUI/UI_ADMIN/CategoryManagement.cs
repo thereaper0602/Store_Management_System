@@ -259,7 +259,7 @@ namespace GUI
                 MessageBox.Show($"Error saving data: {ex.Message}\nError details: {ex.StackTrace}",
       "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            }
+        }
         }
 
         private void delete_cate_Click(object sender, EventArgs e)
@@ -343,6 +343,6 @@ namespace GUI
                 MessageBox.Show($"Search error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-       
+    
     }
 }

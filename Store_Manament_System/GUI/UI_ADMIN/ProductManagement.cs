@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL.Services;
 using System.Xml.Serialization;
 using DTO.DTO;
 using System.IO;
@@ -54,6 +55,7 @@ namespace GUI
         private void loadColumn()
         {
             productDataGridView.AutoGenerateColumns = false;
+
             productDataGridView.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "id",
@@ -210,7 +212,7 @@ namespace GUI
                 MessageBox.Show("Please select a category");
                 return;
             }
-
+        
             if (currentProduct.id == 0)
             {
                 // Add new product
@@ -231,7 +233,7 @@ namespace GUI
                 productPicturebox.Image.Save(imagePath);
 
                 ImageDTO imageDTO = new ImageDTO
-                {
+        {
                     imageName = imageName,
                     imagePath = imagePath
                 };
@@ -253,7 +255,7 @@ namespace GUI
                 {
                     MessageBox.Show("Succesfully add new Product");
                     loadProducts(); // làm mới lại danh sách nếu cần
-                }
+        }
                 else
                 {
                     MessageBox.Show("Failed to add product");
@@ -271,32 +273,32 @@ namespace GUI
                 currentProduct.barcode = productBarCodeTxt.Text;
 
                 if (productPicturebox.Image != null)
-                {
+        {
                     ImageDTO oldImage = imageService.GetImageById(currentProduct.imageID);
 
                     // Nếu ảnh cũ tồn tại => xóa file ảnh cũ
                     if (oldImage != null && File.Exists(oldImage.imagePath))
                     {
                         File.Delete(oldImage.imagePath);
-                    }
+        }
 
                     // Tạo tên và đường dẫn mới
                     string imageName = Guid.NewGuid().ToString() + ".jpg";
                     string imageFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Images\Products");
                     string imagePath = Path.Combine(imageFolder, imageName);
                     if (!Directory.Exists(imageFolder))
-                    {
+        {
                         Directory.CreateDirectory(imageFolder);
                     }
 
                     // Lưu ảnh mới
                     productPicturebox.Image.Save(imagePath);
-
+            
                     // Cập nhật lại thông tin ảnh trong DB
                     oldImage.imageName = imageName;
                     oldImage.imagePath = imagePath;
                     imageService.UpdateImage(oldImage); // Bạn cần có hàm này trong ImageServiceBLL
-                }
+        }
 
                 bool result = prodService.UpdateProduct(currentProduct);
                 if (result)
@@ -304,7 +306,7 @@ namespace GUI
                     MessageBox.Show("Successfully updated product");
                 }
                 else
-                {
+        {
                     MessageBox.Show("Failed to update product");
                 }
                 loadProducts();
@@ -331,11 +333,11 @@ namespace GUI
                 }
             }
             else
-            {
+        {
                 return;
             }
         }
-
+            
         private void uploadProductImageBtn_Click(object sender, EventArgs e)
         {
             using(OpenFileDialog ofd = new OpenFileDialog())

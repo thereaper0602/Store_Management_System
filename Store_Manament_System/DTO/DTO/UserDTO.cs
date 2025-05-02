@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DTO.DTO
 {
+    //đổi internal thành publicvào class EmloyeeDTO
     public class UserDTO
     {
         public int userID { get; set; }
@@ -20,7 +22,7 @@ namespace DTO.DTO
 
         public DateTime hireDate { get; set; }
 
-        public int imageID { get; set; }
+        public int imageID { get; set; } 
     }
 }
 

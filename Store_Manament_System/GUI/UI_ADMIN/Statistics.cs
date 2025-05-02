@@ -25,15 +25,16 @@ namespace GUI
 
         private void Statistics_Load(object sender, EventArgs e)
         {
-            
+            GenerateMockData();
+
             for (int i = 1; i <= 12; i++)
             {
                 monthComboBox.Items.Add(i);
-            }
+        }
 
             int currentYear = DateTime.Now.Year;
             for (int i = 0; i < 10; i++)
-            {
+        {
                 yearComboBox.Items.Add(currentYear - i);
             }
 
@@ -55,6 +56,9 @@ namespace GUI
         {
             List<ProductRevenueDTO> productDTOs = _reportServicesBLL.getTopSellingProduct();
             chart1.Series["Series1"].Points.Clear();
+            chart1.Series["Series1"].Points.AddXY("New Customers", 45);
+            chart1.Series["Series1"].Points.AddXY("Returning Customers", 30);
+            chart1.Series["Series1"].Points.AddXY("VIP Customers", 25);
 
             // Mảng màu gradient mới (tông màu ấm)
             Color[] baseColors = {
@@ -86,6 +90,7 @@ namespace GUI
             chart1.Series["Series1"]["PieLabelStyle"] = "Disabled";
             chart1.Legends[0].Font = new Font("Poppins", 8, FontStyle.Regular);
 
+            // Kiểm tra và thêm title nếu chưa có
             if (chart1.Titles.Count == 0)
             {
                 chart1.Titles.Add("Top Selling Products");
@@ -98,6 +103,9 @@ namespace GUI
         {
             List<CategoryRevenueDTO> categoryDTOs = _reportServicesBLL.getTopSellingCategory();
             chart2.Series["Series1"].Points.Clear();
+            chart2.Series["Series1"].Points.AddXY("Sports Shoes", 55);
+            chart2.Series["Series1"].Points.AddXY("Office Shoes", 25);
+            chart2.Series["Series1"].Points.AddXY("Kids Shoes", 20);
 
             // Mảng màu gradient từ đậm đến nhạt (ví dụ: màu xanh dương)
             Color[] baseColors = {
@@ -129,6 +137,7 @@ namespace GUI
             chart2.Series["Series1"]["PieLabelStyle"] = "Disabled";
             chart2.Legends[0].Font = new Font("Poppins", 8, FontStyle.Regular);
 
+            // Kiểm tra và thêm title nếu chưa có
             if (chart2.Titles.Count == 0)
             {
                 chart2.Titles.Add("Top 5 Selling Categories");
@@ -137,11 +146,11 @@ namespace GUI
         }
 
         private void customReportBtn_Click(object sender, EventArgs e)
-        {
+            {
             //filterBtn.Enabled = true;
             //monthComboBox.Enabled = true;
             //yearComboBox.Enabled = true;
-        }
+            }
 
         private void generateMonthYearChart(int? selectedMonth, int? selectedYear)
         {
@@ -189,6 +198,8 @@ namespace GUI
 
             generateMonthYearChart(selectedMonth, selectedYear);
 
+            // Tùy chỉnh màu sắc cho các chart
+            CustomizeChartColors();
         }
 
         private void thisWeekReportBtn_Click(object sender, EventArgs e)

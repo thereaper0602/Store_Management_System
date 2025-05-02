@@ -1,4 +1,5 @@
 ﻿using DAL.Model;
+using DAL.Repository;
 using DTO.DTO;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL.Repository;
 
-namespace BLL
+namespace BLL.Services
 {
     public class ImageServiceBLL
     {

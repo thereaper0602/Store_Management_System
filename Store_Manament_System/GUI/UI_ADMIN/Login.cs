@@ -25,7 +25,7 @@ namespace GUI
             InitializeComponent();
 
         }
-       
+     
         private void Login_Load(object sender, EventArgs e)
         {
             enterPass.PasswordChar = '●';
@@ -42,7 +42,7 @@ namespace GUI
 
             // Kiểm tra kết quả đăng nhập
             if (user != null)
-            {
+        {
                 AppSession.CurrentUser = user; // Lưu thông tin người dùng
                 MessageBox.Show($" Welcome back {user.fullName}!\n The homepage is uploading ");
 
@@ -50,25 +50,25 @@ namespace GUI
                 {
                     MainForm main = new MainForm(); 
                     main.Show();
-                }
+        }
                 else // Nhân viên
-                {
+        {
                     MainSaleForm staff = new MainSaleForm();
                     staff.Show(); 
                 }
 
                 // Ẩn form đăng nhập sau khi đăng nhập thành công
                 this.Hide(); 
-            }
+        }
             else
-            {
+        {
                 MessageBox.Show("Incorrect username or password!");
             }
         }
 
         private void txtPassword_CheckedChanged(object sender, EventArgs e)
         {
-           
+
             enterPass.PasswordChar = (txtPassword.Checked) ? '\0' : '●';
         }
     }

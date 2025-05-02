@@ -129,6 +129,12 @@
     <Compile Include="Repository\Category_DAL.cs" />
     <Compile Include="Repository\Image_DAL.cs" />
     <Compile Include="Repository\LoginDAL.cs" />
+    <Compile Include="Repository\PromotionRepositoryDAL.cs" />
+    <Compile Include="Repository\SalaryRepositoryDAL.cs" />
+    <Compile Include="Repository\UserRepositoryDAL.cs" />
+    <Compile Include="Repository\UserRoleRepositoryDAL.cs" />
+    <Compile Include="Repository\UserWorkShiftRepositoryDAL.cs" />
+    <Compile Include="Repository\WorkShiftRepositoryDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">

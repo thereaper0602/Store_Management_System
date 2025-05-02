@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DAL.Model;
+using DTO.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
@@ -18,14 +20,27 @@ namespace DAL.Repository
         }
 
         public Image GetImageById(int id)
-        {
+            {
             return _context.Images.FirstOrDefault(i => i.ImageID == id);
+            }
+            return new ImageDTO
+            {
+                imageID = image.ImageID,
+                imagePath = image.ImagePath,
+                imageName = image.ImageName
+            };
         }
 
         public Image AddImage(Image image)
         {
             try
             {
+                var image = new Image
+                {
+                    ImageName = imageDTO.imageName,
+                    ImagePath = imageDTO.imagePath,
+                    UploadDate = DateTime.Now
+                };
                 _context.Images.Add(image);
                 _context.SaveChanges();
                 return image;
