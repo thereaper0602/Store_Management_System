@@ -65,7 +65,7 @@ namespace DAL.Repository
         {
             try
             {
-                var product = _context.Products.FirstOrDefault(p => p.ProductID == id);
+                var product = _context.Products.Find(id);
                 if (product == null)
                 {
                     return false;
