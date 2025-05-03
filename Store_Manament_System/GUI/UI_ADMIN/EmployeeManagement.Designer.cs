@@ -112,7 +112,7 @@
             this.MorningShift = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AfternoonShift = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EveningShift = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            //this.Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();

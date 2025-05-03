@@ -22,17 +22,22 @@ namespace GUI
         {
 
             InitializeComponent();
-            _categoryBLL = new CategoryBLL(); // Khởi tạo categoryBLL trong constructor
+            if (!DesignMode)
+            {
+                _categoryBLL = new CategoryBLL(); // Khởi tạo categoryBLL trong constructor
+            }
         }
     
         private void CategoryManagement_Load(object sender, EventArgs e)
         {
-            detail_cate.AutoGenerateColumns = false;
-            detail_cate.DataSource = _categoryBLL.GetAllCategories();
-            pic_cate.Image = null;
-            detail_cate.Columns["ID_cate"].ReadOnly = true;
-            detail_cate.Columns["ImageID_cate"].ReadOnly = true;
-
+            if (!DesignMode)
+            {
+                detail_cate.AutoGenerateColumns = false;
+                detail_cate.DataSource = _categoryBLL.GetAllCategories();
+                pic_cate.Image = null;
+                detail_cate.Columns["ID_cate"].ReadOnly = true;
+                detail_cate.Columns["ImageID_cate"].ReadOnly = true;
+            }
         }
 
         // Tải danh sách Category vào DataGridView

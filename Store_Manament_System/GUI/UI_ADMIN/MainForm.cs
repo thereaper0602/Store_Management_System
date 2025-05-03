@@ -18,8 +18,10 @@ namespace GUI
         {
 
             InitializeComponent();
-            productManagement1.loadProducts();
-
+            if (!DesignMode)
+            {
+                productManagement1.loadProducts();
+            }
         }
 
         private void bunifuLabel1_Click(object sender, EventArgs e)
@@ -45,7 +47,7 @@ namespace GUI
                 loginForm.StartPosition = FormStartPosition.CenterScreen;
                 loginForm.TopMost = true;
                 loginForm.Show();
-                this.Close();    // Đóng form hiện tại (form chính)
+                this.Close();
             }
         }
 

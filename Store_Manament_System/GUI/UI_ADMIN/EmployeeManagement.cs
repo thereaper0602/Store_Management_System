@@ -30,42 +30,43 @@ namespace GUI
         {
             InitializeComponent();
 
-
-            //khởi tạo biến
-            _employeeService = new EmployeeServiceBLL();
-
-            _imageService = new ImageServiceBLL();
-
-
-            cbMonth.SelectedIndexChanged += (s, e) =>
+            if (!DesignMode)
             {
+                //khởi tạo biến
+                _employeeService = new EmployeeServiceBLL();
 
-                RefreshSalaryTab();
-            };
-            cbYear.SelectedIndexChanged += (s, e) =>
-            {
-
-                RefreshSalaryTab();
-            };
+                _imageService = new ImageServiceBLL();
 
 
+                cbMonth.SelectedIndexChanged += (s, e) =>
+                {
+
+                    RefreshSalaryTab();
+                };
+                cbYear.SelectedIndexChanged += (s, e) =>
+                {
+
+                    RefreshSalaryTab();
+                };
+            }
             // Cấu hình EPPlus
             //ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
         }
 
         private void EmployeeManagement_Load(object sender, EventArgs e)
         {
-            // Load dữ liệu cho tab hiện tại (mặc định là Information)
-            RefreshTabData();
-            LoadWorkShift();
+            if (!DesignMode)
+            {
+                // Load dữ liệu cho tab hiện tại (mặc định là Information)
+                RefreshTabData();
+                LoadWorkShift();
 
-            // Đăng ký sự kiện khi chuyển tab
-            tabControlEmployee.SelectedIndexChanged += TabControlEmployee_SelectedIndexChanged;
+                // Đăng ký sự kiện khi chuyển tab
+                tabControlEmployee.SelectedIndexChanged += TabControlEmployee_SelectedIndexChanged;
 
-            LoadMonthsIntoComboBox(cbMonth);
-            LoadYearsIntoComboBox(cbYear);
-
-
+                LoadMonthsIntoComboBox(cbMonth);
+                LoadYearsIntoComboBox(cbYear);
+            }
         }
         private void TabControlEmployee_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -85,7 +85,7 @@ namespace GUI
             this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
             //this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             //this.bunifuLabel11 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuLabel12 = new Bunifu.UI.WinForms.BunifuLabel();
+            //this.bunifuLabel12 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel13 = new Bunifu.UI.WinForms.BunifuLabel();
             this.btAdd = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.lbForm = new Bunifu.UI.WinForms.BunifuLabel();

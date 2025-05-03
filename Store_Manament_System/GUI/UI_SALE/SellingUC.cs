@@ -227,6 +227,14 @@ namespace GUI.UI_SALE
                 return;
             }
 
+            AppSession.CurrentUser = new DTO.DTO.UserDTO
+            {
+                userID = 1,
+                userName = "admin",
+                password = "admin",
+                roleID = 1
+            };
+
             // Tạo đơn hàng mới
             var invoice = new InvoiceDTO
             {
