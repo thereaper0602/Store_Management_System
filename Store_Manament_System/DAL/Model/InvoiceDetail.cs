@@ -21,12 +21,8 @@ namespace DAL.Model
 
         public decimal LineTotal { get; set; }
 
-        public int? PromotionID { get; set; }
-
         public virtual Invoice Invoice { get; set; }
 
         public virtual Product Product { get; set; }
-
-        public virtual Promotion Promotion { get; set; }
     }
 }

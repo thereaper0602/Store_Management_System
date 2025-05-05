@@ -18,17 +18,18 @@ namespace DAL.Model
 
         public int? UserID { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime CreatedDate { get; set; }
 
-        public decimal TotalAmount { get; set; }
+        public decimal TotalPrice { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string Status { get; set; }
+        public decimal? Change { get; set; }
+
+        public int? StatusID { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
+
+        public virtual InvoiceStatu InvoiceStatu { get; set; }
 
         public virtual User User { get; set; }
     }

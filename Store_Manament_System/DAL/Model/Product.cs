@@ -12,6 +12,7 @@ namespace DAL.Model
         public Product()
         {
             InvoiceDetails = new HashSet<InvoiceDetail>();
+            Stocks = new HashSet<Stock>();
         }
 
         public int ProductID { get; set; }
@@ -20,23 +21,17 @@ namespace DAL.Model
         [StringLength(255)]
         public string ProductName { get; set; }
 
+        [Required]
+        [StringLength(255)]
+        public string ProductCode { get; set; }
+
         public int? CategoryID { get; set; }
 
-        public int StockQuantity { get; set; }
-
         public decimal Price { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime? ExpiryDate { get; set; }
-
-        [StringLength(50)]
-        public string Barcode { get; set; }
 
         public string Description { get; set; }
 
         public int? ImageID { get; set; }
-
-        public int? PromotionID { get; set; }
 
         public virtual Category Category { get; set; }
 
@@ -45,6 +40,7 @@ namespace DAL.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
 
-        public virtual Promotion Promotion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Stock> Stocks { get; set; }
     }
 }

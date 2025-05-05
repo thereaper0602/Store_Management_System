@@ -16,16 +16,12 @@ namespace GUI
 {
     public partial class CategoryManagement : UserControl
     {
-        private readonly CategoryBLL _categoryBLL;
-        private string _selectedImagePath; // Lưu đường dẫn ảnh khi chọn
+        private readonly CategoryBLL _categoryBLL = new CategoryBLL();
+        //private string _selectedImagePath; // Lưu đường dẫn ảnh khi chọn
         public CategoryManagement()
         {
 
             InitializeComponent();
-            if (!DesignMode)
-            {
-                _categoryBLL = new CategoryBLL(); // Khởi tạo categoryBLL trong constructor
-            }
         }
     
         private void CategoryManagement_Load(object sender, EventArgs e)

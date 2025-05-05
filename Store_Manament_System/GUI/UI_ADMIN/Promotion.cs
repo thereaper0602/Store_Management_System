@@ -14,7 +14,7 @@ namespace GUI
 {
     public partial class Promotion : UserControl
     {
-        private readonly PromotionServiceBLL _promotionService;
+        private readonly PromotionServiceBLL _promotionService = new PromotionServiceBLL();
 
         // biến lưu khuyến mãi được chọn để chỉnh sửa
         private PromotionDTO _selectedPromotion; 
@@ -22,21 +22,23 @@ namespace GUI
         public Promotion()
         {
             InitializeComponent();
-            _promotionService = new PromotionServiceBLL();
-
-            _selectedPromotion = null;
-
-            // Thiết lập mặc định cho DateTimePicker
-            fromDate.Value = DateTime.Now;
-            // Mặc định kết thúc sau 7 ngày
-            toDate.Value = DateTime.Now.AddDays(7); 
         }
 
         private void Promotion_Load(object sender, EventArgs e)
         {
             try
             {
-                RefreshDataGridView();
+                if (!DesignMode)
+                {
+                    RefreshDataGridView();
+                }
+                
+                _selectedPromotion = null;
+
+                // Thiết lập mặc định cho DateTimePicker
+                fromDate.Value = DateTime.Now;
+                // Mặc định kết thúc sau 7 ngày
+                toDate.Value = DateTime.Now.AddDays(7);
             }
             catch (Exception ex)
             {

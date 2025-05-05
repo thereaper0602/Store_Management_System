@@ -32,8 +32,8 @@ namespace GUI.UI_SALE
 
         private void loadQR()
         {
-            var qrCode = $"2|99|0363144153|username|0|0|0|{_invoiceDTO.TotalAmount}";
-            totalAmountLbl.Text = _invoiceDTO.TotalAmount.ToString("N0") + " ₫";
+            var qrCode = $"2|99|0363144153|username|0|0|0|{_invoiceDTO.TotalPrice}";
+            totalAmountLbl.Text = _invoiceDTO.TotalPrice.ToString("N0") + " ₫";
             BarcodeWriter barcodeWriter = new BarcodeWriter();
             EncodingOptions encodingOptions = new EncodingOptions() { Width = 250, Height = 250, Margin = 0, PureBarcode = false };
             encodingOptions.Hints.Add(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);

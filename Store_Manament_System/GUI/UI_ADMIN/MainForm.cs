@@ -16,12 +16,9 @@ namespace GUI
     {
         public MainForm()
         {
-
+            
             InitializeComponent();
-            if (!DesignMode)
-            {
-                productManagement1.loadProducts();
-            }
+            //productManagement1.loadProducts();
         }
 
         
@@ -55,15 +52,19 @@ namespace GUI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            AppSession.CurrentUser = new UserDTO
+            if (!DesignMode)
             {
-                userID = 1,
-                userName = "admin",
-                password = "admin",
-                roleID = 1,
-                fullName = "Nguyễn Văn A"
-            };
-            User_FullName.Text = AppSession.CurrentUser.fullName;
+                productManagement1.loadProducts();
+                AppSession.CurrentUser = new UserDTO
+                {
+                    userID = 1,
+                    userName = "admin",
+                    password = "admin",
+                    roleID = 1,
+                    fullName = "Nguyễn Văn A"
+                };
+                User_FullName.Text = AppSession.CurrentUser.fullName;
+            }
         }
     }
 }

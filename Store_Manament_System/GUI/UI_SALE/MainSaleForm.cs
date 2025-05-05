@@ -28,7 +28,7 @@ namespace GUI.UI_SALE
 
         private void btnSideMenu_Click(object sender, EventArgs e)
         {
-            bunifuPages.SetPage(((Control)sender).Text);
+            bunifuPages1.SetPage(((Control)sender).Text);
         }
     }
 }

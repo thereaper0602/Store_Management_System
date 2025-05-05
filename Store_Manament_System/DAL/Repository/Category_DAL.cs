@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    public class Category_DAL
+    public class Category_DAL : ICategory_DAL
     { // Khai báo context để kết nối và làm việc với database thông qua Entity Framework
-        private readonly StoreContext _context;
+        private readonly StoreContext _context = new StoreContext();
 
         // Tạo context khi một đối tượng Category_DAL được tạo
         public Category_DAL()
         {
-
             _context = new StoreContext();
         }
         // Lấy toàn bộ danh mục trong bảng Categories

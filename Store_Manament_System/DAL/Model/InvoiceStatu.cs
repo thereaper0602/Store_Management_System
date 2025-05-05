@@ -6,24 +6,23 @@ namespace DAL.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class UserRoles
+    public partial class InvoiceStatu
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserRoles()
+        public InvoiceStatu()
         {
-            Users = new HashSet<Users>();
+            Invoices = new HashSet<Invoice>();
         }
 
         [Key]
-        public int RoleID { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int StatusID { get; set; }
 
         [Required]
-        [StringLength(255)]
-        public string RoleName { get; set; }
-
-        public string Description { get; set; }
+        [StringLength(100)]
+        public string StatusName { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Users> Users { get; set; }
+        public virtual ICollection<Invoice> Invoices { get; set; }
     }
 }

@@ -39,15 +39,10 @@
             this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
             this.pages = new Bunifu.UI.WinForms.BunifuPages();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.productManagement1 = new GUI.ProductManagement();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.categoryManagement1 = new GUI.CategoryManagement();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.employeeManagement1 = new GUI.EmployeeManagement();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.promotion1 = new GUI.Promotion();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.statistics1 = new GUI.Statistics();
             this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
             this.btn_SignOut = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.User_FullName = new Bunifu.UI.WinForms.BunifuLabel();
@@ -63,6 +58,11 @@
             this.bunifuPictureBox2 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuFormControlBox1 = new Bunifu.UI.WinForms.BunifuFormControlBox();
+            this.productManagement1 = new GUI.ProductManagement();
+            this.categoryManagement1 = new GUI.CategoryManagement();
+            this.employeeManagement1 = new GUI.EmployeeManagement();
+            this.promotion1 = new GUI.Promotion();
+            this.statistics1 = new GUI.Statistics();
             this.bunifuPanel3.SuspendLayout();
             this.pages.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -108,10 +108,10 @@
             this.pages.Location = new System.Drawing.Point(0, 0);
             this.pages.Multiline = true;
             this.pages.Name = "pages";
-            this.pages.Page = this.tabPage2;
-            this.pages.PageIndex = 0;
-            this.pages.PageName = "tabPage2";
-            this.pages.PageTitle = "Product Management";
+            this.pages.Page = this.tabPage5;
+            this.pages.PageIndex = 3;
+            this.pages.PageName = "tabPage5";
+            this.pages.PageTitle = "Promotion";
             this.pages.SelectedIndex = 0;
             this.pages.Size = new System.Drawing.Size(1238, 819);
             this.pages.TabIndex = 1;
@@ -143,15 +143,6 @@
             this.tabPage2.Text = "Product Management";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // productManagement1
-            // 
-            this.productManagement1.BackColor = System.Drawing.Color.White;
-            this.productManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.productManagement1.Location = new System.Drawing.Point(0, 0);
-            this.productManagement1.Name = "productManagement1";
-            this.productManagement1.Size = new System.Drawing.Size(1230, 790);
-            this.productManagement1.TabIndex = 0;
-            // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.White;
@@ -161,15 +152,6 @@
             this.tabPage3.Size = new System.Drawing.Size(1230, 790);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Category Management";
-            // 
-            // categoryManagement1
-            // 
-            this.categoryManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.categoryManagement1.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categoryManagement1.Location = new System.Drawing.Point(0, 0);
-            this.categoryManagement1.Name = "categoryManagement1";
-            this.categoryManagement1.Size = new System.Drawing.Size(1230, 790);
-            this.categoryManagement1.TabIndex = 0;
             // 
             // tabPage4
             // 
@@ -181,14 +163,6 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Employee Management";
             // 
-            // employeeManagement1
-            // 
-            this.employeeManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.employeeManagement1.Location = new System.Drawing.Point(0, 0);
-            this.employeeManagement1.Name = "employeeManagement1";
-            this.employeeManagement1.Size = new System.Drawing.Size(1230, 790);
-            this.employeeManagement1.TabIndex = 0;
-            // 
             // tabPage5
             // 
             this.tabPage5.Controls.Add(this.promotion1);
@@ -198,14 +172,6 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Promotion";
             this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // promotion1
-            // 
-            this.promotion1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.promotion1.Location = new System.Drawing.Point(0, 0);
-            this.promotion1.Name = "promotion1";
-            this.promotion1.Size = new System.Drawing.Size(1230, 790);
-            this.promotion1.TabIndex = 0;
             // 
             // tabPage6
             // 
@@ -217,16 +183,6 @@
             this.tabPage6.Text = "Statistics Reports";
             this.tabPage6.UseVisualStyleBackColor = true;
             this.tabPage6.Click += new System.EventHandler(this.btnSideMenu_Click);
-            // 
-            // statistics1
-            // 
-            this.statistics1.AutoScroll = true;
-            this.statistics1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.statistics1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.statistics1.Location = new System.Drawing.Point(0, 0);
-            this.statistics1.Name = "statistics1";
-            this.statistics1.Size = new System.Drawing.Size(1230, 790);
-            this.statistics1.TabIndex = 0;
             // 
             // bunifuPanel2
             // 
@@ -975,6 +931,44 @@
             this.bunifuFormControlBox1.Size = new System.Drawing.Size(161, 29);
             this.bunifuFormControlBox1.TabIndex = 1;
             // 
+            // productManagement1
+            // 
+            this.productManagement1.BackColor = System.Drawing.Color.White;
+            this.productManagement1.Location = new System.Drawing.Point(-4, -5);
+            this.productManagement1.Name = "productManagement1";
+            this.productManagement1.Size = new System.Drawing.Size(1230, 790);
+            this.productManagement1.TabIndex = 0;
+            // 
+            // categoryManagement1
+            // 
+            this.categoryManagement1.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categoryManagement1.Location = new System.Drawing.Point(-4, -5);
+            this.categoryManagement1.Name = "categoryManagement1";
+            this.categoryManagement1.Size = new System.Drawing.Size(1185, 825);
+            this.categoryManagement1.TabIndex = 0;
+            // 
+            // employeeManagement1
+            // 
+            this.employeeManagement1.Location = new System.Drawing.Point(-4, -5);
+            this.employeeManagement1.Name = "employeeManagement1";
+            this.employeeManagement1.Size = new System.Drawing.Size(1214, 814);
+            this.employeeManagement1.TabIndex = 0;
+            // 
+            // promotion1
+            // 
+            this.promotion1.Location = new System.Drawing.Point(-5, -4);
+            this.promotion1.Name = "promotion1";
+            this.promotion1.Size = new System.Drawing.Size(1225, 795);
+            this.promotion1.TabIndex = 0;
+            // 
+            // statistics1
+            // 
+            this.statistics1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.statistics1.Location = new System.Drawing.Point(-3, -4);
+            this.statistics1.Name = "statistics1";
+            this.statistics1.Size = new System.Drawing.Size(1230, 825);
+            this.statistics1.TabIndex = 0;
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1020,8 +1014,6 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
-        private Promotion promotion1;
-        private EmployeeManagement employeeManagement1;
         private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox2;
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton2 bunifuButton25;
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton2 bunifuButton24;
@@ -1029,12 +1021,14 @@
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton2 bunifuButton21;
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton2 bunifuButton26;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel2;
-        private ProductManagement productManagement1;
-        private Statistics statistics1;
         private Bunifu.UI.WinForms.BunifuLabel User_FullName;
         private Bunifu.UI.WinForms.BunifuPictureBox avatar;
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton2 btn_SignOut;
         private System.Windows.Forms.TabPage tabPage3;
+        private ProductManagement productManagement1;
         private CategoryManagement categoryManagement1;
+        private EmployeeManagement employeeManagement1;
+        private Statistics statistics1;
+        private Promotion promotion1;
     }
 }

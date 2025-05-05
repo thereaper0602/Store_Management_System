@@ -11,22 +11,22 @@ using DTO.DTO;
 
 namespace BLL.Services
 {
-    public class CategoryBLL
+    public class CategoryBLL : ICategoryBLL
     {
         // Khai báo đối tượng để tương tác với dữ liệu danh mục
-        private readonly Category_DAL _categoryDAL;
+        private readonly Category_DAL _categoryDAL = new Category_DAL();
         // Khai báo đối tượng để tương tác với dữ liệu hình ảnh
-        private readonly Image_DAL _imageDAL;
+        private readonly Image_DAL _imageDAL = new Image_DAL();
 
 
         // Hàm khởi tạo khi tạo đối tượng CategoryBLL
-        public CategoryBLL() 
-        {
-            // Khởi tạo đối tượng DAL để làm việc với danh mục
-            _categoryDAL = new Category_DAL();
-            // Khởi tạo đối tượng DAL để làm việc với hình ảnh
-            _imageDAL = new Image_DAL();
-        }
+        //public CategoryBLL() 
+        //{
+        //    // Khởi tạo đối tượng DAL để làm việc với danh mục
+        //    _categoryDAL = new Category_DAL();
+        //    // Khởi tạo đối tượng DAL để làm việc với hình ảnh
+        //    _imageDAL = new Image_DAL();
+        //}
         // Lấy tất cả danh mục từ CSDL và chuyển sang dạng DTO để dùng cho GUI
         public List<CategoryDTO> GetAllCategories()
         {
@@ -55,7 +55,7 @@ namespace BLL.Services
         }
         /*ADD*/
         //Thêm mới một danh mục
-        public void AddCategory(CategoryDTO category, ImageDTO imageDTO = null)  
+        public void AddCategory(CategoryDTO category, ImageDTO imageDTO = null)
         {
             try
             {
@@ -70,7 +70,7 @@ namespace BLL.Services
                     throw new ArgumentException("Category name cannot be left blank.");
                 }
                 // Khởi tạo ID ảnh là null (TH không có ảnh)
-                int? imageID = null; 
+                int? imageID = null;
                 // Nếu có ảnh, thêm ảnh vào CSDL trước
                 if (imageDTO != null)
                 {

@@ -8,14 +8,12 @@ namespace DTO.DTO
 {
     public class ProductDTO
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public int categoryID { get; set; }
-        public int stockQuantity { get; set; }
-        public decimal price { get; set; }
-        public DateTime expiryDate { get; set; }
-        public string description { get; set; }
-        public int imageID { get; set; }
-        public string barcode { get; set; }
+        public int ProductID { get; set; }
+        public string ProductName { get; set; }
+        public string ProductCode { get; set; }
+        public int? CategoryID { get; set; }
+        public decimal Price { get; set; }
+        public string Description { get; set; }
+        public int? ImageID { get; set; }
     }
 }

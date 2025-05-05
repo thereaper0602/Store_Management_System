@@ -14,7 +14,7 @@ namespace DAL.Repository
         private readonly StoreContext _context = new StoreContext();
         public int getTotalProducts()
         {
-            return _context.Products.Count(p => p.StockQuantity > 0);
+            return 0;
         }
 
         public int getTotalProductsSoldToday()

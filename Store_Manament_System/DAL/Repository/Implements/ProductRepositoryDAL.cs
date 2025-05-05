@@ -8,9 +8,13 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    public class ProductRepositoryDAL
+    public class ProductRepositoryDAL : IProductRepositoryDAL
     {
         private readonly StoreContext _context = new StoreContext();
+        //public ProductRepositoryDAL(StoreContext context)
+        //{
+        //    _context = context ?? throw new ArgumentNullException(nameof(context));
+        //}
         public List<Product> GetAllProducts(String kw)
         {
             return _context.Products.ToList();
@@ -42,14 +46,13 @@ namespace DAL.Repository
                 {
                     return false;
                 }
-                existing_product.ProductName = product.ProductName;
-                existing_product.CategoryID = product.CategoryID;
-                existing_product.StockQuantity = product.StockQuantity;
-                existing_product.Price = product.Price;
-                existing_product.Description = product.Description;
-                existing_product.ExpiryDate = product.ExpiryDate;
-                existing_product.ImageID = product.ImageID;
-                existing_product.Barcode = product.Barcode;
+                //existing_product.ProductName = product.ProductName;
+                //existing_product.CategoryID = product.CategoryID;
+                //existing_product.Price = product.Price;
+                //existing_product.Description = product.Description;
+                //existing_product.ImageID = product.ImageID;
+                //existing_product.ProductCode = product.ProductCode;
+                _context.Entry(existing_product).CurrentValues.SetValues(product);
                 _context.SaveChanges();
                 return true;
             }

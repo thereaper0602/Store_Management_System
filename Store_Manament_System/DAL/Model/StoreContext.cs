@@ -16,9 +16,12 @@ namespace DAL.Model
         public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
         public virtual DbSet<Invoice> Invoices { get; set; }
+        public virtual DbSet<InvoiceStatu> InvoiceStatus { get; set; }
+        public virtual DbSet<ProductPromotion> ProductPromotions { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Promotion> Promotions { get; set; }
         public virtual DbSet<RevenueReport> RevenueReports { get; set; }
+        public virtual DbSet<Stock> Stocks { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserWorkShift> UserWorkShifts { get; set; }

@@ -13,7 +13,7 @@ namespace BLL.Services
     {
         private readonly InvoiceRepositoryDAL _invoiceRepositoryDAL = new InvoiceRepositoryDAL();
         private readonly InvoiceDetailRepositoryDAL invoiceDetailRepositoryDAL = new InvoiceDetailRepositoryDAL();
-        private readonly ProductRepositoryDAL _productRepositoryDAL = new ProductRepositoryDAL();
+        private readonly ProductRepositoryDAL _productRepositoryDAL;
         private readonly StoreContext _context = new StoreContext();
 
         public List<InvoiceDTO> GetAllInvoices()
@@ -24,8 +24,8 @@ namespace BLL.Services
                 InvoiceID = i.InvoiceID,
                 UserID = i.UserID,
                 CreatedDate = i.CreatedDate,
-                TotalAmount = i.TotalAmount,
-                Status = i.Status,
+                TotalPrice = i.TotalPrice,
+                StatusID = (int) (i.StatusID ?? null),
                 InvoiceDetails = i.InvoiceDetails.Select(d => new InvoiceDetailDTO
                 {
                     DetailID = d.DetailID,
@@ -46,8 +46,8 @@ namespace BLL.Services
                 InvoiceID = invoice.InvoiceID,
                 UserID = invoice.UserID,
                 CreatedDate = invoice.CreatedDate,
-                TotalAmount = invoice.TotalAmount,
-                Status = invoice.Status,
+                TotalPrice = invoice.TotalPrice,
+                StatusID = (int)(invoice.StatusID ?? null),
                 InvoiceDetails = invoice.InvoiceDetails.Select(d => new InvoiceDetailDTO
                 {
                     DetailID = d.DetailID,
@@ -70,8 +70,8 @@ namespace BLL.Services
                     {
                         UserID = invoiceDTO.UserID,
                         CreatedDate = invoiceDTO.CreatedDate,
-                        TotalAmount = invoiceDTO.TotalAmount,
-                        Status = invoiceDTO.Status
+                        TotalPrice = invoiceDTO.TotalPrice,
+                        StatusID = invoiceDTO.StatusID,
                     };
 
                     int invoiceID = _invoiceRepositoryDAL.AddInvoice(invoice);
@@ -85,10 +85,10 @@ namespace BLL.Services
                             throw new Exception($"Product ID {detail.ProductID} not found");
                         }
 
-                        if (product.StockQuantity < 0)
-                        {
-                            throw new Exception($"Not enough stock for Product ID {detail.ProductID}");
-                        }
+                        //if (product.StockQuantity < 0)
+                        //{
+                        //    throw new Exception($"Not enough stock for Product ID {detail.ProductID}");
+                        //}
                         var invoiceDetail = new InvoiceDetail
                         {
                             InvoiceID = invoice.InvoiceID,
@@ -102,7 +102,7 @@ namespace BLL.Services
                         invoiceDetailRepositoryDAL.AddInvoiceDetails(invoiceDetail);
 
                         // Cập nhật số lượng sản phẩm trong kho
-                        product.StockQuantity -= detail.Quantity;
+                        //product.StockQuantity -= detail.Quantity;
                         _productRepositoryDAL.UpdateProduct(product);
                     }
                     _context.SaveChanges();

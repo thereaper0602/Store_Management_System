@@ -6,8 +6,6 @@ using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL.Model;
-using DTO.DTO;
 
 namespace DAL.Repository
 {

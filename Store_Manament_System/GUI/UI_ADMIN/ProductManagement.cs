@@ -12,24 +12,26 @@ using System.Xml.Serialization;
 using DTO.DTO;
 using System.IO;
 using System.Security.Cryptography;
-using BLL.Services;
 using BLL;
 
 namespace GUI
 {
     public partial class ProductManagement: UserControl
     {
-        private readonly ProductService prodService;
+        private readonly IProductService _prodService = new ProductService();
         private List<ProductDTO> products;
         private ProductDTO currentProduct = new ProductDTO();
-        private readonly ImageServiceBLL imageService = new ImageServiceBLL();
+        private readonly ImageServiceBLL _imageService = new ImageServiceBLL();
+        private readonly CategoryBLL _categoryBLL = new CategoryBLL();
         public ProductManagement()
         {
             InitializeComponent();
-            prodService = new ProductService();
+        }
+
+        private void loadInitData()
+        {
             loadColumn();
             loadCategoryComboBox();
-            searchLoader.Visible = false;
         }
 
         private void clearForm()
@@ -37,9 +39,7 @@ namespace GUI
             productNameTxt.Clear();
             productDescriptionTxt.Clear();
             categoryComboBox.SelectedItem = null;
-            productStockTxt.Clear();
             productPriceTxt.Clear();
-            productExpiryDatePicker.Value = DateTime.Now;
             productBarCodeTxt.Clear();
             productPicturebox.Image = null;
         }
@@ -47,9 +47,13 @@ namespace GUI
         private void loadCategoryComboBox()
         {
             // Assuming you have a method to get categories
-            List<int> categories = new List<int> { 1, 2, 3 };
+            List<CategoryDTO> categories = _categoryBLL.GetAllCategories();
             categoryComboBox.DataSource = categories;
-            //categoryComboBox.ValueMember = "id"; // Assuming the category has an 'id' property
+            categoryComboBox.DisplayMember = "CategoryName"; // Tên thuộc tính hiển thị
+            categoryComboBox.ValueMember = "CategoryID";     // Tên thuộc tính giá trị
+
+            // Đặt SelectedItem = null để không chọn mặc định
+            categoryComboBox.SelectedItem = null;
         }
 
         private void loadColumn()
@@ -58,7 +62,7 @@ namespace GUI
 
             productDataGridView.Columns.Add(new DataGridViewTextBoxColumn
             {
-                DataPropertyName = "id",
+                DataPropertyName = "ProductID",
                 HeaderText = "ID",
                 Width = 20,
                 ReadOnly = true
@@ -66,60 +70,49 @@ namespace GUI
 
             productDataGridView.Columns.Add(new DataGridViewTextBoxColumn
             {
-                DataPropertyName = "name",
+                DataPropertyName = "ProductName",
                 HeaderText = "Product name",
                 Width = 200
             });
 
             productDataGridView.Columns.Add(new DataGridViewTextBoxColumn
             {
-                DataPropertyName = "description",
+                DataPropertyName = "Description",
                 HeaderText = "Description",
                 Width = 200
             });
 
             productDataGridView.Columns.Add(new DataGridViewTextBoxColumn
             {
-                DataPropertyName = "categoryID",
+                DataPropertyName = "CategoryID",
                 HeaderText = "Category ID",
                 Width = 20
             });
 
-            productDataGridView.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "stockQuantity",
-                HeaderText = "Stock quantity",
-                Width = 50
-            });
 
             productDataGridView.Columns.Add(new DataGridViewTextBoxColumn
             {
-                DataPropertyName = "price",
+                DataPropertyName = "Price",
                 HeaderText = "Price",
                 Width = 50
             });
 
-            productDataGridView.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = "expiryDate",
-                HeaderText = "Expiry date",
-                Width = 200
-            });
         }
 
         public void loadProducts()
         {
             productDataGridView.DataSource = null;
             clearForm();
-            currentProduct.id = 0;
-            products = prodService.GetAllProducts("");
+            currentProduct.ProductID = 0;
+            products = _prodService.GetAllProducts("");
             productDataGridView.DataSource = products;
         }
 
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            currentProduct.id = 0;
+            currentProduct.ProductID = 0;
+            productDataGridView.ClearSelection();
             clearForm();
         }
 
@@ -129,18 +122,16 @@ namespace GUI
             {
                 var selectedRow = productDataGridView.Rows[e.RowIndex];
                 int id = Convert.ToInt32(selectedRow.Cells[0].Value);
-                currentProduct = prodService.GetProductById(id);
+                currentProduct = _prodService.GetProductById(id);
                 if (currentProduct != null)
                 {
-                    productNameTxt.Text = currentProduct.name;
-                    productDescriptionTxt.Text = currentProduct.description;
-                    categoryComboBox.SelectedItem = currentProduct.categoryID;
-                    productStockTxt.Text = currentProduct.stockQuantity.ToString();
-                    productPriceTxt.Text = currentProduct.price.ToString();
-                    productExpiryDatePicker.Value = currentProduct.expiryDate;
-                    productBarCodeTxt.Text = currentProduct.barcode;
+                    productNameTxt.Text = currentProduct.ProductName;
+                    productDescriptionTxt.Text = currentProduct.Description;
+                    categoryComboBox.SelectedValue = currentProduct.CategoryID;
+                    productPriceTxt.Text = currentProduct.Price.ToString();
+                    productBarCodeTxt.Text = currentProduct.ProductCode;
 
-                    ImageDTO image = imageService.GetImageById(currentProduct.imageID);
+                    ImageDTO image = _imageService.GetImageById((int)currentProduct.ImageID);
 
                     if (image != null && File.Exists(image.imagePath)) {
                         using (var stream = new FileStream(image.imagePath, FileMode.Open, FileAccess.Read))
@@ -166,7 +157,7 @@ namespace GUI
             search_pro.Enabled = false;
 
             // Perform the search in a separate thread
-            var searchResult = await Task.Run(() => prodService.GetAllProducts(keyword));
+            var searchResult = await Task.Run(() => _prodService.GetAllProducts(keyword));
 
             if (searchResult != null && searchResult.Count > 0)
             {
@@ -202,19 +193,13 @@ namespace GUI
                 return;
             }
 
-            if (String.IsNullOrEmpty(productStockTxt.Text) || int.Parse(productStockTxt.Text) <= 0)
-            {
-                MessageBox.Show("Product's stock must be bigger than 0");
-                return;
-            }
-
             if (categoryComboBox.SelectedItem == null)
             {
                 MessageBox.Show("Please select a category");
                 return;
             }
         
-            if (currentProduct.id == 0)
+            if ((int)currentProduct.ProductID == 0)
             {
                 // Add new product
                 string imageName = Guid.NewGuid().ToString() + ".jpg";
@@ -242,16 +227,13 @@ namespace GUI
 
                 ProductDTO newProduct = new ProductDTO
                 {
-                    name = productNameTxt.Text,
-                    description = productDescriptionTxt.Text,
-                    categoryID = Convert.ToInt32(categoryComboBox.SelectedItem),
-                    stockQuantity = Convert.ToInt32(productStockTxt.Text),
-                    price = Convert.ToDecimal(productPriceTxt.Text),
-                    expiryDate = productExpiryDatePicker.Value,
-                    barcode = productBarCodeTxt.Text,
-                    imageID = 1 // Set default image ID or handle image upload
+                    ProductName = productNameTxt.Text,
+                    Description = productDescriptionTxt.Text,
+                    CategoryID = (int)categoryComboBox.SelectedValue,
+                    Price = Convert.ToDecimal(productPriceTxt.Text),
+                    ImageID = 1 // Set default image ID or handle image upload
                 };
-                bool result = prodService.AddProduct(newProduct,imageDTO);
+                bool result = _prodService.AddProduct(newProduct,imageDTO);
                 if (result)
                 {
                     MessageBox.Show("Succesfully add new Product");
@@ -265,17 +247,14 @@ namespace GUI
             else
             {
                 // Update existing product
-                currentProduct.name = productNameTxt.Text;
-                currentProduct.description = productDescriptionTxt.Text;
-                currentProduct.categoryID = Convert.ToInt32(categoryComboBox.SelectedItem);
-                currentProduct.stockQuantity = Convert.ToInt32(productStockTxt.Text);
-                currentProduct.price = Convert.ToDecimal(productPriceTxt.Text);
-                currentProduct.expiryDate = productExpiryDatePicker.Value;
-                currentProduct.barcode = productBarCodeTxt.Text;
+                currentProduct.ProductName = productNameTxt.Text;
+                currentProduct.Description = productDescriptionTxt.Text;
+                currentProduct.CategoryID = (int)categoryComboBox.SelectedValue;
+                currentProduct.Price = Convert.ToDecimal(productPriceTxt.Text);
 
                 if (productPicturebox.Image != null)
         {
-                    ImageDTO oldImage = imageService.GetImageById(currentProduct.imageID);
+                    ImageDTO oldImage = _imageService.GetImageById((int)currentProduct.ImageID);
 
                     // Nếu ảnh cũ tồn tại => xóa file ảnh cũ
                     if (oldImage != null && File.Exists(oldImage.imagePath))
@@ -298,10 +277,10 @@ namespace GUI
                     // Cập nhật lại thông tin ảnh trong DB
                     oldImage.imageName = imageName;
                     oldImage.imagePath = imagePath;
-                    imageService.UpdateImage(oldImage); // Bạn cần có hàm này trong ImageServiceBLL
+                    _imageService.UpdateImage(oldImage); // Bạn cần có hàm này trong _imageServiceBLL
         }
 
-                bool result = prodService.UpdateProduct(currentProduct);
+                bool result = _prodService.UpdateProduct(currentProduct);
                 if (result)
                 {
                     MessageBox.Show("Successfully updated product");
@@ -316,13 +295,12 @@ namespace GUI
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            if (currentProduct.id != 0)
+            if (currentProduct.ProductID != 0)
             {
                 DialogResult result = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show($"{currentProduct.id}");
-                    bool deleteResult = prodService.DeleteProduct(currentProduct.id);
+                    bool deleteResult = _prodService.DeleteProduct(currentProduct.ProductID);
                     if (deleteResult)
                     {
                         MessageBox.Show("Successfully deleted product");
@@ -350,6 +328,15 @@ namespace GUI
                     productPicturebox.Image = Image.FromFile(ofd.FileName);
                 }
             }
+        }
+
+        private void ProductManagement_Load(object sender, EventArgs e)
+        {
+            if (!DesignMode)
+            {
+                loadInitData();
+            }
+            searchLoader.Visible = false;
         }
     }
 }

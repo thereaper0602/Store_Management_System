@@ -14,8 +14,6 @@ using Image = System.Drawing.Image;
 using System.IO;
 using System.Text.RegularExpressions;
 
-using System.Drawing;
-
 
 namespace GUI
 {
