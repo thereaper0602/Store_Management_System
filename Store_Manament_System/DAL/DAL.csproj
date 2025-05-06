@@ -130,12 +130,14 @@
     <Compile Include="Repository\InvoiceDetailRepositoryDAL.cs" />
     <Compile Include="Repository\InvoiceRepositoryDAL.cs" />
     <Compile Include="Repository\Implements\ProductRepositoryDAL.cs" />
+    <Compile Include="Repository\IStockRepositoryDAL.cs" />
     <Compile Include="Repository\ReportRepositoryDAL.cs" />
     <Compile Include="Repository\Category_DAL.cs" />
     <Compile Include="Repository\Image_DAL.cs" />
     <Compile Include="Repository\LoginDAL.cs" />
     <Compile Include="Repository\PromotionRepositoryDAL.cs" />
     <Compile Include="Repository\SalaryRepositoryDAL.cs" />
+    <Compile Include="Repository\Implements\StockRepositoryDAL.cs" />
     <Compile Include="Repository\UserRepositoryDAL.cs" />
     <Compile Include="Repository\UserRoleRepositoryDAL.cs" />
     <Compile Include="Repository\UserWorkShiftRepositoryDAL.cs" />

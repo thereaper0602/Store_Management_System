@@ -11,5 +11,11 @@ namespace DAL.Repository
         List<Product> GetAvailableProducts(string kw);
         Product GetProductById(int id);
         bool UpdateProduct(Product product);
+
+        //Phần này của stock repository
+        List<Product> GetProductsByCategoryId(int categoryId);
+        List<Product> GetProductsByStockIds(List<Stock> stocks);
+
+
     }
 }

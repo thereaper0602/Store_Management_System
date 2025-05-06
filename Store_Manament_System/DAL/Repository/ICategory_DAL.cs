@@ -10,5 +10,8 @@ namespace DAL.Repository
         List<Category> GetAllCategories();
         List<Category> SearchCategories(string keyword);
         void UpdateCategory(Category category);
+
+        //Phần này của StockRepositoryDAL
+        List<Category> GetCategoriesByProductIds(List<Product> products);
     }
 }

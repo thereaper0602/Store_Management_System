@@ -106,18 +106,17 @@
     <Compile Include="DTO\InvoiceDTO.cs" />
     <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\ImageDTO.cs" />
-    <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="DTO\SalaryDTO.cs" />
-    <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\PromotionDTO.cs" />
+    <Compile Include="DTO\StockDTO.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\UserRoleDTO.cs" />
     <Compile Include="DTO\UserWorkShiftDTO.cs" />
     <Compile Include="DTO\WorkShiftDTO.cs" />
     <Compile Include="DTO\ProductRevenueDTO.cs" />
     <Compile Include="DTO\ReportType.cs" />
     <Compile Include="DTO\RevenueDTO.cs" />
-    <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -358,6 +358,7 @@ namespace GUI
             }
         }
 
+
         //lay du lieu tu sql workshift vao combobox
         private void LoadWorkShift()
         {

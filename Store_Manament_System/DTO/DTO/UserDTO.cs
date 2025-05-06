@@ -22,7 +22,6 @@ namespace DTO.DTO
 
         public DateTime hireDate { get; set; }
 
-        public int imageID { get; set; } 
+        public int imageID { get; set; }
     }
 }
-
