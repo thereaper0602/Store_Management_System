@@ -15,14 +15,11 @@ namespace DTO.DTO
         public string gender { get; set; }
         public string userName { get; set; }
         public string password { get; set; }
-
         public int roleID { get; set; }
         public string phoneNumber { get; set; }
         public string email { get; set; }
-
         public DateTime hireDate { get; set; }
-
-        public int imageID { get; set; } 
+        public int imageID { get; set; }
     }
 }
 

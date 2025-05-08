@@ -131,7 +131,7 @@
     <Compile Include="Repository\InvoiceRepositoryDAL.cs" />
     <Compile Include="Repository\Implements\ProductRepositoryDAL.cs" />
     <Compile Include="Repository\ReportRepositoryDAL.cs" />
-    <Compile Include="Repository\Category_DAL.cs" />
+    <Compile Include="Repository\Implements\Category_DAL.cs" />
     <Compile Include="Repository\Image_DAL.cs" />
     <Compile Include="Repository\LoginDAL.cs" />
     <Compile Include="Repository\PromotionRepositoryDAL.cs" />
