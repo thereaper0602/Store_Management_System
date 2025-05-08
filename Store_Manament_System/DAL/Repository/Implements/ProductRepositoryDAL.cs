@@ -84,5 +84,19 @@ namespace DAL.Repository
                 return false;
             }
         }
+
+        //Phần này của StockRepositoryDAL
+        public List<Product> GetProductsByCategoryId(int categoryId)
+        {
+            return _context.Products.Where(p => p.CategoryID == categoryId).ToList();
+        }
+
+        public List<Product> GetProductsByStockIds(List<Stock> stocks)
+        {
+            var productIds = stocks.Select(s => s.ProductID).Distinct().ToList();
+            return _context.Products
+                .Where(p => productIds.Contains(p.ProductID))
+                .ToList();
+        }
     }
 }

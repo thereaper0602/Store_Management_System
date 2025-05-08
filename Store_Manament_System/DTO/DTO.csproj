@@ -109,6 +109,7 @@
     <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="DTO\SalaryDTO.cs" />
     <Compile Include="DTO\PromotionDTO.cs" />
+    <Compile Include="DTO\StockDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\UserRoleDTO.cs" />
     <Compile Include="DTO\UserWorkShiftDTO.cs" />

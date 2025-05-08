@@ -167,6 +167,12 @@
     <Compile Include="UI_ADMIN\Statistics.Designer.cs">
       <DependentUpon>Statistics.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI_ADMIN\StockManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI_ADMIN\StockManagement.Designer.cs">
+      <DependentUpon>StockManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI_SALE\MainSaleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +237,9 @@
     </Compile>
     <EmbeddedResource Include="UI_ADMIN\Statistics.resx">
       <DependentUpon>Statistics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI_ADMIN\StockManagement.resx">
+      <DependentUpon>StockManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI_SALE\MainSaleForm.resx">
       <DependentUpon>MainSaleForm.cs</DependentUpon>

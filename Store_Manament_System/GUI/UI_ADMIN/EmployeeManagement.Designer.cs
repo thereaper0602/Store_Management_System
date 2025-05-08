@@ -34,17 +34,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            //System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            //System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            //System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            //System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
@@ -101,6 +97,11 @@
             this.cbWorkShiftName = new System.Windows.Forms.ComboBox();
             this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
             this.viewWorkShift = new Bunifu.UI.WinForms.BunifuDataGridView();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WorkShiftName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WorkDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPageSalary = new System.Windows.Forms.TabPage();
             this.cbYear = new System.Windows.Forms.ComboBox();
             this.cbMonth = new System.Windows.Forms.ComboBox();
@@ -112,12 +113,7 @@
             this.MorningShift = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AfternoonShift = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EveningShift = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            //this.Salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WorkShiftName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WorkDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.detail_cate)).BeginInit();
             this.tabControlEmployee.SuspendLayout();
             this.tabPageEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.viewUser)).BeginInit();
@@ -202,13 +198,13 @@
             this.detail_cate.EnableHeadersVisualStyles = false;
             this.detail_cate.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
             this.detail_cate.HeaderBackColor = System.Drawing.Color.DarkSlateGray;
-            this.detail_cate.HeaderBackColor = System.Drawing.Color.Empty;
+            this.detail_cate.HeaderBgColor = System.Drawing.Color.Empty;
             this.detail_cate.HeaderForeColor = System.Drawing.Color.White;
             this.detail_cate.Location = new System.Drawing.Point(13, 130);
             this.detail_cate.Name = "detail_cate";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Poppins Medium", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Teal;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -276,11 +272,13 @@
             // Salary
             // 
             this.Salary.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Salary.DataPropertyName = "salary";
             this.Salary.FillWeight = 109.188F;
             this.Salary.Frozen = true;
             this.Salary.HeaderText = "Salary";
-            this.Salary.MinimumWidth = 10;
+            this.Salary.MinimumWidth = 9;
             this.Salary.Name = "Salary";
+            this.Salary.ReadOnly = true;
             this.Salary.Width = 180;
             // 
             // btUpdate
@@ -763,25 +761,9 @@
             this.tbSearchUser.Modified = false;
             this.tbSearchUser.Multiline = false;
             this.tbSearchUser.Name = "tbSearchUser";
-            stateProperties1.BorderColor = System.Drawing.Color.PowderBlue;
-            stateProperties1.FillColor = System.Drawing.Color.Empty;
-            stateProperties1.ForeColor = System.Drawing.Color.Empty;
-            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.tbSearchUser.OnActiveState = stateProperties1;
-            stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties2.PlaceholderForeColor = System.Drawing.Color.DarkGray;
             this.tbSearchUser.OnDisabledState = stateProperties2;
-            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties3.FillColor = System.Drawing.Color.Empty;
-            stateProperties3.ForeColor = System.Drawing.Color.Empty;
-            stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.tbSearchUser.OnHoverState = stateProperties3;
-            stateProperties4.BorderColor = System.Drawing.Color.Silver;
-            stateProperties4.FillColor = System.Drawing.Color.White;
-            stateProperties4.ForeColor = System.Drawing.Color.Empty;
-            stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.tbSearchUser.OnIdleState = stateProperties4;
             this.tbSearchUser.Padding = new System.Windows.Forms.Padding(3);
             this.tbSearchUser.PasswordChar = '\0';
@@ -837,21 +819,12 @@
             // viewUser
             // 
             this.viewUser.AllowCustomTheming = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.viewUser.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.viewUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.viewUser.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.viewUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.viewUser.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.viewUser.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.viewUser.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.viewUser.ColumnHeadersHeight = 40;
             this.viewUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -884,13 +857,6 @@
             this.viewUser.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.viewUser.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(149)))), ((int)(((byte)(149)))));
             this.viewUser.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(149)))), ((int)(((byte)(149)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.viewUser.DefaultCellStyle = dataGridViewCellStyle3;
             this.viewUser.EnableHeadersVisualStyles = false;
             this.viewUser.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
@@ -899,13 +865,6 @@
             this.viewUser.HeaderForeColor = System.Drawing.Color.White;
             this.viewUser.Location = new System.Drawing.Point(2, 79);
             this.viewUser.Name = "viewUser";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Poppins Medium", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.viewUser.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.viewUser.RowHeadersVisible = false;
             this.viewUser.RowHeadersWidth = 62;
@@ -1177,7 +1136,7 @@
             this.tbFullNameWork.SelectionLength = 0;
             this.tbFullNameWork.SelectionStart = 0;
             this.tbFullNameWork.ShortcutsEnabled = true;
-            this.tbFullNameWork.Size = new System.Drawing.Size(290, 42);
+            this.tbFullNameWork.Size = new System.Drawing.Size(290, 72);
             this.tbFullNameWork.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.tbFullNameWork.TabIndex = 38;
             this.tbFullNameWork.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1271,7 +1230,7 @@
             this.tbUserIDWork.SelectionLength = 0;
             this.tbUserIDWork.SelectionStart = 0;
             this.tbUserIDWork.ShortcutsEnabled = true;
-            this.tbUserIDWork.Size = new System.Drawing.Size(288, 42);
+            this.tbUserIDWork.Size = new System.Drawing.Size(288, 72);
             this.tbUserIDWork.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.tbUserIDWork.TabIndex = 36;
             this.tbUserIDWork.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1405,6 +1364,46 @@
             this.viewWorkShift.Size = new System.Drawing.Size(1199, 600);
             this.viewWorkShift.TabIndex = 9;
             this.viewWorkShift.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.DarkSlateGray;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "userID";
+            this.dataGridViewTextBoxColumn10.HeaderText = "UserID";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "fullName";
+            this.dataGridViewTextBoxColumn11.HeaderText = "FullName";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "gender";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Gender";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // WorkShiftName
+            // 
+            this.WorkShiftName.DataPropertyName = "workShiftName";
+            this.WorkShiftName.HeaderText = "Work Shift Name";
+            this.WorkShiftName.MinimumWidth = 9;
+            this.WorkShiftName.Name = "WorkShiftName";
+            this.WorkShiftName.ReadOnly = true;
+            // 
+            // WorkDate
+            // 
+            this.WorkDate.DataPropertyName = "workDate";
+            this.WorkDate.HeaderText = "Daily Work";
+            this.WorkDate.MinimumWidth = 9;
+            this.WorkDate.Name = "WorkDate";
+            this.WorkDate.ReadOnly = true;
             // 
             // tabPageSalary
             // 
@@ -1549,16 +1548,8 @@
             dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            //this.viewSalary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            //this.viewSalary.ColumnHeadersHeight = 40;
-            //this.viewSalary.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            //this.dataGridViewTextBoxColumn13,
-            //this.dataGridViewTextBoxColumn14,
-            //this.dataGridViewTextBoxColumn15,
-            //this.MorningShift,
-            //this.AfternoonShift,
-            //this.EveningShift,
-            //this.Salary});
+            this.viewSalary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.viewSalary.ColumnHeadersHeight = 40;
             this.viewSalary.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
             this.viewSalary.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.viewSalary.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
@@ -1617,6 +1608,7 @@
             this.dataGridViewTextBoxColumn13.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Width = 175;
             // 
             // dataGridViewTextBoxColumn14
             // 
@@ -1625,6 +1617,7 @@
             this.dataGridViewTextBoxColumn14.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 175;
             // 
             // dataGridViewTextBoxColumn15
             // 
@@ -1633,6 +1626,7 @@
             this.dataGridViewTextBoxColumn15.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Width = 175;
             // 
             // MorningShift
             // 
@@ -1641,6 +1635,7 @@
             this.MorningShift.MinimumWidth = 9;
             this.MorningShift.Name = "MorningShift";
             this.MorningShift.ReadOnly = true;
+            this.MorningShift.Width = 175;
             // 
             // AfternoonShift
             // 
@@ -1649,6 +1644,7 @@
             this.AfternoonShift.MinimumWidth = 9;
             this.AfternoonShift.Name = "AfternoonShift";
             this.AfternoonShift.ReadOnly = true;
+            this.AfternoonShift.Width = 175;
             // 
             // EveningShift
             // 
@@ -1657,54 +1653,7 @@
             this.EveningShift.MinimumWidth = 9;
             this.EveningShift.Name = "EveningShift";
             this.EveningShift.ReadOnly = true;
-            // 
-            // Salary
-            // 
-            this.Salary.DataPropertyName = "salary";
-            this.Salary.HeaderText = "Salary";
-            this.Salary.MinimumWidth = 9;
-            this.Salary.Name = "Salary";
-            this.Salary.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "userID";
-            this.dataGridViewTextBoxColumn10.HeaderText = "UserID";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "fullName";
-            this.dataGridViewTextBoxColumn11.HeaderText = "FullName";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "gender";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Gender";
-            this.dataGridViewTextBoxColumn12.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
-            // WorkShiftName
-            // 
-            this.WorkShiftName.DataPropertyName = "workShiftName";
-            this.WorkShiftName.HeaderText = "Work Shift Name";
-            this.WorkShiftName.MinimumWidth = 9;
-            this.WorkShiftName.Name = "WorkShiftName";
-            this.WorkShiftName.ReadOnly = true;
-            // 
-            // WorkDate
-            // 
-            this.WorkDate.DataPropertyName = "workDate";
-            this.WorkDate.HeaderText = "Daily Work";
-            this.WorkDate.MinimumWidth = 9;
-            this.WorkDate.Name = "WorkDate";
-            this.WorkDate.ReadOnly = true;
+            this.EveningShift.Width = 175;
             // 
             // EmployeeManagement
             // 
@@ -1714,6 +1663,7 @@
             this.Name = "EmployeeManagement";
             this.Size = new System.Drawing.Size(1214, 814);
             this.Load += new System.EventHandler(this.EmployeeManagement_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.detail_cate)).EndInit();
             this.tabControlEmployee.ResumeLayout(false);
             this.tabPageEmployee.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.viewUser)).EndInit();

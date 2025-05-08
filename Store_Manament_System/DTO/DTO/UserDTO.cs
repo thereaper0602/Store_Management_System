@@ -22,4 +22,3 @@ namespace DTO.DTO
         public int imageID { get; set; }
     }
 }
-

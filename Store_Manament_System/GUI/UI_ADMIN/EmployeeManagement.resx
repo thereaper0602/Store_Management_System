@@ -162,7 +162,7 @@
   <data name="searchbox_pro.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfcAAAAwCAYAAAAM7zOfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAD7SURBVHhe7dVBCcQwAAXR+leVEBkrowJacimshAzvwb98
+        YQUAAAAJcEhZcwAAGdYAABnWARjRyu0AAAD7SURBVHhe7dVBCcQwAAXR+leVEBkrowJacimshAzvwb98
         A3NdAEDPWus3xnjMzMzs3O2ef3HfBwBwtt1zcQeAEHEHgBhxB4AYcQeAGHEHgBhxB4AYcQeAGHEHgBhx
         B4AYcQeAGHEHgBhxB4AYcQeAGHEHgBhxB4AYcQeAGHEHgBhxB4AYcQeAGHEHgBhxB4AYcQeAGHEHgBhx
         B4AYcQeAGHEHgBhxB4AYcQeAGHEHgBhxB4AYcQeAGHEHgBhxB4AYcQeAGHEHgBhxB4AYcQeAGHEHgBhx
@@ -376,11 +376,13 @@
   </data>
   <data name="tbFullNameWork.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAASIAAAAqCAYAAAAXmlZvAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAGdYAABnWARjRyu0AAAC/SURBVHhe7dRBDcMwAATB8EdlyzACIwBa+ROpBLx9zEj3
+        iVBORw0KGgoAAAANSUhEUgAAASIAAABICAYAAABSpvg+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAGdYAABnWARjRyu0AAAEdSURBVHhe7dRBDcMwAATB8EdlyzACIwBa+ROpBLx9zEj3
         OQB7XQD/YK11jzE+ZmYnt9vzhmgfAKft9ggRkBIiICdEQE6IgJwQATkhAnJCBOSECMgJEZATIiAnREBO
         iICcEAE5IQJyQgTkhAjICRGQEyIgJ0RAToiAnBABOSECckIE5IQIyAkRkBMiICdEQE6IgJwQATkhAnJC
-        BOSECMgJEZATIiAnREBOiICcEAG5nxDNOZ99mJmd3G7PGyKA0hcfFnS8ktFdaAAAAABJRU5ErkJggg==
+        BOSECMgJEZATIiAnREBOiICcEAE5IQJyQgTkhAjICRGQEyIgJ0RAToiAnBABOSECckIE5IQIyAkRkBMi
+        ICdEQE6IgJwQATkhAnJCBOSECMgJEZATIiAnREBOiICcEAE5IQJyQgTkhAjICRGQEyIgJ0RA7idEc85n
+        H2ZmJ7fb84YIoPQFtrrJSnHZld4AAAAASUVORK5CYII=
 </value>
   </data>
   <data name="bunifuLabel4.BaseStylesheet" xml:space="preserve">
@@ -388,11 +390,13 @@
   </data>
   <data name="tbUserIDWork.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAASAAAAAqCAYAAAATb4ZSAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAGdYAABnWARjRyu0AAAC+SURBVHhe7dQxDcQwAATB8EdlyzAeRgAkchPpCXibGema
+        iVBORw0KGgoAAAANSUhEUgAAASAAAABICAYAAABWUygDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAGdYAABnWARjRyu0AAAEbSURBVHhe7dQxDcQwAATB8EdlyzAeRgAkchPpCXibGema
         A7DXBVBaa/3GGI+Z2Ynt5nwB2gfAKbs5AgQkBAjICBCQESAgI0BARoCAjAABGQECMgIEZAQIyAgQkBEg
         ICNAQEaAgIwAARkBAjICBGQECMgIEJARICAjQEBGgICMAAEZAQIyAgRkBAjICBCQESAgI0BARoCAjAAB
-        GQECMgIEZAQIyAgQkBEgICNAQOYvQHPOex9mZie2m/MFCKDwAgm8OOHQQrZmAAAAAElFTkSuQmCC
+        GQECMgIEZAQIyAgQkBEgICNAQEaAgIwAARkBAjICBGQECMgIEJARICAjQEBGgICMAAEZAQIyAgRkBAjI
+        CBCQESAgI0BARoCAjAABGQECMgIEZAQIyAgQkBEgICNAQEaAgIwAARkBAjICBGQECMgIEJD5C9Cc896H
+        mdmJ7eZ8AQIovIXYnlCMIiQrAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="bunifuLabel3.BaseStylesheet" xml:space="preserve">
@@ -450,9 +454,6 @@
     <value>True</value>
   </metadata>
   <metadata name="EveningShift.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Salary.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
 </root>

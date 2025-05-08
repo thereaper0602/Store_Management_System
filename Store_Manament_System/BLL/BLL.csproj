@@ -107,11 +107,13 @@
     <Compile Include="Services\EmployeeServiceBLL.cs" />
     <Compile Include="Services\ImageServiceBLL.cs" />
     <Compile Include="Services\IProductService.cs" />
+    <Compile Include="Services\IStockServiceBLL.cs" />
     <Compile Include="Services\PromotionServiceBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\LoginBLL.cs" />
     <Compile Include="Services\InvoiceServiceBLL.cs" />
     <Compile Include="Services\Implements\ProductService.cs" />
+    <Compile Include="Services\Implements\StockServiceBLL.cs" />
     <Compile Include="Services\UserRoleServiceBLL.cs" />
     <Compile Include="Services\WorkShiftServiceBLL.cs" />
     <Compile Include="Services\ReportServicesBLL.cs" />
