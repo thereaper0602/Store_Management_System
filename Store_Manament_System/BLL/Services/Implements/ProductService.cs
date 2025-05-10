@@ -183,5 +183,17 @@ namespace BLL.Services
                 }).ToList();
         }
 
+
+        //Lay danh sach san pham theo categoryID
+        public List<ProductDTO> GetProductsByCategoryId(int categoryId)
+        {
+            var products = productRepositoryDAL.GetProductsByCategoryId(categoryId);
+            return products.Select(p => new ProductDTO
+            {
+                ProductID = p.ProductID,
+                ProductName = p.ProductName,
+                CategoryID = p.CategoryID
+            }).ToList();
+        }
     }
 }

@@ -6,10 +6,8 @@ namespace BLL.Services
     public interface IStockServiceBLL
     {
          
-        void AddStock(StockDTO stock);
-        List<CategoryDTO> GetAllCategories();
+        bool AddStock(StockDTO stock);
         List<StockDTO> GetAllStocks();
-        List<ProductDTO> GetProductsByCategoryId(int categoryId);
         List<StockDTO> GetStocksToOrder();
 
         void Validate(StockDTO stock);

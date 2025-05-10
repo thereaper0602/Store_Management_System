@@ -81,7 +81,7 @@ namespace GUI.UI_ADMIN
             try
             {
                 // Tải danh sách CategoryName từ cơ sở dữ liệu
-                StockServiceBLL category = new StockServiceBLL();
+                ICategoryBLL category = new CategoryBLL();
                 List<CategoryDTO> categoryName = category.GetAllCategories();
                 if (categoryName != null && categoryName.Count > 0)
                 {
@@ -109,10 +109,14 @@ namespace GUI.UI_ADMIN
 
         private void LoadProductsByCategory(int categoryId)
         {
-            var products = _stockService.GetProductsByCategoryId(categoryId); // Lấy danh sách sản phẩm theo CategoryID
-            cbProductName.DataSource = products;
+            // Tải danh sách CategoryName từ cơ sở dữ liệu
+            IProductService products = new ProductService();
+            List<ProductDTO> productName = products.GetProductsByCategoryId(categoryId); // Lấy danh sách sản phẩm theo CategoryID
+
+            cbProductName.DataSource = productName;
             cbProductName.DisplayMember = "ProductName"; // Hiển thị tên sản phẩm
             cbProductName.ValueMember = "ProductID"; // Giá trị là ProductID
+
         }
 
         // Tự điền ProductID theo ProductName

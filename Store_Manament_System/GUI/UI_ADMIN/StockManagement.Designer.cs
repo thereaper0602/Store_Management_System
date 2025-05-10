@@ -33,6 +33,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -54,18 +58,17 @@
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties14 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties15 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties16 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.viewStock = new Bunifu.UI.WinForms.BunifuDataGridView();
+            this.StockID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColImportDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.viewStockToOrder = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.ColCategories = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColProducts = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColStockQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bunifuShadowPanel1 = new Bunifu.UI.WinForms.BunifuShadowPanel();
             this.btSaveStock = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.tbQuantity = new Bunifu.UI.WinForms.BunifuTextBox();
@@ -85,12 +88,9 @@
             this.bunifuLabel3 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
             this.tabCtrolStock = new System.Windows.Forms.TabControl();
-            this.StockID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StockQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColImportDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCategories = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColProducts = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColStockQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.viewStock)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -206,6 +206,63 @@
             this.viewStock.TabIndex = 11;
             this.viewStock.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.DarkSlateGray;
             // 
+            // StockID
+            // 
+            this.StockID.DataPropertyName = "stockID";
+            this.StockID.HeaderText = "StockID";
+            this.StockID.MinimumWidth = 9;
+            this.StockID.Name = "StockID";
+            this.StockID.ReadOnly = true;
+            // 
+            // ProductID
+            // 
+            this.ProductID.DataPropertyName = "productID";
+            this.ProductID.HeaderText = "ProductID";
+            this.ProductID.MinimumWidth = 9;
+            this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
+            // 
+            // Cost
+            // 
+            this.Cost.DataPropertyName = "cost";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N2";
+            this.Cost.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Cost.HeaderText = "Cost";
+            this.Cost.MinimumWidth = 9;
+            this.Cost.Name = "Cost";
+            this.Cost.ReadOnly = true;
+            // 
+            // StockQuantity
+            // 
+            this.StockQuantity.DataPropertyName = "stockQuantity";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.StockQuantity.DefaultCellStyle = dataGridViewCellStyle4;
+            this.StockQuantity.HeaderText = "Stock Quantity";
+            this.StockQuantity.MinimumWidth = 9;
+            this.StockQuantity.Name = "StockQuantity";
+            this.StockQuantity.ReadOnly = true;
+            // 
+            // ColImportDate
+            // 
+            this.ColImportDate.DataPropertyName = "importDate";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColImportDate.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ColImportDate.HeaderText = "Import Date";
+            this.ColImportDate.MinimumWidth = 9;
+            this.ColImportDate.Name = "ColImportDate";
+            this.ColImportDate.ReadOnly = true;
+            // 
+            // ColExpiryDate
+            // 
+            this.ColExpiryDate.DataPropertyName = "expiryDate";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.ColExpiryDate.DefaultCellStyle = dataGridViewCellStyle6;
+            this.ColExpiryDate.HeaderText = "Expiry Date";
+            this.ColExpiryDate.MinimumWidth = 9;
+            this.ColExpiryDate.Name = "ColExpiryDate";
+            this.ColExpiryDate.ReadOnly = true;
+            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.viewStockToOrder);
@@ -293,30 +350,6 @@
             this.viewStockToOrder.TabIndex = 10;
             this.viewStockToOrder.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.DarkSlateGray;
             this.viewStockToOrder.SelectionChanged += new System.EventHandler(this.viewStockToOrder_SelectionChanged);
-            // 
-            // ColCategories
-            // 
-            this.ColCategories.DataPropertyName = "categoryName";
-            this.ColCategories.HeaderText = "Category Name";
-            this.ColCategories.MinimumWidth = 9;
-            this.ColCategories.Name = "ColCategories";
-            this.ColCategories.ReadOnly = true;
-            // 
-            // ColProducts
-            // 
-            this.ColProducts.DataPropertyName = "productName";
-            this.ColProducts.HeaderText = "Product Name";
-            this.ColProducts.MinimumWidth = 9;
-            this.ColProducts.Name = "ColProducts";
-            this.ColProducts.ReadOnly = true;
-            // 
-            // ColStockQuantity
-            // 
-            this.ColStockQuantity.DataPropertyName = "totalQuantity";
-            this.ColStockQuantity.HeaderText = "Quantity";
-            this.ColStockQuantity.MinimumWidth = 9;
-            this.ColStockQuantity.Name = "ColStockQuantity";
-            this.ColStockQuantity.ReadOnly = true;
             // 
             // bunifuShadowPanel1
             // 
@@ -969,62 +1002,29 @@
             this.tabCtrolStock.TabIndex = 0;
             this.tabCtrolStock.SelectedIndexChanged += new System.EventHandler(this.tabCtrolStock_SelectedIndexChanged);
             // 
-            // StockID
+            // ColCategories
             // 
-            this.StockID.DataPropertyName = "stockID";
-            this.StockID.HeaderText = "StockID";
-            this.StockID.MinimumWidth = 9;
-            this.StockID.Name = "StockID";
-            this.StockID.ReadOnly = true;
+            this.ColCategories.DataPropertyName = "categoryName";
+            this.ColCategories.HeaderText = "Category Name";
+            this.ColCategories.MinimumWidth = 9;
+            this.ColCategories.Name = "ColCategories";
+            this.ColCategories.ReadOnly = true;
             // 
-            // ProductID
+            // ColProducts
             // 
-            this.ProductID.DataPropertyName = "productID";
-            this.ProductID.HeaderText = "ProductID";
-            this.ProductID.MinimumWidth = 9;
-            this.ProductID.Name = "ProductID";
-            this.ProductID.ReadOnly = true;
+            this.ColProducts.DataPropertyName = "productName";
+            this.ColProducts.HeaderText = "Product Name";
+            this.ColProducts.MinimumWidth = 9;
+            this.ColProducts.Name = "ColProducts";
+            this.ColProducts.ReadOnly = true;
             // 
-            // Cost
+            // ColStockQuantity
             // 
-            this.Cost.DataPropertyName = "cost";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "N2";
-            this.Cost.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Cost.HeaderText = "Cost";
-            this.Cost.MinimumWidth = 9;
-            this.Cost.Name = "Cost";
-            this.Cost.ReadOnly = true;
-            // 
-            // StockQuantity
-            // 
-            this.StockQuantity.DataPropertyName = "stockQuantity";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.StockQuantity.DefaultCellStyle = dataGridViewCellStyle4;
-            this.StockQuantity.HeaderText = "Stock Quantity";
-            this.StockQuantity.MinimumWidth = 9;
-            this.StockQuantity.Name = "StockQuantity";
-            this.StockQuantity.ReadOnly = true;
-            // 
-            // ColImportDate
-            // 
-            this.ColImportDate.DataPropertyName = "importDate";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColImportDate.DefaultCellStyle = dataGridViewCellStyle5;
-            this.ColImportDate.HeaderText = "Import Date";
-            this.ColImportDate.MinimumWidth = 9;
-            this.ColImportDate.Name = "ColImportDate";
-            this.ColImportDate.ReadOnly = true;
-            // 
-            // ColExpiryDate
-            // 
-            this.ColExpiryDate.DataPropertyName = "expiryDate";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.ColExpiryDate.DefaultCellStyle = dataGridViewCellStyle6;
-            this.ColExpiryDate.HeaderText = "Expiry Date";
-            this.ColExpiryDate.MinimumWidth = 9;
-            this.ColExpiryDate.Name = "ColExpiryDate";
-            this.ColExpiryDate.ReadOnly = true;
+            this.ColStockQuantity.DataPropertyName = "totalQuantity";
+            this.ColStockQuantity.HeaderText = "Quantity";
+            this.ColStockQuantity.MinimumWidth = 9;
+            this.ColStockQuantity.Name = "ColStockQuantity";
+            this.ColStockQuantity.ReadOnly = true;
             // 
             // StockManagement
             // 
@@ -1072,14 +1072,14 @@
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel3;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel2;
         private System.Windows.Forms.TabControl tabCtrolStock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColCategories;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColProducts;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColStockQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn StockQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColImportDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColExpiryDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCategories;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColProducts;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColStockQuantity;
     }
 }

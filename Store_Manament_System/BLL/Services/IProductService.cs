@@ -11,5 +11,7 @@ namespace BLL.Services
         List<ProductDTO> GetAvailableProducts(string kw);
         ProductDTO GetProductById(int id);
         bool UpdateProduct(ProductDTO productDTO);
+
+        List<ProductDTO> GetProductsByCategoryId(int categoryId);
     }
 }
