@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using DAL.Model;
 using DTO.DTO;
 
-
 namespace DAL.Repository
 {
     public class UserRepositoryDAL
@@ -318,9 +317,6 @@ namespace DAL.Repository
                 .FirstOrDefault();
             return user ?? "No found";
         }
-
-        
-
 
     }
 }

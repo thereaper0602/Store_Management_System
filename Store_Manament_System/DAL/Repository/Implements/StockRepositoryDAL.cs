@@ -32,6 +32,37 @@ namespace DAL.Repository
             _context.Stocks.Add(stock);
             _context.SaveChanges();
         }
+
+        // Lấy stock gần đát nhất cho 1 sản phẩm
+        public Stock GetClosestStockByProductID(int productID)
+        {
+            return _context.Stocks.Select(s => s)
+                .Where(s => s.ProductID == productID && s.StockQuantity > 0)
+                .OrderBy(s => s.ExpiryDate)
+                .FirstOrDefault();
+        }
+
+        public bool UpdateStock(Stock stock) {
+            var existingStock = _context.Stocks.Find(stock.StockID);
+
+            if (existingStock == null)
+            {
+                return false;
+            }
+
+            try
+            {
+                _context.Entry(existingStock).CurrentValues.SetValues(stock);
+                return _context.SaveChanges() > 0;
+            }
+            catch (Exception ex)
+            {
+                // Ghi log lỗi hoặc hiện thông báo
+                Console.WriteLine("Error when updating stock: " + ex.Message);
+                return false;
+            }
+
+        }
     }
 }
 

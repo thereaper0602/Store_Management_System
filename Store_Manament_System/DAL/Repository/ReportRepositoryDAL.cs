@@ -12,10 +12,48 @@ namespace DAL.Repository
     public class ReportRepositoryDAL
     {
         private readonly StoreContext _context = new StoreContext();
-        public int getTotalProducts()
+
+        // Lấy ra tổng số tiền đã nhập vào kho
+        public int getTotalCostOfGoodsSoldToday()
         {
-            return 0;
+            DateTime today = DateTime.Today;
+            //DateTime fromDate = today.AddDays(-7);
+            var totalCost = (from stock in _context.Stocks
+                             where DbFunctions.TruncateTime(stock.ImportDate) == today
+                             select (int?)stock.Cost).Sum();
+            return (totalCost ?? 0);
         }
+
+        public int getTotalCostOfGoodsSoldThisWeek()
+        {
+            DateTime today = DateTime.Today;
+            DateTime fromDate = today.AddDays(-7);
+            var totalCost = (from stock in _context.Stocks
+                             where DbFunctions.TruncateTime(stock.ImportDate) >= fromDate
+                             select (int?)stock.Cost).Sum();
+            return (totalCost ?? 0);
+        }
+
+        public int getTotalCostOfGoodsSoldThisMonth()
+        {
+            DateTime today = DateTime.Today;
+            DateTime fromDate = new DateTime(today.Year, today.Month, 1);
+            var totalCost = (from stock in _context.Stocks
+                             where DbFunctions.TruncateTime(stock.ImportDate) >= fromDate
+                             select (int?)stock.Cost).Sum();
+            return (totalCost ?? 0);
+        }
+
+        public int getTotalCostOfGoodsSoldThisYear()
+        {
+            DateTime today = DateTime.Today;
+            DateTime fromDate = new DateTime(today.Year, 1, 1);
+            var totalCost = (from stock in _context.Stocks
+                             where DbFunctions.TruncateTime(stock.ImportDate) >= fromDate
+                             select (int?)stock.Cost).Sum();
+            return (totalCost ?? 0);
+        }
+
 
         public int getTotalProductsSoldToday()
         {
@@ -36,7 +74,7 @@ namespace DAL.Repository
                                 on detail.InvoiceID equals invoice.InvoiceID
                                 where DbFunctions.TruncateTime(invoice.CreatedDate) == today
                                 select (decimal?)detail.Quantity * detail.UnitPrice).Sum();
-            return (int)(totalRevenue ?? 0); // Explicitly cast decimal to int
+            return (int)(totalRevenue ?? 0);
         }
 
         public int getTotalProductsSoldThisMonth()
@@ -149,7 +187,7 @@ namespace DAL.Repository
             int currentYear = today.Year;
             List<RevenueDTO> result = new List<RevenueDTO>();
 
-            // Case 1: Only month selected (use current year)
+            // Case 1: Chỉ chọn tháng (không chọn năm)
             if (selectedMonth.HasValue && !selectedYear.HasValue)
             {
                 DateTime startDate = new DateTime(currentYear, selectedMonth.Value, 1);
@@ -179,7 +217,7 @@ namespace DAL.Repository
                     result.Add(revenue);
                 }
             }
-            // Case 2: Both month and year selected
+            // Case 2: Chọn cả năm và tháng
             else if (selectedMonth.HasValue && selectedYear.HasValue)
             {
                 DateTime startDate = new DateTime(selectedYear.Value, selectedMonth.Value, 1);
@@ -209,7 +247,7 @@ namespace DAL.Repository
                     result.Add(revenue);
                 }
             }
-            // Case 3: Only year selected (show monthly revenue)
+            // Case 3: Chỉ chọn năm (không chọn tháng)
             else if (!selectedMonth.HasValue && selectedYear.HasValue)
             {
                 DateTime startDate = new DateTime(selectedYear.Value, 1, 1);

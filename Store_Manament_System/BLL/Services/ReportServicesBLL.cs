@@ -16,19 +16,67 @@ namespace BLL
     {
         private readonly ReportRepositoryDAL reportRepositoryDAL = new ReportRepositoryDAL();
 
-        public int getTotalProducts()
+        public int getTotalCostOfGoodsSoldToday()
         {
             try
             {
-                return reportRepositoryDAL.getTotalProducts();
+                return reportRepositoryDAL.getTotalCostOfGoodsSoldToday();
             }
             catch (SqlException e)
             {
-                throw new Exception("Lỗi kết nối cơ sở dữ liệu", e);
+                throw new Exception("Database error : ", e);
             }
             catch (Exception e)
             {
-                throw new Exception("Lỗi không xác định", e);
+                throw new Exception(e.Message);
+            }
+        }
+
+        public int getTotalCostOfGoodsSoldThisWeek()
+        {
+            try
+            {
+                return reportRepositoryDAL.getTotalCostOfGoodsSoldThisWeek();
+            }
+            catch (SqlException e)
+            {
+                throw new Exception("Database error : ", e);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public int getTotalCostOfGoodsSoldThisMonth()
+        {
+            try
+            {
+                return reportRepositoryDAL.getTotalCostOfGoodsSoldThisMonth();
+            }
+            catch (SqlException e)
+            {
+                throw new Exception("Database error : ", e);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public int getTotalCostOfGoodsSoldThisYear()
+        {
+            try
+            {
+                return reportRepositoryDAL.getTotalCostOfGoodsSoldThisYear();
+            }
+            catch (SqlException e)
+            {
+                throw new Exception("Database error : ", e);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
             }
         }
 

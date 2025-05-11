@@ -125,6 +125,39 @@ namespace BLL.Services
                 throw new ArgumentException("Expiry date must be after import date.");
             }
         }
+
+        public bool UpdateStock(StockDTO stock)
+        {
+            var existingStock = _stockRepositoryDAL.GetAllStocks().FirstOrDefault(s => s.StockID == stock.stockID);
+            if (existingStock == null)
+            {
+                return false;
+            }
+            existingStock.ProductID = stock.productID;
+            existingStock.Cost = stock.cost;
+            existingStock.StockQuantity = stock.stockQuantity;
+            existingStock.ImportDate = stock.importDate;
+            existingStock.ExpiryDate = stock.expiryDate;
+            return _stockRepositoryDAL.UpdateStock(existingStock);
+        }
+
+        public StockDTO GetClosestStockByProductID(int productID)
+        {
+            var stock = _stockRepositoryDAL.GetClosestStockByProductID(productID);
+            if (stock == null)
+            {
+                return null;
+            }
+            return new StockDTO
+            {
+                stockID = stock.StockID,
+                productID = stock.ProductID,
+                cost = stock.Cost,
+                stockQuantity = stock.StockQuantity,
+                importDate = stock.ImportDate,
+                expiryDate = stock.ExpiryDate
+            };
+        }
     }
 
 }

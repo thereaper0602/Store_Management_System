@@ -16,6 +16,10 @@ namespace DAL.Repository
         List<Product> GetProductsByCategoryId(int categoryId);
         List<Product> GetProductsByStockIds(List<Stock> stocks);
 
+        // Lấy ra khuyến mãi gần nhất theo ID sản phẩm
+        Promotion GetNearestPromotionByProductId(int productId);
+
+        Product GetProductByProductCode(string productCode);
 
     }
 }

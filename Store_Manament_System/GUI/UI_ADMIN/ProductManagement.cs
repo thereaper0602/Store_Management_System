@@ -13,6 +13,11 @@ using DTO.DTO;
 using System.IO;
 using System.Security.Cryptography;
 using BLL;
+using System.Drawing.Drawing2D;
+using ZXing.Common;
+using ZXing.QrCode.Internal;
+using ZXing.Rendering;
+using ZXing;
 
 namespace GUI
 {
@@ -31,7 +36,11 @@ namespace GUI
         private void loadInitData()
         {
             loadColumn();
-            loadCategoryComboBox();
+            if (!DesignMode)
+            {
+                loadProducts();
+                loadCategoryComboBox();
+            }
         }
 
         private void clearForm()
@@ -40,7 +49,7 @@ namespace GUI
             productDescriptionTxt.Clear();
             categoryComboBox.SelectedItem = null;
             productPriceTxt.Clear();
-            productBarCodeTxt.Clear();
+            //productBarCodeTxt.Clear();
             productPicturebox.Image = null;
         }
 
@@ -129,7 +138,10 @@ namespace GUI
                     productDescriptionTxt.Text = currentProduct.Description;
                     categoryComboBox.SelectedValue = currentProduct.CategoryID;
                     productPriceTxt.Text = currentProduct.Price.ToString();
-                    productBarCodeTxt.Text = currentProduct.ProductCode;
+                    //productBarCodeTxt.Text = currentProduct.ProductCode;
+
+                    // Hiển thị qr sản phẩm
+                    loadQR(currentProduct.ProductCode);
 
                     ImageDTO image = _imageService.GetImageById((int)currentProduct.ImageID);
 
@@ -145,6 +157,31 @@ namespace GUI
                     }
                 }
             }
+        }
+
+        private void loadQR(string productQR)
+        {
+            var qrCode = $"{productQR}";
+            BarcodeWriter barcodeWriter = new BarcodeWriter();
+            EncodingOptions encodingOptions = new EncodingOptions() { Width = 250, Height = 250, Margin = 0, PureBarcode = false };
+            encodingOptions.Hints.Add(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+            barcodeWriter.Renderer = new BitmapRenderer();
+            barcodeWriter.Options = encodingOptions;
+            barcodeWriter.Format = BarcodeFormat.QR_CODE;
+            Bitmap bitmap = barcodeWriter.Write(qrCode);
+            //Bitmap logo = resizeImage(Properties.Resources.momo_icon_square_pinkbg_RGB, 32, 32) as Bitmap;
+            //Graphics g = Graphics.FromImage(bitmap);
+            //g.DrawImage(logo, new Point((bitmap.Width - logo.Width) / 2, (bitmap.Height - logo.Height) / 2));
+            bunifuPictureBox1.Image = bitmap;
+        }
+
+        public Image resizeImage(Image image, int new_height, int new_width)
+        {
+            Bitmap new_image = new Bitmap(new_width, new_height);
+            Graphics g = Graphics.FromImage((Image)new_image);
+            g.InterpolationMode = InterpolationMode.High;
+            g.DrawImage(image, 0, 0, new_width, new_height);
+            return new_image;
         }
 
         private async void searchBtn_Click(object sender, EventArgs e)

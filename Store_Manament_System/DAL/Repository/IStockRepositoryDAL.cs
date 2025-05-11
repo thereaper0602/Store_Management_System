@@ -8,5 +8,7 @@ namespace DAL.Repository
         void AddStock(Stock stock);
         List<Stock> GetAllStocks();
         Dictionary<int?, int> GetTotalQuantityByProductId();
+        bool UpdateStock(Stock stock);
+        Stock GetClosestStockByProductID(int productID);
     }
 }

@@ -26,7 +26,7 @@ namespace DAL.Repository
         {
             _context.Invoices.Add(invoice);
             _context.SaveChanges();
-            return _context.SaveChanges();
+            return invoice.InvoiceID;
         }
 
     }

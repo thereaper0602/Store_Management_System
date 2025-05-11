@@ -162,15 +162,18 @@ namespace BLL.Services
             return productRepositoryDAL.DeleteProduct(id);
         }
 
-        public List<ProductDTO> GetAvailableProducts(String kw)
+        public List<ProductDTO> GetAvailableProducts(String kw, int categoryId)
         {
             if (kw == null)
             {
                 kw = "";
             }
+
             var products = productRepositoryDAL.GetAvailableProducts(kw);
+
             return products
                 .Where(p => (p.ProductName.Contains(kw) || p.Description.Contains(kw)))
+                .Where(p => categoryId == -1 || p.CategoryID == categoryId)  // Thêm điều kiện lọc danh mục
                 .Select(p => new ProductDTO
                 {
                     ProductID = p.ProductID,
@@ -180,8 +183,44 @@ namespace BLL.Services
                     Description = p.Description,
                     ImageID = p.ImageID ?? 1,
                     ProductCode = p.ProductCode
-                }).ToList();
+                })
+                .ToList();
         }
 
+        public PromotionDTO GetNearestPromotionByProductId(int productId)
+        {
+            var promotion = productRepositoryDAL.GetNearestPromotionByProductId(productId);
+            if (promotion == null)
+            {
+                return null;
+            }
+            return new PromotionDTO
+            {
+                promotionID = promotion.PromotionID,
+                promotionName = promotion.PromotionName,
+                discountRate = promotion.DiscountRate,
+                startDate = promotion.StartDate,
+                endDate = promotion.EndDate
+            };
+        }
+
+        public ProductDTO GetProductByProductCode(string productCode)
+        {
+            var product = productRepositoryDAL.GetProductByProductCode(productCode);
+            if (product == null)
+            {
+                return null;
+            }
+            return new ProductDTO
+            {
+                ProductID = product.ProductID,
+                ProductName = product.ProductName,
+                CategoryID = product.CategoryID,
+                Price = product.Price,
+                Description = product.Description,
+                ImageID = product.ImageID ?? 1,
+                ProductCode = product.ProductCode
+            };
+        }
     }
 }

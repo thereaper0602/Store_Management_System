@@ -1,4 +1,5 @@
-﻿using DTO.DTO;
+﻿using DAL.Model;
+using DTO.DTO;
 using System.Collections.Generic;
 
 namespace BLL.Services
@@ -8,8 +9,10 @@ namespace BLL.Services
         bool AddProduct(ProductDTO productDTO, ImageDTO imageDTO);
         bool DeleteProduct(int id);
         List<ProductDTO> GetAllProducts(string kw);
-        List<ProductDTO> GetAvailableProducts(string kw);
+        List<ProductDTO> GetAvailableProducts(string kw, int categoryId);
         ProductDTO GetProductById(int id);
         bool UpdateProduct(ProductDTO productDTO);
+        PromotionDTO GetNearestPromotionByProductId(int productId);
+        ProductDTO GetProductByProductCode(string productCode);
     }
 }

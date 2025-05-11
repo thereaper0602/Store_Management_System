@@ -1,16 +1,9 @@
-﻿using DAL.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Security;
-
+using System.Text.RegularExpressions;
 using DAL.Repository;
 using DTO.DTO;
-using System.Text.RegularExpressions;
-using System.Web.UI.WebControls;
 //using BCrypt.Net;
 
 namespace BLL.Services

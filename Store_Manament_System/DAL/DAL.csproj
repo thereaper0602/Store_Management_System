@@ -144,12 +144,6 @@
     <Compile Include="Repository\WorkShiftRepositoryDAL.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DTO\DTO.csproj">
-      <Project>{2cc9c59f-f336-4f31-914d-df36b6c410e5}</Project>
-      <Name>DTO</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -158,7 +152,12 @@
       <DependentUpon>202504141258574_AddFirstAndLastNameToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{2cc9c59f-f336-4f31-914d-df36b6c410e5}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

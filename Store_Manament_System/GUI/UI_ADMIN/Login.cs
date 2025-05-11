@@ -46,19 +46,34 @@ namespace GUI
                 AppSession.CurrentUser = user; // Lưu thông tin người dùng
                 MessageBox.Show($" Welcome back {user.fullName}!\n The homepage is uploading ");
 
+
                 if (user.roleID == 1) // Admin
                 {
-                    MainForm main = new MainForm(); 
-                    main.Show();
-        }
+                    MainForm main = new MainForm();
+                    if(main.ShowDialog() == DialogResult.OK)
+                    {
+                        main.Show();
+                    }
+                    else
+                    {
+                        main.Close();
+                        this.Close();
+                    }
+                    //main.Show();
+                }
                 else // Nhân viên
         {
                     MainSaleForm staff = new MainSaleForm();
-                    staff.Show(); 
+                    if (staff.ShowDialog() == DialogResult.OK)
+                    {
+                        staff.Show();
+                    }
+                    else
+                    {
+                        staff.Close();
+                        this.Close();
+                    }
                 }
-
-                // Ẩn form đăng nhập sau khi đăng nhập thành công
-                this.Hide(); 
         }
             else
         {

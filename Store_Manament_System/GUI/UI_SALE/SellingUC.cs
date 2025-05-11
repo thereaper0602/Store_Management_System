@@ -14,167 +14,244 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AForge;
+using AForge.Video.DirectShow;
+using ZXing;
+using AForge.Video;
 
 namespace GUI.UI_SALE
 {
     public partial class SellingUC : UserControl
     {
-        //private readonly ProductService productService = new ProductService();
-        //private List<>
+        private readonly ProductService productService = new ProductService();
+        private readonly IStockServiceBLL stockService = new StockServiceBLL();
+        private readonly PromotionServiceBLL promotionService = new PromotionServiceBLL();
+        private readonly CategoryBLL categoryService = new CategoryBLL();
+
+        FilterInfoCollection filterInfoCollection; // Danh sách các thiết bị camera
+        VideoCaptureDevice videoCaptureDevice; // Thiết bị camera đang sử dụng
+
+
         public SellingUC()
         {
             InitializeComponent();
-            //flowLayoutPanel2.WrapContents = false;
-            //MessageBox.Show(String.Format("{0}",bunifuShadowPanel6.Size));
         }
 
         private void SellingUC_Load(object sender, EventArgs e)
         {
-            //if (!DesignMode)
-            //{
-            //    InitializeDataGridView();
-            //    LoadProducts();
-            //}
+            if (!DesignMode)
+            {
+                InitializeDataGridView();
+                LoadCategories();
+                LoadProducts();
+            }
+        }
+        public void LoadCategories()
+        {
+            List<CategoryDTO> categories = categoryService.GetAllCategories();
+            categoryCb.Items.Clear();
+
+            // Thêm mục "All categories" vào đầu danh sách
+            categoryCb.Items.Add(new CategoryDTO { CategoryID = -1, CategoryName = "All categories" });
+
+            // Thêm các danh mục khác
+            foreach (var category in categories)
+            {
+                categoryCb.Items.Add(category);
+            }
+
+            // Thiết lập DisplayMember và ValueMember
+            categoryCb.DisplayMember = "CategoryName";
+            categoryCb.ValueMember = "CategoryID";
+
+            // Chọn mục đầu tiên
+            categoryCb.SelectedIndex = 0;
         }
 
         public void LoadProducts()
         {
-            //List<ProductDTO> productsToDisplay = productService.GetAvailableProducts(null);
-            //ProductFlowLayoutPanel.Controls.Clear();
-            //foreach (var product in productsToDisplay)
-            //{
-            //    var panel = CreateProductPanel(product);
-            //    ProductFlowLayoutPanel.Controls.Add(panel);
-            //}
+            List<ProductDTO> productsToDisplay = productService.GetAvailableProducts(null, -1);
+            ProductFlowLayoutPanel.Controls.Clear();
+            foreach (var product in productsToDisplay)
+            {
+                var panel = CreateProductPanel(product);
+                ProductFlowLayoutPanel.Controls.Add(panel);
+            }
         }
 
-        //private BunifuShadowPanel CreateProductPanel(ProductDTO product)
-        //{
-            //var panel = new BunifuShadowPanel();
-            //panel.BorderColor = Color.WhiteSmoke;
-            //panel.BackColor = Color.Transparent;
-            //panel.BorderRadius = 20;
-            //panel.BorderThickness = 1;
-            //panel.FillStyle = BunifuShadowPanel.FillStyles.Solid;
-            //panel.ForeColor = Color.Black;
-            //panel.GradientMode = BunifuShadowPanel.GradientModes.Vertical;
-            //panel.Location = new Point(260, 10);
-            //panel.Margin = new Padding(8, 0, 4, 4);
-            //panel.ShadowColor = Color.DarkGray;
-            //panel.ShadowDept = 2;
-            //panel.ShadowDepth = 5;
-            //panel.ShadowStyle = BunifuShadowPanel.ShadowStyles.ForwardDiagonal;
-            //panel.ShadowTopLeftVisible = false;
-            //panel.Size = new Size(220, 362);
-            //panel.Style = BunifuShadowPanel.BevelStyles.Flat;
+        private BunifuShadowPanel CreateProductPanel(ProductDTO product)
+        {
+            var panel = new BunifuShadowPanel();
+            panel.BorderColor = Color.WhiteSmoke;
+            panel.BackColor = Color.Transparent;
+            panel.BorderRadius = 20;
+            panel.BorderThickness = 1;
+            panel.FillStyle = BunifuShadowPanel.FillStyles.Solid;
+            panel.ForeColor = Color.Black;
+            panel.GradientMode = BunifuShadowPanel.GradientModes.Vertical;
+            panel.Location = new System.Drawing.Point(260, 10);
+            panel.Margin = new Padding(8, 0, 4, 4);
+            panel.ShadowColor = Color.DarkGray;
+            panel.ShadowDept = 2;
+            panel.ShadowDepth = 5;
+            panel.ShadowStyle = BunifuShadowPanel.ShadowStyles.ForwardDiagonal;
+            panel.ShadowTopLeftVisible = false;
+            panel.Size = new Size(200, 320);
+            panel.Style = BunifuShadowPanel.BevelStyles.Flat;
 
-            //// PictureBox cho hình ảnh sản phẩm
-            //PictureBox pictureBox = new PictureBox();
-            //pictureBox.Size = new Size(180, 180);
-            //pictureBox.Location = new Point(20, 10);
-            //pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            //ImageDTO image = LoadImageFromID(product.imageID);
-            //if (image != null && File.Exists(image.imagePath))
-            //{
-            //    using (var stream = new FileStream(image.imagePath, FileMode.Open, FileAccess.Read))
-            //    {
-            //        pictureBox.Image = Image.FromStream(stream);
-            //    }
-            //}
-            //panel.Controls.Add(pictureBox);
+            // PictureBox cho hình ảnh sản phẩm
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.Size = new Size(150, 150);
+            pictureBox.Location = new System.Drawing.Point(20, 10);
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            ImageDTO image = LoadImageFromID((int)product.ImageID);
+            if (image != null && File.Exists(image.imagePath))
+            {
+                using (var stream = new FileStream(image.imagePath, FileMode.Open, FileAccess.Read))
+                {
+                    pictureBox.Image = Image.FromStream(stream);
+                }
+            }
+            panel.Controls.Add(pictureBox);
 
-            //// Label cho tên sản phẩm
-            //Label nameLabel = new Label();
-            //nameLabel.Text = product.name;
-            //nameLabel.Font = new Font("Poppins", 10, FontStyle.Bold);
-            //nameLabel.AutoSize = false;
-            //nameLabel.Size = new Size(200, 25);
-            //nameLabel.Location = new Point(10, 220);
-            //panel.Controls.Add(nameLabel);
+            // Label cho tên sản phẩm
+            Label nameLabel = new Label();
+            nameLabel.Text = product.ProductName;
+            nameLabel.Font = new Font("Poppins", 10, FontStyle.Bold);
+            nameLabel.AutoSize = false;
+            nameLabel.Size = new Size(200, 25);
+            nameLabel.Location = new System.Drawing.Point(10, 220);
+            panel.Controls.Add(nameLabel);
 
-            //// Label cho giá sản phẩm
-            //Label priceLabel = new Label();
-            //priceLabel.Text = product.price.ToString("N0") + " ₫";
-            //priceLabel.ForeColor = Color.DarkGreen;
-            //priceLabel.Font = new Font("Segoe UI", 10, FontStyle.Regular);
-            //priceLabel.AutoSize = false;
-            //priceLabel.Size = new Size(200, 25);
-            //priceLabel.Location = new Point(10, 250);
-            //panel.Controls.Add(priceLabel);
+            // Label cho giá sản phẩm
+            Label priceLabel = new Label();
+            priceLabel.Text = product.Price.ToString("N0") + " ₫";
+            priceLabel.ForeColor = Color.DarkGreen;
+            priceLabel.Font = new Font("Poppins", 10, FontStyle.Regular);
+            priceLabel.AutoSize = false;
+            priceLabel.Size = new Size(200, 25);
+            priceLabel.Location = new System.Drawing.Point(10, 250);
+            panel.Controls.Add(priceLabel);
 
-            //// Button thêm vào giỏ hàng
-            //BunifuButton2 addButton = new BunifuButton2();
-            //addButton.Text = "Add";
-            ////addButton.BackColor = Color.SeaGreen;
-            //addButton.ForeColor = Color.White;
-            //addButton.AutoRoundBorders = true;
-            //addButton.Size = new Size(120, 35);
-            //addButton.Location = new Point(10, 290);
-            //addButton.Click += (sender,e) => AddProductToInvoices(product);
-            //panel.Controls.Add(addButton);
-            //return panel;
-        //}
+            // Label cho khuyến mãi
+            Label promotionLabel = new Label();
+            var promotion = productService.GetNearestPromotionByProductId(product.ProductID);
+            if (promotion != null)
+            {
+                promotionLabel.Text = $"Promotion: {(int)promotion.discountRate}% off";
+                promotionLabel.ForeColor = Color.Red;
+            }
+            else
+            {
+                promotionLabel.Text = "No Promotion";
+                promotionLabel.ForeColor = Color.Gray;
+            }
+            promotionLabel.Font = new Font("Poppins", 10, FontStyle.Regular);
+            promotionLabel.AutoSize = false;
+            promotionLabel.Size = new Size(200, 25);
+            promotionLabel.Location = new System.Drawing.Point(10, 280);
+            panel.Controls.Add(promotionLabel);
 
-        //private ImageDTO LoadImageFromID(int id)
-        //{
-        //    ImageServiceBLL imageService = new ImageServiceBLL();
-        //    return imageService.GetImageById(id);
-        //}
+            // Button thêm vào giỏ hàng
+            BunifuButton2 addButton = new BunifuButton2();
+            addButton.Text = "Add";
+            addButton.Font = new Font("Poppins", 10, FontStyle.Bold);
+            addButton.ForeColor = Color.White;
+            addButton.AutoRoundBorders = true;
+            addButton.Size = new Size(120, 35);
+            addButton.Location = new System.Drawing.Point(30, 180);
+            addButton.Click += (sender, e) => AddProductToInvoices(product);
+            panel.Controls.Add(addButton);
+            return panel;
+        }
+
+        private ImageDTO LoadImageFromID(int id)
+        {
+            ImageServiceBLL imageService = new ImageServiceBLL();
+            return imageService.GetImageById(id);
+        }
 
         private void AddProductToInvoices(ProductDTO product)
         {
-            //bool productExists = false;
-            //foreach (DataGridViewRow row in invoiceDataGridView.Rows)
-            //{
-            //    if (row.Cells["ProductID"].Value != null &&
-            //        Convert.ToInt32(row.Cells["ProductID"].Value) == product.id)
-            //    {
-            //        // Tăng số lượng lên 1
-            //        int currentQuantity = Convert.ToInt32(row.Cells["Quantity"].Value);
+            var stock = stockService.GetClosestStockByProductID(product.ProductID);
+            if (stock == null)
+            {
+                MessageBox.Show("Product not found in stock!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            //        if(currentQuantity >= product.stockQuantity)
-            //        {
-            //            MessageBox.Show("Not enough stock!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //            return;
-            //        }
+            if (stock.stockQuantity <= 0)
+            {
+                MessageBox.Show("Product is out of stock!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            //        row.Cells["Quantity"].Value = currentQuantity + 1;
+            bool productExists = false;
+            foreach (DataGridViewRow row in invoiceDataGridView.Rows)
+            {
+                if (row.Cells["ProductID"].Value != null &&
+                    Convert.ToInt32(row.Cells["ProductID"].Value) == product.ProductID)
+                {
 
-            //        // Cập nhật tổng tiền
-            //        decimal price = Convert.ToDecimal(row.Cells["Price"].Value);
-            //        row.Cells["Total"].Value = (currentQuantity + 1) * price;
 
-            //        productExists = true;
-            //        break;
-            //    }
-            //}
-            //if(!productExists)
-            //{
-            //    // Thêm sản phẩm mới vào DataGridView
-            //    invoiceDataGridView.Rows.Add(
-            //        product.id,
-            //        product.name,
-            //        product.price,
-            //        1,
-            //        product.price
-            //    );
-            //}
-            //UpdateCartTotal();
+                    // Tăng số lượng lên 1
+                    int currentQuantity = Convert.ToInt32(row.Cells["Quantity"].Value);
+
+                    // Kiểm tra số lượng sản phẩm trong kho
+                    if (currentQuantity >= stock.stockQuantity)
+                    {
+                        MessageBox.Show("Not enough stock!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    row.Cells["Quantity"].Value = currentQuantity + 1;
+
+                    // Cập nhật tổng tiền
+                    int discount = 0;
+                    var promotion = productService.GetNearestPromotionByProductId(product.ProductID);
+                    if (promotion != null)
+                    {
+                        discount = (int)promotion.promotionID;
+                    }
+                    decimal price = product.Price - (product.Price * discount / 100);
+                    row.Cells["Total"].Value = (currentQuantity + 1) * price;
+                    productExists = true;
+                    break;
+                }
+            }
+            if (!productExists)
+            {
+                int discount = 0;
+                var promotion = productService.GetNearestPromotionByProductId(product.ProductID);
+                if (promotion != null)
+                {
+                    discount = (int)promotion.promotionID;
+                }
+                // Thêm sản phẩm mới vào DataGridView
+                invoiceDataGridView.Rows.Add(
+                    product.ProductID,
+                    product.ProductName,
+                    promotion != null ? product.Price - (product.Price * discount / 100) : product.Price,
+                    1,
+                    promotion != null ? product.Price - (product.Price * discount / 100) : product.Price
+                );
+            }
+            UpdateCartTotal();
         }
 
         private void UpdateCartTotal()
         {
-            //decimal total = 0;
+            decimal total = 0;
 
-            //foreach (DataGridViewRow row in invoiceDataGridView.Rows)
-            //{
-            //    if (row.Cells["Total"].Value != null)
-            //    {
-            //        total += Convert.ToDecimal(row.Cells["Total"].Value);
-            //    }
-            //}
+            foreach (DataGridViewRow row in invoiceDataGridView.Rows)
+            {
+                if (row.Cells["Total"].Value != null)
+                {
+                    total += Convert.ToDecimal(row.Cells["Total"].Value);
+                }
+            }
 
-            //lblTotal.Text = total.ToString("N0") + " ₫";
+            lblTotal.Text = total.ToString("N0") + " ₫";
         }
 
         private void InitializeDataGridView()
@@ -186,22 +263,26 @@ namespace GUI.UI_SALE
             invoiceDataGridView.Columns.Add("ProductID", "ID");
             invoiceDataGridView.Columns["ProductID"].Visible = false; // Ẩn cột ID nếu không cần hiển thị
 
+
             invoiceDataGridView.Columns.Add("ProductName", "Name");
             invoiceDataGridView.Columns.Add("Price", "Price");
             invoiceDataGridView.Columns["Price"].DefaultCellStyle.Format = "N0";
 
             invoiceDataGridView.Columns.Add("Quantity", "Quantity");
-            invoiceDataGridView.Columns["Quantity"].Width = 120;
+            invoiceDataGridView.Columns["Quantity"].Width = 100;
 
             invoiceDataGridView.Columns.Add("Total", "Total");
             invoiceDataGridView.Columns["Total"].DefaultCellStyle.Format = "N0";
+            invoiceDataGridView.Columns["Total"].ReadOnly = true;
 
             // Thêm nút xóa nếu cần
             DataGridViewButtonColumn deleteButton = new DataGridViewButtonColumn();
             deleteButton.Name = "Delete";
             deleteButton.Text = "Delete";
             deleteButton.UseColumnTextForButtonValue = true;
+            deleteButton.DefaultCellStyle.BackColor = Color.Red;
             invoiceDataGridView.Columns.Add(deleteButton);
+            invoiceDataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Poppins", 8, FontStyle.Regular);
 
             // Xử lý sự kiện click nút xóa
             invoiceDataGridView.CellContentClick += (sender, e) =>
@@ -220,60 +301,99 @@ namespace GUI.UI_SALE
 
         private void payBtn_Click(object sender, EventArgs e)
         {
-            //// Kiểm tra giỏ hàng, không có thì báo lỗi
-            //if (invoiceDataGridView.Rows.Count - 1 == 0)
-            //{
-            //    MessageBox.Show("Please add items before payment!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    return;
-            //}
+            // Kiểm tra giỏ hàng, không có thì báo lỗi
+            if (invoiceDataGridView.Rows.Count - 1 == 0)
+            {
+                MessageBox.Show("Please add items before payment!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            //AppSession.CurrentUser = new DTO.DTO.UserDTO
-            //{
-            //    userID = 1,
-            //    userName = "admin",
-            //    password = "admin",
-            //    roleID = 1
-            //};
+            AppSession.CurrentUser = new UserDTO
+            {
+                userID = 1,
+                userName = "admin",
+                password = "admin",
+                roleID = 1
+            };
 
-            //// Tạo đơn hàng mới
-            //var invoice = new InvoiceDTO
-            //{
-            //    UserID = AppSession.CurrentUser.userID,
-            //    CreatedDate = DateTime.Now,
-            //    TotalAmount = Convert.ToDecimal(lblTotal.Text.Replace(" ₫", "").Replace(".", "")),
-            //    Status = "Pending",
-            //    InvoiceDetails = new List<InvoiceDetailDTO>()
-            //};
+            //Tạo đơn hàng mới
+            var invoice = new InvoiceDTO
+            {
+                UserID = AppSession.CurrentUser.userID,
+                CreatedDate = DateTime.Now,
+                TotalPrice = Convert.ToDecimal(lblTotal.Text.Replace(" ₫", "").Replace(".", "")),
+                StatusID = 1,
+                InvoiceDetails = new List<InvoiceDetailDTO>()
+            };
 
-            //// Thêm các chi tiết hóa đơn từ DataGridView vào Invoice
-            //foreach(DataGridViewRow row in invoiceDataGridView.Rows)
-            //{
-            //    if(row.Cells["ProductID"].Value != null)
-            //    {
-            //        var invoiceDetail = new InvoiceDetailDTO
-            //        {
-            //            ProductID = Convert.ToInt32(row.Cells["ProductID"].Value),
-            //            Quantity = Convert.ToInt32(row.Cells["Quantity"].Value),
-            //            UnitPrice = Convert.ToDecimal(row.Cells["Price"].Value),
-            //            LineTotal = Convert.ToDecimal(row.Cells["Total"].Value),
-            //        };
-            //        invoice.InvoiceDetails.Add(invoiceDetail);
-            //    }
-            //}
+            //    // Thêm các chi tiết hóa đơn từ DataGridView vào Invoice
+            foreach (DataGridViewRow row in invoiceDataGridView.Rows)
+            {
+                if (row.Cells["ProductID"].Value != null)
+                {
+                    var invoiceDetail = new InvoiceDetailDTO
+                    {
+                        ProductID = Convert.ToInt32(row.Cells["ProductID"].Value),
+                        Quantity = Convert.ToInt32(row.Cells["Quantity"].Value),
+                        UnitPrice = Convert.ToDecimal(row.Cells["Price"].Value),
+                        LineTotal = Convert.ToDecimal(row.Cells["Total"].Value),
+                    };
+                    invoice.InvoiceDetails.Add(invoiceDetail);
+                }
+            }
 
-            //// Mở form thanh toán
-            //using (var paymentForm = new PaymentForm(invoice))
-            //{
-            //    if(paymentForm.ShowDialog() == DialogResult.OK)
-            //    {
-            //        invoiceDataGridView.Rows.Clear();
-            //        UpdateCartTotal();
-            //        if (!DesignMode)
-            //        {
-            //            LoadProducts();
-            //        }
-            //    }
-            //}
+            // Mở form thanh toán
+            using (var paymentForm = new PaymentForm(invoice))
+            {
+                if (paymentForm.ShowDialog() == DialogResult.OK)
+                {
+                    invoiceDataGridView.Rows.Clear();
+                    UpdateCartTotal();
+                    if (!DesignMode)
+                    {
+                        LoadProducts();
+                        LoadCategories();
+                    }
+                }
+            }
         }
+
+        private void categoryCb_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (!DesignMode && categoryCb.SelectedItem != null)
+            {
+                var selectedCategory = (CategoryDTO)categoryCb.SelectedItem;
+                int selectedCategoryId = selectedCategory.CategoryID;
+
+                List<ProductDTO> productsToDisplay = productService.GetAvailableProducts(null, selectedCategoryId);
+                ProductFlowLayoutPanel.Controls.Clear();
+
+                foreach (var product in productsToDisplay)
+                {
+                    var panel = CreateProductPanel(product);
+                    ProductFlowLayoutPanel.Controls.Add(panel);
+                }
+            }
+        }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            string keyword = searchTxtBox.Text.Trim();
+            if (!DesignMode && !string.IsNullOrEmpty(keyword))
+            {
+                List<ProductDTO> productsToDisplay = productService.GetAvailableProducts(keyword, -1);
+                ProductFlowLayoutPanel.Controls.Clear();
+                foreach (var product in productsToDisplay)
+                {
+                    var panel = CreateProductPanel(product);
+                    ProductFlowLayoutPanel.Controls.Add(panel);
+                }
+            }
+            else
+            {
+                LoadProducts();
+            }
+        }
+
     }
 }

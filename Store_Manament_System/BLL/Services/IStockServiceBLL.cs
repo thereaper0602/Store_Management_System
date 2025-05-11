@@ -1,4 +1,5 @@
-﻿using DTO.DTO;
+﻿using DAL.Model;
+using DTO.DTO;
 using System.Collections.Generic;
 
 namespace BLL.Services
@@ -11,7 +12,8 @@ namespace BLL.Services
         List<StockDTO> GetAllStocks();
         List<ProductDTO> GetProductsByCategoryId(int categoryId);
         List<StockDTO> GetStocksToOrder();
-
         void Validate(StockDTO stock);
+        bool UpdateStock(StockDTO stock);
+        StockDTO GetClosestStockByProductID(int productID);
     }
 }

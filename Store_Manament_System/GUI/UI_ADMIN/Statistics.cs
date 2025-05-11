@@ -41,12 +41,12 @@ namespace GUI
 
             if (!DesignMode)
             {
-                totalProducts.Text = _reportServicesBLL.getTotalProducts().ToString();
-                totalProductSale.Text = _reportServicesBLL.getTotalProductsSoldToday().ToString();
+                COGS.Text = String.Format("{0:0,0} VND",_reportServicesBLL.getTotalCostOfGoodsSoldToday());
                 totalRevenue.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalRevenueToday());
+                totalProfit.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalRevenueToday() - _reportServicesBLL.getTotalCostOfGoodsSoldToday());
                 GenerateTopProductSelling();
                 GenerateTopCategorySelling();
-                generateMonthYearChart(4, DateTime.Now.Year);
+                generateMonthYearChart(DateTime.Now.Month, DateTime.Now.Year);
             }
         }
 
@@ -54,9 +54,6 @@ namespace GUI
         {
             List<ProductRevenueDTO> productDTOs = _reportServicesBLL.getTopSellingProduct();
             chart1.Series["Series1"].Points.Clear();
-            chart1.Series["Series1"].Points.AddXY("New Customers", 45);
-            chart1.Series["Series1"].Points.AddXY("Returning Customers", 30);
-            chart1.Series["Series1"].Points.AddXY("VIP Customers", 25);
 
             // Mảng màu gradient mới (tông màu ấm)
             Color[] baseColors = {
@@ -91,7 +88,7 @@ namespace GUI
             // Kiểm tra và thêm title nếu chưa có
             if (chart1.Titles.Count == 0)
             {
-                chart1.Titles.Add("Top Selling Products");
+                chart1.Titles.Add("Top 5 Selling Products");
             }
             chart1.Titles[0].Font = new Font("Poppins", 10, FontStyle.Bold);
         }
@@ -101,9 +98,9 @@ namespace GUI
         {
             List<CategoryRevenueDTO> categoryDTOs = _reportServicesBLL.getTopSellingCategory();
             chart2.Series["Series1"].Points.Clear();
-            chart2.Series["Series1"].Points.AddXY("Sports Shoes", 55);
-            chart2.Series["Series1"].Points.AddXY("Office Shoes", 25);
-            chart2.Series["Series1"].Points.AddXY("Kids Shoes", 20);
+            //chart2.Series["Series1"].Points.AddXY("Sports Shoes", 55);
+            //chart2.Series["Series1"].Points.AddXY("Office Shoes", 25);
+            //chart2.Series["Series1"].Points.AddXY("Kids Shoes", 20);
 
             // Mảng màu gradient từ đậm đến nhạt (ví dụ: màu xanh dương)
             Color[] baseColors = {
@@ -195,8 +192,6 @@ namespace GUI
             int? selectedYear = yearComboBox.SelectedItem as int?;
 
             generateMonthYearChart(selectedMonth, selectedYear);
-
-            // Tùy chỉnh màu sắc cho các chart
         }
 
         private void thisWeekReportBtn_Click(object sender, EventArgs e)
@@ -204,6 +199,8 @@ namespace GUI
             bunifuLabel3.Text = "Total revenue this week";
             totalProductSale.Text = _reportServicesBLL.getTotalProductsSoldThisWeek().ToString();
             totalRevenue.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalRevenueThisWeek());
+            COGS.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalCostOfGoodsSoldThisWeek());
+            totalProfit.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalRevenueThisWeek() - _reportServicesBLL.getTotalCostOfGoodsSoldThisWeek());
         }
 
         private void reportTodayBtn_Click(object sender, EventArgs e)
@@ -211,6 +208,8 @@ namespace GUI
             bunifuLabel3.Text = "Total revenue today";
             totalRevenue.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalRevenueToday());
             totalProductSale.Text = _reportServicesBLL.getTotalProductsSoldToday().ToString();
+            COGS.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalCostOfGoodsSoldToday());
+            totalProfit.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalRevenueToday() - _reportServicesBLL.getTotalCostOfGoodsSoldToday());
         }
 
         private void thisMonthReportBtn_Click(object sender, EventArgs e)
@@ -218,6 +217,8 @@ namespace GUI
             bunifuLabel3.Text = "Total revenue this month";
             totalRevenue.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalRevenueThisMonth());
             totalProductSale.Text = _reportServicesBLL.getTotalProductsSoldThisMonth().ToString();
+            COGS.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalCostOfGoodsSoldThisMonth());
+            totalProfit.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalRevenueThisMonth() - _reportServicesBLL.getTotalCostOfGoodsSoldThisMonth());
         }
 
         private void thisYearReportBtn_Click(object sender, EventArgs e)
@@ -225,6 +226,8 @@ namespace GUI
             bunifuLabel3.Text = "Total revenue this year";
             totalRevenue.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalRevenueThisYear());
             totalProductSale.Text = _reportServicesBLL.getTotalProductsSoldThisYear().ToString();
+            COGS.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalCostOfGoodsSoldThisYear());
+            totalProfit.Text = String.Format("{0:0,0} VND", _reportServicesBLL.getTotalRevenueThisYear() - _reportServicesBLL.getTotalCostOfGoodsSoldThisYear());
         }
     }
 }

@@ -22,12 +22,17 @@ namespace DAL.Repository
 
         public List<Product> GetAvailableProducts(String kw)
         {
-            return _context.Products.ToList();
+            var res = (from p in _context.Products
+                       join s in _context.Stocks on p.ProductID equals s.ProductID
+                       where s.StockQuantity > 0
+                       select p).ToList();
+            return res;
         }
 
         public Product GetProductById(int id)
         {
-            return _context.Products.FirstOrDefault(p => p.ProductID == id);
+            //return _context.Products.FirstOrDefault(p => p.ProductID == id);
+            return _context.Products.Find(id);
         }
 
         public Product AddProduct(Product product)
@@ -46,12 +51,6 @@ namespace DAL.Repository
                 {
                     return false;
                 }
-                //existing_product.ProductName = product.ProductName;
-                //existing_product.CategoryID = product.CategoryID;
-                //existing_product.Price = product.Price;
-                //existing_product.Description = product.Description;
-                //existing_product.ImageID = product.ImageID;
-                //existing_product.ProductCode = product.ProductCode;
                 _context.Entry(existing_product).CurrentValues.SetValues(product);
                 _context.SaveChanges();
                 return true;
@@ -97,6 +96,24 @@ namespace DAL.Repository
             return _context.Products
                 .Where(p => productIds.Contains(p.ProductID))
                 .ToList();
+        }
+
+        public Promotion GetNearestPromotionByProductId(int productId)
+        {
+            var promotion = (from p in _context.Products
+                             join pr in _context.ProductPromotions on p.ProductID equals pr.ProductID
+                             join pro in _context.Promotions on pr.PromotionID equals pro.PromotionID
+                             where p.ProductID == productId &&
+                                   pro.StartDate <= DateTime.Now &&
+                                   pro.EndDate >= DateTime.Now
+                             select pro).FirstOrDefault();
+            return promotion;
+        }
+
+        public Product GetProductByProductCode(string productCode)
+        {
+            var product = _context.Products.FirstOrDefault(p => p.ProductCode == productCode);
+            return product;
         }
     }
 }

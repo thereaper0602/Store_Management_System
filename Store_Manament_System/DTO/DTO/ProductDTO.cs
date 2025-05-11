@@ -15,5 +15,6 @@ namespace DTO.DTO
         public decimal Price { get; set; }
         public string Description { get; set; }
         public int? ImageID { get; set; }
+        public int? PromotionID { get; set; }
     }
 }

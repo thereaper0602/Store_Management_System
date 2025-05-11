@@ -13,7 +13,8 @@ namespace BLL.Services
     {
         private readonly InvoiceRepositoryDAL _invoiceRepositoryDAL = new InvoiceRepositoryDAL();
         private readonly InvoiceDetailRepositoryDAL invoiceDetailRepositoryDAL = new InvoiceDetailRepositoryDAL();
-        private readonly ProductRepositoryDAL _productRepositoryDAL;
+        private readonly ProductRepositoryDAL _productRepositoryDAL = new ProductRepositoryDAL();
+        private readonly IStockServiceBLL _stockServiceBLL = new StockServiceBLL();
         private readonly StoreContext _context = new StoreContext();
 
         public List<InvoiceDTO> GetAllInvoices()
@@ -79,16 +80,23 @@ namespace BLL.Services
                     // Thêm chi tiết hóa đơn
                     foreach (var detail in invoiceDTO.InvoiceDetails)
                     {
-                        var product = _productRepositoryDAL.GetProductById((int)detail.ProductID);
+                        var product = _productRepositoryDAL.GetProductById(detail.ProductID.Value);
                         if (product == null)
                         {
                             throw new Exception($"Product ID {detail.ProductID} not found");
                         }
 
-                        //if (product.StockQuantity < 0)
-                        //{
-                        //    throw new Exception($"Not enough stock for Product ID {detail.ProductID}");
-                        //}
+                        // Kiểm tra số lượng sản phẩm trong kho
+                        var stock = _stockServiceBLL.GetClosestStockByProductID(product.ProductID);
+                        if (stock == null)
+                        {
+                            throw new Exception($"No stock available for Product ID {detail.ProductID}");
+                        }
+
+                        if (stock.stockQuantity < detail.Quantity)
+                        {
+                            throw new Exception($"Not enough stock for Product ID {detail.ProductID}. Available: {stock.stockQuantity}, Required: {detail.Quantity}");
+                        }
                         var invoiceDetail = new InvoiceDetail
                         {
                             InvoiceID = invoice.InvoiceID,
@@ -102,8 +110,9 @@ namespace BLL.Services
                         invoiceDetailRepositoryDAL.AddInvoiceDetails(invoiceDetail);
 
                         // Cập nhật số lượng sản phẩm trong kho
-                        //product.StockQuantity -= detail.Quantity;
-                        _productRepositoryDAL.UpdateProduct(product);
+                        stock.stockQuantity -= detail.Quantity;
+                        _stockServiceBLL.UpdateStock(stock);
+                        //_productRepositoryDAL.UpdateProduct(product);
                     }
                     _context.SaveChanges();
                     transaction.Commit();
@@ -113,6 +122,11 @@ namespace BLL.Services
                 {
                     transaction.Rollback();
                     throw new Exception("Invoice creation failed. " + ex.Message);
+                }
+                finally
+                {
+                    // Đảm bảo luôn giải phóng tài nguyên
+                    _context.Dispose();
                 }
             }
         }
