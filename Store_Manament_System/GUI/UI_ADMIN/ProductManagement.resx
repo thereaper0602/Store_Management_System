@@ -281,19 +281,18 @@
   </data>
   <data name="productPriceTxt.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAATAAAAAmCAYAAABDA8fBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAJ7SURBVHhe7d2/attQFIDxjBkzduzYR+jYsWPHjFn6Fh36
-        AIVCX6PQLdCpx7J0JA/GxQh78T88GKMaoxjXNbYxCiekor6Q0CW2bvh+cAeD7PFD91ronJ0BwHMkIuci
-        cqmq16r6MwzDWa1WK1gsFuspljXGWqOqP0TkSkQu3C79FxF5G4bhPE3TRZZlRZ7nxXq9LgDgqVhjrDWz
-        2azodrvLKIryer3+3u3Tg6x4qvqt1Wrlm83G/X0AOJrdbld0Op0bVU1E5IXbqwP38RpPJpOt+0MAcCrz
-        +bxIkmQsIi/dbpXszot4Aagi21ra+ZjbrTt25mXbRvdLAFAVvV7vdxiGH914nduBPWdeAKpsv98XjUZj
-        LiKv/g3YlZ34uxcDQNWMRqNdFEWfy4DZMxf2tyUAVN1yuSyiKBqWAQvDcLJardzrAKBybBsZBMGuDFgQ
-        BH/seQsA8IE9tV8GzD4AgC8IGABvETAA3iJgALxFwAB4i4AB8BYBA+AtAgbAWwQMgLcIGABvETAA3iJg
-        ALxFwAB4i4AB8NZBwOzdOvaOHQDwwUHAbBouQ2sB+OIgYDY00uauAUDV2duj7S3SZcCCIPjQ7/e5BQNQ
-        edPp1N6J/7UMmE27jeM45xwMQNW12+0bEXlXBsxEUfRpMBgwWg1AZU2n020cx98P4mVsuG0cx+lisXC/
-        AwAnZ4O3VfWXiFy4/bpj026TJJkxYg1AlVi8ms2mTeR+43brgIi8VtXxcDjkUB/AyWVZtr2/83o8Xn/Z
-        dlJVvzSbzdxO/K1+AHAsNqc2y7IiTdNFHMfBg9vGx1jx7O/Ker2+sAfHWCwW6xjLhm2r6rWIXLpdAoBn
-        4RZVew4PHN8flAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAPMAAAAmCAYAAAARBa2jAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAJlSURBVHhe7d29attQGIDhjBk7duzYS+jYsWPHjFl6Fx16
+        AYVCb6PQLdCpn/VzJA/CxQh78R8ZjFCNUYTrGscYla+kojrg0KWJdHgfOEPA9vYi6Tj+ztkZAPeJyLmI
+        XBhjrowx34IgWPV6vYrFYv3/pb1pd8aYryJyKSJP7Eb/iYi8CoJgnaZpmed5VRRFtdvtKgAPQ3vT7lar
+        VTUejzdhGBa+77+xWz1J6zfGfB4MBsV+v7c/H8AjORwO1Wg0ujHGxCLy1G634S7k6+VyeWt/EIB2WK/X
+        VRzH1yLyzG64pldkQgbaT2+/9Xnabvg3fUbWW2v7TQDaaTKZ/AiC4J0d8rludvGMDHTH8Xis+v3+WkSe
+        /x3zpe6W2S8G0G6LxeIQhuGHOmb9Hku3vwF0y2azqcIwnNcxB0Gw3G639usAtJzeanued6hj9jzvp36H
+        BaB79L/F6pj1DwDdRMyAI4gZcAQxA44gZsARxAw4gpgBRxAz4AhiBhxBzIAjiBlwBDEDjiBmwBHEDDii
+        EbP+HlJ/Fwmgexox6+R8BtwD3dSIWYdq6yxeAN2iE4J0UlAds+d5b6fTKZdmoGOyLNMZYJ/qmHUyfhRF
+        Bc/NQLcMh8MbEXldx6zCMHw/m80Ytwt0RJZlt1EUfWmErHQQfhRFaVmW9nsAtIweWGGM+X7ymFedjB/H
+        8Yqxu0B7achJkuhJFi/thhtE5IWeBDmfz9kQA1omz/Pbuyvy/SH/obfcxpiPSZIUulvGGVTA49GZ9nme
+        V2mallEUeSdvre+j9eu2t+/7pX4xzWKxHn7pIRXGmCsRubAbBeCgX7PcOHPuH/HWAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="bunifuLabel7.BaseStylesheet" xml:space="preserve">

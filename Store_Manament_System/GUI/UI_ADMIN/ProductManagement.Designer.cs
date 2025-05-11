@@ -32,7 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductManagement));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
@@ -46,6 +46,7 @@
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties13 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties14 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
@@ -54,38 +55,37 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductManagement));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.searchLoader = new Bunifu.UI.WinForms.BunifuLoader();
             this.productDataGridView = new System.Windows.Forms.DataGridView();
             this.bunifuShadowPanel1 = new Bunifu.UI.WinForms.BunifuShadowPanel();
+            this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
+            this.uploadProductImageBtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.bunifuLabel6 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.productPicturebox = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.bunifuLabel9 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.productPriceTxt = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuLabel7 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.productDescriptionTxt = new Bunifu.UI.WinForms.BunifuTextBox();
+            this.productNameTxt = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuLabel3 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel2 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.search_pro = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.uploadProductImageBtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.productPicturebox = new Bunifu.UI.WinForms.BunifuPictureBox();
-            this.productPriceTxt = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.productDescriptionTxt = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.productNameTxt = new Bunifu.UI.WinForms.BunifuTextBox();
             this.exportBtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.searchTxtBox = new Bunifu.UI.WinForms.BunifuTextBox();
             this.saveBtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.deleteBtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.addBtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
-            this.bunifuPictureBox1 = new Bunifu.UI.WinForms.BunifuPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
             this.bunifuShadowPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productPicturebox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productPicturebox)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -206,201 +206,21 @@
             this.bunifuShadowPanel1.Style = Bunifu.UI.WinForms.BunifuShadowPanel.BevelStyles.Flat;
             this.bunifuShadowPanel1.TabIndex = 1;
             // 
-            // bunifuLabel6
+            // bunifuPictureBox1
             // 
-            this.bunifuLabel6.AllowParentOverrides = false;
-            this.bunifuLabel6.AutoEllipsis = false;
-            this.bunifuLabel6.CursorType = null;
-            this.bunifuLabel6.Font = new System.Drawing.Font("Poppins SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel6.Location = new System.Drawing.Point(12, 405);
-            this.bunifuLabel6.Name = "bunifuLabel6";
-            this.bunifuLabel6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel6.Size = new System.Drawing.Size(86, 36);
-            this.bunifuLabel6.TabIndex = 14;
-            this.bunifuLabel6.Text = "Barcode";
-            this.bunifuLabel6.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel6.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // categoryComboBox
-            // 
-            this.categoryComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-            this.categoryComboBox.Location = new System.Drawing.Point(132, 261);
-            this.categoryComboBox.Name = "categoryComboBox";
-            this.categoryComboBox.Size = new System.Drawing.Size(244, 21);
-            this.categoryComboBox.TabIndex = 11;
-            // 
-            // bunifuLabel9
-            // 
-            this.bunifuLabel9.AllowParentOverrides = false;
-            this.bunifuLabel9.AutoEllipsis = false;
-            this.bunifuLabel9.CursorType = null;
-            this.bunifuLabel9.Font = new System.Drawing.Font("Poppins SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel9.Location = new System.Drawing.Point(9, 261);
-            this.bunifuLabel9.Name = "bunifuLabel9";
-            this.bunifuLabel9.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel9.Size = new System.Drawing.Size(96, 36);
-            this.bunifuLabel9.TabIndex = 9;
-            this.bunifuLabel9.Text = "Category";
-            this.bunifuLabel9.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel9.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuLabel7
-            // 
-            this.bunifuLabel7.AllowParentOverrides = false;
-            this.bunifuLabel7.AutoEllipsis = false;
-            this.bunifuLabel7.CursorType = null;
-            this.bunifuLabel7.Font = new System.Drawing.Font("Poppins SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel7.Location = new System.Drawing.Point(12, 349);
-            this.bunifuLabel7.Name = "bunifuLabel7";
-            this.bunifuLabel7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel7.Size = new System.Drawing.Size(50, 36);
-            this.bunifuLabel7.TabIndex = 7;
-            this.bunifuLabel7.Text = "Price";
-            this.bunifuLabel7.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel7.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuLabel3
-            // 
-            this.bunifuLabel3.AllowParentOverrides = false;
-            this.bunifuLabel3.AutoEllipsis = false;
-            this.bunifuLabel3.CursorType = null;
-            this.bunifuLabel3.Font = new System.Drawing.Font("Poppins SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel3.Location = new System.Drawing.Point(12, 110);
-            this.bunifuLabel3.Name = "bunifuLabel3";
-            this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel3.Size = new System.Drawing.Size(117, 36);
-            this.bunifuLabel3.TabIndex = 4;
-            this.bunifuLabel3.Text = "Description";
-            this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel3.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuLabel2
-            // 
-            this.bunifuLabel2.AllowParentOverrides = false;
-            this.bunifuLabel2.AutoEllipsis = false;
-            this.bunifuLabel2.CursorType = null;
-            this.bunifuLabel2.Font = new System.Drawing.Font("Poppins SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel2.Location = new System.Drawing.Point(12, 13);
-            this.bunifuLabel2.Name = "bunifuLabel2";
-            this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel2.Size = new System.Drawing.Size(145, 36);
-            this.bunifuLabel2.TabIndex = 3;
-            this.bunifuLabel2.Text = "Product name";
-            this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel2.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuLabel1
-            // 
-            this.bunifuLabel1.AllowParentOverrides = false;
-            this.bunifuLabel1.AutoEllipsis = false;
-            this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel1.Font = new System.Drawing.Font("Poppins", 12F);
-            this.bunifuLabel1.Location = new System.Drawing.Point(7, 12);
-            this.bunifuLabel1.Name = "bunifuLabel1";
-            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(93, 42);
-            this.bunifuLabel1.TabIndex = 16;
-            this.bunifuLabel1.Text = "Product";
-            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // search_pro
-            // 
-            this.search_pro.AllowAnimations = true;
-            this.search_pro.AllowMouseEffects = true;
-            this.search_pro.AllowToggling = false;
-            this.search_pro.AnimationSpeed = 200;
-            this.search_pro.AutoGenerateColors = false;
-            this.search_pro.AutoRoundBorders = false;
-            this.search_pro.AutoSizeLeftIcon = true;
-            this.search_pro.AutoSizeRightIcon = true;
-            this.search_pro.BackColor = System.Drawing.Color.Transparent;
-            this.search_pro.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
-            this.search_pro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("search_pro.BackgroundImage")));
-            this.search_pro.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.search_pro.ButtonText = "Search";
-            this.search_pro.ButtonTextMarginLeft = 0;
-            this.search_pro.ColorContrastOnClick = 45;
-            this.search_pro.ColorContrastOnHover = 45;
-            this.search_pro.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges2.BottomLeft = true;
-            borderEdges2.BottomRight = true;
-            borderEdges2.TopLeft = true;
-            borderEdges2.TopRight = true;
-            this.search_pro.CustomizableEdges = borderEdges2;
-            this.search_pro.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.search_pro.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.search_pro.DisabledFillColor = System.Drawing.Color.Empty;
-            this.search_pro.DisabledForecolor = System.Drawing.Color.Empty;
-            this.search_pro.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.search_pro.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_pro.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.search_pro.IconLeft = null;
-            this.search_pro.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.search_pro.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.search_pro.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
-            this.search_pro.IconMarginLeft = 11;
-            this.search_pro.IconPadding = 10;
-            this.search_pro.IconRight = null;
-            this.search_pro.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.search_pro.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.search_pro.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.search_pro.IconSize = 25;
-            this.search_pro.IdleBorderColor = System.Drawing.Color.Empty;
-            this.search_pro.IdleBorderRadius = 0;
-            this.search_pro.IdleBorderThickness = 0;
-            this.search_pro.IdleFillColor = System.Drawing.Color.Empty;
-            this.search_pro.IdleIconLeftImage = null;
-            this.search_pro.IdleIconRightImage = null;
-            this.search_pro.IndicateFocus = false;
-            this.search_pro.Location = new System.Drawing.Point(618, 54);
-            this.search_pro.Name = "search_pro";
-            this.search_pro.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.search_pro.OnDisabledState.BorderRadius = 30;
-            this.search_pro.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.search_pro.OnDisabledState.BorderThickness = 1;
-            this.search_pro.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.search_pro.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.search_pro.OnDisabledState.IconLeftImage = null;
-            this.search_pro.OnDisabledState.IconRightImage = null;
-            this.search_pro.onHoverState.BorderColor = System.Drawing.Color.Teal;
-            this.search_pro.onHoverState.BorderRadius = 30;
-            this.search_pro.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.search_pro.onHoverState.BorderThickness = 1;
-            this.search_pro.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.search_pro.onHoverState.ForeColor = System.Drawing.Color.White;
-            this.search_pro.onHoverState.IconLeftImage = null;
-            this.search_pro.onHoverState.IconRightImage = null;
-            this.search_pro.OnIdleState.BorderColor = System.Drawing.Color.CadetBlue;
-            this.search_pro.OnIdleState.BorderRadius = 30;
-            this.search_pro.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.search_pro.OnIdleState.BorderThickness = 1;
-            this.search_pro.OnIdleState.FillColor = System.Drawing.Color.CadetBlue;
-            this.search_pro.OnIdleState.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.search_pro.OnIdleState.IconLeftImage = null;
-            this.search_pro.OnIdleState.IconRightImage = null;
-            this.search_pro.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.search_pro.OnPressedState.BorderRadius = 30;
-            this.search_pro.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.search_pro.OnPressedState.BorderThickness = 1;
-            this.search_pro.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.search_pro.OnPressedState.ForeColor = System.Drawing.Color.White;
-            this.search_pro.OnPressedState.IconLeftImage = null;
-            this.search_pro.OnPressedState.IconRightImage = null;
-            this.search_pro.Size = new System.Drawing.Size(117, 51);
-            this.search_pro.TabIndex = 24;
-            this.search_pro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.search_pro.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.search_pro.TextMarginLeft = 0;
-            this.search_pro.TextPadding = new System.Windows.Forms.Padding(0);
-            this.search_pro.UseDefaultRadiusAndThickness = true;
-            this.search_pro.Click += new System.EventHandler(this.searchBtn_Click);
+            this.bunifuPictureBox1.AllowFocused = false;
+            this.bunifuPictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bunifuPictureBox1.AutoSizeHeight = true;
+            this.bunifuPictureBox1.BorderRadius = 0;
+            this.bunifuPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox1.Image")));
+            this.bunifuPictureBox1.IsCircle = false;
+            this.bunifuPictureBox1.Location = new System.Drawing.Point(133, 405);
+            this.bunifuPictureBox1.Name = "bunifuPictureBox1";
+            this.bunifuPictureBox1.Size = new System.Drawing.Size(159, 159);
+            this.bunifuPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bunifuPictureBox1.TabIndex = 26;
+            this.bunifuPictureBox1.TabStop = false;
+            this.bunifuPictureBox1.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
             // 
             // uploadProductImageBtn
             // 
@@ -451,7 +271,7 @@
             this.uploadProductImageBtn.IdleIconLeftImage = null;
             this.uploadProductImageBtn.IdleIconRightImage = null;
             this.uploadProductImageBtn.IndicateFocus = false;
-            this.uploadProductImageBtn.Location = new System.Drawing.Point(443, 468);
+            this.uploadProductImageBtn.Location = new System.Drawing.Point(429, 499);
             this.uploadProductImageBtn.Name = "uploadProductImageBtn";
             this.uploadProductImageBtn.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.uploadProductImageBtn.OnDisabledState.BorderRadius = 30;
@@ -494,6 +314,21 @@
             this.uploadProductImageBtn.UseDefaultRadiusAndThickness = true;
             this.uploadProductImageBtn.Click += new System.EventHandler(this.uploadProductImageBtn_Click);
             // 
+            // bunifuLabel6
+            // 
+            this.bunifuLabel6.AllowParentOverrides = false;
+            this.bunifuLabel6.AutoEllipsis = false;
+            this.bunifuLabel6.CursorType = null;
+            this.bunifuLabel6.Font = new System.Drawing.Font("Poppins SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuLabel6.Location = new System.Drawing.Point(12, 405);
+            this.bunifuLabel6.Name = "bunifuLabel6";
+            this.bunifuLabel6.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel6.Size = new System.Drawing.Size(86, 36);
+            this.bunifuLabel6.TabIndex = 14;
+            this.bunifuLabel6.Text = "Barcode";
+            this.bunifuLabel6.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel6.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
             // productPicturebox
             // 
             this.productPicturebox.AllowFocused = false;
@@ -502,13 +337,41 @@
             this.productPicturebox.BorderRadius = 0;
             this.productPicturebox.Image = ((System.Drawing.Image)(resources.GetObject("productPicturebox.Image")));
             this.productPicturebox.IsCircle = false;
-            this.productPicturebox.Location = new System.Drawing.Point(443, 241);
+            this.productPicturebox.Location = new System.Drawing.Point(408, 241);
             this.productPicturebox.Name = "productPicturebox";
-            this.productPicturebox.Size = new System.Drawing.Size(200, 200);
+            this.productPicturebox.Size = new System.Drawing.Size(235, 235);
             this.productPicturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.productPicturebox.TabIndex = 13;
             this.productPicturebox.TabStop = false;
             this.productPicturebox.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
+            // 
+            // categoryComboBox
+            // 
+            this.categoryComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.categoryComboBox.FormattingEnabled = true;
+            this.categoryComboBox.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.categoryComboBox.Location = new System.Drawing.Point(132, 261);
+            this.categoryComboBox.Name = "categoryComboBox";
+            this.categoryComboBox.Size = new System.Drawing.Size(244, 21);
+            this.categoryComboBox.TabIndex = 11;
+            // 
+            // bunifuLabel9
+            // 
+            this.bunifuLabel9.AllowParentOverrides = false;
+            this.bunifuLabel9.AutoEllipsis = false;
+            this.bunifuLabel9.CursorType = null;
+            this.bunifuLabel9.Font = new System.Drawing.Font("Poppins SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuLabel9.Location = new System.Drawing.Point(9, 261);
+            this.bunifuLabel9.Name = "bunifuLabel9";
+            this.bunifuLabel9.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel9.Size = new System.Drawing.Size(96, 36);
+            this.bunifuLabel9.TabIndex = 9;
+            this.bunifuLabel9.Text = "Category";
+            this.bunifuLabel9.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel9.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // productPriceTxt
             // 
@@ -576,7 +439,7 @@
             this.productPriceTxt.SelectionLength = 0;
             this.productPriceTxt.SelectionStart = 0;
             this.productPriceTxt.ShortcutsEnabled = true;
-            this.productPriceTxt.Size = new System.Drawing.Size(304, 38);
+            this.productPriceTxt.Size = new System.Drawing.Size(243, 38);
             this.productPriceTxt.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.productPriceTxt.TabIndex = 12;
             this.productPriceTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -586,6 +449,21 @@
             this.productPriceTxt.TextPlaceholder = "0.0";
             this.productPriceTxt.UseSystemPasswordChar = false;
             this.productPriceTxt.WordWrap = true;
+            // 
+            // bunifuLabel7
+            // 
+            this.bunifuLabel7.AllowParentOverrides = false;
+            this.bunifuLabel7.AutoEllipsis = false;
+            this.bunifuLabel7.CursorType = null;
+            this.bunifuLabel7.Font = new System.Drawing.Font("Poppins SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuLabel7.Location = new System.Drawing.Point(12, 349);
+            this.bunifuLabel7.Name = "bunifuLabel7";
+            this.bunifuLabel7.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel7.Size = new System.Drawing.Size(50, 36);
+            this.bunifuLabel7.TabIndex = 7;
+            this.bunifuLabel7.Text = "Price";
+            this.bunifuLabel7.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel7.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // productDescriptionTxt
             // 
@@ -742,6 +620,144 @@
             this.productNameTxt.TextPlaceholder = "Type product name here ...";
             this.productNameTxt.UseSystemPasswordChar = false;
             this.productNameTxt.WordWrap = true;
+            // 
+            // bunifuLabel3
+            // 
+            this.bunifuLabel3.AllowParentOverrides = false;
+            this.bunifuLabel3.AutoEllipsis = false;
+            this.bunifuLabel3.CursorType = null;
+            this.bunifuLabel3.Font = new System.Drawing.Font("Poppins SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuLabel3.Location = new System.Drawing.Point(12, 110);
+            this.bunifuLabel3.Name = "bunifuLabel3";
+            this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel3.Size = new System.Drawing.Size(117, 36);
+            this.bunifuLabel3.TabIndex = 4;
+            this.bunifuLabel3.Text = "Description";
+            this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel3.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuLabel2
+            // 
+            this.bunifuLabel2.AllowParentOverrides = false;
+            this.bunifuLabel2.AutoEllipsis = false;
+            this.bunifuLabel2.CursorType = null;
+            this.bunifuLabel2.Font = new System.Drawing.Font("Poppins SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuLabel2.Location = new System.Drawing.Point(12, 13);
+            this.bunifuLabel2.Name = "bunifuLabel2";
+            this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel2.Size = new System.Drawing.Size(145, 36);
+            this.bunifuLabel2.TabIndex = 3;
+            this.bunifuLabel2.Text = "Product name";
+            this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel2.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuLabel1
+            // 
+            this.bunifuLabel1.AllowParentOverrides = false;
+            this.bunifuLabel1.AutoEllipsis = false;
+            this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel1.Font = new System.Drawing.Font("Poppins", 12F);
+            this.bunifuLabel1.Location = new System.Drawing.Point(7, 12);
+            this.bunifuLabel1.Name = "bunifuLabel1";
+            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel1.Size = new System.Drawing.Size(93, 42);
+            this.bunifuLabel1.TabIndex = 16;
+            this.bunifuLabel1.Text = "Product";
+            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // search_pro
+            // 
+            this.search_pro.AllowAnimations = true;
+            this.search_pro.AllowMouseEffects = true;
+            this.search_pro.AllowToggling = false;
+            this.search_pro.AnimationSpeed = 200;
+            this.search_pro.AutoGenerateColors = false;
+            this.search_pro.AutoRoundBorders = false;
+            this.search_pro.AutoSizeLeftIcon = true;
+            this.search_pro.AutoSizeRightIcon = true;
+            this.search_pro.BackColor = System.Drawing.Color.Transparent;
+            this.search_pro.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(122)))), ((int)(((byte)(183)))));
+            this.search_pro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("search_pro.BackgroundImage")));
+            this.search_pro.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.search_pro.ButtonText = "Search";
+            this.search_pro.ButtonTextMarginLeft = 0;
+            this.search_pro.ColorContrastOnClick = 45;
+            this.search_pro.ColorContrastOnHover = 45;
+            this.search_pro.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.search_pro.CustomizableEdges = borderEdges2;
+            this.search_pro.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.search_pro.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.search_pro.DisabledFillColor = System.Drawing.Color.Empty;
+            this.search_pro.DisabledForecolor = System.Drawing.Color.Empty;
+            this.search_pro.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.search_pro.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.search_pro.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.search_pro.IconLeft = null;
+            this.search_pro.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.search_pro.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.search_pro.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.search_pro.IconMarginLeft = 11;
+            this.search_pro.IconPadding = 10;
+            this.search_pro.IconRight = null;
+            this.search_pro.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.search_pro.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.search_pro.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.search_pro.IconSize = 25;
+            this.search_pro.IdleBorderColor = System.Drawing.Color.Empty;
+            this.search_pro.IdleBorderRadius = 0;
+            this.search_pro.IdleBorderThickness = 0;
+            this.search_pro.IdleFillColor = System.Drawing.Color.Empty;
+            this.search_pro.IdleIconLeftImage = null;
+            this.search_pro.IdleIconRightImage = null;
+            this.search_pro.IndicateFocus = false;
+            this.search_pro.Location = new System.Drawing.Point(618, 54);
+            this.search_pro.Name = "search_pro";
+            this.search_pro.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.search_pro.OnDisabledState.BorderRadius = 30;
+            this.search_pro.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.search_pro.OnDisabledState.BorderThickness = 1;
+            this.search_pro.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.search_pro.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.search_pro.OnDisabledState.IconLeftImage = null;
+            this.search_pro.OnDisabledState.IconRightImage = null;
+            this.search_pro.onHoverState.BorderColor = System.Drawing.Color.Teal;
+            this.search_pro.onHoverState.BorderRadius = 30;
+            this.search_pro.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.search_pro.onHoverState.BorderThickness = 1;
+            this.search_pro.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.search_pro.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.search_pro.onHoverState.IconLeftImage = null;
+            this.search_pro.onHoverState.IconRightImage = null;
+            this.search_pro.OnIdleState.BorderColor = System.Drawing.Color.CadetBlue;
+            this.search_pro.OnIdleState.BorderRadius = 30;
+            this.search_pro.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.search_pro.OnIdleState.BorderThickness = 1;
+            this.search_pro.OnIdleState.FillColor = System.Drawing.Color.CadetBlue;
+            this.search_pro.OnIdleState.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.search_pro.OnIdleState.IconLeftImage = null;
+            this.search_pro.OnIdleState.IconRightImage = null;
+            this.search_pro.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.search_pro.OnPressedState.BorderRadius = 30;
+            this.search_pro.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
+            this.search_pro.OnPressedState.BorderThickness = 1;
+            this.search_pro.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            this.search_pro.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.search_pro.OnPressedState.IconLeftImage = null;
+            this.search_pro.OnPressedState.IconRightImage = null;
+            this.search_pro.Size = new System.Drawing.Size(117, 51);
+            this.search_pro.TabIndex = 24;
+            this.search_pro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.search_pro.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.search_pro.TextMarginLeft = 0;
+            this.search_pro.TextPadding = new System.Windows.Forms.Padding(0);
+            this.search_pro.UseDefaultRadiusAndThickness = true;
+            this.search_pro.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // exportBtn
             // 
@@ -1178,22 +1194,6 @@
             this.addBtn.UseDefaultRadiusAndThickness = true;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
-            // bunifuPictureBox1
-            // 
-            this.bunifuPictureBox1.AllowFocused = false;
-            this.bunifuPictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuPictureBox1.AutoSizeHeight = true;
-            this.bunifuPictureBox1.BorderRadius = 0;
-            this.bunifuPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("bunifuPictureBox1.Image")));
-            this.bunifuPictureBox1.IsCircle = false;
-            this.bunifuPictureBox1.Location = new System.Drawing.Point(133, 405);
-            this.bunifuPictureBox1.Name = "bunifuPictureBox1";
-            this.bunifuPictureBox1.Size = new System.Drawing.Size(159, 159);
-            this.bunifuPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuPictureBox1.TabIndex = 26;
-            this.bunifuPictureBox1.TabStop = false;
-            this.bunifuPictureBox1.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
-            // 
             // ProductManagement
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1216,8 +1216,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).EndInit();
             this.bunifuShadowPanel1.ResumeLayout(false);
             this.bunifuShadowPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productPicturebox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productPicturebox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

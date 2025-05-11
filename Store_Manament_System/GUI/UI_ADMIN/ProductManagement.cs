@@ -138,7 +138,6 @@ namespace GUI
                     productDescriptionTxt.Text = currentProduct.Description;
                     categoryComboBox.SelectedValue = currentProduct.CategoryID;
                     productPriceTxt.Text = currentProduct.Price.ToString();
-                    //productBarCodeTxt.Text = currentProduct.ProductCode;
 
                     // Hiển thị qr sản phẩm
                     loadQR(currentProduct.ProductCode);
@@ -169,9 +168,6 @@ namespace GUI
             barcodeWriter.Options = encodingOptions;
             barcodeWriter.Format = BarcodeFormat.QR_CODE;
             Bitmap bitmap = barcodeWriter.Write(qrCode);
-            //Bitmap logo = resizeImage(Properties.Resources.momo_icon_square_pinkbg_RGB, 32, 32) as Bitmap;
-            //Graphics g = Graphics.FromImage(bitmap);
-            //g.DrawImage(logo, new Point((bitmap.Width - logo.Width) / 2, (bitmap.Height - logo.Height) / 2));
             bunifuPictureBox1.Image = bitmap;
         }
 

@@ -31,11 +31,17 @@ namespace GUI.UI_SALE
         FilterInfoCollection filterInfoCollection; // Danh sách các thiết bị camera
         VideoCaptureDevice videoCaptureDevice; // Thiết bị camera đang sử dụng
 
+        private bool isScanning = false;
+        private DateTime lastScanTime = DateTime.MinValue;
+
+
 
         public SellingUC()
         {
             InitializeComponent();
+            this.Disposed += SellingUC_Disposed;
         }
+
 
         private void SellingUC_Load(object sender, EventArgs e)
         {
@@ -44,8 +50,89 @@ namespace GUI.UI_SALE
                 InitializeDataGridView();
                 LoadCategories();
                 LoadProducts();
+                InitializeCamera();
             }
         }
+
+        private void InitializeCamera()
+        {
+            try
+            {
+                filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+                MessageBox.Show($"{filterInfoCollection[0].Name}");
+                if (filterInfoCollection.Count == 0)
+                {
+                    MessageBox.Show("No camera found!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error initializing camera: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void NewFrameEventHandler(object sender, NewFrameEventArgs eventArgs)
+        {
+            try
+            {
+                // Nếu đang trong quá trình quét hoặc mới quét gần đây thì bỏ qua
+                if (isScanning || (DateTime.Now - lastScanTime).TotalSeconds < 1)
+                    return;
+
+                Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
+
+                // Giải mã mã vạch
+                BarcodeReader reader = new BarcodeReader();
+                var result = reader.Decode(bitmap);
+
+                if (result != null)
+                {
+                    // Đánh dấu đang quét
+                    isScanning = true;
+                    lastScanTime = DateTime.Now;
+
+                    this.Invoke(new MethodInvoker(delegate
+                    {
+                        string productCode = result.Text;
+                        var product = productService.GetProductByProductCode(productCode);
+                        if (product != null)
+                        {
+                            AddProductToInvoices(product);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Product not found!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+
+                        // Hiển thị hình ảnh
+                        pictureBox1.Image = bitmap;
+
+                        // Mở khóa sau khi xử lý xong
+                        isScanning = false;
+                    }));
+                }
+            }
+            catch (Exception ex)
+            {
+                // Mở khóa nếu có lỗi
+                isScanning = false;
+                throw ex;
+            }
+        }
+
+        private void SellingUC_Disposed(object sender, EventArgs e)
+        {
+            if (videoCaptureDevice != null && videoCaptureDevice.IsRunning)
+            {
+                videoCaptureDevice.SignalToStop();
+                videoCaptureDevice.WaitForStop();
+                videoCaptureDevice.NewFrame -= NewFrameEventHandler;
+            }
+        }
+
+
+
         public void LoadCategories()
         {
             List<CategoryDTO> categories = categoryService.GetAllCategories();
@@ -67,7 +154,6 @@ namespace GUI.UI_SALE
             // Chọn mục đầu tiên
             categoryCb.SelectedIndex = 0;
         }
-
         public void LoadProducts()
         {
             List<ProductDTO> productsToDisplay = productService.GetAvailableProducts(null, -1);
@@ -395,6 +481,27 @@ namespace GUI.UI_SALE
             }
         }
 
+        private void bunifuButton21_Click(object sender, EventArgs e)
+        {
+            videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[0].MonikerString);
+            videoCaptureDevice.NewFrame += NewFrameEventHandler;
+            videoCaptureDevice.Start();
+            MessageBox.Show("Camera started!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
+        private void bunifuButton22_Click(object sender, EventArgs e)
+        {
+            if(videoCaptureDevice != null)
+            {
+                if(videoCaptureDevice.IsRunning)
+                {
+                    videoCaptureDevice.Stop();
+                }
+                else
+                {
+                    videoCaptureDevice.Start();
+                }
+            }
+        }
     }
 }
