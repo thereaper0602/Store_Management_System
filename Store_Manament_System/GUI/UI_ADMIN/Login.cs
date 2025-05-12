@@ -11,7 +11,7 @@ namespace GUI
 
     public partial class Login : Form
     {
-        private readonly LoginBLL loginBLL = new LoginBLL();
+        private readonly ILoginBLL loginBLL = new LoginBLL();
         public Login()
         {
             InitializeComponent();

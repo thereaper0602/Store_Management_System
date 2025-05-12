@@ -19,10 +19,10 @@ namespace GUI
     public partial class EmployeeManagement : UserControl
     {
         //Khai báo biến
-        private readonly EmployeeServiceBLL _employeeService;
+        private readonly IEmployeeServiceBLL _employeeService;
 
         // Thêm ImageServiceBLL
-        private readonly ImageServiceBLL _imageService;
+        private readonly IImageServiceBLL _imageService;
 
 
 

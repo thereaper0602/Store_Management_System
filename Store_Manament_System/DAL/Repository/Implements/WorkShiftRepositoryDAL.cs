@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    public class WorkShiftRepositoryDAL
+    public class WorkShiftRepositoryDAL : IWorkShiftRepositoryDAL
     {
         private readonly StoreContext _context = new StoreContext();
         public List<WorkShiftDTO> GetWorkShift()
@@ -18,7 +18,7 @@ namespace DAL.Repository
                 {
                     workShiftID = w.WorkShiftID,
                     workShiftName = w.WorkShiftName,
-                   //workShiftPrice = w.WorkShiftSalary
+                    //workShiftPrice = w.WorkShiftSalary
                 })
                 .ToList();
         }

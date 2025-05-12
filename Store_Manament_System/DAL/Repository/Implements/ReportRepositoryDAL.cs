@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    public class ReportRepositoryDAL
+    public class ReportRepositoryDAL : IReportRepositoryDAL
     {
         private readonly StoreContext _context = new StoreContext();
 

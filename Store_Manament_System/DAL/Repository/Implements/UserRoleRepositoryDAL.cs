@@ -9,7 +9,7 @@ using DTO.DTO;
 
 namespace DAL.Repository
 {
-    public class UserRoleRepositoryDAL
+    public class UserRoleRepositoryDAL : IUserRoleRepositoryDAL
     {
         private readonly StoreContext _context = new StoreContext();
         public List<UserRoleDTO> GetAllUserRoles()

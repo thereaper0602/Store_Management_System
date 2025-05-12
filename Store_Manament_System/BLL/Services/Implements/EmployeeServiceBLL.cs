@@ -9,15 +9,15 @@ using DTO.DTO;
 namespace BLL.Services
 {
     // đổi internal thành public vào class EmployeeService
-    public class EmployeeServiceBLL
+    public class EmployeeServiceBLL : IEmployeeServiceBLL
     {
-        private readonly UserRepositoryDAL user = new UserRepositoryDAL();
+        private readonly IUserRepositoryDAL user = new UserRepositoryDAL();
 
-        private readonly UserWorkShiftRepositoryDAL userWorkShift = new UserWorkShiftRepositoryDAL();
+        private readonly IUserWorkShiftRepositoryDAL userWorkShift = new UserWorkShiftRepositoryDAL();
 
-        private readonly SalaryRepositoryDAL _salaryRepository = new SalaryRepositoryDAL();
+        private readonly ISalaryRepositoryDAL _salaryRepository = new SalaryRepositoryDAL();
 
-        
+
         //phương thức lấy danh sách nhân viên
         public List<UserDTO> GetAllUser()
         {
@@ -25,7 +25,7 @@ namespace BLL.Services
         }
         private void ValidateUser(UserDTO user, ImageDTO image, bool isUpdate)
         {
-           
+
             // Username
             if (string.IsNullOrEmpty(user.userName))
                 throw new Exception("Please enter the username!");
@@ -76,7 +76,7 @@ namespace BLL.Services
             }
         }
 
-       
+
         public bool AddUser(ImageDTO imageDTO, UserDTO employeeDTO)
         {
             try
@@ -129,8 +129,8 @@ namespace BLL.Services
 
 
 
-// Phương thức xóa một nhân viên dựa trên UserID
-    public bool DeleteUser(int userId, ImageDTO imageDTO)
+        // Phương thức xóa một nhân viên dựa trên UserID
+        public bool DeleteUser(int userId, ImageDTO imageDTO)
         {
             return user.DeleteUser(userId, imageDTO);
         }
@@ -143,7 +143,7 @@ namespace BLL.Services
         //phuương thức tìm kiếm nhân viên
         public List<UserDTO> SearchUser(string searchTerm)
         {
-            return user.SearchUsers (searchTerm);
+            return user.SearchUsers(searchTerm);
         }
 
         //Xử lý cho tabPageWorkShift
@@ -152,7 +152,7 @@ namespace BLL.Services
         {
             return userWorkShift.GetAllUserWorkShift();
         }
-        
+
         //Kiểm tra userID hợp hệ và là nhân viên
         public bool IsValidUserWithRole(int userId)
         {
@@ -181,7 +181,7 @@ namespace BLL.Services
         public List<SalaryDTO> GetSalariesByMonthAndYear(int month, int year)
         {
             return _salaryRepository.GetSalariesByMonthAndYear(month, year);
-        }  
+        }
 
     }
 }

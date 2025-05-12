@@ -12,7 +12,7 @@ using DTO.DTO;
 
 namespace BLL
 {
-    public class ReportServicesBLL
+    public class ReportServicesBLL : IReportServicesBLL
     {
         private readonly ReportRepositoryDAL reportRepositoryDAL = new ReportRepositoryDAL();
 

@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-    public class ImageServiceBLL
+    public class ImageServiceBLL : IImageServiceBLL
     {
-        private readonly ImageRepositoryDAL _imageRepository = new ImageRepositoryDAL();
+        private readonly IImageRepositoryDAL _imageRepository = new ImageRepositoryDAL();
 
         public List<ImageDTO> GetAllImages()
         {

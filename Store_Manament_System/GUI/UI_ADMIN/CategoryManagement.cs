@@ -16,7 +16,7 @@ namespace GUI
 {
     public partial class CategoryManagement : UserControl
     {
-        private readonly CategoryBLL _categoryBLL = new CategoryBLL();
+        private readonly ICategoryBLL _categoryBLL = new CategoryBLL();
         //private string _selectedImagePath; // Lưu đường dẫn ảnh khi chọn
         public CategoryManagement()
         {

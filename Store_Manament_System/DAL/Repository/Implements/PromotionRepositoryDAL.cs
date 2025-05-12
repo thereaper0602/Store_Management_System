@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    public class PromotionRepositoryDAL
+    public class PromotionRepositoryDAL : IPromotionRepositoryDAL
     {
         private readonly StoreContext voucher = new StoreContext();
 
@@ -17,16 +17,16 @@ namespace DAL.Repository
         {
             return voucher.Promotions
                 .Select(p => new PromotionDTO
-            {
-                promotionID = p.PromotionID,
-                promotionName = p.PromotionName,
-                discountRate = p.DiscountRate,
-                startDate = p.StartDate,
-                endDate = p.EndDate,
-                description = p.Description
-            })
+                {
+                    promotionID = p.PromotionID,
+                    promotionName = p.PromotionName,
+                    discountRate = p.DiscountRate,
+                    startDate = p.StartDate,
+                    endDate = p.EndDate,
+                    description = p.Description
+                })
             .ToList();
-            
+
         }
 
         // Thêm khuyến mãi mới
@@ -168,5 +168,5 @@ namespace DAL.Repository
         }
 
 
-    } 
+    }
 }

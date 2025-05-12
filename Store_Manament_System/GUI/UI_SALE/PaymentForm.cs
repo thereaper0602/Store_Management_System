@@ -23,7 +23,7 @@ namespace GUI.UI_SALE
     {
         public int InvoiceID { get; set; }
         private readonly InvoiceDTO invoiceDTO;
-        private readonly InvoiceServiceBLL invoiceServiceBLL = new InvoiceServiceBLL();
+        private readonly IInvoiceServiceBLL invoiceServiceBLL = new InvoiceServiceBLL();
         private readonly IProductService _prodService = new ProductService();
         public PaymentForm(InvoiceDTO invoice)
         {

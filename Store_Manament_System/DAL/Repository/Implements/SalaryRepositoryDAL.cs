@@ -9,7 +9,7 @@ using DTO.DTO;
 
 namespace DAL.Repository
 {
-    public class SalaryRepositoryDAL
+    public class SalaryRepositoryDAL : ISalaryRepositoryDAL
     {
         private readonly StoreContext _context = new StoreContext();
 

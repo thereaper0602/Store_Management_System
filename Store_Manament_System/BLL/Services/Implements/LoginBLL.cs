@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace BLL.Services
 {
     // Lớp LoginBLL xử lý các nghiệp vụ liên quan đến đăng nhập
-    public class LoginBLL
+    public class LoginBLL : ILoginBLL
     {
         private LoginDAL dal = new LoginDAL();  // Khởi tạo đối tượng LoginDAL để truy cập vào DAL
 

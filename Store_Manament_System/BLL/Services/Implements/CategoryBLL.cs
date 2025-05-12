@@ -14,7 +14,7 @@ namespace BLL.Services
     public class CategoryBLL : ICategoryBLL
     {
         // Khai báo đối tượng để tương tác với dữ liệu danh mục
-        private readonly Category_DAL _categoryDAL = new Category_DAL();
+        private readonly ICategory_DAL _categoryDAL = new Category_DAL();
         // Khai báo đối tượng để tương tác với dữ liệu hình ảnh
         private readonly Image_DAL _imageDAL = new Image_DAL();
 

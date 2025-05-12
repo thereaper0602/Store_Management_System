@@ -8,12 +8,11 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-    public class WorkShiftServiceBLL
+    public class WorkShiftServiceBLL : IWorkShiftServiceBLL
     {
-        private readonly WorkShiftRepositoryDAL work = new WorkShiftRepositoryDAL();
+        private readonly IWorkShiftRepositoryDAL work = new WorkShiftRepositoryDAL();
         public List<WorkShiftDTO> GetAllWorkShift()
         {
-
             return work.GetWorkShift();
         }
     }

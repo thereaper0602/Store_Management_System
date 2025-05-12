@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    public class ImageRepositoryDAL
+    public class ImageRepositoryDAL : IImageRepositoryDAL
     {
         private readonly StoreContext _context = new StoreContext();
         public List<Image> GetAllImages()
@@ -19,26 +19,19 @@ namespace DAL.Repository
 
         public Image GetImageById(int id)
         {
-            return _context.Images.FirstOrDefault(i => i.ImageID == id);
+            return _context.Images.Find(id);
         }
 
         public Image AddImage(Image image)
         {
             try
             {
-                //var image = new Image
-                //{
-                //    ImageName = imageDTO.imageName,
-                //    ImagePath = imageDTO.imagePath,
-                //    UploadDate = DateTime.Now
-                //};
                 _context.Images.Add(image);
                 _context.SaveChanges();
                 return image;
             }
             catch (Exception ex)
             {
-                // Handle exception (e.g., log it)
                 Console.WriteLine(ex.Message);
                 return null;
             }
@@ -49,7 +42,8 @@ namespace DAL.Repository
             try
             {
                 var existing = _context.Images.Find(image.ImageID);
-                if (existing == null) {
+                if (existing == null)
+                {
                     return false;
                 }
                 existing.ImageName = image.ImageName;

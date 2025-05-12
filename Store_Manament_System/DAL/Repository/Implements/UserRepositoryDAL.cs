@@ -10,7 +10,7 @@ using DTO.DTO;
 
 namespace DAL.Repository
 {
-    public class UserRepositoryDAL
+    public class UserRepositoryDAL : IUserRepositoryDAL
     {
 
         private readonly StoreContext personal = new StoreContext();
@@ -118,36 +118,36 @@ namespace DAL.Repository
         {
             //using (var transaction = personal.Database.BeginTransaction())
             //{
-                try
+            try
+            {
+                // Corrected the issue by using the instance of userDTO instead of the class name
+                var user = personal.Users.FirstOrDefault(u => u.UserID == userDTO.userID);
+                if (user == null) // Fixed the null check to verify the user entity
                 {
-                    // Corrected the issue by using the instance of userDTO instead of the class name
-                    var user = personal.Users.FirstOrDefault(u => u.UserID == userDTO.userID);
-                    if (user == null) // Fixed the null check to verify the user entity
-                    {
-                        return false;
-                    }
-
-                    // Update the user properties
-                    user.FullName = userDTO.fullName;
-                    user.Gender = userDTO.gender;
-                    user.Username = userDTO.userName;
-                    user.Password = userDTO.password;
-                    user.RoleID = userDTO.roleID;
-                    user.Email = userDTO.email;
-                    user.PhoneNumber = userDTO.phoneNumber;
-                    user.HireDate = userDTO.hireDate;
-                    user.ImageID = userDTO.imageID;
-
-                    personal.SaveChanges();
-                    return true;
-                }
-                catch (Exception ex)
-                {
-                    // Log the error or display a message
-                    
                     return false;
-                    throw ex;
                 }
+
+                // Update the user properties
+                user.FullName = userDTO.fullName;
+                user.Gender = userDTO.gender;
+                user.Username = userDTO.userName;
+                user.Password = userDTO.password;
+                user.RoleID = userDTO.roleID;
+                user.Email = userDTO.email;
+                user.PhoneNumber = userDTO.phoneNumber;
+                user.HireDate = userDTO.hireDate;
+                user.ImageID = userDTO.imageID;
+
+                personal.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Log the error or display a message
+
+                return false;
+                throw ex;
+            }
             //}
         }
 

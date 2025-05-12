@@ -10,11 +10,11 @@ using System.Data.SqlClient;
 
 namespace BLL.Services
 {
-    public class InvoiceServiceBLL
+    public class InvoiceServiceBLL : IInvoiceServiceBLL
     {
-        private readonly InvoiceRepositoryDAL _invoiceRepositoryDAL = new InvoiceRepositoryDAL();
-        private readonly InvoiceDetailRepositoryDAL invoiceDetailRepositoryDAL = new InvoiceDetailRepositoryDAL();
-        private readonly ProductRepositoryDAL _productRepositoryDAL = new ProductRepositoryDAL();
+        private readonly IInvoiceRepositoryDAL _invoiceRepositoryDAL = new InvoiceRepositoryDAL();
+        private readonly IInvoiceDetailRepositoryDAL invoiceDetailRepositoryDAL = new InvoiceDetailRepositoryDAL();
+        private readonly IProductRepositoryDAL _productRepositoryDAL = new ProductRepositoryDAL();
         private readonly IStockServiceBLL _stockServiceBLL = new StockServiceBLL();
         private readonly StoreContext _context = new StoreContext();
 
@@ -27,7 +27,7 @@ namespace BLL.Services
                 UserID = i.UserID,
                 CreatedDate = i.CreatedDate,
                 TotalPrice = i.TotalPrice,
-                StatusID = (int) (i.StatusID ?? null),
+                StatusID = (int)(i.StatusID ?? null),
                 InvoiceDetails = i.InvoiceDetails.Select(d => new InvoiceDetailDTO
                 {
                     DetailID = d.DetailID,

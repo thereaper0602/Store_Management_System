@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    public class InvoiceRepositoryDAL
+    public class InvoiceRepositoryDAL : IInvoiceRepositoryDAL
     {
         private readonly StoreContext _context = new StoreContext();
 

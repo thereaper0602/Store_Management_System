@@ -14,7 +14,7 @@ namespace GUI
 {
     public partial class Promotion : UserControl
     {
-        private readonly PromotionServiceBLL _promotionService = new PromotionServiceBLL();
+        private readonly IPromotionServiceBLL _promotionService = new PromotionServiceBLL();
 
         // biến lưu khuyến mãi được chọn để chỉnh sửa
         private PromotionDTO _selectedPromotion; 

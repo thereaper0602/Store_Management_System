@@ -19,10 +19,10 @@ namespace GUI
 {
     public partial class AddUserForm : Form
     {
-        private readonly EmployeeServiceBLL _employeeService;
+        private readonly IEmployeeServiceBLL _employeeService;
         private UserDTO _employeeToEdit;
         private bool _isEditMode;
-        private readonly ImageServiceBLL _imageService = new ImageServiceBLL();
+        private readonly IImageServiceBLL _imageService = new ImageServiceBLL();
         // Flag to track if a new image was uploaded
         private bool _isImageUpdated = false; 
 

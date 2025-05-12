@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace DAL.Repository
 {
     // LoginDAL
-    public class LoginDAL
+    public class LoginDAL : ILoginDAL
     {
         // Khởi tạo đối tượng db để kết nối với cơ sở dữ liệu thông qua Entity Framework
         private StoreContext db = new StoreContext();
@@ -21,7 +21,7 @@ namespace DAL.Repository
             // Tìm người dùng trong cơ sở dữ liệu
             var user = db.Users.FirstOrDefault(u => u.Username == username);
             // Nếu tìm thấy user và mật khẩu đúng (kiểm tra bằng BCrypt)
-            if (user != null && BCrypt.Net.BCrypt.Verify(password, user.Password)) 
+            if (user != null && BCrypt.Net.BCrypt.Verify(password, user.Password))
             {
                 // Tạo và trả về đối tượng UserDTO chứa các thông tin cần thiết của người dùng
                 return user;

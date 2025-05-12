@@ -14,7 +14,7 @@ using DTO.DTO;
 namespace BLL.Services
 {
     //Thêm public thay cho internal
-    public class PromotionServiceBLL
+    public class PromotionServiceBLL : IPromotionServiceBLL
     {
         private readonly PromotionRepositoryDAL voucher = new PromotionRepositoryDAL();
 

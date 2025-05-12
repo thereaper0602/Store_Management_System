@@ -7,7 +7,7 @@ using DAL.Model;
 
 namespace DAL.Repository
 {
-    public class InvoiceDetailRepositoryDAL
+    public class InvoiceDetailRepositoryDAL : IInvoiceDetailRepositoryDAL
     {
         private readonly StoreContext _context = new StoreContext();
 

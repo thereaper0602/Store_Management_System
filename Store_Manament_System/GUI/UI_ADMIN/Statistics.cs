@@ -16,7 +16,7 @@ namespace GUI
 {
     public partial class Statistics : UserControl
     {
-        private readonly ReportServicesBLL _reportServicesBLL = new ReportServicesBLL();
+        private readonly IReportServicesBLL _reportServicesBLL = new ReportServicesBLL();
         public Statistics()
         {
             InitializeComponent();

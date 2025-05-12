@@ -26,8 +26,8 @@ namespace GUI
         private readonly IProductService _prodService = new ProductService();
         private List<ProductDTO> products;
         private ProductDTO currentProduct = new ProductDTO();
-        private readonly ImageServiceBLL _imageService = new ImageServiceBLL();
-        private readonly CategoryBLL _categoryBLL = new CategoryBLL();
+        private readonly IImageServiceBLL _imageService = new ImageServiceBLL();
+        private readonly ICategoryBLL _categoryBLL = new CategoryBLL();
         public ProductManagement()
         {
             InitializeComponent();

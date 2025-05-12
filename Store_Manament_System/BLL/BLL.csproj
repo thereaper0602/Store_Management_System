@@ -101,22 +101,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Services\IEmployeeServiceBLL.cs" />
+    <Compile Include="Services\IImageServiceBLL.cs" />
+    <Compile Include="Services\IInvoiceServiceBLL.cs" />
+    <Compile Include="Services\ILoginBLL.cs" />
     <Compile Include="Services\Implements\CategoryBLL.cs" />
     <Compile Include="Services\ICategoryBLL.cs" />
     <Compile Include="Services\ImageBLL.cs" />
-    <Compile Include="Services\EmployeeServiceBLL.cs" />
-    <Compile Include="Services\ImageServiceBLL.cs" />
+    <Compile Include="Services\Implements\EmployeeServiceBLL.cs" />
+    <Compile Include="Services\Implements\ImageServiceBLL.cs" />
     <Compile Include="Services\IProductService.cs" />
+    <Compile Include="Services\IPromotionServiceBLL.cs" />
+    <Compile Include="Services\IReportServicesBLL.cs" />
     <Compile Include="Services\IStockServiceBLL.cs" />
-    <Compile Include="Services\PromotionServiceBLL.cs" />
+    <Compile Include="Services\Implements\PromotionServiceBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\LoginBLL.cs" />
-    <Compile Include="Services\InvoiceServiceBLL.cs" />
+    <Compile Include="Services\Implements\LoginBLL.cs" />
+    <Compile Include="Services\Implements\InvoiceServiceBLL.cs" />
     <Compile Include="Services\Implements\ProductService.cs" />
     <Compile Include="Services\Implements\StockServiceBLL.cs" />
-    <Compile Include="Services\UserRoleServiceBLL.cs" />
-    <Compile Include="Services\WorkShiftServiceBLL.cs" />
-    <Compile Include="Services\ReportServicesBLL.cs" />
+    <Compile Include="Services\IUserRoleServiceBLL.cs" />
+    <Compile Include="Services\Implements\UserRoleServiceBLL.cs" />
+    <Compile Include="Services\IWorkShiftServiceBLL.cs" />
+    <Compile Include="Services\Implements\WorkShiftServiceBLL.cs" />
+    <Compile Include="Services\Implements\ReportServicesBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

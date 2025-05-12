@@ -17,7 +17,7 @@ namespace GUI.UI_ADMIN
     {
 
         //Khai báo biến
-        private readonly StockServiceBLL _stockService;
+        private readonly IStockServiceBLL _stockService;
         public StockManagement()
         {
             InitializeComponent();

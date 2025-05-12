@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-    public class UserRoleServiceBLL
+    public class UserRoleServiceBLL : IUserRoleServiceBLL
     {
-        private readonly UserRoleRepositoryDAL user = new UserRoleRepositoryDAL();
+        private readonly IUserRoleRepositoryDAL user = new UserRoleRepositoryDAL();
         public List<UserRoleDTO> GetAllUserRoles()
         {
             return user.GetAllUserRoles();

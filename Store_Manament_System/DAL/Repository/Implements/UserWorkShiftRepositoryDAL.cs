@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    public class UserWorkShiftRepositoryDAL
+    public class UserWorkShiftRepositoryDAL : IUserWorkShiftRepositoryDAL
     {
 
         private readonly StoreContext employee = new StoreContext();
@@ -23,9 +23,9 @@ namespace DAL.Repository
                         select new UserWorkShiftDTO
                         {
                             userID = uws.UserID ?? 0,
-                            fullName = u != null ? u.FullName : "N/A", 
-                            gender = u != null ? u.Gender : "N/A",     
-                            workShiftName = ws != null ? ws.WorkShiftName : "N/A", 
+                            fullName = u != null ? u.FullName : "N/A",
+                            gender = u != null ? u.Gender : "N/A",
+                            workShiftName = ws != null ? ws.WorkShiftName : "N/A",
                             workDate = uws.WorkDate
                         };
 

@@ -23,10 +23,10 @@ namespace GUI.UI_SALE
 {
     public partial class SellingUC : UserControl
     {
-        private readonly ProductService productService = new ProductService();
+        private readonly IProductService productService = new ProductService();
         private readonly IStockServiceBLL stockService = new StockServiceBLL();
-        private readonly PromotionServiceBLL promotionService = new PromotionServiceBLL();
-        private readonly CategoryBLL categoryService = new CategoryBLL();
+        private readonly IPromotionServiceBLL promotionService = new PromotionServiceBLL();
+        private readonly ICategoryBLL categoryService = new CategoryBLL();
 
         FilterInfoCollection filterInfoCollection; // Danh sách các thiết bị camera
         VideoCaptureDevice videoCaptureDevice; // Thiết bị camera đang sử dụng
