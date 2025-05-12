@@ -15,6 +15,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+	  <LangVersion>9</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -401,6 +402,7 @@
     <None Include="Resources\Ảnh-removebg-preview.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\refresh.png" />
     <None Include="Resources\qr-scan.png" />
     <None Include="Resources\sign-out-white.png" />
     <None Include="Resources\sign-out-black.png" />

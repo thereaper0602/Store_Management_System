@@ -16,7 +16,7 @@ namespace DAL.Repository
         private StoreContext db = new StoreContext();
 
         // Phương thức Login nhận vào tên người dùng và mật khẩu để kiểm tra đăng nhập
-        public UserDTO Login(string username, string password)
+        public User Login(string username, string password)
         {
             // Tìm người dùng trong cơ sở dữ liệu
             var user = db.Users.FirstOrDefault(u => u.Username == username);
@@ -24,19 +24,7 @@ namespace DAL.Repository
             if (user != null && BCrypt.Net.BCrypt.Verify(password, user.Password)) 
             {
                 // Tạo và trả về đối tượng UserDTO chứa các thông tin cần thiết của người dùng
-                return new UserDTO 
-                {
-                    userID = user.UserID,
-                    fullName = user.FullName,
-                    gender = user.Gender,
-                    userName = user.Username,
-                    password = user.Password,
-                    roleID = user.RoleID ?? 0,
-                    phoneNumber = user.PhoneNumber,
-                    email = user.Email,
-                    hireDate = user.HireDate,
-                    imageID = user.ImageID ?? 0
-                };
+                return user;
             }
             // Nếu không tìm thấy người dùng, trả về null
             return null;

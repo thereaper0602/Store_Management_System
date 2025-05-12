@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO.DTO;
 using DAL.Model;
+using System.Data.SqlClient;
 
 namespace BLL.Services
 {
@@ -118,10 +119,10 @@ namespace BLL.Services
                     transaction.Commit();
                     return invoice.InvoiceID;
                 }
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
                     transaction.Rollback();
-                    throw new Exception("Invoice creation failed. " + ex.Message);
+                    throw ex;
                 }
                 finally
                 {

@@ -81,21 +81,24 @@ namespace GUI
             {
                 DataPropertyName = "ProductName",
                 HeaderText = "Product name",
-                Width = 200
+                Width = 200,
+                ReadOnly = true
             });
 
             productDataGridView.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "Description",
                 HeaderText = "Description",
-                Width = 200
+                Width = 200,
+                ReadOnly = true
             });
 
             productDataGridView.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "CategoryID",
                 HeaderText = "Category ID",
-                Width = 20
+                Width = 20,
+                ReadOnly = true
             });
 
 
@@ -103,7 +106,8 @@ namespace GUI
             {
                 DataPropertyName = "Price",
                 HeaderText = "Price",
-                Width = 50
+                Width = 50,
+                ReadOnly = true
             });
 
         }
@@ -139,36 +143,23 @@ namespace GUI
                     categoryComboBox.SelectedValue = currentProduct.CategoryID;
                     productPriceTxt.Text = currentProduct.Price.ToString();
 
-                    // Hiển thị qr sản phẩm
-                    loadQR(currentProduct.ProductCode);
-
                     ImageDTO image = _imageService.GetImageById((int)currentProduct.ImageID);
 
-                    if (image != null && File.Exists(image.imagePath)) {
+                    if (image != null && File.Exists(image.imagePath))
+                    {
                         using (var stream = new FileStream(image.imagePath, FileMode.Open, FileAccess.Read))
                         {
-                            productPicturebox.Image = Image.FromStream(stream);
+                            var tempImage = Image.FromStream(stream);
+                            productPicturebox.Image = new Bitmap(tempImage); // Copy để giải phóng stream
                         }
                     }
                     else
                     {
                         productPicturebox.Image = null;
                     }
+
                 }
             }
-        }
-
-        private void loadQR(string productQR)
-        {
-            var qrCode = $"{productQR}";
-            BarcodeWriter barcodeWriter = new BarcodeWriter();
-            EncodingOptions encodingOptions = new EncodingOptions() { Width = 250, Height = 250, Margin = 0, PureBarcode = false };
-            encodingOptions.Hints.Add(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
-            barcodeWriter.Renderer = new BitmapRenderer();
-            barcodeWriter.Options = encodingOptions;
-            barcodeWriter.Format = BarcodeFormat.QR_CODE;
-            Bitmap bitmap = barcodeWriter.Write(qrCode);
-            bunifuPictureBox1.Image = bitmap;
         }
 
         public Image resizeImage(Image image, int new_height, int new_width)
@@ -370,6 +361,22 @@ namespace GUI
                 loadInitData();
             }
             searchLoader.Visible = false;
+        }
+
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            productDataGridView.DataSource = null;
+            currentProduct.ProductID = 0;
+            productDataGridView.ClearSelection();
+            categoryComboBox.SelectedItem = null;
+            categoryComboBox.DataSource = null;
+            categoryComboBox.Items.Clear();
+            clearForm();
+            searchTxtBox.Clear();
+            searchLoader.Visible = false;
+            search_pro.Enabled = true;
+            loadProducts();
+            loadCategoryComboBox();
         }
     }
 }

@@ -396,10 +396,7 @@ namespace GUI.UI_SALE
 
             AppSession.CurrentUser = new UserDTO
             {
-                userID = 1,
-                userName = "admin",
-                password = "admin",
-                roleID = 1
+                userID = 14
             };
 
             //Tạo đơn hàng mới

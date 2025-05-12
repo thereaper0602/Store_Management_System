@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTO.DTO;
 using GUI.UI_SALE;
 using GUI.Utils;
 
@@ -18,7 +19,7 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainSaleForm());
+            Application.Run(new Login());
         }
     }
 }

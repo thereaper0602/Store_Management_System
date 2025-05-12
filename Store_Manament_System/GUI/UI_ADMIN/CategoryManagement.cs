@@ -323,7 +323,7 @@ namespace GUI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error deleting category: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    throw ex;
                 }
             }
         }

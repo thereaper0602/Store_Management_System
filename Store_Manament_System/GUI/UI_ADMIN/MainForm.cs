@@ -42,16 +42,30 @@ namespace GUI
         //Xử lý nút sign out
         private void btn_SignOut_Click(object sender, EventArgs e)
         {
-            // Hiển thị hộp thoại xác nhận
             DialogResult result = MessageBox.Show("Sign out now?", "Sign Out", MessageBoxButtons.YesNo);
+            AppSession.CurrentUser = null; // Đặt lại thông tin người dùng hiện tại
+            if (result == DialogResult.No)
+            {
+                return; // Nếu người dùng chọn "No", không làm gì cả
+            }
             if (result == DialogResult.Yes)
             {
-                // Tạo lại form đăng nhập
-                Login loginForm = new Login();
-                loginForm.StartPosition = FormStartPosition.CenterScreen;
-                loginForm.TopMost = true;
-                loginForm.Show();
-                this.Close();
+                // Tìm lại form Login đã bị ẩn (nếu có)
+                Login loginForm = Application.OpenForms.OfType<Login>().FirstOrDefault();
+
+                if (loginForm != null)
+                {
+                    loginForm.Show();// Hiển thị lại form Login
+                    loginForm.clearForm();
+                    this.Hide();      // Ẩn MainForm thay vì đóng
+                }
+                else
+                {
+                    // Nếu không tìm thấy (trường hợp bất thường), tạo mới
+                    loginForm = new Login();
+                    loginForm.Show();
+                    this.Close();
+                }
             }
         }
 
