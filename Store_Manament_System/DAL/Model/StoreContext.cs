@@ -16,7 +16,7 @@ namespace DAL.Model
         public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<InvoiceDetail> InvoiceDetails { get; set; }
         public virtual DbSet<Invoice> Invoices { get; set; }
-        public virtual DbSet<InvoiceStatu> InvoiceStatus { get; set; }
+        public virtual DbSet<InvoiceStatus> InvoiceStatus { get; set; }
         public virtual DbSet<ProductPromotion> ProductPromotions { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Promotion> Promotions { get; set; }
@@ -39,9 +39,9 @@ namespace DAL.Model
                 .WithOptional(e => e.Invoice)
                 .WillCascadeOnDelete();
 
-            modelBuilder.Entity<InvoiceStatu>()
+            modelBuilder.Entity<InvoiceStatus>()
                 .HasMany(e => e.Invoices)
-                .WithOptional(e => e.InvoiceStatu)
+                .WithOptional(e => e.InvoiceStatus)
                 .WillCascadeOnDelete();
 
             modelBuilder.Entity<Product>()

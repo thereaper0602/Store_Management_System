@@ -11,18 +11,10 @@ namespace DAL.Repository
     public class WorkShiftRepositoryDAL : IWorkShiftRepositoryDAL
     {
         private readonly StoreContext _context = new StoreContext();
-        public List<WorkShiftDTO> GetWorkShift()
+        public List<WorkShift> GetAllWorkShifts()
         {
-            return _context.WorkShifts
-                .Select(w => new WorkShiftDTO()
-                {
-                    workShiftID = w.WorkShiftID,
-                    workShiftName = w.WorkShiftName,
-                    //workShiftPrice = w.WorkShiftSalary
-                })
-                .ToList();
+            return _context.WorkShifts.ToList();
         }
-
 
     }
 }

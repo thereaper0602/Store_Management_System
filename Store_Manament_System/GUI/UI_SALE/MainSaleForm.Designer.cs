@@ -291,6 +291,7 @@
             this.invoiceViewBtn.TextMarginLeft = 0;
             this.invoiceViewBtn.TextPadding = new System.Windows.Forms.Padding(35, 2, 0, 0);
             this.invoiceViewBtn.UseDefaultRadiusAndThickness = true;
+            this.invoiceViewBtn.Click += new System.EventHandler(this.invoiceViewBtn_Click);
             // 
             // sellingViewBtn
             // 

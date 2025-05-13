@@ -282,7 +282,7 @@ namespace GUI
                         imagePath = imagePath
                     };
 
-                    result = _employeeService.AddUser(imageDto, employeeDto);
+                    result = _employeeService.AddUser(employeeDto, imageDto);
                 }
 
                 if (result)
@@ -302,6 +302,7 @@ namespace GUI
                 {
                     MessageBox.Show(_isEditMode ? "Failed to update user!" : "Failed to add user!",
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
             catch (Exception ex)
@@ -315,6 +316,7 @@ namespace GUI
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+            return;
         }
     }
 }

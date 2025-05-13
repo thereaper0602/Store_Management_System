@@ -240,7 +240,7 @@ namespace GUI
                     {
                         imageDto = _imageService.GetImageById(user.imageID);
                     }
-                    result = _employeeService.DeleteUser(user.userID, imageDto);
+                    result = _employeeService.DeleteUser(user.userID);
                 }
                 else
                 {
@@ -315,7 +315,7 @@ namespace GUI
             try
             {
                 // Kiểm tra nếu từ khóa là số (tìm theo ID) hoặc chuỗi (tìm theo tên)
-                var filteredPromotions = _employeeService.SearchUser(keyword);
+                var filteredPromotions = _employeeService.SearchUsers(keyword);
 
                 viewUser.DataSource = null;
                 viewUser.DataSource = filteredPromotions;

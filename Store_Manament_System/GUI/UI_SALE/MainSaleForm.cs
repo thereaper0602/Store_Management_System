@@ -56,7 +56,7 @@ namespace GUI.UI_SALE
 
         private void invoiceViewBtn_Click(object sender, EventArgs e)
         {
-            //LoadUserControl("invoiceView", () => new InvoiceUC());
+            LoadUserControl("invoiceView", () => new InvoicesUC());
         }
 
         private void btn_SignOut_Click(object sender, EventArgs e)

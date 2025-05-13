@@ -157,6 +157,7 @@ namespace DAL.Repository
                                       on detail.InvoiceID equals invoice.InvoiceID
                                       group detail by new { detail.ProductID, detail.Product.ProductName } into g
                                       orderby g.Sum(x => x.Quantity) descending
+                                      where g.Key.ProductID != null
                                       select new ProductRevenueDTO
                                       {
                                           ProductName = g.Key.ProductName,
@@ -172,6 +173,7 @@ namespace DAL.Repository
                                         join invoice in _context.Invoices
                                         on detail.InvoiceID equals invoice.InvoiceID
                                         group detail by new { detail.Product.CategoryID, detail.Product.Category.CategoryName } into g
+                                        where g.Key.CategoryID != null
                                         orderby g.Sum(x => x.Quantity) descending
                                         select new CategoryRevenueDTO
                                         {

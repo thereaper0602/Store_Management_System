@@ -1,18 +1,20 @@
-﻿using DTO.DTO;
+﻿using DAL.Model;
 using System.Collections.Generic;
 
 namespace DAL.Repository
 {
     public interface IUserRepositoryDAL
     {
-        bool AddUser(ImageDTO imageDTO, UserDTO userDTO);
-        bool DeleteUser(int userId, ImageDTO imageDTO);
+        User AddUser(User user);
+        bool DeleteUser(int userId);
         bool DeleteUsers(List<int> userIds);
-        List<UserDTO> GetAllUser();
+        List<User> GetAllUser();
+        List<User> GetAllUsersWithRole(int roleId);
         string GetFullNameByUserId(int userId);
-        UserDTO GetUserById(int userId);
+        User GetUserById(int id);
+        List<User> GetUsersByIds(List<int> userIds);
         bool IsValidUserWithRole(int userId);
-        List<UserDTO> SearchUsers(string keyword);
-        bool UpdateUser(UserDTO userDTO);
+        List<User> SearchUser(string kw);
+        bool UpdateUser(User user);
     }
 }

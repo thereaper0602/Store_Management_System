@@ -12,15 +12,9 @@ namespace DAL.Repository
     public class UserRoleRepositoryDAL : IUserRoleRepositoryDAL
     {
         private readonly StoreContext _context = new StoreContext();
-        public List<UserRoleDTO> GetAllUserRoles()
+        public List<UserRole> GetAllUserRoles()
         {
-            return _context.UserRoles
-                .Select(e => new UserRoleDTO()
-                {
-                    roleID = e.RoleID,
-                    roleName = e.RoleName
-                })
-                .ToList();
+            return _context.UserRoles.ToList();
         }
 
     }

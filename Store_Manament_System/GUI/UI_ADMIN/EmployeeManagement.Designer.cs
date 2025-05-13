@@ -113,6 +113,13 @@
             this.MorningShift = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AfternoonShift = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EveningShift = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.detail_cate)).BeginInit();
             this.tabControlEmployee.SuspendLayout();
             this.tabPageEmployee.SuspendLayout();
@@ -135,7 +142,7 @@
             this.bunifuLabel1.Location = new System.Drawing.Point(3, 3);
             this.bunifuLabel1.Name = "bunifuLabel1";
             this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(467, 65);
+            this.bunifuLabel1.Size = new System.Drawing.Size(336, 46);
             this.bunifuLabel1.TabIndex = 5;
             this.bunifuLabel1.Text = "Employee Management";
             this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -775,7 +782,7 @@
             this.tbSearchUser.SelectionLength = 0;
             this.tbSearchUser.SelectionStart = 0;
             this.tbSearchUser.ShortcutsEnabled = true;
-            this.tbSearchUser.Size = new System.Drawing.Size(598, 57);
+            this.tbSearchUser.Size = new System.Drawing.Size(598, 47);
             this.tbSearchUser.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.tbSearchUser.TabIndex = 27;
             this.tbSearchUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -808,10 +815,10 @@
             this.tabPageEmployee.Controls.Add(this.bunifuButton21);
             this.tabPageEmployee.Controls.Add(this.btAddUser);
             this.tabPageEmployee.Font = new System.Drawing.Font("Poppins Medium", 9.857143F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPageEmployee.Location = new System.Drawing.Point(4, 49);
+            this.tabPageEmployee.Location = new System.Drawing.Point(4, 37);
             this.tabPageEmployee.Name = "tabPageEmployee";
             this.tabPageEmployee.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEmployee.Size = new System.Drawing.Size(1205, 707);
+            this.tabPageEmployee.Size = new System.Drawing.Size(1205, 719);
             this.tabPageEmployee.TabIndex = 0;
             this.tabPageEmployee.Text = "Infomation";
             this.tabPageEmployee.UseVisualStyleBackColor = true;
@@ -973,10 +980,10 @@
             this.tabPageWorkShift.Controls.Add(this.cbWorkShiftName);
             this.tabPageWorkShift.Controls.Add(this.bunifuLabel2);
             this.tabPageWorkShift.Controls.Add(this.viewWorkShift);
-            this.tabPageWorkShift.Location = new System.Drawing.Point(4, 49);
+            this.tabPageWorkShift.Location = new System.Drawing.Point(4, 37);
             this.tabPageWorkShift.Name = "tabPageWorkShift";
             this.tabPageWorkShift.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageWorkShift.Size = new System.Drawing.Size(1205, 707);
+            this.tabPageWorkShift.Size = new System.Drawing.Size(1205, 719);
             this.tabPageWorkShift.TabIndex = 1;
             this.tabPageWorkShift.Text = "WorkShift";
             this.tabPageWorkShift.UseVisualStyleBackColor = true;
@@ -1136,7 +1143,7 @@
             this.tbFullNameWork.SelectionLength = 0;
             this.tbFullNameWork.SelectionStart = 0;
             this.tbFullNameWork.ShortcutsEnabled = true;
-            this.tbFullNameWork.Size = new System.Drawing.Size(290, 72);
+            this.tbFullNameWork.Size = new System.Drawing.Size(290, 58);
             this.tbFullNameWork.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.tbFullNameWork.TabIndex = 38;
             this.tbFullNameWork.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1159,7 +1166,7 @@
             this.bunifuLabel4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.bunifuLabel4.Name = "bunifuLabel4";
             this.bunifuLabel4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel4.Size = new System.Drawing.Size(147, 50);
+            this.bunifuLabel4.Size = new System.Drawing.Size(108, 36);
             this.bunifuLabel4.TabIndex = 37;
             this.bunifuLabel4.Text = "Full Name";
             this.bunifuLabel4.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -1230,7 +1237,7 @@
             this.tbUserIDWork.SelectionLength = 0;
             this.tbUserIDWork.SelectionStart = 0;
             this.tbUserIDWork.ShortcutsEnabled = true;
-            this.tbUserIDWork.Size = new System.Drawing.Size(288, 72);
+            this.tbUserIDWork.Size = new System.Drawing.Size(288, 58);
             this.tbUserIDWork.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.tbUserIDWork.TabIndex = 36;
             this.tbUserIDWork.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1254,7 +1261,7 @@
             this.bunifuLabel3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.bunifuLabel3.Name = "bunifuLabel3";
             this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel3.Size = new System.Drawing.Size(95, 50);
+            this.bunifuLabel3.Size = new System.Drawing.Size(70, 36);
             this.bunifuLabel3.TabIndex = 35;
             this.bunifuLabel3.Text = "UserID";
             this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -1268,7 +1275,7 @@
             this.cbWorkShiftName.FormattingEnabled = true;
             this.cbWorkShiftName.Location = new System.Drawing.Point(670, 36);
             this.cbWorkShiftName.Name = "cbWorkShiftName";
-            this.cbWorkShiftName.Size = new System.Drawing.Size(393, 66);
+            this.cbWorkShiftName.Size = new System.Drawing.Size(393, 50);
             this.cbWorkShiftName.TabIndex = 32;
             // 
             // bunifuLabel2
@@ -1283,7 +1290,7 @@
             this.bunifuLabel2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.bunifuLabel2.Name = "bunifuLabel2";
             this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel2.Size = new System.Drawing.Size(248, 50);
+            this.bunifuLabel2.Size = new System.Drawing.Size(182, 36);
             this.bunifuLabel2.TabIndex = 31;
             this.bunifuLabel2.Text = "Work Shift Name";
             this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -1411,10 +1418,10 @@
             this.tabPageSalary.Controls.Add(this.cbMonth);
             this.tabPageSalary.Controls.Add(this.btExportSalary);
             this.tabPageSalary.Controls.Add(this.viewSalary);
-            this.tabPageSalary.Location = new System.Drawing.Point(4, 49);
+            this.tabPageSalary.Location = new System.Drawing.Point(4, 37);
             this.tabPageSalary.Name = "tabPageSalary";
             this.tabPageSalary.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageSalary.Size = new System.Drawing.Size(1205, 707);
+            this.tabPageSalary.Size = new System.Drawing.Size(1205, 719);
             this.tabPageSalary.TabIndex = 2;
             this.tabPageSalary.Text = "Salary";
             this.tabPageSalary.UseVisualStyleBackColor = true;
@@ -1427,7 +1434,7 @@
             this.cbYear.FormattingEnabled = true;
             this.cbYear.Location = new System.Drawing.Point(170, 3);
             this.cbYear.Name = "cbYear";
-            this.cbYear.Size = new System.Drawing.Size(167, 58);
+            this.cbYear.Size = new System.Drawing.Size(167, 44);
             this.cbYear.TabIndex = 23;
             // 
             // cbMonth
@@ -1438,7 +1445,7 @@
             this.cbMonth.FormattingEnabled = true;
             this.cbMonth.Location = new System.Drawing.Point(3, 3);
             this.cbMonth.Name = "cbMonth";
-            this.cbMonth.Size = new System.Drawing.Size(167, 58);
+            this.cbMonth.Size = new System.Drawing.Size(167, 44);
             this.cbMonth.TabIndex = 22;
             // 
             // btExportSalary
@@ -1550,6 +1557,14 @@
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.viewSalary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.viewSalary.ColumnHeadersHeight = 40;
+            this.viewSalary.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7});
             this.viewSalary.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
             this.viewSalary.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.viewSalary.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
@@ -1655,6 +1670,62 @@
             this.EveningShift.ReadOnly = true;
             this.EveningShift.Width = 175;
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "userID";
+            this.Column1.HeaderText = "UserID";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "fullName";
+            this.Column2.HeaderText = "Full Name";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "gender";
+            this.Column3.HeaderText = "Gender";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "morningShifts";
+            this.Column4.HeaderText = "Morning Shifts";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "afternoonShifts";
+            this.Column5.HeaderText = "Afternoon Shifts";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "eveningShifts";
+            this.Column6.HeaderText = "Evening Shifts";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "salary";
+            this.Column7.HeaderText = "Salary";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
             // EmployeeManagement
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1734,5 +1805,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn WorkShiftName;
         private System.Windows.Forms.DataGridViewTextBoxColumn WorkDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }

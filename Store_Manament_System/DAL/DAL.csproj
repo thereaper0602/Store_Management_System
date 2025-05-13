@@ -112,7 +112,7 @@
     <Compile Include="Model\Image.cs" />
     <Compile Include="Model\Invoice.cs" />
     <Compile Include="Model\InvoiceDetail.cs" />
-    <Compile Include="Model\InvoiceStatu.cs" />
+    <Compile Include="Model\InvoiceStatus.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\ProductPromotion.cs" />
     <Compile Include="Model\Promotion.cs" />
@@ -128,8 +128,17 @@
     <Compile Include="Repository\IImageRepositoryDAL.cs" />
     <Compile Include="Repository\IInvoiceDetailRepositoryDAL.cs" />
     <Compile Include="Repository\IInvoiceRepositoryDAL.cs" />
+    <Compile Include="Repository\IInvoiceStatusRepositoryDAL.cs" />
     <Compile Include="Repository\ILoginDAL.cs" />
+    <Compile Include="Model\IInvoiceG_RepositoryDAL.cs" />
+    <Compile Include="Repository\IInvoiceDetailG_RepositoryDAL.cs" />
     <Compile Include="Repository\Implements\ImageRepositoryDAL.cs" />
+    <Compile Include="Repository\Implements\InvoiceDetailG_RepositoryDAL.cs" />
+    <Compile Include="Repository\Implements\InvoiceG_RepositoryDAL.cs" />
+    <Compile Include="Repository\Implements\InvoiceStatusRepositoryDAL.cs" />
+    <Compile Include="Repository\IWorkShiftRepositoryDAL.cs" />
+    <Compile Include="Repository\IUserWorkShiftRepositoryDAL.cs" />
+    <Compile Include="Repository\IUserRepositoryDAL.cs" />
     <Compile Include="Repository\IProductRepositoryDAL.cs" />
     <Compile Include="Repository\Implements\InvoiceDetailRepositoryDAL.cs" />
     <Compile Include="Repository\Implements\InvoiceRepositoryDAL.cs" />
@@ -138,23 +147,18 @@
     <Compile Include="Repository\IReportRepositoryDAL.cs" />
     <Compile Include="Repository\ISalaryRepositoryDAL.cs" />
     <Compile Include="Repository\IStockRepositoryDAL.cs" />
-	<Compile Include="Repository\IProductPromotionDAL.cs" />
-	
+    <Compile Include="Repository\IProductPromotionDAL.cs" />
     <Compile Include="Repository\Implements\ReportRepositoryDAL.cs" />
     <Compile Include="Repository\Implements\CategoryRepositoryDAL.cs" />
     <Compile Include="Repository\Image_DAL.cs" />
     <Compile Include="Repository\Implements\LoginDAL.cs" />
     <Compile Include="Repository\Implements\PromotionRepositoryDAL.cs" />
-    <Compile Include="Repository\Implements\SalaryRepositoryDAL.cs" />
     <Compile Include="Repository\Implements\StockRepositoryDAL.cs" />
-	<Compile Include="Repository\Implements\ProductPromotionDAL.cs" />
-    <Compile Include="Repository\IUserRepositoryDAL.cs" />
+    <Compile Include="Repository\Implements\ProductPromotionDAL.cs" />
     <Compile Include="Repository\Implements\UserRepositoryDAL.cs" />
     <Compile Include="Repository\IUserRoleRepositoryDAL.cs" />
     <Compile Include="Repository\Implements\UserRoleRepositoryDAL.cs" />
-    <Compile Include="Repository\IUserWorkShiftRepositoryDAL.cs" />
     <Compile Include="Repository\Implements\UserWorkShiftRepositoryDAL.cs" />
-    <Compile Include="Repository\IWorkShiftRepositoryDAL.cs" />
     <Compile Include="Repository\Implements\WorkShiftRepositoryDAL.cs" />
   </ItemGroup>
   <ItemGroup>

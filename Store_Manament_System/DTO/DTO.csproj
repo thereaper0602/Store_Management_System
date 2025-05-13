@@ -103,9 +103,12 @@
   <ItemGroup>
     <Compile Include="DTO\CategoryRevenueDTO.cs" />
     <Compile Include="DTO\InvoiceDetailDTO.cs" />
+    <Compile Include="DTO\InvoiceDetailG_DTO.cs" />
     <Compile Include="DTO\InvoiceDTO.cs" />
     <Compile Include="DTO\CategoryDTO.cs" />
     <Compile Include="DTO\ImageDTO.cs" />
+    <Compile Include="DTO\InvoiceG_DTO.cs" />
+    <Compile Include="DTO\InvoiceStatusDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="DTO\ProductPromotionDTO.cs" />
     <Compile Include="DTO\SalaryDTO.cs" />

@@ -10,10 +10,18 @@ namespace BLL.Services
 {
     public class UserRoleServiceBLL : IUserRoleServiceBLL
     {
-        private readonly IUserRoleRepositoryDAL user = new UserRoleRepositoryDAL();
+        private readonly UserRoleRepositoryDAL user = new UserRoleRepositoryDAL();
+
+
         public List<UserRoleDTO> GetAllUserRoles()
         {
-            return user.GetAllUserRoles();
+            return user.GetAllUserRoles()
+                .Select(e => new UserRoleDTO()
+                {
+                    roleID = e.RoleID,
+                    roleName = e.RoleName
+                })
+                .ToList();
         }
     }
 }

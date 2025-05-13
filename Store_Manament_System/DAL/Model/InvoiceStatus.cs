@@ -6,10 +6,10 @@ namespace DAL.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class InvoiceStatu
+    public partial class InvoiceStatus
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public InvoiceStatu()
+        public InvoiceStatus()
         {
             Invoices = new HashSet<Invoice>();
         }
