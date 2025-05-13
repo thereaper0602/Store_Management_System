@@ -138,6 +138,8 @@
     <Compile Include="Repository\IReportRepositoryDAL.cs" />
     <Compile Include="Repository\ISalaryRepositoryDAL.cs" />
     <Compile Include="Repository\IStockRepositoryDAL.cs" />
+	<Compile Include="Repository\IProductPromotionDAL.cs" />
+	
     <Compile Include="Repository\Implements\ReportRepositoryDAL.cs" />
     <Compile Include="Repository\Implements\CategoryRepositoryDAL.cs" />
     <Compile Include="Repository\Image_DAL.cs" />
@@ -145,6 +147,7 @@
     <Compile Include="Repository\Implements\PromotionRepositoryDAL.cs" />
     <Compile Include="Repository\Implements\SalaryRepositoryDAL.cs" />
     <Compile Include="Repository\Implements\StockRepositoryDAL.cs" />
+	<Compile Include="Repository\Implements\ProductPromotionDAL.cs" />
     <Compile Include="Repository\IUserRepositoryDAL.cs" />
     <Compile Include="Repository\Implements\UserRepositoryDAL.cs" />
     <Compile Include="Repository\IUserRoleRepositoryDAL.cs" />

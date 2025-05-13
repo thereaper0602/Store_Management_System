@@ -1,15 +1,15 @@
-﻿using DTO.DTO;
+﻿using DAL.Model;
 using System.Collections.Generic;
 
 namespace DAL.Repository
 {
     public interface IPromotionRepositoryDAL
     {
-        bool AddPromotion(PromotionDTO promotionDto);
+        Promotion AddPromotion(Promotion promotion);
         bool DeletePromotion(int promotionID);
-        bool DeletePromotions(List<int> promotionID);
-        List<PromotionDTO> GetAllPromotions();
-        List<PromotionDTO> SearchPromotions(string keyword);
-        bool UpdatePromotion(PromotionDTO promotionDto);
+        bool DeletePromotions(List<int> promotionIDs);
+        List<Promotion> GetAllPromotions();
+        List<Promotion> SearchPromotions(string keyword);
+        bool UpdatePromotion(Promotion promotion);
     }
 }

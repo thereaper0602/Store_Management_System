@@ -50,26 +50,118 @@ namespace BLL.Services
             if (dto.startDate > dto.endDate)
                 throw new ArgumentException("Start date must be before the end date.");
         }
+        public List<PromotionDTO> GetAllPromotions()
+        {
+            return voucher.GetAllPromotions()
+                .Select(p => new PromotionDTO
+                {
+                    promotionID = p.PromotionID,
+                    promotionName = p.PromotionName,
+                    discountRate = p.DiscountRate,
+                    startDate = p.StartDate,
+                    endDate = p.EndDate,
+                    description = p.Description
+                })
+            .ToList();
 
+        }
 
+        // Thêm khuyến mãi mới
+        public bool AddPromotion(PromotionDTO promotion)
+        {
+            try
+            {
+                ValidatePromotion(promotion);
+                var newPromotion = new Promotion
+                {
+                    PromotionID = promotion.promotionID,
+                    PromotionName = promotion.promotionName,
+                    DiscountRate = promotion.discountRate,
+                    StartDate = promotion.startDate,
+                    EndDate = promotion.endDate,
+                    Description = promotion.description
+                };
 
-        //Xóa khuyến mãi
-        //Xóa 1 khuyến mãi dựa trên ID
+                voucher.AddPromotion(newPromotion);
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        // Cập nhật khuyến mãi
+        public bool UpdatePromotion(PromotionDTO promotionDto)
+        {
+            try
+            {
+                ValidatePromotion(promotionDto);
+                var promotion = new Promotion
+                {
+                    PromotionID = promotionDto.promotionID,
+                    PromotionName = promotionDto.promotionName,
+                    DiscountRate = promotionDto.discountRate,
+                    StartDate = promotionDto.startDate,
+                    EndDate = promotionDto.endDate,
+                    Description = promotionDto.description
+                };
+
+                return voucher.UpdatePromotion(promotion);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        // Xóa 1 khuyến mãi
         public bool DeletePromotion(int promotionID)
         {
-            return voucher.DeletePromotion(promotionID);
+            try
+            {
+                return voucher.DeletePromotion(promotionID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        // Xóa nhiều khuyến mãi dựa trên danh sách ID
-        public bool DeletePromotions(List<int> promotionID)
+        // Xóa nhiều khuyến mãi
+        public bool DeletePromotions(List<int> promotionIDs)
         {
-            return voucher.DeletePromotions(promotionID);
+            try
+            {
+                return voucher.DeletePromotions(promotionIDs);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
-        // Tìm kiếm khuyến mãi dựa trên từ khóa
+        // Tìm kiếm khuyến mãi theo keyword
         public List<PromotionDTO> SearchPromotions(string keyword)
         {
-            return voucher.SearchPromotions(keyword);
+            try
+            {
+                var promotions = voucher.SearchPromotions(keyword);
+                return promotions.Select(p => new PromotionDTO
+                {
+                    promotionID = p.PromotionID,
+                    promotionName = p.PromotionName,
+                    discountRate = p.DiscountRate,
+                    startDate = p.StartDate,
+                    endDate = p.EndDate,
+                    description = p.Description
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

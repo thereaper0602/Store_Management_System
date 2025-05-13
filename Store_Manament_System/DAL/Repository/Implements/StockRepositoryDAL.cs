@@ -27,10 +27,11 @@ namespace DAL.Repository
                 .ToDictionary(g => g.Key, g => g.Sum(s => s.StockQuantity));
         }
 
-        public void AddStock(Stock stock)
+        public Stock AddStock(Stock stock)
         {
             _context.Stocks.Add(stock);
             _context.SaveChanges();
+            return stock;
         }
 
         // Lấy stock gần đát nhất cho 1 sản phẩm

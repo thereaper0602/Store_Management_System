@@ -10,45 +10,24 @@ namespace DAL.Repository
 {
     public class PromotionRepositoryDAL : IPromotionRepositoryDAL
     {
-        private readonly StoreContext voucher = new StoreContext();
-
+        private readonly StoreContext _context = new StoreContext();
         // Lấy danh sách tất cả khuyến mãi
-        public List<PromotionDTO> GetAllPromotions()
+        public List<Promotion> GetAllPromotions()
         {
-            return voucher.Promotions
-                .Select(p => new PromotionDTO
-                {
-                    promotionID = p.PromotionID,
-                    promotionName = p.PromotionName,
-                    discountRate = p.DiscountRate,
-                    startDate = p.StartDate,
-                    endDate = p.EndDate,
-                    description = p.Description
-                })
-            .ToList();
-
+            return _context.Promotions.ToList();
         }
 
         // Thêm khuyến mãi mới
-        public bool AddPromotion(PromotionDTO promotionDto)
+        public Promotion AddPromotion(Promotion promotion)
         {
-            try
-            {
-                using (var context = new StoreContext())
-                {
-                    var promotion = new Promotion
-                    {
-                        PromotionName = promotionDto.promotionName,
-                        DiscountRate = promotionDto.discountRate,
-                        StartDate = promotionDto.startDate,
-                        EndDate = promotionDto.endDate,
-                        Description = promotionDto.description
-                    };
+            _context.Promotions.Add(promotion);
+            _context.SaveChanges();
+            return promotion;
 
                     context.Promotions.Add(promotion);
                     context.SaveChanges();
                     return true;
-                }
+        }
             }
             catch (Exception ex)
             {
@@ -57,28 +36,30 @@ namespace DAL.Repository
         }
 
         // Cập nhật khuyến mãi
-        public bool UpdatePromotion(PromotionDTO promotionDto)
+        public bool UpdatePromotion(Promotion promotion)
         {
             try
             {
-                using (var context = new StoreContext())
+                var existingPromotion = _context.Promotions
+                    .FirstOrDefault(p => p.PromotionID == promotion.PromotionID);
+                if (existingPromotion == null)
                 {
                     var promotion = context.Promotions
                         .FirstOrDefault(p => p.PromotionID == promotionDto.promotionID);
                     if (promotion == null)
                     {
-                        return false;
-                    }
-
-                    promotion.PromotionName = promotionDto.promotionName;
-                    promotion.DiscountRate = promotionDto.discountRate;
-                    promotion.StartDate = promotionDto.startDate;
-                    promotion.EndDate = promotionDto.endDate;
-                    promotion.Description = promotionDto.description;
-
-                    context.SaveChanges();
-                    return true;
+                    return false;
                 }
+
+                existingPromotion.PromotionName = promotion.PromotionName;
+                existingPromotion.DiscountRate = promotion.DiscountRate;
+                existingPromotion.StartDate = promotion.StartDate;
+                existingPromotion.EndDate = promotion.EndDate;
+                existingPromotion.Description = promotion.Description;
+
+                _context.SaveChanges();
+                return true;
+            }
             }
             catch (Exception ex)
             {
@@ -86,25 +67,22 @@ namespace DAL.Repository
             }
         }
 
-        //Xóa khuyến mãi
-
-        //Xóa 1 khuyến mãi
+        // Xóa 1 khuyến mãi
         public bool DeletePromotion(int promotionID)
         {
             try
             {
-                using (var context = new StoreContext())
+                var promotion = _context.Promotions
+                    .FirstOrDefault(p => p.PromotionID == promotionID);
+                if (promotion == null)
                 {
-                    var voucher = context.Promotions.FirstOrDefault(v => v.PromotionID == promotionID);
-                    if (voucher == null)
-                    {
-                        return false; // Không tìm thấy nhân viên
-                    }
-
-                    context.Promotions.Remove(voucher);
-                    context.SaveChanges();
-                    return true;
+                    return false;
                 }
+
+                _context.Promotions.Remove(promotion);
+                _context.SaveChanges();
+                return true;
+            }
             }
             catch (Exception ex)
             {
@@ -112,54 +90,47 @@ namespace DAL.Repository
             }
         }
 
-        // Phương thức xóa nhiều nhân viên dựa trên danh sách UserID
-        public bool DeletePromotions(List<int> promotionID)
+        // Xóa nhiều khuyến mãi
+        public bool DeletePromotions(List<int> promotionIDs)
         {
             try
             {
-                using (var context = new StoreContext())
-                {
-                    var vouchers = context.Promotions.Where(v => promotionID.Contains(v.PromotionID)).ToList();
-                    if (vouchers == null || vouchers.Count == 0)
-                    {
-                        return false; // Không tìm thấy nhân viên nào
-                    }
-
-                    context.Promotions.RemoveRange(vouchers);
-                    context.SaveChanges();
-                    return true;
-                }
-            }
-
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        // Tìm kiếm khuyến mãi dựa trên từ Id và tên khuyến mãi
-        public List<PromotionDTO> SearchPromotions(string keyword)
-        {
-            try
-            {
-                // Nếu từ khóa trống, trả về toàn bộ danh sách
-                if (string.IsNullOrEmpty(keyword))
-                {
-                    return GetAllPromotions();
-                }
-
-                // Chuyển từ khóa thành chữ thường để tìm kiếm không phân biệt hoa thường
-                keyword = keyword.ToLower();
-
-                var allPromotions = GetAllPromotions();
-
-                // Chỉ tìm kiếm theo promotionID và promotionName
-                return allPromotions
-                    .Where(p =>
-                        p.promotionID.ToString().Contains(keyword) ||
-                        (p.promotionName != null && p.promotionName.ToLower().Contains(keyword))
-                    )
+                var promotions = _context.Promotions
+                    .Where(p => promotionIDs.Contains(p.PromotionID))
                     .ToList();
+                if (promotions == null || promotions.Count == 0)
+                {
+                    return false;
+                }
+
+                _context.Promotions.RemoveRange(promotions);
+                _context.SaveChanges();
+                return true;
+            }
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        // Tìm kiếm khuyến mãi theo keyword (promotionID hoặc promotionName)
+        public List<Promotion> SearchPromotions(string keyword)
+        {
+            try
+            {
+                var promotions = _context.Promotions.AsQueryable();
+
+                if (!string.IsNullOrEmpty(keyword))
+                {
+                    keyword = keyword.ToLower();
+                    promotions = promotions.Where(p =>
+                        p.PromotionID.ToString().Contains(keyword) ||
+                        (p.PromotionName != null && p.PromotionName.ToLower().Contains(keyword)));
+                }
+
+                return promotions.ToList();
             }
             catch (Exception ex)
             {

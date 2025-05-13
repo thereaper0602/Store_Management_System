@@ -14,7 +14,9 @@ namespace GUI
 {
     public partial class Promotion : UserControl
     {
-        private readonly IPromotionServiceBLL _promotionService = new PromotionServiceBLL();
+        private readonly PromotionServiceBLL _promotionService = new PromotionServiceBLL();
+        private readonly ProductService _productService = new ProductService();
+        private readonly ProductPromotionBLL _productPromotionService = new ProductPromotionBLL();
 
         // biến lưu khuyến mãi được chọn để chỉnh sửa
         private PromotionDTO _selectedPromotion; 
@@ -30,7 +32,10 @@ namespace GUI
             {
                 if (!DesignMode)
                 {
-                    RefreshDataGridView();
+                    RefreshPromotionTab();
+                    
+                    LoadCategoryName();
+                    LoadPromotionName();
                 }
                 
                 _selectedPromotion = null;
@@ -47,8 +52,36 @@ namespace GUI
             }
         }
 
+        private void tabCtrolPrmotion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshTabData();
+        }
+
+        private void RefreshTabData()
+        {
+            switch (tabCtrolPromotion.SelectedIndex)
+            {
+                // Tab Promotion
+                case 0:
+                    RefreshPromotionTab();
+                    break;
+                // Tab WorkShift
+                case 1:
+                    int? categoryId = null;
+                    if (cbCateToDeal.SelectedItem != null)
+                    {
+                        categoryId = ((CategoryDTO)cbCateToDeal.SelectedItem).CategoryID;
+                    }
+                    RefreshDealsTab(categoryId);
+                    break;
+
+            }
+        }
+
+        #region Tab Promotion
+
         // Phương thức tải lại DataGridView
-        private void RefreshDataGridView()
+        private void RefreshPromotionTab()
         {
             try
             {
@@ -102,7 +135,8 @@ namespace GUI
                 {
                     MessageBox.Show("Add successful promotions!", "Notification",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RefreshDataGridView();
+                    RefreshPromotionTab();
+                    LoadPromotionName();
                     ClearInputFields();
                 }
             }
@@ -178,7 +212,8 @@ namespace GUI
                 {
                     MessageBox.Show("Update promotion successfully!", "Notification",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RefreshDataGridView();
+                    RefreshPromotionTab();
+                    LoadPromotionName();
                     ClearInputFields();
                 }
                 else
@@ -265,7 +300,8 @@ namespace GUI
                 {
                     MessageBox.Show("Delete success!", "Notification",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RefreshDataGridView(); // Làm mới DataGridView
+                    RefreshPromotionTab(); // Làm mới DataGridView
+                    LoadPromotionName();
                 }
                 else
                 {
@@ -362,6 +398,236 @@ namespace GUI
                 ClearInputFields();
             }
         }
+        #endregion
+
+        #region Tab Deals
+        
+
+        private void RefreshDealsTab(int? categoryId = null)
+        {
+            try
+            {
+                viewProductToDeals.AutoGenerateColumns = false;
+
+                List<ProductDTO> products;
+                if (categoryId.HasValue)
+                {
+                    products = _productService.GetProductsByCategoryId(categoryId.Value);
+                }
+                else
+                {
+                    products = _productService.GetAllProducts("");
+                }
+
+                int? promotionId = null;
+                if (cbPromotionName.SelectedItem != null)
+                {
+                    promotionId = ((PromotionDTO)cbPromotionName.SelectedItem).promotionID;
+                }
+
+                List<ProductPromotionDTO> productPromotions = new List<ProductPromotionDTO>();
+                if (promotionId.HasValue)
+                {
+                    productPromotions = _productPromotionService.GetProductPromotionsByPromotionId(promotionId.Value);
+                }
+
+                viewProductToDeals.DataSource = null;
+                viewProductToDeals.DataSource = products;
+
+                foreach (DataGridViewRow row in viewProductToDeals.Rows)
+                {
+                    var product = (ProductDTO)row.DataBoundItem;
+                    bool isSelected = promotionId.HasValue && productPromotions.Any(pp => pp.productID == product.ProductID);
+                    row.Cells[0].Value = isSelected;
+                    row.ReadOnly = isSelected; // Đặt dòng thành ReadOnly nếu ô "Selected" được tích
+                }
+
+                viewProductToDeals.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error when refreshing: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void LoadCategoryName()
+        {
+            try
+            {
+                // Tải danh sách CategoryName từ cơ sở dữ liệu
+                CategoryBLL listCate = new CategoryBLL();
+                List<CategoryDTO> categoryName = listCate.GetAllCategories();
+                if (categoryName != null && categoryName.Count > 0)
+                {
+                    cbCateToDeal.DataSource = categoryName;
+                    cbCateToDeal.DisplayMember = "categoryName";
+                    cbCateToDeal.ValueMember = "categoryID";
+
+                    // Đặt lại lựa chọn mặc định (tuỳ chọn)
+                    cbCateToDeal.SelectedIndex = -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error when downloading the shift list: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void LoadPromotionName()
+        {
+            try
+            {
+                // Lấy danh sách tất cả các Promotion từ cơ sở dữ liệu
+                List<PromotionDTO> listPromotion = _promotionService.GetAllPromotions();
+
+                if (listPromotion != null && listPromotion.Count > 0)
+                {
+                    // Lọc các Promotion có ngày hiện tại nằm trong khoảng startDate và endDate
+                    DateTime currentDate = DateTime.Now.Date; // Sử dụng Date để bỏ qua thời gian
+                    List<PromotionDTO> filteredPromotions = listPromotion
+                        .Where(p => p.startDate.Date <= currentDate && currentDate <= p.endDate.Date)
+                        .ToList();
+
+                    if (filteredPromotions != null && filteredPromotions.Count > 0)
+                    {
+                        cbPromotionName.DataSource = filteredPromotions;
+                        cbPromotionName.DisplayMember = "promotionName";
+                        cbPromotionName.ValueMember = "promotionID";
+
+                        // Đặt lại lựa chọn mặc định (tuỳ chọn)
+                        cbPromotionName.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        // Nếu không có Promotion nào thỏa mãn, xóa dữ liệu ComboBox
+                        cbPromotionName.DataSource = null;
+                        cbPromotionName.Items.Clear();
+                    }
+                }
+                else
+                {
+                    // Nếu danh sách ban đầu rỗng hoặc null, xóa dữ liệu ComboBox
+                    cbPromotionName.DataSource = null;
+                    cbPromotionName.Items.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error when downloading the shift list: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        //Sự kiện chọn CategoryName
+        private void cbPromotionName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbPromotionName.SelectedItem != null)
+            {
+                RefreshDealsTab(cbCateToDeal.SelectedItem != null ? ((CategoryDTO)cbCateToDeal.SelectedItem).CategoryID : (int?)null);
+                // Lấy đối tượng PromotionDTO được chọn
+                PromotionDTO selectedPromotion = (PromotionDTO)cbPromotionName.SelectedItem;
+
+                // Gán giá trị discountRate
+                tbSeeDiscount.Text = selectedPromotion.discountRate.ToString();
+
+                // Kiểm tra và gán giá trị description
+                string description = selectedPromotion.description ?? string.Empty;
+                tbSeeDescrip.Text = description;
+
+                // Gán giá trị cho DateTimePicker
+                seeFromDate.Value = selectedPromotion.startDate;
+                seeToDate.Value = selectedPromotion.endDate;
+            }
+            else
+            {
+                // Nếu không có item được chọn, đặt lại các ô
+                tbSeeDiscount.Text = string.Empty;
+                tbDcripPromotion.Text = string.Empty;
+                seeFromDate.Value = DateTime.Now; // Đặt lại ngày mặc định
+                seeToDate.Value = DateTime.Now;   // Đặt lại ngày mặc định
+            }
+        }
+
+        private void cbCateToDeal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbCateToDeal.SelectedItem != null)
+            {
+                var selectedCategory = (CategoryDTO)cbCateToDeal.SelectedItem;
+                int categoryId = selectedCategory.CategoryID;
+                RefreshDealsTab(categoryId);
+            }
+            else
+            {
+                RefreshDealsTab();
+            }
+        }
+        private void btSaveDeals_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Lấy promotionID từ ComboBox
+                int? promotionId = null;
+                if (cbPromotionName.SelectedItem != null)
+                {
+                    promotionId = ((PromotionDTO)cbPromotionName.SelectedItem).promotionID;
+                }
+
+                if (!promotionId.HasValue)
+                {
+                    MessageBox.Show("Please select a promotion first!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Lấy danh sách ProductPromotion hiện tại từ cơ sở dữ liệu
+                List<ProductPromotionDTO> initialProductPromotions = _productPromotionService.GetProductPromotionsByPromotionId(promotionId.Value);
+
+                // Biến để kiểm tra xem có dòng mới được chọn không (ngoài dữ liệu ban đầu)
+                bool hasNewlySelectedProduct = false;
+
+                foreach (DataGridViewRow row in viewProductToDeals.Rows)
+                {
+                    if (row.IsNewRow) continue; // Bỏ qua dòng mới nếu có
+
+                    var product = (ProductDTO)row.DataBoundItem;
+                    bool isCurrentlySelected = Convert.ToBoolean(row.Cells[0].Value); // Giá trị hiện tại từ DataGridView
+                    bool wasInitiallySelected = initialProductPromotions.Any(pp => pp.productID == product.ProductID); // Giá trị ban đầu
+
+                    // Kiểm tra nếu dòng mới được chọn (không có trong dữ liệu ban đầu)
+                    if (isCurrentlySelected && !wasInitiallySelected)
+                    {
+                        hasNewlySelectedProduct = true;
+                        var newProductPromotion = new ProductPromotionDTO
+                        {
+                            productID = product.ProductID,
+                            promotionID = promotionId.Value
+                        };
+                        _productPromotionService.AddProductPromotion(newProductPromotion);
+                        row.ReadOnly = true; // Đặt dòng thành ReadOnly sau khi lưu
+                    }
+                    // Không xử lý xóa (RemoveProductPromotion) trừ khi cần thiết, giữ nguyên các dòng đã tích từ dữ liệu ban đầu
+                }
+
+                // Kiểm tra sau khi duyệt tất cả các dòng
+                if (!hasNewlySelectedProduct)
+                {
+                    MessageBox.Show("No product has been selected beyond the initial data!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return; // Thoát nếu không có sản phẩm mới được chọn
+                }
+
+                MessageBox.Show("Save successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Làm mới bảng để phản ánh thay đổi
+                RefreshDealsTab(cbCateToDeal.SelectedItem != null ? ((CategoryDTO)cbCateToDeal.SelectedItem).CategoryID : (int?)null);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error when saving: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        
+
+        #endregion
+
 
     }
 }

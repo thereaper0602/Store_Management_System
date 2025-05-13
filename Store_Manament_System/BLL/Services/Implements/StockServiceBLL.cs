@@ -81,30 +81,8 @@ namespace BLL.Services
             return stocksToOrder;
         }
 
-        //Lấy danh sách các danh mục
-        public List<CategoryDTO> GetAllCategories()
-        {
-            var categories = _categoryDAL.GetAllCategories();
-            return categories.Select(c => new CategoryDTO
-            {
-                CategoryID = c.CategoryID,
-                CategoryName = c.CategoryName
-            }).ToList();
-        }
 
-        //Lấy danh sách các sản phẩm theo CategoryID
-        public List<ProductDTO> GetProductsByCategoryId(int categoryId)
-        {
-            var products = _productRepositoryDAL.GetProductsByCategoryId(categoryId);
-            return products.Select(p => new ProductDTO
-            {
-                ProductID = p.ProductID,
-                ProductName = p.ProductName,
-                CategoryID = p.CategoryID
-            }).ToList();
-        }
-
-        public void AddStock(StockDTO stock)
+        public bool AddStock(StockDTO stock)
         {
             var newStock = new Stock
             {
@@ -115,6 +93,7 @@ namespace BLL.Services
                 ExpiryDate = stock.expiryDate
             };
             _stockRepositoryDAL.AddStock(newStock);
+            return true;
         }
 
         //nghiệm vụ này là để kiểm tra tính hợp lệ của thông tin nhập kho

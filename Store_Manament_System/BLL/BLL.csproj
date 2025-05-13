@@ -108,12 +108,13 @@
     <Compile Include="Services\Implements\CategoryBLL.cs" />
     <Compile Include="Services\ICategoryBLL.cs" />
     <Compile Include="Services\ImageBLL.cs" />
+	<Compile Include="Services\IProductPromotionBLL.cs" />
     <Compile Include="Services\Implements\EmployeeServiceBLL.cs" />
     <Compile Include="Services\Implements\ImageServiceBLL.cs" />
     <Compile Include="Services\IProductService.cs" />
     <Compile Include="Services\IPromotionServiceBLL.cs" />
-    <Compile Include="Services\IReportServicesBLL.cs" />
     <Compile Include="Services\IStockServiceBLL.cs" />
+    <Compile Include="Services\Implements\ProductPromotionBLL.cs" />
     <Compile Include="Services\Implements\PromotionServiceBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Implements\LoginBLL.cs" />
