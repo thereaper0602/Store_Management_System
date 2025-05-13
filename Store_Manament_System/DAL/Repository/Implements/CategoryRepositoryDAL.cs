@@ -9,7 +9,7 @@ namespace DAL.Repository
 {
     public class CategoryRepositoryDAL : ICategoryRepositoryDAL
     { // Khai báo context để kết nối và làm việc với database thông qua Entity Framework
-        private readonly StoreContext _context = new StoreContext();
+        private readonly StoreContext _context;
 
         // Tạo context khi một đối tượng Category_DAL được tạo
         public CategoryRepositoryDAL()

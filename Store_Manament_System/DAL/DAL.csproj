@@ -126,6 +126,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\ICategoryRepositoryDAL.cs" />
     <Compile Include="Repository\IImageRepositoryDAL.cs" />
+    <Compile Include="Repository\IImage_DAL.cs" />
     <Compile Include="Repository\IInvoiceDetailRepositoryDAL.cs" />
     <Compile Include="Repository\IInvoiceRepositoryDAL.cs" />
     <Compile Include="Repository\IInvoiceStatusRepositoryDAL.cs" />
@@ -150,7 +151,7 @@
     <Compile Include="Repository\IProductPromotionDAL.cs" />
     <Compile Include="Repository\Implements\ReportRepositoryDAL.cs" />
     <Compile Include="Repository\Implements\CategoryRepositoryDAL.cs" />
-    <Compile Include="Repository\Image_DAL.cs" />
+    <Compile Include="Repository\Implements\Image_DAL.cs" />
     <Compile Include="Repository\Implements\LoginDAL.cs" />
     <Compile Include="Repository\Implements\PromotionRepositoryDAL.cs" />
     <Compile Include="Repository\Implements\StockRepositoryDAL.cs" />

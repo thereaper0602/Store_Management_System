@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repository
 {
-    public class Image_DAL
+    public class Image_DAL : IImage_DAL
     {
         private readonly StoreContext _context;
 
@@ -29,7 +29,7 @@ namespace DAL.Repository
                 {
                     ImagePath = imagePath,
                     ImageName = imageName,
-                    UploadDate = DateTime.Now 
+                    UploadDate = DateTime.Now
                 };
 
                 _context.Images.Add(newImage);

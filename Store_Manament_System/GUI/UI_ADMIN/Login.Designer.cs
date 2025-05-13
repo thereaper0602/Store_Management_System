@@ -59,17 +59,11 @@
             this.picBox_login3 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.picBox_login1 = new Bunifu.UI.WinForms.BunifuPictureBox();
             this.picBox_login4 = new Bunifu.UI.WinForms.BunifuPictureBox();
-            this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.bunifuPictureBox2 = new Bunifu.UI.WinForms.BunifuPictureBox();
-            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuFormControlBox1 = new Bunifu.UI.WinForms.BunifuFormControlBox();
             this.bunifuGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_login2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_login3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_login1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_login4)).BeginInit();
-            this.bunifuPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuLabel5
@@ -209,11 +203,11 @@
             this.bunifuGradientPanel1.GradientBottomRight = System.Drawing.Color.Pink;
             this.bunifuGradientPanel1.GradientTopLeft = System.Drawing.Color.PaleVioletRed;
             this.bunifuGradientPanel1.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.bunifuGradientPanel1.Location = new System.Drawing.Point(0, 27);
+            this.bunifuGradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.bunifuGradientPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bunifuGradientPanel1.Name = "bunifuGradientPanel1";
             this.bunifuGradientPanel1.Quality = 10;
-            this.bunifuGradientPanel1.Size = new System.Drawing.Size(1362, 670);
+            this.bunifuGradientPanel1.Size = new System.Drawing.Size(1362, 697);
             this.bunifuGradientPanel1.TabIndex = 14;
             // 
             // txtPassword
@@ -236,7 +230,7 @@
             this.lb_Login2.CursorType = System.Windows.Forms.Cursors.Default;
             this.lb_Login2.Font = new System.Drawing.Font("Poppins", 24F, System.Drawing.FontStyle.Italic);
             this.lb_Login2.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.lb_Login2.Location = new System.Drawing.Point(543, 214);
+            this.lb_Login2.Location = new System.Drawing.Point(543, 227);
             this.lb_Login2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lb_Login2.Name = "lb_Login2";
             this.lb_Login2.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -255,7 +249,7 @@
             this.lb_Login1.CursorType = System.Windows.Forms.Cursors.Default;
             this.lb_Login1.Font = new System.Drawing.Font("Poppins", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Login1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.lb_Login1.Location = new System.Drawing.Point(498, 158);
+            this.lb_Login1.Location = new System.Drawing.Point(498, 171);
             this.lb_Login1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lb_Login1.Name = "lb_Login1";
             this.lb_Login1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -270,7 +264,7 @@
             this.lb_Login5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lb_Login5.AutoSize = true;
             this.lb_Login5.Font = new System.Drawing.Font("Poppins Medium", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Login5.Location = new System.Drawing.Point(791, 465);
+            this.lb_Login5.Location = new System.Drawing.Point(791, 478);
             this.lb_Login5.Name = "lb_Login5";
             this.lb_Login5.Size = new System.Drawing.Size(110, 31);
             this.lb_Login5.TabIndex = 25;
@@ -281,7 +275,7 @@
             this.lb_Login4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lb_Login4.AutoSize = true;
             this.lb_Login4.Font = new System.Drawing.Font("Poppins Medium", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Login4.Location = new System.Drawing.Point(791, 372);
+            this.lb_Login4.Location = new System.Drawing.Point(791, 385);
             this.lb_Login4.Name = "lb_Login4";
             this.lb_Login4.Size = new System.Drawing.Size(116, 31);
             this.lb_Login4.TabIndex = 24;
@@ -292,7 +286,7 @@
             this.lb_Login3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lb_Login3.AutoSize = true;
             this.lb_Login3.Font = new System.Drawing.Font("Poppins Medium", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Login3.Location = new System.Drawing.Point(791, 341);
+            this.lb_Login3.Location = new System.Drawing.Point(791, 354);
             this.lb_Login3.Name = "lb_Login3";
             this.lb_Login3.Size = new System.Drawing.Size(480, 31);
             this.lb_Login3.TabIndex = 23;
@@ -328,7 +322,7 @@
             this.enterUser.IconRight = null;
             this.enterUser.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.enterUser.Lines = new string[0];
-            this.enterUser.Location = new System.Drawing.Point(789, 402);
+            this.enterUser.Location = new System.Drawing.Point(789, 415);
             this.enterUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.enterUser.MaxLength = 32767;
             this.enterUser.MinimumSize = new System.Drawing.Size(1, 1);
@@ -426,7 +420,7 @@
             this.bt_Login.IdleIconLeftImage = null;
             this.bt_Login.IdleIconRightImage = null;
             this.bt_Login.IndicateFocus = false;
-            this.bt_Login.Location = new System.Drawing.Point(888, 558);
+            this.bt_Login.Location = new System.Drawing.Point(857, 593);
             this.bt_Login.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bt_Login.Name = "bt_Login";
             this.bt_Login.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
@@ -500,7 +494,7 @@
             this.enterPass.IconRight = null;
             this.enterPass.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.enterPass.Lines = new string[0];
-            this.enterPass.Location = new System.Drawing.Point(789, 498);
+            this.enterPass.Location = new System.Drawing.Point(789, 511);
             this.enterPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.enterPass.MaxLength = 32767;
             this.enterPass.MinimumSize = new System.Drawing.Size(1, 1);
@@ -556,7 +550,7 @@
             this.picBox_login2.BorderRadius = 144;
             this.picBox_login2.Image = global::GUI.Properties.Resources.logome_removebg_preview;
             this.picBox_login2.IsCircle = true;
-            this.picBox_login2.Location = new System.Drawing.Point(564, -27);
+            this.picBox_login2.Location = new System.Drawing.Point(564, -14);
             this.picBox_login2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picBox_login2.Name = "picBox_login2";
             this.picBox_login2.Size = new System.Drawing.Size(288, 288);
@@ -570,13 +564,13 @@
             this.picBox_login3.AllowFocused = false;
             this.picBox_login3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.picBox_login3.AutoSizeHeight = true;
-            this.picBox_login3.BorderRadius = 227;
+            this.picBox_login3.BorderRadius = 202;
             this.picBox_login3.Image = global::GUI.Properties.Resources.image_removebg_preview__3_;
             this.picBox_login3.IsCircle = false;
-            this.picBox_login3.Location = new System.Drawing.Point(527, 117);
+            this.picBox_login3.Location = new System.Drawing.Point(527, 130);
             this.picBox_login3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picBox_login3.Name = "picBox_login3";
-            this.picBox_login3.Size = new System.Drawing.Size(404, 363);
+            this.picBox_login3.Size = new System.Drawing.Size(404, 404);
             this.picBox_login3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBox_login3.TabIndex = 17;
             this.picBox_login3.TabStop = false;
@@ -590,7 +584,7 @@
             this.picBox_login1.BorderRadius = 0;
             this.picBox_login1.Image = global::GUI.Properties.Resources.Ảnh_removebg_preview;
             this.picBox_login1.IsCircle = false;
-            this.picBox_login1.Location = new System.Drawing.Point(-175, -38);
+            this.picBox_login1.Location = new System.Drawing.Point(-175, -25);
             this.picBox_login1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picBox_login1.Name = "picBox_login1";
             this.picBox_login1.Size = new System.Drawing.Size(862, 862);
@@ -607,7 +601,7 @@
             this.picBox_login4.BorderRadius = 0;
             this.picBox_login4.Image = global::GUI.Properties.Resources.Subtract__1_;
             this.picBox_login4.IsCircle = true;
-            this.picBox_login4.Location = new System.Drawing.Point(871, -24);
+            this.picBox_login4.Location = new System.Drawing.Point(871, -11);
             this.picBox_login4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picBox_login4.Name = "picBox_login4";
             this.picBox_login4.Size = new System.Drawing.Size(463, 463);
@@ -616,122 +610,6 @@
             this.picBox_login4.TabStop = false;
             this.picBox_login4.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Square;
             // 
-            // bunifuPanel1
-            // 
-            this.bunifuPanel1.BackgroundColor = System.Drawing.Color.White;
-            this.bunifuPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel1.BackgroundImage")));
-            this.bunifuPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel1.BorderRadius = 3;
-            this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Controls.Add(this.bunifuPictureBox2);
-            this.bunifuPanel1.Controls.Add(this.bunifuLabel1);
-            this.bunifuPanel1.Controls.Add(this.bunifuFormControlBox1);
-            this.bunifuPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.bunifuPanel1.Location = new System.Drawing.Point(0, 0);
-            this.bunifuPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bunifuPanel1.Name = "bunifuPanel1";
-            this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(1362, 28);
-            this.bunifuPanel1.TabIndex = 13;
-            // 
-            // bunifuPictureBox2
-            // 
-            this.bunifuPictureBox2.AllowFocused = false;
-            this.bunifuPictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.bunifuPictureBox2.AutoSizeHeight = true;
-            this.bunifuPictureBox2.BorderRadius = 13;
-            this.bunifuPictureBox2.Image = global::GUI.Properties.Resources.Black_and_White_Modern_Shoes_Store_Logo__1_;
-            this.bunifuPictureBox2.IsCircle = true;
-            this.bunifuPictureBox2.Location = new System.Drawing.Point(16, 2);
-            this.bunifuPictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bunifuPictureBox2.Name = "bunifuPictureBox2";
-            this.bunifuPictureBox2.Size = new System.Drawing.Size(26, 26);
-            this.bunifuPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuPictureBox2.TabIndex = 1;
-            this.bunifuPictureBox2.TabStop = false;
-            this.bunifuPictureBox2.Type = Bunifu.UI.WinForms.BunifuPictureBox.Types.Circle;
-            // 
-            // bunifuLabel1
-            // 
-            this.bunifuLabel1.AllowParentOverrides = false;
-            this.bunifuLabel1.AutoEllipsis = false;
-            this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuLabel1.Location = new System.Drawing.Point(47, 3);
-            this.bunifuLabel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bunifuLabel1.Name = "bunifuLabel1";
-            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(125, 20);
-            this.bunifuLabel1.TabIndex = 0;
-            this.bunifuLabel1.Text = "WPN Management";
-            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuFormControlBox1
-            // 
-            this.bunifuFormControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuFormControlBox1.BackColor = System.Drawing.Color.White;
-            this.bunifuFormControlBox1.BunifuFormDrag = null;
-            this.bunifuFormControlBox1.CloseBoxOptions.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuFormControlBox1.CloseBoxOptions.BorderRadius = 0;
-            this.bunifuFormControlBox1.CloseBoxOptions.Enabled = true;
-            this.bunifuFormControlBox1.CloseBoxOptions.EnableDefaultAction = true;
-            this.bunifuFormControlBox1.CloseBoxOptions.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(17)))), ((int)(((byte)(35)))));
-            this.bunifuFormControlBox1.CloseBoxOptions.Icon = ((System.Drawing.Image)(resources.GetObject("bunifuFormControlBox1.CloseBoxOptions.Icon")));
-            this.bunifuFormControlBox1.CloseBoxOptions.IconAlt = null;
-            this.bunifuFormControlBox1.CloseBoxOptions.IconColor = System.Drawing.Color.Black;
-            this.bunifuFormControlBox1.CloseBoxOptions.IconHoverColor = System.Drawing.Color.White;
-            this.bunifuFormControlBox1.CloseBoxOptions.IconPressedColor = System.Drawing.Color.White;
-            this.bunifuFormControlBox1.CloseBoxOptions.IconSize = new System.Drawing.Size(18, 18);
-            this.bunifuFormControlBox1.CloseBoxOptions.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(17)))), ((int)(((byte)(35)))));
-            this.bunifuFormControlBox1.HelpBox = false;
-            this.bunifuFormControlBox1.HelpBoxOptions.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuFormControlBox1.HelpBoxOptions.BorderRadius = 0;
-            this.bunifuFormControlBox1.HelpBoxOptions.Enabled = true;
-            this.bunifuFormControlBox1.HelpBoxOptions.EnableDefaultAction = true;
-            this.bunifuFormControlBox1.HelpBoxOptions.HoverColor = System.Drawing.Color.LightGray;
-            this.bunifuFormControlBox1.HelpBoxOptions.Icon = ((System.Drawing.Image)(resources.GetObject("bunifuFormControlBox1.HelpBoxOptions.Icon")));
-            this.bunifuFormControlBox1.HelpBoxOptions.IconAlt = null;
-            this.bunifuFormControlBox1.HelpBoxOptions.IconColor = System.Drawing.Color.Black;
-            this.bunifuFormControlBox1.HelpBoxOptions.IconHoverColor = System.Drawing.Color.Black;
-            this.bunifuFormControlBox1.HelpBoxOptions.IconPressedColor = System.Drawing.Color.Black;
-            this.bunifuFormControlBox1.HelpBoxOptions.IconSize = new System.Drawing.Size(22, 22);
-            this.bunifuFormControlBox1.HelpBoxOptions.PressedColor = System.Drawing.Color.Silver;
-            this.bunifuFormControlBox1.Location = new System.Drawing.Point(1219, 0);
-            this.bunifuFormControlBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.bunifuFormControlBox1.MaximizeBox = true;
-            this.bunifuFormControlBox1.MaximizeBoxOptions.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuFormControlBox1.MaximizeBoxOptions.BorderRadius = 0;
-            this.bunifuFormControlBox1.MaximizeBoxOptions.Enabled = true;
-            this.bunifuFormControlBox1.MaximizeBoxOptions.EnableDefaultAction = true;
-            this.bunifuFormControlBox1.MaximizeBoxOptions.HoverColor = System.Drawing.Color.LightGray;
-            this.bunifuFormControlBox1.MaximizeBoxOptions.Icon = ((System.Drawing.Image)(resources.GetObject("bunifuFormControlBox1.MaximizeBoxOptions.Icon")));
-            this.bunifuFormControlBox1.MaximizeBoxOptions.IconAlt = ((System.Drawing.Image)(resources.GetObject("bunifuFormControlBox1.MaximizeBoxOptions.IconAlt")));
-            this.bunifuFormControlBox1.MaximizeBoxOptions.IconColor = System.Drawing.Color.Black;
-            this.bunifuFormControlBox1.MaximizeBoxOptions.IconHoverColor = System.Drawing.Color.Black;
-            this.bunifuFormControlBox1.MaximizeBoxOptions.IconPressedColor = System.Drawing.Color.Black;
-            this.bunifuFormControlBox1.MaximizeBoxOptions.IconSize = new System.Drawing.Size(16, 16);
-            this.bunifuFormControlBox1.MaximizeBoxOptions.PressedColor = System.Drawing.Color.Silver;
-            this.bunifuFormControlBox1.MinimizeBox = true;
-            this.bunifuFormControlBox1.MinimizeBoxOptions.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuFormControlBox1.MinimizeBoxOptions.BorderRadius = 0;
-            this.bunifuFormControlBox1.MinimizeBoxOptions.Enabled = true;
-            this.bunifuFormControlBox1.MinimizeBoxOptions.EnableDefaultAction = true;
-            this.bunifuFormControlBox1.MinimizeBoxOptions.HoverColor = System.Drawing.Color.LightGray;
-            this.bunifuFormControlBox1.MinimizeBoxOptions.Icon = ((System.Drawing.Image)(resources.GetObject("bunifuFormControlBox1.MinimizeBoxOptions.Icon")));
-            this.bunifuFormControlBox1.MinimizeBoxOptions.IconAlt = null;
-            this.bunifuFormControlBox1.MinimizeBoxOptions.IconColor = System.Drawing.Color.Black;
-            this.bunifuFormControlBox1.MinimizeBoxOptions.IconHoverColor = System.Drawing.Color.Black;
-            this.bunifuFormControlBox1.MinimizeBoxOptions.IconPressedColor = System.Drawing.Color.Black;
-            this.bunifuFormControlBox1.MinimizeBoxOptions.IconSize = new System.Drawing.Size(14, 14);
-            this.bunifuFormControlBox1.MinimizeBoxOptions.PressedColor = System.Drawing.Color.Silver;
-            this.bunifuFormControlBox1.Name = "bunifuFormControlBox1";
-            this.bunifuFormControlBox1.ShowDesignBorders = false;
-            this.bunifuFormControlBox1.Size = new System.Drawing.Size(143, 23);
-            this.bunifuFormControlBox1.TabIndex = 1;
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -739,13 +617,12 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1362, 698);
             this.Controls.Add(this.bunifuGradientPanel1);
-            this.Controls.Add(this.bunifuPanel1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "pi";
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             this.bunifuGradientPanel1.ResumeLayout(false);
             this.bunifuGradientPanel1.PerformLayout();
@@ -753,18 +630,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBox_login3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_login1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_login4)).EndInit();
-            this.bunifuPanel1.ResumeLayout(false);
-            this.bunifuPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
-        private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox2;
-        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
-        private Bunifu.UI.WinForms.BunifuFormControlBox bunifuFormControlBox1;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel5;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel2;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel3;
