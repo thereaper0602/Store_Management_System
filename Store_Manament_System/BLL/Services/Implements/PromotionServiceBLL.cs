@@ -18,25 +18,6 @@ namespace BLL.Services
     {
         private readonly PromotionRepositoryDAL voucher = new PromotionRepositoryDAL();
 
-        // Lấy danh sách tất cả khuyến mãi
-        public List<PromotionDTO> GetAllPromotions()
-        {
-            return voucher.GetAllPromotions();
-        }
-
-        // Thêm khuyến mãi mới
-        public bool AddPromotion(PromotionDTO promotionDto)
-        {
-            ValidatePromotion(promotionDto);
-            return voucher.AddPromotion(promotionDto);
-        }
-
-        // Cập nhật khuyến mãi
-        public bool UpdatePromotion(PromotionDTO promotionDto)
-        {
-            ValidatePromotion(promotionDto);
-            return voucher.UpdatePromotion(promotionDto);
-        }
 
         //Kiểm tra tính hợp lệ của khuyến mãi
         private void ValidatePromotion(PromotionDTO dto)

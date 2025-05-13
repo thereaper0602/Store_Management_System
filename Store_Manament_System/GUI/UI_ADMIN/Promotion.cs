@@ -14,7 +14,7 @@ namespace GUI
 {
     public partial class Promotion : UserControl
     {
-        private readonly PromotionServiceBLL _promotionService = new PromotionServiceBLL();
+        private readonly IPromotionServiceBLL _promotionService = new PromotionServiceBLL();
         private readonly ProductService _productService = new ProductService();
         private readonly ProductPromotionBLL _productPromotionService = new ProductPromotionBLL();
 

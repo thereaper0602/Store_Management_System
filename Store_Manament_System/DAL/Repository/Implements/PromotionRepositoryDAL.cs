@@ -24,17 +24,7 @@ namespace DAL.Repository
             _context.SaveChanges();
             return promotion;
 
-                    context.Promotions.Add(promotion);
-                    context.SaveChanges();
-                    return true;
         }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         // Cập nhật khuyến mãi
         public bool UpdatePromotion(Promotion promotion)
         {
@@ -44,10 +34,6 @@ namespace DAL.Repository
                     .FirstOrDefault(p => p.PromotionID == promotion.PromotionID);
                 if (existingPromotion == null)
                 {
-                    var promotion = context.Promotions
-                        .FirstOrDefault(p => p.PromotionID == promotionDto.promotionID);
-                    if (promotion == null)
-                    {
                     return false;
                 }
 
@@ -59,7 +45,6 @@ namespace DAL.Repository
 
                 _context.SaveChanges();
                 return true;
-            }
             }
             catch (Exception ex)
             {
@@ -82,7 +67,6 @@ namespace DAL.Repository
                 _context.Promotions.Remove(promotion);
                 _context.SaveChanges();
                 return true;
-            }
             }
             catch (Exception ex)
             {
@@ -107,8 +91,6 @@ namespace DAL.Repository
                 _context.SaveChanges();
                 return true;
             }
-            }
-
             catch (Exception ex)
             {
                 throw ex;

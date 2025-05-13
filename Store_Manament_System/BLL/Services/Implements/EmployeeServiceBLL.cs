@@ -25,7 +25,6 @@ namespace BLL.Services
         }
         private void ValidateUser(UserDTO user, ImageDTO image, bool isUpdate)
         {
-
             // Username
             if (string.IsNullOrEmpty(user.userName))
                 throw new Exception("Please enter the username!");
@@ -125,9 +124,6 @@ namespace BLL.Services
                 throw ex;
             }
         }
-
-
-
 
         // Phương thức xóa một nhân viên dựa trên UserID
         public bool DeleteUser(int userId, ImageDTO imageDTO)

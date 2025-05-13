@@ -108,7 +108,8 @@
     <Compile Include="Services\Implements\CategoryBLL.cs" />
     <Compile Include="Services\ICategoryBLL.cs" />
     <Compile Include="Services\ImageBLL.cs" />
-	<Compile Include="Services\IProductPromotionBLL.cs" />
+    <Compile Include="Services\IReportServicesBLL.cs" />
+    <Compile Include="Services\IProductPromotionBLL.cs" />
     <Compile Include="Services\Implements\EmployeeServiceBLL.cs" />
     <Compile Include="Services\Implements\ImageServiceBLL.cs" />
     <Compile Include="Services\IProductService.cs" />
