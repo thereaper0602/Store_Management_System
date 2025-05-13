@@ -12,6 +12,7 @@ namespace DAL.Model
         public Product()
         {
             InvoiceDetails = new HashSet<InvoiceDetail>();
+            ProductPromotions = new HashSet<ProductPromotion>();
             Stocks = new HashSet<Stock>();
         }
 
@@ -39,6 +40,9 @@ namespace DAL.Model
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<InvoiceDetail> InvoiceDetails { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductPromotion> ProductPromotions { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Stock> Stocks { get; set; }

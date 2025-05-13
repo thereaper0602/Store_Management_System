@@ -14,7 +14,7 @@ namespace BLL.Services
         private readonly StockRepositoryDAL _stockRepositoryDAL = new StockRepositoryDAL();
         private readonly ProductRepositoryDAL _productRepositoryDAL = new ProductRepositoryDAL();
 
-        private readonly Category_DAL _categoryDAL = new Category_DAL();
+        private readonly CategoryRepositoryDAL _categoryDAL = new CategoryRepositoryDAL();
 
 
         //Lấy danh sách các đơn nhập kho

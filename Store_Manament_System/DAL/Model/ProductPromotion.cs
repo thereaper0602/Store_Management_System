@@ -14,5 +14,9 @@ namespace DAL.Model
         public int? ProductID { get; set; }
 
         public int? PromotionID { get; set; }
+
+        public virtual Product Product { get; set; }
+
+        public virtual Promotion Promotion { get; set; }
     }
 }

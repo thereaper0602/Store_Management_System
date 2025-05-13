@@ -49,8 +49,8 @@ namespace GUI
             productDescriptionTxt.Clear();
             categoryComboBox.SelectedItem = null;
             productPriceTxt.Clear();
-            //productBarCodeTxt.Clear();
             productPicturebox.Image = null;
+            productDataGridView.ClearSelection();
         }
 
         private void loadCategoryComboBox()
@@ -334,6 +334,9 @@ namespace GUI
                     {
                         MessageBox.Show("Failed to delete product");
                     }
+                    loadProducts();
+                    clearForm();
+                    currentProduct = new ProductDTO();
                 }
             }
             else

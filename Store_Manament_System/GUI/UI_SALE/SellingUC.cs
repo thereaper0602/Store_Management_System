@@ -396,7 +396,7 @@ namespace GUI.UI_SALE
 
             AppSession.CurrentUser = new UserDTO
             {
-                userID = 14
+                userID = 1
             };
 
             //Tạo đơn hàng mới

@@ -29,9 +29,49 @@ namespace DAL.Model
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Category>()
+                .HasMany(e => e.Products)
+                .WithOptional(e => e.Category)
+                .WillCascadeOnDelete();
+
+            modelBuilder.Entity<Invoice>()
+                .HasMany(e => e.InvoiceDetails)
+                .WithOptional(e => e.Invoice)
+                .WillCascadeOnDelete();
+
+            modelBuilder.Entity<InvoiceStatu>()
+                .HasMany(e => e.Invoices)
+                .WithOptional(e => e.InvoiceStatu)
+                .WillCascadeOnDelete();
+
+            modelBuilder.Entity<Product>()
+                .HasMany(e => e.ProductPromotions)
+                .WithOptional(e => e.Product)
+                .WillCascadeOnDelete();
+
+            modelBuilder.Entity<Product>()
+                .HasMany(e => e.Stocks)
+                .WithOptional(e => e.Product)
+                .WillCascadeOnDelete();
+
             modelBuilder.Entity<Promotion>()
                 .Property(e => e.DiscountRate)
                 .HasPrecision(5, 2);
+
+            modelBuilder.Entity<Promotion>()
+                .HasMany(e => e.ProductPromotions)
+                .WithOptional(e => e.Promotion)
+                .WillCascadeOnDelete();
+
+            modelBuilder.Entity<User>()
+                .HasMany(e => e.UserWorkShifts)
+                .WithOptional(e => e.User)
+                .WillCascadeOnDelete();
+
+            modelBuilder.Entity<WorkShift>()
+                .HasMany(e => e.UserWorkShifts)
+                .WithOptional(e => e.WorkShift)
+                .WillCascadeOnDelete();
         }
     }
 }

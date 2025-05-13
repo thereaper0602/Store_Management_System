@@ -50,7 +50,7 @@ namespace GUI.UI_SALE
 
         private void loadUI()
         {
-            createdDate.Text = invoiceDTO.CreatedDate.ToString("dd/MM/yyyy");
+            createdDate.Text = DateTime.Now.ToString();
             totalPriceLbl.Text = invoiceDTO.TotalPrice.ToString("N0") + " đ";
 
             foreach (var item in invoiceDTO.InvoiceDetails)

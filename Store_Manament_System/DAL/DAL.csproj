@@ -124,7 +124,7 @@
     <Compile Include="Model\UserWorkShift.cs" />
     <Compile Include="Model\WorkShift.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\ICategory_DAL.cs" />
+    <Compile Include="Repository\ICategoryRepositoryDAL.cs" />
     <Compile Include="Repository\IImageRepositoryDAL.cs" />
     <Compile Include="Repository\IInvoiceDetailRepositoryDAL.cs" />
     <Compile Include="Repository\IInvoiceRepositoryDAL.cs" />
@@ -139,7 +139,7 @@
     <Compile Include="Repository\ISalaryRepositoryDAL.cs" />
     <Compile Include="Repository\IStockRepositoryDAL.cs" />
     <Compile Include="Repository\Implements\ReportRepositoryDAL.cs" />
-    <Compile Include="Repository\Implements\Category_DAL.cs" />
+    <Compile Include="Repository\Implements\CategoryRepositoryDAL.cs" />
     <Compile Include="Repository\Image_DAL.cs" />
     <Compile Include="Repository\Implements\LoginDAL.cs" />
     <Compile Include="Repository\Implements\PromotionRepositoryDAL.cs" />
@@ -169,6 +169,7 @@
       <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

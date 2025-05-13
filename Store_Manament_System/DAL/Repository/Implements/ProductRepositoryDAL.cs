@@ -11,10 +11,6 @@ namespace DAL.Repository
     public class ProductRepositoryDAL : IProductRepositoryDAL
     {
         private readonly StoreContext _context = new StoreContext();
-        //public ProductRepositoryDAL(StoreContext context)
-        //{
-        //    _context = context ?? throw new ArgumentNullException(nameof(context));
-        //}
         public List<Product> GetAllProducts(String kw)
         {
             return _context.Products.ToList();

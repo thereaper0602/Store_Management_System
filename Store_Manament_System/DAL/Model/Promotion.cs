@@ -8,6 +8,12 @@ namespace DAL.Model
 
     public partial class Promotion
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Promotion()
+        {
+            ProductPromotions = new HashSet<ProductPromotion>();
+        }
+
         public int PromotionID { get; set; }
 
         [Required]
@@ -24,5 +30,8 @@ namespace DAL.Model
 
         [StringLength(50)]
         public string Description { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProductPromotion> ProductPromotions { get; set; }
     }
 }

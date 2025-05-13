@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DAL.Repository
 {
-    public interface ICategory_DAL
+    public interface ICategoryRepositoryDAL
     {
         void AddCategory(Category category);
         void DeleteCategory(int id);
