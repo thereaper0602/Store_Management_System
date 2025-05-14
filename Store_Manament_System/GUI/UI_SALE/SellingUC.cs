@@ -393,11 +393,6 @@ namespace GUI.UI_SALE
                 return;
             }
 
-            AppSession.CurrentUser = new UserDTO
-            {
-                userID = 1
-            };
-
             //Tạo đơn hàng mới
             var invoice = new InvoiceDTO
             {

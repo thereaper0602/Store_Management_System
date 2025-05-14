@@ -10,7 +10,7 @@ namespace DAL.Repository
         List<Invoice> FilterInvoices(string keyword, DateTime? fromDate, DateTime? toDate, string statusName);
         List<Invoice> GetAllInvoices();
         List<InvoiceStatus> GetAllStatuses();
-        List<Invoice> GetInvoicesByStatus(string statusName);
+        List<Invoice> GetInvoicesByStatus(int statusID);
         List<Invoice> SearchInvoices(string keyword);
     }
 }

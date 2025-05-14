@@ -13,9 +13,9 @@ namespace BLL.Services
         private readonly InvoiceDetailG_RepositoryDAL _detailDAL = new InvoiceDetailG_RepositoryDAL();
 
         // Lấy danh sách hóa đơn
-        public List<InvoiceG_DTO> GetAllInvoices()
+        public List<InvoiceG_DTO> GetAllInvoices(int userId)
         {
-            var invoices = _invoiceDAL.GetAllInvoices();
+            var invoices = _invoiceDAL.GetAllInvoices().Where(u => u.UserID.Equals(userId));
             return invoices.Select(i => new InvoiceG_DTO
             {
                 InvoiceID = i.InvoiceID,
@@ -25,15 +25,15 @@ namespace BLL.Services
                 Change = i.Change ?? 0,
                 StatusID = i.StatusID ?? 0,
                 StatusName = i.InvoiceStatus?.StatusName ?? "",
-                InvoiceDetails = _detailDAL.GetDetailsByInvoiceID(i.InvoiceID).Select(d => new InvoiceDetailG_DTO
-                {
-                    DetailID = d.DetailID,
-                    InvoiceID = d.InvoiceID,
-                    ProductID = d.ProductID,
-                    Quantity = d.Quantity,
-                    UnitPrice = d.UnitPrice,
-                    LineTotal = d.LineTotal
-                }).ToList()
+                //InvoiceDetails = _detailDAL.GetDetailsByInvoiceID(i.InvoiceID).Select(d => new InvoiceDetailG_DTO
+                //{
+                //    DetailID = d.DetailID,
+                //    InvoiceID = d.InvoiceID,
+                //    ProductID = d.ProductID,
+                //    Quantity = d.Quantity,
+                //    UnitPrice = d.UnitPrice,
+                //    LineTotal = d.LineTotal
+                //}).ToList()
             }).ToList();
         }
 
@@ -64,15 +64,15 @@ namespace BLL.Services
                 Change = i.Change ?? 0,
                 StatusID = i.StatusID ?? 0,
                 StatusName = i.InvoiceStatus?.StatusName ?? "",
-                InvoiceDetails = _detailDAL.GetDetailsByInvoiceID(i.InvoiceID).Select(d => new InvoiceDetailG_DTO
-                {
-                    DetailID = d.DetailID,
-                    InvoiceID = d.InvoiceID,
-                    ProductID = d.ProductID,
-                    Quantity = d.Quantity,
-                    UnitPrice = d.UnitPrice,
-                    LineTotal = d.LineTotal
-                }).ToList()
+                //InvoiceDetails = _detailDAL.GetDetailsByInvoiceID(i.InvoiceID).Select(d => new InvoiceDetailG_DTO
+                //{
+                //    DetailID = d.DetailID,
+                //    InvoiceID = d.InvoiceID,
+                //    ProductID = d.ProductID,
+                //    Quantity = d.Quantity,
+                //    UnitPrice = d.UnitPrice,
+                //    LineTotal = d.LineTotal
+                //}).ToList()
             }).ToList();
         }
         // Lọc hóa đơn theo trạng thái
@@ -88,15 +88,15 @@ namespace BLL.Services
                 Change = i.Change ?? 0,
                 StatusID = i.StatusID ?? 0,
                 StatusName = i.InvoiceStatus?.StatusName ?? "",
-                InvoiceDetails = _detailDAL.GetDetailsByInvoiceID(i.InvoiceID).Select(d => new InvoiceDetailG_DTO
-                {
-                    DetailID = d.DetailID,
-                    InvoiceID = d.InvoiceID,
-                    ProductID = d.ProductID,
-                    Quantity = d.Quantity,
-                    UnitPrice = d.UnitPrice,
-                    LineTotal = d.LineTotal
-                }).ToList()
+                //InvoiceDetails = _detailDAL.GetDetailsByInvoiceID(i.InvoiceID).Select(d => new InvoiceDetailG_DTO
+                //{
+                //    DetailID = d.DetailID,
+                //    InvoiceID = d.InvoiceID,
+                //    ProductID = d.ProductID,
+                //    Quantity = d.Quantity,
+                //    UnitPrice = d.UnitPrice,
+                //    LineTotal = d.LineTotal
+                //}).ToList()
             }).ToList();
         }
         // Lọc hóa đơn theo từ khóa, khoảng ngày và trạng thái
@@ -128,6 +128,37 @@ namespace BLL.Services
             return invoiceDTOs;
         }
 
+        public List<InvoiceG_DTO> GetInvoicesByStatus(int statusId, int userId)
+        {
+            if(statusId == 0)
+            {
+                var invoices = _invoiceDAL.GetAllInvoices().Where(u => u.UserID.Equals(userId));
+                return invoices.Select(i => new InvoiceG_DTO
+                {
+                    InvoiceID = i.InvoiceID,
+                    UserID = i.UserID,
+                    CreatedDate = i.CreatedDate,
+                    TotalPrice = i.TotalPrice,
+                    Change = i.Change ?? 0,
+                    StatusID = i.StatusID ?? 0,
+                    StatusName = i.InvoiceStatus?.StatusName ?? "",
+                }).ToList();
+            }
+            else
+            {
+                var invoices = _invoiceDAL.GetAllInvoices().Where(u => u.UserID.Equals(userId));
+                return invoices.Select(i => new InvoiceG_DTO
+                {
+                    InvoiceID = i.InvoiceID,
+                    UserID = i.UserID,
+                    CreatedDate = i.CreatedDate,
+                    TotalPrice = i.TotalPrice,
+                    Change = i.Change ?? 0,
+                    StatusID = i.StatusID ?? 0,
+                    StatusName = i.InvoiceStatus?.StatusName ?? "",
+                }).ToList();
+            }
+        }
     }
 }
 

@@ -125,7 +125,9 @@ namespace GUI
                 var selectedRow = viewUser.Rows[e.RowIndex];
                 if (selectedRow != null)
                 {
-                    var user = selectedRow.DataBoundItem as UserDTO;
+                    //var selectedRow = viewUser.SelectedRows[0];
+                    var userId = selectedRow.Cells["userIDInfo"].Value as int?;
+                    var user = _employeeService.GetUserById(userId.Value);
                     if (user != null)
                     {
                         // Gửi email cho người dùng

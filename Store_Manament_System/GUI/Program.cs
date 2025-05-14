@@ -17,9 +17,14 @@ namespace GUI
         [STAThread]
         static void Main()
         {
+            AppSession.CurrentUser = new UserDTO
+            {
+                userID = 4,
+                userName = "Admin"
+            };
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new MainSaleForm());
         }
     }
 }

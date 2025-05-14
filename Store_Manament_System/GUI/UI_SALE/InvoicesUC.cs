@@ -17,6 +17,7 @@ using System.Diagnostics;
 
 using Org.BouncyCastle.Asn1.Cmp;
 using BLL.Services.Implements;
+using GUI.Utils;
 
 namespace GUI.UI_SALE
 {
@@ -29,33 +30,110 @@ namespace GUI.UI_SALE
             InitializeComponent();
         }
 
+        //private void InvoicesUC_Load(object sender, EventArgs e)
+        //{
+        //    if (!DesignMode)
+        //    {
+        //        LoadInvoices();
+        //        LoadStatusComboBox();
+        //    }
+        //    //Invoices_History.AutoGenerateColumns = false;
+
+        //}
+        //private void LoadInvoices()
+        //{
+        //    if (!DesignMode)
+        //    {
+        //        var data = invoiceBLL.GetAllInvoices(AppSession.CurrentUser.userID);
+        //        Invoices_History.DataSource = data;
+        //    }
+
+        //}
+
         private void InvoicesUC_Load(object sender, EventArgs e)
         {
             if (!DesignMode)
             {
+                // Configure columns before loading data
+                ConfigureDataGridViewColumns();
                 LoadInvoices();
                 LoadStatusComboBox();
             }
-            Invoices_History.AutoGenerateColumns = false;
-
         }
+
+        private void ConfigureDataGridViewColumns()
+        {
+            Invoices_History.Columns.Clear();
+            Invoices_History.AutoGenerateColumns = true;
+
+            // Add columns manually with proper DataPropertyName
+            Invoices_History.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Invoice ID",
+                DataPropertyName = "InvoiceID"
+            });
+
+            Invoices_History.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Date",
+                DataPropertyName = "CreatedDate",
+                DefaultCellStyle = new DataGridViewCellStyle()
+                {
+                    Format = "dd/MM/yyyy HH:mm"
+                }
+            });
+
+            Invoices_History.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Total",
+                DataPropertyName = "TotalPrice",
+                DefaultCellStyle = new DataGridViewCellStyle()
+                {
+                    Format = "N0",
+                    NullValue = "0"
+                }
+            });
+
+            Invoices_History.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                HeaderText = "Status",
+                DataPropertyName = "StatusName"
+            });
+        }
+
+
         private void LoadInvoices()
         {
             if (!DesignMode)
             {
-                var data = invoiceBLL.GetAllInvoices();
+                var data = invoiceBLL.GetAllInvoices(AppSession.CurrentUser.userID);
                 Invoices_History.DataSource = data;
             }
-
         }
+
+        /*
+         * if (Invoices_History.CurrentRow != null)
+            {
+                int invoiceID = Convert.ToInt32(Invoices_History.CurrentRow.Cells["InvoiceID"].Value);
+                if (!DesignMode)
+                {
+                    var invoice = invoiceBLL.GetAllInvoices().FirstOrDefault(i => i.InvoiceID == invoiceID);
+                    if (invoice != null)
+                    {
+                        DetailTable.DataSource = invoice.InvoiceDetails;
+                    }
+                }
+            }
+         */
+
         private void Invoices_History_SelectionChanged(object sender, EventArgs e)
         {
             if (Invoices_History.CurrentRow != null)
             {
-                int invoiceID = Convert.ToInt32(Invoices_History.CurrentRow.Cells["Invoice_ID"].Value);
+                int invoiceID = Convert.ToInt32(Invoices_History.CurrentRow.Cells["InvoiceID"].Value);
                 if (!DesignMode)
                 {
-                    var invoice = invoiceBLL.GetAllInvoices().FirstOrDefault(i => i.InvoiceID == invoiceID);
+                    var invoice = invoiceBLL.GetAllInvoices(AppSession.CurrentUser.userID).FirstOrDefault(i => i.InvoiceID == invoiceID);
                     if (invoice != null)
                     {
                         DetailTable.DataSource = invoice.InvoiceDetails;
@@ -70,7 +148,7 @@ namespace GUI.UI_SALE
 
             if ((Invoices_History.CurrentRow != null))
             {
-                int invoiceID = Convert.ToInt32((Invoices_History.CurrentRow.Cells["Invoice_ID"].Value));
+                int invoiceID = Convert.ToInt32((Invoices_History.CurrentRow.Cells["InvoiceID"].Value));
                 var confirm = MessageBox.Show("Delete this invoice?", "Confirm", MessageBoxButtons.YesNo);
                 if (confirm == DialogResult.Yes)
                 {
@@ -109,8 +187,8 @@ namespace GUI.UI_SALE
         {
             if (Invoices_History.CurrentRow != null)
             {
-                int invoiceID = Convert.ToInt32(Invoices_History.CurrentRow.Cells["Invoice_ID"].Value);
-                var invoice = invoiceBLL.GetAllInvoices().FirstOrDefault(i => i.InvoiceID == invoiceID);
+                int invoiceID = Convert.ToInt32(Invoices_History.CurrentRow.Cells["InvoiceID"].Value);
+                var invoice = invoiceBLL.GetAllInvoices(AppSession.CurrentUser.userID).FirstOrDefault(i => i.InvoiceID == invoiceID);
                 var details = invoice?.InvoiceDetails.ToList();
 
                 if (invoice != null && details != null)
@@ -226,24 +304,28 @@ namespace GUI.UI_SALE
         }
         private void LoadStatusComboBox()
         {
-            // Lấy danh sách trạng thái hóa đơn từ BLL
             var statuses = invoiceStatusBLL.GetAllInvoiceStatuses();
-            statuses.Add(new InvoiceStatusDTO { InvoiceStatusID = 0, InvoiceStatusName = "All Status..." }); // Thêm tùy chọn "Tất cả trạng thái"
-            cbStatus.DataSource = statuses;
+
+            // Thêm "All Status..." vào đầu danh sách
+            statuses.Insert(0, new InvoiceStatusDTO { InvoiceStatusID = 0, InvoiceStatusName = "All Status..." });
+
             cbStatus.DisplayMember = "InvoiceStatusName"; // Tên hiển thị
+            cbStatus.ValueMember = "InvoiceStatusID";     // Giá trị thực tế
+            cbStatus.DataSource = statuses;
         }
 
         private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedStatus = cbStatus.SelectedItem.ToString();
-
-            if (selectedStatus == "All Status...")
+            if (cbStatus.SelectedValue != null && int.TryParse(cbStatus.SelectedValue.ToString(), out int selectedStatus))
             {
-                Invoices_History.DataSource = invoiceBLL.GetAllInvoices(); // Hiển thị tất cả
-            }
-            else
-            {
-                Invoices_History.DataSource = invoiceBLL.GetInvoicesByStatus(selectedStatus); // Lọc theo trạng thái
+                if (selectedStatus == 0)
+                {
+                    Invoices_History.DataSource = invoiceBLL.GetAllInvoices(AppSession.CurrentUser.userID);
+                }
+                else
+                {
+                    Invoices_History.DataSource = invoiceBLL.GetInvoicesByStatus(selectedStatus,AppSession.CurrentUser.userID);
+                }
             }
         }
 

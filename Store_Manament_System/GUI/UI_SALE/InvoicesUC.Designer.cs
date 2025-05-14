@@ -33,28 +33,19 @@
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             this.lb_invoices = new Bunifu.UI.WinForms.BunifuLabel();
             this.searchInvoices = new Bunifu.UI.WinForms.BunifuTextBox();
-            this.Invoices_History = new Bunifu.UI.WinForms.BunifuDataGridView();
-            this.selected_Invoice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Invoice_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.User_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Created_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Change = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StatusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Detail_Invoice = new System.Windows.Forms.GroupBox();
             this.print_invoice = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.DetailTable = new Bunifu.UI.WinForms.BunifuDataGridView();
@@ -70,9 +61,18 @@
             this.label_inv1 = new System.Windows.Forms.Label();
             this.label1_inv = new System.Windows.Forms.Label();
             this.btnSearchByDate = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
-            ((System.ComponentModel.ISupportInitialize)(this.Invoices_History)).BeginInit();
+            this.StatusID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Change = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Created_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.User_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Invoice_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.selected_Invoice = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Invoices_History = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.Detail_Invoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DetailTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Invoices_History)).BeginInit();
             this.SuspendLayout();
             // 
             // lb_invoices
@@ -170,148 +170,6 @@
             this.searchInvoices.UseSystemPasswordChar = false;
             this.searchInvoices.WordWrap = true;
             this.searchInvoices.TextChange += new System.EventHandler(this.searchInvoices_TextChange);
-            // 
-            // Invoices_History
-            // 
-            this.Invoices_History.AllowCustomTheming = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.Invoices_History.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.Invoices_History.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Invoices_History.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.Invoices_History.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Invoices_History.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
-            this.Invoices_History.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkSlateGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Invoices_History.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.Invoices_History.ColumnHeadersHeight = 40;
-            this.Invoices_History.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.selected_Invoice,
-            this.Invoice_ID,
-            this.User_ID,
-            this.Created_Date,
-            this.Total_Price,
-            this.Change,
-            this.Status_Name,
-            this.StatusID});
-            this.Invoices_History.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
-            this.Invoices_History.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.Invoices_History.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.Invoices_History.CurrentTheme.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(149)))), ((int)(((byte)(149)))));
-            this.Invoices_History.CurrentTheme.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.Invoices_History.CurrentTheme.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.Invoices_History.CurrentTheme.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
-            this.Invoices_History.CurrentTheme.HeaderStyle.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.Invoices_History.CurrentTheme.HeaderStyle.Font = new System.Drawing.Font("Poppins", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Invoices_History.CurrentTheme.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.Invoices_History.CurrentTheme.HeaderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
-            this.Invoices_History.CurrentTheme.HeaderStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.Invoices_History.CurrentTheme.Name = null;
-            this.Invoices_History.CurrentTheme.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.Invoices_History.CurrentTheme.RowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.Invoices_History.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.Invoices_History.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(149)))), ((int)(((byte)(149)))));
-            this.Invoices_History.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(149)))), ((int)(((byte)(149)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Invoices_History.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Invoices_History.EnableHeadersVisualStyles = false;
-            this.Invoices_History.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
-            this.Invoices_History.HeaderBackColor = System.Drawing.Color.DarkSlateGray;
-            this.Invoices_History.HeaderBgColor = System.Drawing.Color.Empty;
-            this.Invoices_History.HeaderForeColor = System.Drawing.Color.White;
-            this.Invoices_History.Location = new System.Drawing.Point(27, 171);
-            this.Invoices_History.Name = "Invoices_History";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Invoices_History.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.Invoices_History.RowHeadersVisible = false;
-            this.Invoices_History.RowHeadersWidth = 62;
-            this.Invoices_History.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Invoices_History.RowTemplate.Height = 40;
-            this.Invoices_History.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Invoices_History.Size = new System.Drawing.Size(681, 634);
-            this.Invoices_History.TabIndex = 31;
-            this.Invoices_History.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.DarkSlateGray;
-            this.Invoices_History.SelectionChanged += new System.EventHandler(this.Invoices_History_SelectionChanged);
-            // 
-            // selected_Invoice
-            // 
-            this.selected_Invoice.HeaderText = "Selected";
-            this.selected_Invoice.MinimumWidth = 8;
-            this.selected_Invoice.Name = "selected_Invoice";
-            // 
-            // Invoice_ID
-            // 
-            this.Invoice_ID.DataPropertyName = "InvoiceID";
-            this.Invoice_ID.HeaderText = "Invoice ID";
-            this.Invoice_ID.MinimumWidth = 8;
-            this.Invoice_ID.Name = "Invoice_ID";
-            this.Invoice_ID.ReadOnly = true;
-            // 
-            // User_ID
-            // 
-            this.User_ID.DataPropertyName = "UserID";
-            this.User_ID.HeaderText = "User ID";
-            this.User_ID.MinimumWidth = 8;
-            this.User_ID.Name = "User_ID";
-            this.User_ID.ReadOnly = true;
-            // 
-            // Created_Date
-            // 
-            this.Created_Date.DataPropertyName = "CreatedDate";
-            this.Created_Date.HeaderText = "Created Date";
-            this.Created_Date.MinimumWidth = 8;
-            this.Created_Date.Name = "Created_Date";
-            this.Created_Date.ReadOnly = true;
-            // 
-            // Total_Price
-            // 
-            this.Total_Price.DataPropertyName = "TotalPrice";
-            this.Total_Price.HeaderText = "Total Price";
-            this.Total_Price.MinimumWidth = 8;
-            this.Total_Price.Name = "Total_Price";
-            this.Total_Price.ReadOnly = true;
-            // 
-            // Change
-            // 
-            this.Change.DataPropertyName = "Change";
-            this.Change.HeaderText = "Change";
-            this.Change.MinimumWidth = 8;
-            this.Change.Name = "Change";
-            this.Change.ReadOnly = true;
-            // 
-            // Status_Name
-            // 
-            this.Status_Name.DataPropertyName = "StatusName";
-            this.Status_Name.HeaderText = "Status";
-            this.Status_Name.MinimumWidth = 8;
-            this.Status_Name.Name = "Status_Name";
-            this.Status_Name.ReadOnly = true;
-            // 
-            // StatusID
-            // 
-            this.StatusID.DataPropertyName = "StatusID";
-            this.StatusID.HeaderText = "Status ID";
-            this.StatusID.MinimumWidth = 8;
-            this.StatusID.Name = "StatusID";
-            this.StatusID.Visible = false;
             // 
             // Detail_Invoice
             // 
@@ -419,22 +277,22 @@
             // DetailTable
             // 
             this.DetailTable.AllowCustomTheming = true;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            this.DetailTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.DetailTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DetailTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DetailTable.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.DetailTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DetailTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.DetailTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Poppins", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DetailTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DetailTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DetailTable.ColumnHeadersHeight = 40;
             this.DetailTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Detail_ID,
@@ -460,14 +318,14 @@
             this.DetailTable.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.DetailTable.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(149)))), ((int)(((byte)(149)))));
             this.DetailTable.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(149)))), ((int)(((byte)(149)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DetailTable.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(149)))), ((int)(((byte)(149)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DetailTable.DefaultCellStyle = dataGridViewCellStyle3;
             this.DetailTable.EnableHeadersVisualStyles = false;
             this.DetailTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.DetailTable.HeaderBackColor = System.Drawing.Color.White;
@@ -475,14 +333,14 @@
             this.DetailTable.HeaderForeColor = System.Drawing.Color.Black;
             this.DetailTable.Location = new System.Drawing.Point(30, 67);
             this.DetailTable.Name = "DetailTable";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poppins Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DetailTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Poppins Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DetailTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DetailTable.RowHeadersVisible = false;
             this.DetailTable.RowHeadersWidth = 62;
             this.DetailTable.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -794,6 +652,147 @@
             this.btnSearchByDate.UseDefaultRadiusAndThickness = true;
             this.btnSearchByDate.Click += new System.EventHandler(this.btnSearchByDate_Click);
             // 
+            // StatusID
+            // 
+            this.StatusID.DataPropertyName = "StatusID";
+            this.StatusID.HeaderText = "Status ID";
+            this.StatusID.MinimumWidth = 8;
+            this.StatusID.Name = "StatusID";
+            this.StatusID.Visible = false;
+            // 
+            // Status_Name
+            // 
+            this.Status_Name.DataPropertyName = "StatusName";
+            this.Status_Name.HeaderText = "Status";
+            this.Status_Name.MinimumWidth = 8;
+            this.Status_Name.Name = "Status_Name";
+            this.Status_Name.ReadOnly = true;
+            // 
+            // Change
+            // 
+            this.Change.DataPropertyName = "Change";
+            this.Change.HeaderText = "Change";
+            this.Change.MinimumWidth = 8;
+            this.Change.Name = "Change";
+            this.Change.ReadOnly = true;
+            // 
+            // Total_Price
+            // 
+            this.Total_Price.DataPropertyName = "TotalPrice";
+            this.Total_Price.HeaderText = "Total Price";
+            this.Total_Price.MinimumWidth = 8;
+            this.Total_Price.Name = "Total_Price";
+            this.Total_Price.ReadOnly = true;
+            // 
+            // Created_Date
+            // 
+            this.Created_Date.DataPropertyName = "CreatedDate";
+            this.Created_Date.HeaderText = "Created Date";
+            this.Created_Date.MinimumWidth = 8;
+            this.Created_Date.Name = "Created_Date";
+            this.Created_Date.ReadOnly = true;
+            // 
+            // User_ID
+            // 
+            this.User_ID.DataPropertyName = "UserID";
+            this.User_ID.HeaderText = "User ID";
+            this.User_ID.MinimumWidth = 8;
+            this.User_ID.Name = "User_ID";
+            this.User_ID.ReadOnly = true;
+            // 
+            // Invoice_ID
+            // 
+            this.Invoice_ID.DataPropertyName = "InvoiceID";
+            this.Invoice_ID.HeaderText = "Invoice ID";
+            this.Invoice_ID.MinimumWidth = 8;
+            this.Invoice_ID.Name = "Invoice_ID";
+            this.Invoice_ID.ReadOnly = true;
+            // 
+            // selected_Invoice
+            // 
+            this.selected_Invoice.HeaderText = "Selected";
+            this.selected_Invoice.MinimumWidth = 8;
+            this.selected_Invoice.Name = "selected_Invoice";
+            // 
+            // Invoices_History
+            // 
+            this.Invoices_History.AllowCustomTheming = true;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.Invoices_History.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.Invoices_History.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Invoices_History.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.Invoices_History.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Invoices_History.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.Invoices_History.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.DarkSlateGray;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Poppins", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Invoices_History.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.Invoices_History.ColumnHeadersHeight = 40;
+            this.Invoices_History.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.selected_Invoice,
+            this.Invoice_ID,
+            this.User_ID,
+            this.Created_Date,
+            this.Total_Price,
+            this.Change,
+            this.Status_Name,
+            this.StatusID});
+            this.Invoices_History.CurrentTheme.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(211)))), ((int)(((byte)(211)))));
+            this.Invoices_History.CurrentTheme.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.Invoices_History.CurrentTheme.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.Invoices_History.CurrentTheme.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(149)))), ((int)(((byte)(149)))));
+            this.Invoices_History.CurrentTheme.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.Invoices_History.CurrentTheme.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.Invoices_History.CurrentTheme.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
+            this.Invoices_History.CurrentTheme.HeaderStyle.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.Invoices_History.CurrentTheme.HeaderStyle.Font = new System.Drawing.Font("Poppins", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Invoices_History.CurrentTheme.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.Invoices_History.CurrentTheme.HeaderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
+            this.Invoices_History.CurrentTheme.HeaderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.Invoices_History.CurrentTheme.Name = null;
+            this.Invoices_History.CurrentTheme.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.Invoices_History.CurrentTheme.RowsStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.Invoices_History.CurrentTheme.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.Invoices_History.CurrentTheme.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(149)))), ((int)(((byte)(149)))));
+            this.Invoices_History.CurrentTheme.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(149)))), ((int)(((byte)(149)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Invoices_History.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Invoices_History.EnableHeadersVisualStyles = false;
+            this.Invoices_History.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(202)))), ((int)(((byte)(202)))));
+            this.Invoices_History.HeaderBackColor = System.Drawing.Color.DarkSlateGray;
+            this.Invoices_History.HeaderBgColor = System.Drawing.Color.Empty;
+            this.Invoices_History.HeaderForeColor = System.Drawing.Color.White;
+            this.Invoices_History.Location = new System.Drawing.Point(27, 171);
+            this.Invoices_History.Name = "Invoices_History";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Teal;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Invoices_History.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.Invoices_History.RowHeadersVisible = false;
+            this.Invoices_History.RowHeadersWidth = 62;
+            this.Invoices_History.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Invoices_History.RowTemplate.Height = 40;
+            this.Invoices_History.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Invoices_History.Size = new System.Drawing.Size(681, 634);
+            this.Invoices_History.TabIndex = 31;
+            this.Invoices_History.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.DarkSlateGray;
+            // 
             // InvoicesUC
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -811,9 +810,9 @@
             this.Name = "InvoicesUC";
             this.Size = new System.Drawing.Size(1291, 848);
             this.Load += new System.EventHandler(this.InvoicesUC_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Invoices_History)).EndInit();
             this.Detail_Invoice.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DetailTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Invoices_History)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -823,7 +822,6 @@
 
         private Bunifu.UI.WinForms.BunifuLabel lb_invoices;
         private Bunifu.UI.WinForms.BunifuTextBox searchInvoices;
-        private Bunifu.UI.WinForms.BunifuDataGridView Invoices_History;
         private System.Windows.Forms.GroupBox Detail_Invoice;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 delete_invoice;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 print_invoice;
@@ -839,13 +837,14 @@
         private System.Windows.Forms.Label label_inv1;
         private System.Windows.Forms.Label label1_inv;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 btnSearchByDate;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn selected_Invoice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Invoice_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn User_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Created_Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total_Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Change;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Change;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total_Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Created_Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn User_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Invoice_ID;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn selected_Invoice;
+        private Bunifu.UI.WinForms.BunifuDataGridView Invoices_History;
     }
 }

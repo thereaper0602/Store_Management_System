@@ -87,12 +87,19 @@ namespace BLL.Services.Implements
 
         public bool SendEmail(int userID)
         {
+            // Get the user information
+            var user = _userRepositoryDAL.GetUserById(userID);
+            if (user == null)
+            {
+                throw new Exception("User not found.");
+            }
+            // Get the salary information for the user
             List<EmployeeSalaryDTO> employeeSalaries = _userWorkShiftRepositoryDAL.GetSalaryEachWorkShiftThisMonth(userID);
             string html = this.GenerateSalaryEmailHtml(employeeSalaries);
 
             string fromEmail = "dangcapcothua2903@gmail.com";
             string appPassword = "xmts jceg wfmz jwrt";
-            string toEmail = employeeSalaries.First().Email;
+            string toEmail = user.Email;
 
             MailMessage mailMessage = new MailMessage();
             mailMessage.From = new MailAddress(fromEmail, "Hệ thống quản lý nhân sự");

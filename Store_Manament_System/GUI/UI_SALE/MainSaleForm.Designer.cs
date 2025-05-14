@@ -381,6 +381,7 @@
             this.sellingViewBtn.TextMarginLeft = 0;
             this.sellingViewBtn.TextPadding = new System.Windows.Forms.Padding(35, 2, 0, 0);
             this.sellingViewBtn.UseDefaultRadiusAndThickness = true;
+            this.sellingViewBtn.Click += new System.EventHandler(this.sellingViewBtn_Click);
             // 
             // bunifuPanel2
             // 

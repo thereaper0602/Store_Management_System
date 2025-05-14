@@ -13,7 +13,7 @@ namespace DAL.Repository
         // bao gồm cả trạng thái hóa đơn (InvoiceStatus)
         public List<Invoice> GetAllInvoices()
         {
-            return db.Invoices.Include("InvoiceStatus").ToList();
+            return db.Invoices.ToList();
         }
         // Lấy toàn bộ danh sách trạng thái hóa đơn
         public List<InvoiceStatus> GetAllStatuses()
@@ -94,6 +94,13 @@ namespace DAL.Repository
             return query.OrderByDescending(x => x.i.CreatedDate).Select(x => x.i).ToList();
         }
 
+        public List<Invoice> GetInvoicesByStatus(int statusID)
+        {
+            // Lấy danh sách hóa đơn theo trạng thái
+            return db.Invoices
+                .Where(i => i.StatusID == statusID)
+                .ToList();
+        }
     }
 }
 

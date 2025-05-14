@@ -53,17 +53,25 @@ namespace DAL.Repository
 
         public List<EmployeeSalaryDTO> GetSalaryEachWorkShiftThisMonth(int userId)
         {
-            return (from WorkShift in _context.WorkShifts
-                    join UserWorkShift in _context.UserWorkShifts on WorkShift.WorkShiftID equals UserWorkShift.WorkShiftID
-                    where UserWorkShift.UserID == userId && UserWorkShift.WorkDate.Month == DateTime.Now.Month
+            DateTime now = DateTime.Now;
+            int targetMonth = now.AddMonths(-1).Month;
+            int targetYear = now.AddMonths(-1).Year;
+
+            return (from workShift in _context.WorkShifts
+                    join userWorkShift in _context.UserWorkShifts
+                        on workShift.WorkShiftID equals userWorkShift.WorkShiftID
+                    where userWorkShift.UserID == userId &&
+                          userWorkShift.WorkDate.Month == targetMonth &&
+                          userWorkShift.WorkDate.Year == targetYear
                     select new EmployeeSalaryDTO
                     {
-                        EmployeeId = (int)UserWorkShift.UserID,
-                        Email = UserWorkShift.User.Email,
-                        EmployeeName = UserWorkShift.User.FullName,
-                        WorkDate = (DateTime)UserWorkShift.WorkDate,
-                        Salary = (decimal)WorkShift.WorkShiftSalary
+                        EmployeeId = (int)userWorkShift.UserID,
+                        Email = userWorkShift.User.Email,
+                        EmployeeName = userWorkShift.User.FullName,
+                        WorkDate = userWorkShift.WorkDate,
+                        Salary = workShift.WorkShiftSalary
                     }).ToList();
         }
+
     }
 }

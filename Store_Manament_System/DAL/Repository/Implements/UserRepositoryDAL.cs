@@ -15,13 +15,19 @@ namespace DAL.Repository
 {
     public class UserRepositoryDAL : IUserRepositoryDAL
     {
-
         private readonly StoreContext _context = new StoreContext();
 
         //phương thức lấy danh sách nhân viên
         public List<User> GetAllUser()
         {
-            return _context.Users.ToList();
+            var existingEntities = _context.ChangeTracker.Entries<User>().ToList();
+            foreach (var entry in existingEntities)
+            {
+                entry.State = System.Data.Entity.EntityState.Detached;
+            }
+
+            // Explicitly reload the data
+            return _context.Users.AsNoTracking().ToList();
         }
 
         public User GetUserById(int id)
