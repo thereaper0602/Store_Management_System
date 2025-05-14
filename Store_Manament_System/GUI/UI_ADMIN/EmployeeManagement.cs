@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
- // thêm 2 thư viện vào 
 using DTO.DTO;
 using BLL.Services;
 using System.Globalization;
 using System.IO;
+using BLL.Services.Implements;
 
 
 namespace GUI
@@ -23,8 +23,22 @@ namespace GUI
 
         // Thêm ImageServiceBLL
         private readonly IImageServiceBLL _imageService;
+        private readonly ISendEmailBLL _sendEmailBLL;
 
-
+        /*
+         * invoiceDataGridView.CellContentClick += (sender, e) =>
+            {
+                if (invoiceDataGridView.Rows.Count - 1 == 0)
+                {
+                    return;
+                }
+                if (e.ColumnIndex == invoiceDataGridView.Columns["Delete"].Index && e.RowIndex >= 0)
+                {
+                    invoiceDataGridView.Rows.RemoveAt(e.RowIndex);
+                    UpdateCartTotal();
+                }
+            };
+         */
 
         public EmployeeManagement()
         {
@@ -36,6 +50,7 @@ namespace GUI
                 _employeeService = new EmployeeServiceBLL();
 
                 _imageService = new ImageServiceBLL();
+                _sendEmailBLL = new SendEmailBLL();
 
 
                 cbMonth.SelectedIndexChanged += (s, e) =>
@@ -48,6 +63,7 @@ namespace GUI
 
                     RefreshSalaryTab();
                 };
+
             }
             // Cấu hình EPPlus
             //ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
@@ -94,7 +110,42 @@ namespace GUI
         }
 
 
+
         #region Tab Information
+
+        private void btSendEmail(object sender, DataGridViewCellEventArgs e)
+        {
+            if (viewUser.Rows.Count == 0)
+            {
+                return;
+            }
+            if (e.ColumnIndex == viewUser.Columns["sendEmail"].Index && e.RowIndex >= 0)
+            {
+                // Lấy thông tin người dùng từ dòng được chọn
+                var selectedRow = viewUser.Rows[e.RowIndex];
+                if (selectedRow != null)
+                {
+                    var user = selectedRow.DataBoundItem as UserDTO;
+                    if (user != null)
+                    {
+                        // Gửi email cho người dùng
+                        bool sent = _sendEmailBLL.SendEmail(user.userID);
+
+                        if (sent)
+                        {
+                            MessageBox.Show($"Email sent to {user.fullName} successfully!", "Success",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Failed to send email to {user.fullName}.", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
+
 
         // Phương thức này sẽ được gọi khi tab Information được chọn
         private void RefreshInformationTab()
@@ -103,7 +154,6 @@ namespace GUI
             {
                 var employees = _employeeService.GetAllUser();
                 viewUser.AutoGenerateColumns = false;
-                viewUser.DataSource = null;
                 viewUser.DataSource = employees;
                 viewUser.Refresh();
 
@@ -144,7 +194,14 @@ namespace GUI
                 }
 
                 var selectedRow = viewUser.SelectedRows[0];
-                var employee = selectedRow.DataBoundItem as UserDTO;
+                var employeeID = selectedRow.Cells["userIDInfo"].Value as int?;
+                if (employeeID == null)
+                {
+                    MessageBox.Show("Please choose an employee to edit!", "Notification",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                var employee = _employeeService.GetUserById(employeeID.Value);
                 if (employee == null)
                 {
                     MessageBox.Show("Can't get employee data!", "Error",
@@ -266,6 +323,9 @@ namespace GUI
             }
         }
 
+        // 2254052022giang@ou.edu.vn
+        // tinhtuyet0730@gmail.com
+
 
         // Sự kiện TextChanged của ô tìm kiếm
         private System.Threading.Timer searchTimer;
@@ -293,6 +353,18 @@ namespace GUI
                 });
             }, null, 500, System.Threading.Timeout.Infinite);
         }
+
+        /*
+         *      if (invoiceDataGridView.Rows.Count - 1 == 0)
+                {
+                    return;
+                }
+                if (e.ColumnIndex == invoiceDataGridView.Columns["Delete"].Index && e.RowIndex >= 0)
+                {
+                    invoiceDataGridView.Rows.RemoveAt(e.RowIndex);
+                    UpdateCartTotal();
+                }
+         */
 
         // Sự kiện Click của nút Search
         private void btSearchUser_Click(object sender, EventArgs e)
@@ -328,15 +400,17 @@ namespace GUI
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error when filtering user data: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-               // ClearInputFields();
+                // ClearInputFields();
             }
         }
+
+
 
         #endregion
 
@@ -345,7 +419,7 @@ namespace GUI
         {
             try
             {
-                var workShifts = _employeeService.GetAllUserWorkShift(); ; 
+                var workShifts = _employeeService.GetAllUserWorkShift(); ;
                 viewWorkShift.AutoGenerateColumns = false;
                 viewWorkShift.DataSource = null;
                 viewWorkShift.DataSource = workShifts;
@@ -567,8 +641,47 @@ namespace GUI
             }
         }
 
-      
+
         #endregion
+
+        private async void bunifuButton1_Click(object sender, EventArgs e)
+        {
+            bunifuButton1.Enabled = false;
+            //btnRefresh.Enabled = false;
+            try
+            {
+                switch (tabControlEmployee.SelectedIndex)
+                {
+                    case 0:
+                        await Task.Run(() => {
+                            var employees = _employeeService.GetAllUser();
+                            this.Invoke((MethodInvoker)(() => {
+                                viewUser.DataSource = employees;
+                            }));
+                        });
+                        break;
+
+                    case 1:
+                        await Task.Run(() => {
+                            var shifts = _employeeService.GetAllUserWorkShift();
+                            this.Invoke((MethodInvoker)(() => { viewWorkShift.DataSource = shifts; }));
+                        });
+                        break;
+
+                    case 2:
+                        this.Invoke((MethodInvoker)(() => RefreshSalaryTab()));
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Refresh error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                bunifuButton1.Enabled = true;
+            }
+        }
     }
 
 }

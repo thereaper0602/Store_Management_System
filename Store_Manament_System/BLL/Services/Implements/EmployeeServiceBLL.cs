@@ -429,5 +429,10 @@ namespace BLL.Services
 
             return salaries;
         }
+
+        List<EmployeeSalaryDTO> IEmployeeServiceBLL.GetSalaryEachWorkShiftThisMonth(int userId)
+        {
+            return userWorkShift.GetSalaryEachWorkShiftThisMonth(userId);
+        }
     }
 }

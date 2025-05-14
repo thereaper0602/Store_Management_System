@@ -230,7 +230,5 @@ namespace DAL.Repository
             return _context.Users
                 .FirstOrDefault(u => u.UserID == userId)?.FullName ?? "No found";
         }
-
-
     }
 }

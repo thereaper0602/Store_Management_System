@@ -1,4 +1,5 @@
 ﻿using DAL.Model;
+using DTO.DTO;
 using System;
 using System.Collections.Generic;
 
@@ -10,5 +11,6 @@ namespace DAL.Repository
         List<UserWorkShift> GetAllUserWorkShifts();
         List<UserWorkShift> GetUserWorkShiftsByMonthAndYear(int month, int year);
         bool HasWorkShiftOnDate(int userId, DateTime workDate);
+        List<EmployeeSalaryDTO> GetSalaryEachWorkShiftThisMonth(int userId);
     }
 }

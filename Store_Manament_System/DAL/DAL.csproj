@@ -131,7 +131,7 @@
     <Compile Include="Repository\IInvoiceRepositoryDAL.cs" />
     <Compile Include="Repository\IInvoiceStatusRepositoryDAL.cs" />
     <Compile Include="Repository\ILoginDAL.cs" />
-    <Compile Include="Model\IInvoiceG_RepositoryDAL.cs" />
+    <Compile Include="Repository\IInvoiceG_RepositoryDAL.cs" />
     <Compile Include="Repository\IInvoiceDetailG_RepositoryDAL.cs" />
     <Compile Include="Repository\Implements\ImageRepositoryDAL.cs" />
     <Compile Include="Repository\Implements\InvoiceDetailG_RepositoryDAL.cs" />
@@ -146,7 +146,6 @@
     <Compile Include="Repository\Implements\ProductRepositoryDAL.cs" />
     <Compile Include="Repository\IPromotionRepositoryDAL.cs" />
     <Compile Include="Repository\IReportRepositoryDAL.cs" />
-    <Compile Include="Repository\ISalaryRepositoryDAL.cs" />
     <Compile Include="Repository\IStockRepositoryDAL.cs" />
     <Compile Include="Repository\IProductPromotionDAL.cs" />
     <Compile Include="Repository\Implements\ReportRepositoryDAL.cs" />

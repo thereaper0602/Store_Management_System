@@ -59,7 +59,6 @@ namespace GUI.UI_SALE
             try
             {
                 filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-                MessageBox.Show($"{filterInfoCollection[0].Name}");
                 if (filterInfoCollection.Count == 0)
                 {
                     MessageBox.Show("No camera found!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);

@@ -69,6 +69,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
@@ -93,6 +94,7 @@
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -114,12 +116,14 @@
     <Compile Include="Services\Implements\InvoiceDetailG_ServiceBLL.cs" />
     <Compile Include="Services\Implements\InvoiceG_ServiceBLL.cs" />
     <Compile Include="Services\Implements\InvoiceStatusServiceBLL.cs" />
+    <Compile Include="Services\Implements\SendEmailBLL.cs" />
     <Compile Include="Services\IReportServicesBLL.cs" />
     <Compile Include="Services\IProductPromotionBLL.cs" />
     <Compile Include="Services\Implements\EmployeeServiceBLL.cs" />
     <Compile Include="Services\Implements\ImageServiceBLL.cs" />
     <Compile Include="Services\IProductService.cs" />
     <Compile Include="Services\IPromotionServiceBLL.cs" />
+    <Compile Include="Services\ISendEmailBLL.cs" />
     <Compile Include="Services\IStockServiceBLL.cs" />
     <Compile Include="Services\Implements\ProductPromotionBLL.cs" />
     <Compile Include="Services\Implements\PromotionServiceBLL.cs" />

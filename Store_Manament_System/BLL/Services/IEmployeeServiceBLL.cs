@@ -19,5 +19,6 @@ namespace BLL.Services
         bool IsValidUserWithRole(int userId);
         List<UserDTO> SearchUsers(string keyword);
         bool UpdateUser(UserDTO userDTO);
+        List<EmployeeSalaryDTO> GetSalaryEachWorkShiftThisMonth(int userId);
     }
 }
