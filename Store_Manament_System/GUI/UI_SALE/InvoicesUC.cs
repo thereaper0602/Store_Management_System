@@ -21,34 +21,24 @@ using GUI.Utils;
 
 namespace GUI.UI_SALE
 {
-    public partial class InvoicesUC : UserControl
+    public partial class InvoicesUC : UserControl, IRefreshable
     {
+        public new void Refresh()
+        {
+            // Refresh the user control
+            ConfigureDataGridViewColumns();
+            LoadInvoices();
+            LoadStatusComboBox();
+            DetailTable.DataSource = null; // Clear the detail table
+        }
+        
         private readonly IInvoiceG_ServiceBLL invoiceBLL = new InvoiceG_ServiceBLL();
+        private readonly IInvoiceDetailG_ServiceBLL invoiceDetailBLL = new InvoiceDetailG_ServiceBLL();
         private readonly IInvoiceStatusServiceBLL invoiceStatusBLL = new InvoiceStatusServiceBLL();
         public InvoicesUC()
         {
             InitializeComponent();
         }
-
-        //private void InvoicesUC_Load(object sender, EventArgs e)
-        //{
-        //    if (!DesignMode)
-        //    {
-        //        LoadInvoices();
-        //        LoadStatusComboBox();
-        //    }
-        //    //Invoices_History.AutoGenerateColumns = false;
-
-        //}
-        //private void LoadInvoices()
-        //{
-        //    if (!DesignMode)
-        //    {
-        //        var data = invoiceBLL.GetAllInvoices(AppSession.CurrentUser.userID);
-        //        Invoices_History.DataSource = data;
-        //    }
-
-        //}
 
         private void InvoicesUC_Load(object sender, EventArgs e)
         {
@@ -58,6 +48,7 @@ namespace GUI.UI_SALE
                 ConfigureDataGridViewColumns();
                 LoadInvoices();
                 LoadStatusComboBox();
+                DetailTable.AutoGenerateColumns = false; // Set AutoGenerateColumns to true for DetailTable
             }
         }
 
@@ -111,35 +102,8 @@ namespace GUI.UI_SALE
             }
         }
 
-        /*
-         * if (Invoices_History.CurrentRow != null)
-            {
-                int invoiceID = Convert.ToInt32(Invoices_History.CurrentRow.Cells["InvoiceID"].Value);
-                if (!DesignMode)
-                {
-                    var invoice = invoiceBLL.GetAllInvoices().FirstOrDefault(i => i.InvoiceID == invoiceID);
-                    if (invoice != null)
-                    {
-                        DetailTable.DataSource = invoice.InvoiceDetails;
-                    }
-                }
-            }
-         */
-
         private void Invoices_History_SelectionChanged(object sender, EventArgs e)
         {
-            if (Invoices_History.CurrentRow != null)
-            {
-                int invoiceID = Convert.ToInt32(Invoices_History.CurrentRow.Cells["InvoiceID"].Value);
-                if (!DesignMode)
-                {
-                    var invoice = invoiceBLL.GetAllInvoices(AppSession.CurrentUser.userID).FirstOrDefault(i => i.InvoiceID == invoiceID);
-                    if (invoice != null)
-                    {
-                        DetailTable.DataSource = invoice.InvoiceDetails;
-                    }
-                }
-            }
 
         }
 
@@ -148,7 +112,7 @@ namespace GUI.UI_SALE
 
             if ((Invoices_History.CurrentRow != null))
             {
-                int invoiceID = Convert.ToInt32((Invoices_History.CurrentRow.Cells["InvoiceID"].Value));
+                int invoiceID = Convert.ToInt32((Invoices_History.CurrentRow.Cells[0].Value));
                 var confirm = MessageBox.Show("Delete this invoice?", "Confirm", MessageBoxButtons.YesNo);
                 if (confirm == DialogResult.Yes)
                 {
@@ -168,14 +132,20 @@ namespace GUI.UI_SALE
         {
             string keyword = searchInvoices.Text.Trim().ToLower();
 
+            if (string.IsNullOrEmpty(keyword))
+            {
+                // Nếu không có từ khóa tìm kiếm, hiển thị lại tất cả hóa đơn
+                LoadInvoices();
+                return;
+            }
+
             if (Invoices_History.DataSource is List<InvoiceG_DTO> currentData)
             {
                 var filtered = currentData.Where(i =>
                     i.InvoiceID.ToString().Contains(keyword) ||
                     i.UserID.ToString().Contains(keyword) ||
                     i.CreatedDate.ToString("dd/MM/yyyy").Contains(keyword) ||
-                    (i.TotalPrice != null && i.TotalPrice.ToString().Contains(keyword)) ||
-                    (i.Change != null && i.Change.ToString().Contains(keyword)) ||
+                    (i.TotalPrice.ToString().Contains(keyword)) ||
                     (i.StatusName != null && i.StatusName.ToLower().Contains(keyword))
                 ).ToList();
 
@@ -187,14 +157,14 @@ namespace GUI.UI_SALE
         {
             if (Invoices_History.CurrentRow != null)
             {
-                int invoiceID = Convert.ToInt32(Invoices_History.CurrentRow.Cells["InvoiceID"].Value);
+                int invoiceID = Convert.ToInt32(Invoices_History.CurrentRow.Cells[0].Value);
                 var invoice = invoiceBLL.GetAllInvoices(AppSession.CurrentUser.userID).FirstOrDefault(i => i.InvoiceID == invoiceID);
                 var details = invoice?.InvoiceDetails.ToList();
 
                 if (invoice != null && details != null)
                 {
                     // Tạo file PDF tạm thời
-                    string tempFilePath = Path.Combine(Path.GetTempPath(), $"Invoice_{invoice.InvoiceID}_preview.pdf");
+                    string tempFilePath = Path.Combine($"Invoice_{invoice.InvoiceID}_preview.pdf");
                     ExportInvoiceToPdf(invoice, details, tempFilePath);
 
                     try
@@ -262,6 +232,7 @@ namespace GUI.UI_SALE
                 {
                     //Không thể xử lý hóa đơn!
                     MessageBox.Show("Unable to process the invoice!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
         }
@@ -340,7 +311,7 @@ namespace GUI.UI_SALE
             // Kiểm tra nếu ngày bắt đầu lớn hơn ngày kết thúc
             if (fromDate > toDate)
             {
-                MessageBox.Show("Ngày bắt đầu không được lớn hơn ngày kết thúc!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("The start date cannot be later than the end date!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -353,9 +324,24 @@ namespace GUI.UI_SALE
             // Kiểm tra nếu không có kết quả phù hợp
             if (result.Count == 0)
             {
-                MessageBox.Show("Không tìm thấy hóa đơn phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No matching invoice found", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
+        private void Invoices_History_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Invoices_History.CurrentRow != null)
+            {
+                int invoiceID = Convert.ToInt32(Invoices_History.CurrentRow.Cells[0].Value);
+                if (!DesignMode)
+                {
+                    var invoiceDetails = invoiceDetailBLL.GetDetailsByInvoiceID(invoiceID);
+                    if (invoiceDetails != null)
+                    {
+                        DetailTable.DataSource = invoiceDetails;
+                    }
+                }
+            }
+        }
     }
 }

@@ -13,7 +13,12 @@ namespace DAL.Repository
         // bao gồm cả trạng thái hóa đơn (InvoiceStatus)
         public List<Invoice> GetAllInvoices()
         {
-            return db.Invoices.ToList();
+            var existingEntities = db.ChangeTracker.Entries<Invoice>().ToList();
+            foreach (var entry in existingEntities)
+            {
+                entry.State = System.Data.Entity.EntityState.Detached;
+            }
+            return db.Invoices.AsNoTracking().ToList();
         }
         // Lấy toàn bộ danh sách trạng thái hóa đơn
         public List<InvoiceStatus> GetAllStatuses()

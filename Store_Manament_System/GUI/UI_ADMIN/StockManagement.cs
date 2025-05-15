@@ -1,5 +1,6 @@
 ﻿using BLL.Services;
 using DTO.DTO;
+using GUI.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ using static System.Data.Entity.Infrastructure.Design.Executor;
 
 namespace GUI.UI_ADMIN
 {
-    public partial class StockManagement : UserControl
+    public partial class StockManagement : UserControl, IRefreshable
     {
 
         //Khai báo biến
@@ -26,11 +27,19 @@ namespace GUI.UI_ADMIN
 
         }
 
-        private void StockManagement_Load(object sender, EventArgs e)
+        private void LoadData()
         {
+            // Tải dữ liệu từ cơ sở dữ liệu vào DataGridView
             RefreshStockTab();
             RefreshWareHouseTab();
+            // Tải danh sách CategoryName vào ComboBox
             LoadCategoryName();
+        }
+
+        private void StockManagement_Load(object sender, EventArgs e)
+        {
+            LoadData();
+            //LoadCategoryName();
             importDate.Value = DateTime.Now;
             expiryDate.Value = DateTime.Now.AddDays(30); // Thay đổi số ngày theo yêu cầu
         }
@@ -282,5 +291,10 @@ namespace GUI.UI_ADMIN
         #endregion
 
        
+        public new void Refresh()
+        {
+            // Gọi lại hàm LoadData để làm mới dữ liệu
+            LoadData();
+        }
     }
 }

@@ -226,6 +226,7 @@
       <DependentUpon>StockUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\AppSession.cs" />
+    <Compile Include="GlobalInterface\IRefreshable.cs" />
     <EmbeddedResource Include="UI_ADMIN\AddUserForm.resx">
       <DependentUpon>AddUserForm.cs</DependentUpon>
     </EmbeddedResource>

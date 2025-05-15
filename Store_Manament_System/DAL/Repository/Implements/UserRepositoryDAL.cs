@@ -25,8 +25,6 @@ namespace DAL.Repository
             {
                 entry.State = System.Data.Entity.EntityState.Detached;
             }
-
-            // Explicitly reload the data
             return _context.Users.AsNoTracking().ToList();
         }
 

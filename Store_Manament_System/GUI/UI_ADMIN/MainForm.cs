@@ -31,6 +31,12 @@ namespace GUI
 
             panel2.Controls.Clear();
             var uc = ucCache[key];
+
+            if (uc is IRefreshable refreshable)
+            {
+                refreshable.Refresh();
+            }
+
             if (uc != null)
             {
                 panel2.Controls.Add(uc);

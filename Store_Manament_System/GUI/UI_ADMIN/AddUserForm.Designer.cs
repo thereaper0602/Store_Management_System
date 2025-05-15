@@ -85,7 +85,7 @@ namespace GUI
             this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuLabel13 = new Bunifu.UI.WinForms.BunifuLabel();
             this.btAdd = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbForm = new System.Windows.Forms.Label();
             this.bunifuPanel1.SuspendLayout();
             this.bunifuGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcUser)).BeginInit();
@@ -1203,17 +1203,17 @@ namespace GUI
             this.btAdd.UseDefaultRadiusAndThickness = true;
             this.btAdd.Click += new System.EventHandler(this.btAdd_Click);
             // 
-            // label1
+            // lbForm
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Poppins Medium", 18F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(244, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 53);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Add New User";
+            this.lbForm.AutoSize = true;
+            this.lbForm.BackColor = System.Drawing.Color.White;
+            this.lbForm.Font = new System.Drawing.Font("Poppins Medium", 18F, System.Drawing.FontStyle.Bold);
+            this.lbForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lbForm.Location = new System.Drawing.Point(244, 32);
+            this.lbForm.Name = "lbForm";
+            this.lbForm.Size = new System.Drawing.Size(246, 53);
+            this.lbForm.TabIndex = 5;
+            this.lbForm.Text = "Add New User";
             // 
             // AddUserForm
             // 
@@ -1221,7 +1221,7 @@ namespace GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
             this.ClientSize = new System.Drawing.Size(765, 746);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbForm);
             this.Controls.Add(this.bunifuLabel1);
             this.Controls.Add(this.bunifuPanel1);
             this.Font = new System.Drawing.Font("Poppins Medium", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1271,6 +1271,6 @@ namespace GUI
         private Bunifu.UI.WinForms.BunifuTextBox tbEmail;
         private Bunifu.UI.WinForms.BunifuTextBox tbPassword;
         private Bunifu.UI.WinForms.BunifuTextBox tbLogin;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbForm;
     }
 }

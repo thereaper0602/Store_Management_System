@@ -19,8 +19,12 @@ namespace DAL.Repository
         // Lấy toàn bộ danh mục trong bảng Categories
         public List<Category> GetAllCategories()
         {
-            // Truy vấn toàn bộ dữ liệu từ bảng Categories
-            return _context.Categories.ToList();
+            var existingEntities = _context.ChangeTracker.Entries<Category>().ToList();
+            foreach (var entry in existingEntities)
+            {
+                entry.State = System.Data.Entity.EntityState.Detached;
+            }
+            return _context.Categories.AsNoTracking().ToList();
         }
 
         // Tìm kiếm danh mục theo từ khóa 

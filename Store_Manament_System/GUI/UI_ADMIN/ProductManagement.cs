@@ -18,10 +18,11 @@ using ZXing.Common;
 using ZXing.QrCode.Internal;
 using ZXing.Rendering;
 using ZXing;
+using GUI.Utils;
 
 namespace GUI
 {
-    public partial class ProductManagement: UserControl
+    public partial class ProductManagement : UserControl, IRefreshable
     {
         private readonly IProductService _prodService = new ProductService();
         private List<ProductDTO> products;
@@ -36,11 +37,11 @@ namespace GUI
         private void loadInitData()
         {
             loadColumn();
-            if (!DesignMode)
-            {
-                loadProducts();
-                loadCategoryComboBox();
-            }
+            //if (!DesignMode)
+            //{
+            //    loadProducts();
+            //    loadCategoryComboBox();
+            //}
         }
 
         private void clearForm()
@@ -55,7 +56,9 @@ namespace GUI
 
         private void loadCategoryComboBox()
         {
-            // Assuming you have a method to get categories
+            categoryComboBox.DataSource = null;
+            categoryComboBox.Items.Clear();
+            // Assuming you have a methodto get categories
             List<CategoryDTO> categories = _categoryBLL.GetAllCategories();
             categoryComboBox.DataSource = categories;
             categoryComboBox.DisplayMember = "CategoryName"; // Tên thuộc tính hiển thị
@@ -68,6 +71,8 @@ namespace GUI
         private void loadColumn()
         {
             productDataGridView.AutoGenerateColumns = false;
+
+            productDataGridView.Columns.Clear();
 
             productDataGridView.Columns.Add(new DataGridViewTextBoxColumn
             {
@@ -115,10 +120,11 @@ namespace GUI
         public void loadProducts()
         {
             productDataGridView.DataSource = null;
-            clearForm();
+            //clearForm();
             currentProduct.ProductID = 0;
             products = _prodService.GetAllProducts("");
             productDataGridView.DataSource = products;
+            productDataGridView.Refresh();
         }
 
 
@@ -131,7 +137,7 @@ namespace GUI
 
         private void productDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
                 var selectedRow = productDataGridView.Rows[e.RowIndex];
                 int id = Convert.ToInt32(selectedRow.Cells[0].Value);
@@ -204,7 +210,7 @@ namespace GUI
                 return;
             }
 
-            if(String.IsNullOrEmpty(productPriceTxt.Text))
+            if (String.IsNullOrEmpty(productPriceTxt.Text))
             {
                 MessageBox.Show("Please enter product's price");
                 return;
@@ -222,7 +228,7 @@ namespace GUI
                 MessageBox.Show("Please select a category");
                 return;
             }
-        
+
             if ((int)currentProduct.ProductID == 0)
             {
                 // Add new product
@@ -243,7 +249,7 @@ namespace GUI
                 productPicturebox.Image.Save(imagePath);
 
                 ImageDTO imageDTO = new ImageDTO
-        {
+                {
                     imageName = imageName,
                     imagePath = imagePath
                 };
@@ -257,12 +263,12 @@ namespace GUI
                     Price = Convert.ToDecimal(productPriceTxt.Text),
                     ImageID = 1 // Set default image ID or handle image upload
                 };
-                bool result = _prodService.AddProduct(newProduct,imageDTO);
+                bool result = _prodService.AddProduct(newProduct, imageDTO);
                 if (result)
                 {
                     MessageBox.Show("Succesfully add new Product");
                     loadProducts(); // làm mới lại danh sách nếu cần
-        }
+                }
                 else
                 {
                     MessageBox.Show("Failed to add product");
@@ -277,32 +283,32 @@ namespace GUI
                 currentProduct.Price = Convert.ToDecimal(productPriceTxt.Text);
 
                 if (productPicturebox.Image != null)
-        {
+                {
                     ImageDTO oldImage = _imageService.GetImageById((int)currentProduct.ImageID);
 
                     // Nếu ảnh cũ tồn tại => xóa file ảnh cũ
                     if (oldImage != null && File.Exists(oldImage.imagePath))
                     {
                         File.Delete(oldImage.imagePath);
-        }
+                    }
 
                     // Tạo tên và đường dẫn mới
                     string imageName = Guid.NewGuid().ToString() + ".jpg";
                     string imageFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\Images\Products");
                     string imagePath = Path.Combine(imageFolder, imageName);
                     if (!Directory.Exists(imageFolder))
-        {
+                    {
                         Directory.CreateDirectory(imageFolder);
                     }
 
                     // Lưu ảnh mới
                     productPicturebox.Image.Save(imagePath);
-            
+
                     // Cập nhật lại thông tin ảnh trong DB
                     oldImage.imageName = imageName;
                     oldImage.imagePath = imagePath;
                     _imageService.UpdateImage(oldImage); // Bạn cần có hàm này trong _imageServiceBLL
-        }
+                }
 
                 bool result = _prodService.UpdateProduct(currentProduct);
                 if (result)
@@ -310,7 +316,7 @@ namespace GUI
                     MessageBox.Show("Successfully updated product");
                 }
                 else
-        {
+                {
                     MessageBox.Show("Failed to update product");
                 }
                 loadProducts();
@@ -344,10 +350,10 @@ namespace GUI
                 return;
             }
         }
-            
+
         private void uploadProductImageBtn_Click(object sender, EventArgs e)
         {
-            using(OpenFileDialog ofd = new OpenFileDialog())
+            using (OpenFileDialog ofd = new OpenFileDialog())
             {
                 ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
                 if (ofd.ShowDialog() == DialogResult.OK)
@@ -366,14 +372,11 @@ namespace GUI
             searchLoader.Visible = false;
         }
 
-        private void refreshBtn_Click(object sender, EventArgs e)
+        public new void Refresh()
         {
             productDataGridView.DataSource = null;
             currentProduct.ProductID = 0;
             productDataGridView.ClearSelection();
-            categoryComboBox.SelectedItem = null;
-            categoryComboBox.DataSource = null;
-            categoryComboBox.Items.Clear();
             clearForm();
             searchTxtBox.Clear();
             searchLoader.Visible = false;
@@ -381,5 +384,6 @@ namespace GUI
             loadProducts();
             loadCategoryComboBox();
         }
+
     }
 }

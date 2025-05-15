@@ -10,32 +10,6 @@ using DTO.DTO;
 using DAL.Repository;
 using System.Globalization;
 
-//public void SendEmail()
-//{
-//    string fromEmail = "your_email@gmail.com";
-//    string appPassword = "your_app_password";
-//    string toEmail = "recipient@example.com";
-
-//    MailMessage mail = new MailMessage(fromEmail, toEmail);
-//    mail.Subject = "Thông báo từ hệ thống";
-//    mail.Body = "Nội dung thông báo từ hệ thống quản lý máu.";
-
-//    SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-//    smtp.EnableSsl = true;
-//    smtp.UseDefaultCredentials = false;
-//    smtp.Credentials = new NetworkCredential(fromEmail, appPassword);
-
-//    try
-//    {
-//        smtp.Send(mail);
-//        MessageBox.Show("Gửi email thành công!");
-//    }
-//    catch (Exception ex)
-//    {
-//        MessageBox.Show("Lỗi khi gửi email: " + ex.Message);
-//    }
-//}
-
 namespace BLL.Services.Implements
 {
     public class SendEmailBLL : ISendEmailBLL
@@ -98,7 +72,7 @@ namespace BLL.Services.Implements
             string html = this.GenerateSalaryEmailHtml(employeeSalaries);
 
             string fromEmail = "dangcapcothua2903@gmail.com";
-            string appPassword = "xmts jceg wfmz jwrt";
+            string appPassword = "";
             string toEmail = user.Email;
 
             MailMessage mailMessage = new MailMessage();

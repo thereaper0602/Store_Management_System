@@ -349,6 +349,7 @@
             this.DetailTable.Size = new System.Drawing.Size(500, 413);
             this.DetailTable.TabIndex = 34;
             this.DetailTable.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.DetailTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Invoices_History_CellClick);
             // 
             // Detail_ID
             // 
@@ -792,6 +793,7 @@
             this.Invoices_History.Size = new System.Drawing.Size(681, 634);
             this.Invoices_History.TabIndex = 31;
             this.Invoices_History.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.DarkSlateGray;
+            this.Invoices_History.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Invoices_History_CellClick);
             // 
             // InvoicesUC
             // 

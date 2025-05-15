@@ -9,17 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL.Services;
 using DTO.DTO;
+using GUI.Utils;
 
 namespace GUI
 {
-    public partial class Promotion : UserControl
+    public partial class Promotion : UserControl, IRefreshable
     {
         private readonly IPromotionServiceBLL _promotionService = new PromotionServiceBLL();
         private readonly ProductService _productService = new ProductService();
         private readonly ProductPromotionBLL _productPromotionService = new ProductPromotionBLL();
 
         // biến lưu khuyến mãi được chọn để chỉnh sửa
-        private PromotionDTO _selectedPromotion; 
+        private PromotionDTO _selectedPromotion;
 
         public Promotion()
         {
@@ -33,11 +34,11 @@ namespace GUI
                 if (!DesignMode)
                 {
                     RefreshPromotionTab();
-                    
+
                     LoadCategoryName();
                     LoadPromotionName();
                 }
-                
+
                 _selectedPromotion = null;
 
                 // Thiết lập mặc định cho DateTimePicker
@@ -166,7 +167,7 @@ namespace GUI
                     if (_selectedPromotion != null)
                     {
                         // Hiển thị dữ liệu lên khung Promotion
-                       
+
                         tbPromotionName.Text = _selectedPromotion.promotionName;
                         tbDiscount.Text = _selectedPromotion.discountRate.ToString();
                         tbDcripPromotion.Text = _selectedPromotion.description;
@@ -281,7 +282,7 @@ namespace GUI
                 if (confirmResult != DialogResult.Yes)
                 {
                     // Người dùng hủy xóa
-                    return; 
+                    return;
                 }
 
                 // Gọi PromotionServiceBLL để xóa
@@ -319,7 +320,7 @@ namespace GUI
         // Sự kiện TextChanged của ô tìm kiếm
         //tính năng tự động tìm kiếm khi nhập với độ trễ để tối ưu hiệu suất
         private System.Threading.Timer searchTimer;
-        
+
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
             // Hủy timer nếu đang chạy
@@ -401,7 +402,7 @@ namespace GUI
         #endregion
 
         #region Tab Deals
-        
+
 
         private void RefreshDealsTab(int? categoryId = null)
         {
@@ -624,11 +625,21 @@ namespace GUI
                 MessageBox.Show($"Error when saving: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
 
         #endregion
 
-
+        public new void Refresh()
+        {
+            // Gọi lại phương thức LoadPromotionName để làm mới danh sách khuyến mãi
+            LoadPromotionName();
+            // Gọi lại phương thức RefreshPromotionTab để làm mới danh sách khuyến mãi
+            RefreshPromotionTab();
+            // Gọi lại phương thức RefreshDealsTab để làm mới danh sách sản phẩm
+            RefreshDealsTab(cbCateToDeal.SelectedItem != null ? ((CategoryDTO)cbCateToDeal.SelectedItem).CategoryID : (int?)null);
+            // Gọi lại phương thức LoadCategoryName để làm mới danh sách danh mục
+            LoadCategoryName();
+        }
     }
 }
 

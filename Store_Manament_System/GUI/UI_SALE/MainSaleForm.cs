@@ -37,6 +37,12 @@ namespace GUI.UI_SALE
 
             bunifuPanel3.Controls.Clear();
             var uc = ucCache[key];
+
+            if (uc is IRefreshable refreshable)
+            {
+                refreshable.Refresh();
+            }
+
             if (uc != null)
             {
                 bunifuPanel3.Controls.Add(uc);

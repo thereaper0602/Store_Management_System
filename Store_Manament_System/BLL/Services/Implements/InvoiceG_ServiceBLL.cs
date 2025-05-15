@@ -25,15 +25,6 @@ namespace BLL.Services
                 Change = i.Change ?? 0,
                 StatusID = i.StatusID ?? 0,
                 StatusName = i.InvoiceStatus?.StatusName ?? "",
-                //InvoiceDetails = _detailDAL.GetDetailsByInvoiceID(i.InvoiceID).Select(d => new InvoiceDetailG_DTO
-                //{
-                //    DetailID = d.DetailID,
-                //    InvoiceID = d.InvoiceID,
-                //    ProductID = d.ProductID,
-                //    Quantity = d.Quantity,
-                //    UnitPrice = d.UnitPrice,
-                //    LineTotal = d.LineTotal
-                //}).ToList()
             }).ToList();
         }
 
@@ -146,7 +137,7 @@ namespace BLL.Services
             }
             else
             {
-                var invoices = _invoiceDAL.GetAllInvoices().Where(u => u.UserID.Equals(userId));
+                var invoices = _invoiceDAL.GetAllInvoices().Where(u => u.UserID.Equals(userId)).Where(ivd => ivd.StatusID.Equals(statusId));
                 return invoices.Select(i => new InvoiceG_DTO
                 {
                     InvoiceID = i.InvoiceID,
