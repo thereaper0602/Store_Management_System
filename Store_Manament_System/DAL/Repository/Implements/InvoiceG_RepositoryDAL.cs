@@ -33,7 +33,7 @@ namespace DAL.Repository
                     i.InvoiceID.ToString().Contains(keyword) ||
                     (i.UserID != null && i.UserID.ToString().Contains(keyword)) ||
                     i.CreatedDate.ToString("dd/MM/yyyy").Contains(keyword) ||
-                    (i.TotalPrice != null && i.TotalPrice.ToString().Contains(keyword)) ||
+                    (i.TotalPrice.ToString().Contains(keyword)) ||
                     (i.Change != null && i.Change.ToString().Contains(keyword)) ||
                     (i.InvoiceStatus.StatusName != null && i.InvoiceStatus.StatusName.Contains(keyword))
                 ).ToList();
@@ -74,7 +74,7 @@ namespace DAL.Repository
                     x.i.InvoiceID.ToString().Contains(keyword) ||
                     (x.i.UserID != null && x.i.UserID.ToString().Contains(keyword)) ||
                     x.i.CreatedDate.ToString("dd/MM/yyyy").ToLower().Contains(keyword) ||
-                    (x.i.TotalPrice != null && x.i.TotalPrice.ToString().Contains(keyword)) ||
+                    (x.i.TotalPrice.ToString().Contains(keyword)) ||
                     (x.i.Change != null && x.i.Change.Value.ToString().Contains(keyword)) ||
                     x.s.StatusName.ToLower().Contains(keyword)
                 );

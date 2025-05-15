@@ -20,6 +20,10 @@ namespace GUI
         public MainForm()
         {
             InitializeComponent();
+            if (!DesignMode)
+            {
+                
+            }
         }
 
         private void LoadUserControl(string key, Func<UserControl> ucFactory)

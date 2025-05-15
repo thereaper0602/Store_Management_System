@@ -39,7 +39,6 @@ namespace GUI.UI_ADMIN
         private void StockManagement_Load(object sender, EventArgs e)
         {
             LoadData();
-            //LoadCategoryName();
             importDate.Value = DateTime.Now;
             expiryDate.Value = DateTime.Now.AddDays(30); // Thay đổi số ngày theo yêu cầu
         }

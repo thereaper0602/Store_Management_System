@@ -44,11 +44,10 @@ namespace GUI.UI_SALE
         {
             if (!DesignMode)
             {
-                // Configure columns before loading data
                 ConfigureDataGridViewColumns();
                 LoadInvoices();
                 LoadStatusComboBox();
-                DetailTable.AutoGenerateColumns = false; // Set AutoGenerateColumns to true for DetailTable
+                DetailTable.AutoGenerateColumns = false;
             }
         }
 
@@ -57,7 +56,6 @@ namespace GUI.UI_SALE
             Invoices_History.Columns.Clear();
             Invoices_History.AutoGenerateColumns = true;
 
-            // Add columns manually with proper DataPropertyName
             Invoices_History.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 HeaderText = "Invoice ID",
@@ -97,14 +95,10 @@ namespace GUI.UI_SALE
         {
             if (!DesignMode)
             {
+                // Chỉ được lấy các hóa đơn của người dùng hiện tại (Nhân viên)
                 var data = invoiceBLL.GetAllInvoices(AppSession.CurrentUser.userID);
                 Invoices_History.DataSource = data;
             }
-        }
-
-        private void Invoices_History_SelectionChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void delete_invoice_Click(object sender, EventArgs e)
@@ -122,6 +116,10 @@ namespace GUI.UI_SALE
                         MessageBox.Show("Invoice deleted.");
                         LoadInvoices();
                         DetailTable.DataSource = null;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to delete invoice.");
                     }
                 }
             }
@@ -164,7 +162,7 @@ namespace GUI.UI_SALE
                 if (invoice != null && details != null)
                 {
                     // Tạo file PDF tạm thời
-                    string tempFilePath = Path.Combine($"Invoice_{invoice.InvoiceID}_preview.pdf");
+                    string tempFilePath = Path.Combine(Path.GetTempPath(),$"Invoice_{invoice.InvoiceID}_preview.pdf");
                     ExportInvoiceToPdf(invoice, details, tempFilePath);
 
                     try
@@ -243,7 +241,7 @@ namespace GUI.UI_SALE
             PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
             doc.Open();
 
-            // Add the title and other details
+            // Thêm tiêu đề
             doc.Add(new Paragraph($"Invoice ID: {invoice.InvoiceID}"));
             doc.Add(new Paragraph($"User ID: {invoice.UserID}"));
             doc.Add(new Paragraph($"Created Date: {invoice.CreatedDate:dd/MM/yyyy HH:mm}"));
@@ -252,7 +250,7 @@ namespace GUI.UI_SALE
             doc.Add(new Paragraph($"Status: {invoice.StatusID}"));
             doc.Add(new Paragraph(" ")); // Blank line
 
-            // Create the detail table
+            // Tạo bảng chi tiết hóa đơn
             PdfPTable table = new PdfPTable(5);
             table.AddCell("Product Code");
             table.AddCell("Quantity");
@@ -328,6 +326,7 @@ namespace GUI.UI_SALE
             }
         }
 
+        // Nhấn vào hóa đơn để xem chi tiết hóa đơn
         private void Invoices_History_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (Invoices_History.CurrentRow != null)
