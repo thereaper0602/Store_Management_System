@@ -36,8 +36,6 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
-            this.bunifuPanel3 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.bunifuPanel2 = new Bunifu.UI.WinForms.BunifuPanel();
             this.stockViewBtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.btn_SignOut = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.User_FullName = new Bunifu.UI.WinForms.BunifuLabel();
@@ -49,51 +47,12 @@
             this.employeeViewBtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.categoryViewBtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.productViewBtn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
-            this.bunifuPanel2.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // bunifuPanel3
-            // 
-            this.bunifuPanel3.BackgroundColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel3.BackgroundImage")));
-            this.bunifuPanel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel3.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel3.BorderRadius = 3;
-            this.bunifuPanel3.BorderThickness = 1;
-            this.bunifuPanel3.Location = new System.Drawing.Point(264, 2);
-            this.bunifuPanel3.Name = "bunifuPanel3";
-            this.bunifuPanel3.ShowBorders = true;
-            this.bunifuPanel3.Size = new System.Drawing.Size(1291, 847);
-            this.bunifuPanel3.TabIndex = 5;
-            // 
-            // bunifuPanel2
-            // 
-            this.bunifuPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.bunifuPanel2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(170)))), ((int)(((byte)(150)))));
-            this.bunifuPanel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel2.BackgroundImage")));
-            this.bunifuPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel2.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel2.BorderRadius = 3;
-            this.bunifuPanel2.BorderThickness = 0;
-            this.bunifuPanel2.Controls.Add(this.stockViewBtn);
-            this.bunifuPanel2.Controls.Add(this.btn_SignOut);
-            this.bunifuPanel2.Controls.Add(this.User_FullName);
-            this.bunifuPanel2.Controls.Add(this.avatar);
-            this.bunifuPanel2.Controls.Add(this.bunifuLabel2);
-            this.bunifuPanel2.Controls.Add(this.bunifuPictureBox1);
-            this.bunifuPanel2.Controls.Add(this.statsViewBtn);
-            this.bunifuPanel2.Controls.Add(this.promotionViewBtn);
-            this.bunifuPanel2.Controls.Add(this.employeeViewBtn);
-            this.bunifuPanel2.Controls.Add(this.categoryViewBtn);
-            this.bunifuPanel2.Controls.Add(this.productViewBtn);
-            this.bunifuPanel2.Location = new System.Drawing.Point(-1, 2);
-            this.bunifuPanel2.Name = "bunifuPanel2";
-            this.bunifuPanel2.ShowBorders = true;
-            this.bunifuPanel2.Size = new System.Drawing.Size(264, 848);
-            this.bunifuPanel2.TabIndex = 4;
             // 
             // stockViewBtn
             // 
@@ -142,7 +101,7 @@
             this.stockViewBtn.IdleIconLeftImage = ((System.Drawing.Image)(resources.GetObject("stockViewBtn.IdleIconLeftImage")));
             this.stockViewBtn.IdleIconRightImage = null;
             this.stockViewBtn.IndicateFocus = false;
-            this.stockViewBtn.Location = new System.Drawing.Point(3, 318);
+            this.stockViewBtn.Location = new System.Drawing.Point(3, 320);
             this.stockViewBtn.Name = "stockViewBtn";
             this.stockViewBtn.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.stockViewBtn.OnDisabledState.BorderRadius = 1;
@@ -232,7 +191,7 @@
             this.btn_SignOut.IdleIconLeftImage = global::GUI.Properties.Resources.sign_out_white;
             this.btn_SignOut.IdleIconRightImage = null;
             this.btn_SignOut.IndicateFocus = false;
-            this.btn_SignOut.Location = new System.Drawing.Point(3, 760);
+            this.btn_SignOut.Location = new System.Drawing.Point(3, 762);
             this.btn_SignOut.Name = "btn_SignOut";
             this.btn_SignOut.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btn_SignOut.OnDisabledState.BorderRadius = 1;
@@ -284,7 +243,7 @@
             this.User_FullName.CursorType = System.Windows.Forms.Cursors.Default;
             this.User_FullName.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.User_FullName.ForeColor = System.Drawing.Color.White;
-            this.User_FullName.Location = new System.Drawing.Point(77, 699);
+            this.User_FullName.Location = new System.Drawing.Point(77, 701);
             this.User_FullName.Name = "User_FullName";
             this.User_FullName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.User_FullName.Size = new System.Drawing.Size(123, 40);
@@ -301,7 +260,7 @@
             this.avatar.BorderRadius = 24;
             this.avatar.Image = ((System.Drawing.Image)(resources.GetObject("avatar.Image")));
             this.avatar.IsCircle = true;
-            this.avatar.Location = new System.Drawing.Point(13, 705);
+            this.avatar.Location = new System.Drawing.Point(13, 692);
             this.avatar.Name = "avatar";
             this.avatar.Size = new System.Drawing.Size(49, 49);
             this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -317,7 +276,7 @@
             this.bunifuLabel2.CursorType = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel2.ForeColor = System.Drawing.Color.White;
-            this.bunifuLabel2.Location = new System.Drawing.Point(85, 31);
+            this.bunifuLabel2.Location = new System.Drawing.Point(85, 33);
             this.bunifuLabel2.Name = "bunifuLabel2";
             this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel2.Size = new System.Drawing.Size(158, 36);
@@ -334,7 +293,7 @@
             this.bunifuPictureBox1.BorderRadius = 33;
             this.bunifuPictureBox1.Image = global::GUI.Properties.Resources.Black_and_White_Modern_Shoes_Store_Logo__1_;
             this.bunifuPictureBox1.IsCircle = true;
-            this.bunifuPictureBox1.Location = new System.Drawing.Point(13, 33);
+            this.bunifuPictureBox1.Location = new System.Drawing.Point(13, 35);
             this.bunifuPictureBox1.Name = "bunifuPictureBox1";
             this.bunifuPictureBox1.Size = new System.Drawing.Size(66, 66);
             this.bunifuPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -389,7 +348,7 @@
             this.statsViewBtn.IdleIconLeftImage = global::GUI.Properties.Resources.chart_histogram_white;
             this.statsViewBtn.IdleIconRightImage = null;
             this.statsViewBtn.IndicateFocus = false;
-            this.statsViewBtn.Location = new System.Drawing.Point(1, 546);
+            this.statsViewBtn.Location = new System.Drawing.Point(1, 548);
             this.statsViewBtn.Name = "statsViewBtn";
             this.statsViewBtn.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.statsViewBtn.OnDisabledState.BorderRadius = 1;
@@ -479,7 +438,7 @@
             this.promotionViewBtn.IdleIconLeftImage = global::GUI.Properties.Resources.gift_white;
             this.promotionViewBtn.IdleIconRightImage = null;
             this.promotionViewBtn.IndicateFocus = false;
-            this.promotionViewBtn.Location = new System.Drawing.Point(0, 466);
+            this.promotionViewBtn.Location = new System.Drawing.Point(0, 468);
             this.promotionViewBtn.Name = "promotionViewBtn";
             this.promotionViewBtn.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.promotionViewBtn.OnDisabledState.BorderRadius = 1;
@@ -569,7 +528,7 @@
             this.employeeViewBtn.IdleIconLeftImage = global::GUI.Properties.Resources.employee_man_white;
             this.employeeViewBtn.IdleIconRightImage = null;
             this.employeeViewBtn.IndicateFocus = false;
-            this.employeeViewBtn.Location = new System.Drawing.Point(0, 385);
+            this.employeeViewBtn.Location = new System.Drawing.Point(0, 387);
             this.employeeViewBtn.Name = "employeeViewBtn";
             this.employeeViewBtn.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.employeeViewBtn.OnDisabledState.BorderRadius = 1;
@@ -659,7 +618,7 @@
             this.categoryViewBtn.IdleIconLeftImage = global::GUI.Properties.Resources.tags__1_;
             this.categoryViewBtn.IdleIconRightImage = null;
             this.categoryViewBtn.IndicateFocus = false;
-            this.categoryViewBtn.Location = new System.Drawing.Point(3, 247);
+            this.categoryViewBtn.Location = new System.Drawing.Point(3, 249);
             this.categoryViewBtn.Name = "categoryViewBtn";
             this.categoryViewBtn.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.categoryViewBtn.OnDisabledState.BorderRadius = 1;
@@ -749,7 +708,7 @@
             this.productViewBtn.IdleIconLeftImage = global::GUI.Properties.Resources.cube_white;
             this.productViewBtn.IdleIconRightImage = null;
             this.productViewBtn.IndicateFocus = false;
-            this.productViewBtn.Location = new System.Drawing.Point(2, 168);
+            this.productViewBtn.Location = new System.Drawing.Point(2, 170);
             this.productViewBtn.Name = "productViewBtn";
             this.productViewBtn.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.productViewBtn.OnDisabledState.BorderRadius = 1;
@@ -792,12 +751,40 @@
             this.productViewBtn.UseDefaultRadiusAndThickness = true;
             this.productViewBtn.Click += new System.EventHandler(this.productViewBtn_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(170)))), ((int)(((byte)(150)))));
+            this.panel1.Controls.Add(this.stockViewBtn);
+            this.panel1.Controls.Add(this.bunifuLabel2);
+            this.panel1.Controls.Add(this.btn_SignOut);
+            this.panel1.Controls.Add(this.productViewBtn);
+            this.panel1.Controls.Add(this.User_FullName);
+            this.panel1.Controls.Add(this.categoryViewBtn);
+            this.panel1.Controls.Add(this.avatar);
+            this.panel1.Controls.Add(this.employeeViewBtn);
+            this.panel1.Controls.Add(this.promotionViewBtn);
+            this.panel1.Controls.Add(this.bunifuPictureBox1);
+            this.panel1.Controls.Add(this.statsViewBtn);
+            this.panel1.Location = new System.Drawing.Point(1, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(264, 848);
+            this.panel1.TabIndex = 5;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(267, 1);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1286, 848);
+            this.panel2.TabIndex = 7;
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1555, 850);
-            this.Controls.Add(this.bunifuPanel3);
-            this.Controls.Add(this.bunifuPanel2);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
@@ -805,19 +792,16 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.bunifuPanel2.ResumeLayout(false);
-            this.bunifuPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuPictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel2;
         private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox1;
-        //private Bunifu.UI.WinForms.BunifuPictureBox bunifuPictureBox2;
-        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel3;
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton2 promotionViewBtn;
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton2 employeeViewBtn;
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton2 categoryViewBtn;
@@ -828,5 +812,7 @@
         private Bunifu.UI.WinForms.BunifuPictureBox avatar;
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton2 btn_SignOut;
         public Bunifu.UI.WinForms.BunifuButton.BunifuButton2 stockViewBtn;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
