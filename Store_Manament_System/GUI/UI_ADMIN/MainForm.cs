@@ -22,23 +22,21 @@ namespace GUI
             InitializeComponent();
         }
 
-        private async Task LoadUserControlAsync(string key, Func<Task<UserControl>> ucFactoryAsync)
+        private void LoadUserControl(string key, Func<UserControl> ucFactory)
         {
             if (!ucCache.ContainsKey(key))
             {
-                var uc = await ucFactoryAsync();
-                ucCache[key] = uc;
+                ucCache.Add(key, ucFactory());
             }
 
             panel2.Controls.Clear();
-            var control = ucCache[key];
-            if (control != null)
+            var uc = ucCache[key];
+            if (uc != null)
             {
-                panel2.Controls.Add(control);
-                control.Dock = DockStyle.Fill;
+                panel2.Controls.Add(uc);
+                uc.Dock = DockStyle.Fill;
             }
         }
-
 
 
         //Xử lý nút sign out
