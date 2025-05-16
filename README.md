@@ -1,5 +1,5 @@
 
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+![Logo](https://github.com/thereaper0602/Store_Management_System/blob/product/Store_Manament_System/GUI/Resources/Black%20and%20White%20Modern%20Shoes%20Store%20Logo%20(1).png)
 
 
 # Convinience Store Management System
