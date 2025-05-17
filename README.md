@@ -1,6 +1,7 @@
 
-![Logo](https://github.com/thereaper0602/Store_Management_System/blob/product/Store_Manament_System/GUI/Resources/Black%20and%20White%20Modern%20Shoes%20Store%20Logo%20(1).png)
-
+<div align="center">
+  <img src="https://github.com/thereaper0602/Store_Management_System/blob/product/Store_Manament_System/GUI/Resources/Black%20and%20White%20Modern%20Shoes%20Store%20Logo%20(1).png" alt="Logo">
+</div>
 
 # Convinience Store Management System
 
